@@ -4,7 +4,7 @@
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
-       xmlns:local="clr-namespace:FBLAManager.Views"
+       xmlns:views="clr-namespace:FBLAManager.Views"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -30,23 +30,63 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <!-- Your Pages -->
-    <TabBar>
-        <Tab Title="Browse" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
-        </Tab>
-        <Tab Title="About" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
-        </Tab>
-    </TabBar>
 
     <Shell.FlyoutHeaderTemplate>
-	<DataTemplate>
-            <Grid>
-                <Label Text="Header here"/>
-            </Grid>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="xamarinstore.jpg"
+                       Opacity="0.6" />
+                <Label Text="Animals"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Grid>            
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
+
+
+    <!-- Your Pages -->
+
+    <FlyoutItem Title="Animals">
+
+        <Tab Title="Domestic"
+             Icon="paw.png">
+            <ShellContent Title="Cats"
+                          Icon="cat.png"
+                          ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent Title="Dogs"
+                          Icon="dog.png"
+                          ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="First"
+             Icon="test.png">
+
+            <ShellContent Title="First Menu Item"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="Social Media" Icon="socialmedia.png">
+            <ShellContent ContentTemplate="{DataTemplate views:JunkPage}" />        
+    </FlyoutItem>
+
+
+
+    <!--
+    <TabBar>
+        <Tab Title="Browse" Icon="tab_feed.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+        <Tab Title="About" Icon="tab_about.png">
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+    </TabBar>
+    -->
 
 
     <!-- Optional Templates 
