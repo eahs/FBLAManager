@@ -11,6 +11,8 @@ namespace FBLAManager
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTQ4MTk0QDMxMzcyZTMzMmUzMG1MVzdHOCtuR1kyM3lJdEVrM0RSZ1ZtTE5HK2Z5ZGNuOTM3Nld1dmNKWFE9");
+
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();

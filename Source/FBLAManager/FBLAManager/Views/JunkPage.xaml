@@ -2,8 +2,20 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
     x:Class="FBLAManager.Views.JunkPage">
     <ContentPage.Content>
-        <Label Text="Hello junk world" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+        <syncfusion:SfSchedule x:Name="schedule"
+                               DataSource = "{Binding Meetings}"
+                               >
+            <syncfusion:SfSchedule.AppointmentMapping>
+                <syncfusion:ScheduleAppointmentMapping
+			ColorMapping="color"
+			EndTimeMapping="To"
+			StartTimeMapping="From"
+			SubjectMapping="EventName" 
+			IsAllDayMapping="AllDay"/>
+            </syncfusion:SfSchedule.AppointmentMapping>
+        </syncfusion:SfSchedule>
     </ContentPage.Content>
 </ContentPage>

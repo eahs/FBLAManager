@@ -71,7 +71,7 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Social Media" Icon="socialmedia.png">
+    <FlyoutItem Title="Calendar" Icon="socialmedia.png">
             <ShellContent ContentTemplate="{DataTemplate views:JunkPage}" />        
     </FlyoutItem>
 
