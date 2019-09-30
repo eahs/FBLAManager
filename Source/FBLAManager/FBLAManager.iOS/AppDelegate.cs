@@ -1,4 +1,6 @@
-﻿using System;
+using Syncfusion.XForms.iOS.Border;
+using Syncfusion.XForms.iOS.Buttons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,6 +26,8 @@ namespace FBLAManager.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            SfBorderRenderer.Init();
+            SfButtonRenderer.Init();
 
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
 
