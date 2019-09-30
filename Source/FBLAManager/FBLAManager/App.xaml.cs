@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using FBLAManager.Services;
 using FBLAManager.Views;
 using FBLAManager.ViewModels.Forms;
+using FBLAManager.Views.Forms;
 
 namespace FBLAManager
 {
@@ -23,7 +24,15 @@ namespace FBLAManager
                 MainPage = new AppShell();
             });
 
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", SignupClicked);
+
+
             MainPage = new FBLAManager.Views.Forms.SimpleLoginPage();
+        }
+
+        private void SignupClicked (Object o)
+        {
+            MainPage.Navigation.PushAsync(new SimpleSignUpPage());
         }
 
 

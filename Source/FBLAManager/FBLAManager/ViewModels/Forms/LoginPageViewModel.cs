@@ -100,6 +100,7 @@ namespace FBLAManager.ViewModels.Forms
         private void SignUpClicked(object obj)
         {
             // Do something
+            MessagingCenter.Send<LoginPageViewModel>(this, "SignupClicked");
         }
 
         /// <summary>
