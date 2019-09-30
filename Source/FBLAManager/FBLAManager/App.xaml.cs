@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FBLAManager.Services;
 using FBLAManager.Views;
+using FBLAManager.ViewModels.Forms;
 
 namespace FBLAManager
 {
@@ -16,8 +17,15 @@ namespace FBLAManager
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "LoadApp", (sender) =>
+            {
+                MainPage = new AppShell();
+            });
+
+            MainPage = new FBLAManager.Views.Forms.SimpleLoginPage();
         }
+
 
         protected override void OnStart()
         {

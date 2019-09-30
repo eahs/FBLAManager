@@ -57,8 +57,8 @@
              Icon="paw.png">
             <ShellContent Title="Login"
                           Icon="cat.png"
-                          ContentTemplate="{DataTemplate viewsforms:SimpleLoginPage}" />
-            <ShellContent Title="About"
+                          ContentTemplate="{DataTemplate views:AboutPage}" />
+            <ShellContent Title="Dogs"
                           Icon="dog.png"
                           ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
