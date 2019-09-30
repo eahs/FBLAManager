@@ -55,10 +55,10 @@
 
         <Tab Title="Domestic"
              Icon="paw.png">
-            <ShellContent Title="Cats"
+            <ShellContent Title="Login"
                           Icon="cat.png"
                           ContentTemplate="{DataTemplate viewsforms:SimpleLoginPage}" />
-            <ShellContent Title="Dogs"
+            <ShellContent Title="About"
                           Icon="dog.png"
                           ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
