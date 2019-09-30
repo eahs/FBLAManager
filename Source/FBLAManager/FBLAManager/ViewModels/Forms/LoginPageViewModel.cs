@@ -90,6 +90,7 @@ namespace FBLAManager.ViewModels.Forms
         private void LoginClicked(object obj)
         {
             // Do something
+            MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
         }
 
         /// <summary>
