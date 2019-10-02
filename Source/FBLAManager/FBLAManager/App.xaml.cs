@@ -24,6 +24,12 @@ namespace FBLAManager
                 MainPage = new AppShell();
             });
 
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", (sender) =>
+            {
+                MainPage = new AppShell();
+            });
+
+
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", SignupClicked);
             MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
 
@@ -39,12 +45,13 @@ namespace FBLAManager
         {
             await MainPage.Navigation.PopModalAsync(false);
         }
+        
 
         protected override void OnStart()
         {
             // Handle when your app starts
         }
-
+        
         protected override void OnSleep()
         {
             // Handle when your app sleeps
