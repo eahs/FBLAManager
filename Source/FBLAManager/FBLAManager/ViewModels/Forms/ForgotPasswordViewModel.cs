@@ -53,7 +53,7 @@ namespace FBLAManager.ViewModels.Forms
         /// <param name="obj">The Object</param>
         private void SignUpClicked(object obj)
         {
-            // Do something
+            MessagingCenter.Send(this, "SignupClicked");
         }
 
         #endregion

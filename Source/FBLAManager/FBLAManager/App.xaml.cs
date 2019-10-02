@@ -24,8 +24,17 @@ namespace FBLAManager
                 MainPage = new AppShell();
             });
 
+            MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoadApp", (sender) =>
+            {
+                MainPage = new AppShell();
+            });
+
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", SignupClicked);
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "ForgotPasswordClicked", ForgotPasswordClicked);
+
             MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
+
+            MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
 
             MainPage = new SimpleLoginPage();
         }
@@ -37,7 +46,14 @@ namespace FBLAManager
 
         async private void LoginClicked (Object o)
         {
-            await MainPage.Navigation.PopModalAsync(false);
+            //await MainPage.Navigation.PopModalAsync(false);
+            await MainPage.Navigation.PushModalAsync(new SimpleLoginPage());
+        }
+
+        async private void ForgotPasswordClicked(Object o)
+        {
+            await MainPage.Navigation.PushModalAsync(new SimpleForgotPasswordPage());
+
         }
 
         protected override void OnStart()

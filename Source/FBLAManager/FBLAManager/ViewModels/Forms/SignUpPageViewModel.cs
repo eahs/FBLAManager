@@ -124,7 +124,7 @@ namespace FBLAManager.ViewModels.Forms
         /// <param name="obj">The Object</param>
         private void LoginClicked(object obj)
         {
-            MessagingCenter.Send<SignUpPageViewModel>(this, "LoginClicked");
+            MessagingCenter.Send(this, "LoginClicked");
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace FBLAManager.ViewModels.Forms
         /// <param name="obj">The Object</param>
         private void SignUpClicked(object obj)
         {
-            // Do something
+            MessagingCenter.Send(this, "LoadApp");
         }
 
         #endregion

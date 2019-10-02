@@ -100,7 +100,7 @@ namespace FBLAManager.ViewModels.Forms
         private void SignUpClicked(object obj)
         {
             // Do something
-            MessagingCenter.Send<LoginPageViewModel>(this, "SignupClicked");
+            MessagingCenter.Send(this, "SignupClicked");
         }
 
         /// <summary>
@@ -113,6 +113,8 @@ namespace FBLAManager.ViewModels.Forms
             label.BackgroundColor = Color.FromHex("#70FFFFFF");
             await Task.Delay(100);
             label.BackgroundColor = Color.Transparent;
+
+            MessagingCenter.Send(this, "ForgotPasswordClicked"); 
         }
 
         /// <summary>
