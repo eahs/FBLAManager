@@ -25,16 +25,20 @@ namespace FBLAManager
             });
 
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", SignupClicked);
+            MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
 
-
-            MainPage = new FBLAManager.Views.Forms.SimpleLoginPage();
+            MainPage = new SimpleLoginPage();
         }
 
-        private void SignupClicked (Object o)
+        async private void SignupClicked (Object o)
         {
-            MainPage.Navigation.PushAsync(new SimpleSignUpPage());
+            await MainPage.Navigation.PushModalAsync(new SimpleSignUpPage());
         }
 
+        async private void LoginClicked (Object o)
+        {
+            await MainPage.Navigation.PopModalAsync(false);
+        }
 
         protected override void OnStart()
         {
