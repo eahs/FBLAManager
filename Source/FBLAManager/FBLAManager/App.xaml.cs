@@ -49,6 +49,7 @@ namespace FBLAManager
             //await MainPage.Navigation.PopModalAsync(false);
             await MainPage.Navigation.PushModalAsync(new SimpleLoginPage());
         }
+        
 
         async private void ForgotPasswordClicked(Object o)
         {
@@ -60,7 +61,7 @@ namespace FBLAManager
         {
             // Handle when your app starts
         }
-
+        
         protected override void OnSleep()
         {
             // Handle when your app sleeps
