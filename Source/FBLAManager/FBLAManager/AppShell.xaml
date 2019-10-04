@@ -57,8 +57,7 @@
 
     <FlyoutItem Title="Events">
 
-        <Tab Title="Local"
-             Icon="paw.png">
+        <Tab Title="Meetings" Icon="paw.png">
             <ShellContent Title="First Menu Item"
                           Icon="cat.png"
                           ContentTemplate="{DataTemplate views:ItemsPage}" />
@@ -78,7 +77,26 @@
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Logout" Icon="socialmedia.png">
+   <FlyoutItem Title="Contact Us">
+
+        <Tab Title="Social Media" Icon="paw.png">
+            <ShellContent Title="First Menu Item"
+                          Icon="cat.png"
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+       <Tab Title="Officer Teams"
+             Icon="test.png">
+
+            <ShellContent Title="First Menu Item"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Your Profile" Icon="socialmedia.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 

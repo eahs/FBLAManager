@@ -41,4 +41,7 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
+  </ItemGroup>
 </Project>
