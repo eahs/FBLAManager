@@ -7,11 +7,11 @@ using FBLAManager.ViewModels;
 
 namespace FBLAManager.Views
 {
-    public partial class JunkPage : ContentPage
+    public partial class CalendarPage : ContentPage
     {
         private CalendarViewModel viewModel;
 
-        public JunkPage()
+        public CalendarPage()
         {
             InitializeComponent();
 
