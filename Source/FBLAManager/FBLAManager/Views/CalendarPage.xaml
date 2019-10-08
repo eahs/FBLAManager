@@ -5,7 +5,7 @@
     xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
     x:Class="FBLAManager.Views.CalendarPage">
     <ContentPage.Content>
-        <syncfusion:SfSchedule x:Name="schedule"
+        <syncfusion:SfSchedule x:Name="schedule" 
                                DataSource = "{Binding Meetings}"
                                >
             <syncfusion:SfSchedule.AppointmentMapping>

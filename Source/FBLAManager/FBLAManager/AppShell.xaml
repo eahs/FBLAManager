@@ -52,7 +52,7 @@
     <!-- Your Pages -->
 
     <FlyoutItem Title="Calendar" Icon="socialmedia.png">
-        <ShellContent ContentTemplate="{DataTemplate views:JunkPage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Events">

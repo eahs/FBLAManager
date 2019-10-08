@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Syncfusion.SfSchedule.XForms;
+using Syncfusion.SfSchedule;
 using FBLAManager.ViewModels;
 
 namespace FBLAManager.Views
@@ -15,11 +16,42 @@ namespace FBLAManager.Views
         {
             InitializeComponent();
 
-            this.BindingContext = viewModel = new CalendarViewModel();
+            BindingContext = viewModel = new CalendarViewModel();
 
-            schedule.ScheduleView = ScheduleView.MonthView;
+            schedule.CellTapped += Schedule_CellTapped1; ;
 
+            ViewMonth();
 
         }
+
+        private void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
+        {
+            var dateTime = e.Datetime;
+
+            try 
+            {
+                ViewDay(dateTime);
+            }
+
+            catch
+            {
+                new NotImplementedException();
+            }
+        }
+
+        public void ViewDay(DateTime dateTime)
+        {
+            schedule.SelectedDate = dateTime;
+            schedule.ScheduleView = ScheduleView.DayView;
+        }
+
+        public void ViewMonth()
+        {
+            schedule.ScheduleView = ScheduleView.MonthView;
+        }
+
+
+      
+
     }
 }
