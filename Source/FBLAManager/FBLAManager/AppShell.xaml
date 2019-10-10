@@ -6,6 +6,7 @@
        mc:Ignorable="d"
        xmlns:views="clr-namespace:FBLAManager.Views"
        xmlns:viewCatalog ="clr-namespace:FBLAManager.Views.Catalog" 
+       xmlns:viewForm = "clr-namespace:FBLAManager.Views.Forms"
        
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
@@ -101,7 +102,9 @@
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
-
+    <FlyoutItem Title="Log Out" Icon="socialmedia.png">
+        <ShellContent ContentTemplate="{DataTemplate viewForm:SimpleLoginPage}" />
+    </FlyoutItem>
 
     <!--
     <TabBar>
