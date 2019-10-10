@@ -5,6 +5,7 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:views="clr-namespace:FBLAManager.Views"
+       xmlns:viewCatalog ="clr-namespace:FBLAManager.Views.Catalog" 
        
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
@@ -90,7 +91,7 @@
 
             <ShellContent Title="First Menu Item"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
         </Tab>
 
     </FlyoutItem>

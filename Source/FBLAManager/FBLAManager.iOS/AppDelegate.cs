@@ -1,3 +1,10 @@
+using Syncfusion.XForms.iOS.ComboBox;
+using Syncfusion.XForms.iOS.Core;
+using Syncfusion.XForms.iOS.Graphics;
+using Syncfusion.XForms.iOS.BadgeView;
+using Syncfusion.XForms.iOS.Expander;
+using Syncfusion.SfRating.XForms.iOS;
+using Syncfusion.ListView.XForms.iOS;
 using Syncfusion.XForms.iOS.Border;
 using Syncfusion.XForms.iOS.Buttons;
 using System;
@@ -26,6 +33,13 @@ namespace FBLAManager.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            SfGradientViewRenderer.Init();
+            SfComboBoxRenderer.Init();
+            SfExpanderRenderer.Init();
+            SfRatingRenderer.Init();
+            SfCheckBoxRenderer.Init();
+            SfListViewRenderer.Init();
+            SfBadgeViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
 
