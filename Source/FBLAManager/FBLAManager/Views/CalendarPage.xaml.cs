@@ -18,33 +18,19 @@ namespace FBLAManager.Views
 
             BindingContext = viewModel = new CalendarViewModel();
 
-            schedule.CellTapped += Handle_CellTapped1;
-            schedule.HeaderTapped += Handle_HeaderTapped1; 
+            schedule.CellTapped += Schedule_CellTapped1; ;
 
             ViewMonth();
 
         }
 
-        private void Handle_CellTapped1(object sender, CellTappedEventArgs e)
+        private void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
         {
             var dateTime = e.Datetime;
 
             try 
             {
                 ViewDay(dateTime);
-            }
-
-            catch
-            {
-                new NotImplementedException();
-            }
-        }
-
-        private void Handle_HeaderTapped1(object sender, HeaderTappedEventArgs e)
-        {
-            try
-            {
-                ViewMonth();
             }
 
             catch

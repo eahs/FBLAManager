@@ -11,13 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.Cards" Version="17.3.0.9-beta" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView" Version="17.3.0.9-beta" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.SfRating" Version="17.3.0.9-beta" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.9-beta" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.819712-pre2" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
@@ -25,15 +20,6 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Themes\LightTheme.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Catalog\CatalogListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Catalog\CatalogTilePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Catalog\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\SimpleEmailEntry.xaml">
@@ -57,12 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Data\ecommerce.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Data\ecommerce.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Views\CalendarPage.xaml.cs">

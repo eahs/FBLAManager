@@ -5,8 +5,11 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:views="clr-namespace:FBLAManager.Views"
+<<<<<<< HEAD
        xmlns:viewCatalog ="clr-namespace:FBLAManager.Views.Catalog" 
        xmlns:viewForm = "clr-namespace:FBLAManager.Views.Forms"
+=======
+>>>>>>> parent of b111045... added catalog pages
        
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
@@ -92,7 +95,7 @@
 
             <ShellContent Title="First Menu Item"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
         </Tab>
 
     </FlyoutItem>
