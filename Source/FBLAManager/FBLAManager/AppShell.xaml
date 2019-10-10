@@ -84,17 +84,29 @@
 
    <FlyoutItem Title="Contact Us">
 
-        <Tab Title="Social Media" Icon="paw.png">
-            <ShellContent Title="First Menu Item"
-                          Icon="cat.png"
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
-        </Tab>
-
        <Tab Title="Officer Teams"
              Icon="test.png">
 
-            <ShellContent Title="First Menu Item"
+            <ShellContent Title="National Officers"
                           Icon="test.png"
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+
+            <ShellContent Title="State Officers"
+                          Icon="test.png"
+<<<<<<< Updated upstream
+=======
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+           
+            <ShellContent Title="Local Officers"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+
+        </Tab>
+
+        <Tab Title="Social Media" Icon="paw.png">
+            <ShellContent Title="First Menu Item"
+                          Icon="cat.png"
+>>>>>>> Stashed changes
                           ContentTemplate="{DataTemplate views:ItemsPage}" />
         </Tab>
 
