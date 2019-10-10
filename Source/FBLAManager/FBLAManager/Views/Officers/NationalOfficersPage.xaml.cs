@@ -21,7 +21,7 @@ namespace FBLAManager.Views.Officers
 
             this.BindingContext = viewModel = new OfficerViewModel();
 
-            viewModel.LoadItemsCommand.Execute(null);
+           // viewModel.LoadItemsCommand.Execute(null);
         }
     }
 }

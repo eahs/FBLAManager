@@ -14,10 +14,23 @@ namespace FBLAManager.ViewModels
             Officers.Add(
                     new Officer
                     {
-                        Name = "Samantha",
-                        Position = "Chief Axe Wielder"
+                        Name = "Travis Johnson",
+                        Position = "FBLA National President",
+                        Image = "TravisJohnson.jpg",
+                        WebsiteLink = "https://www.fbla-pbl.org/fbla/officers/president/"
                     }
                 );
+            /*
+            Officers.Add(
+                    new Officer
+                    {
+                        Name = " ",
+                        Position = "FBLA National ",
+                        Image = " .jpg",
+                        WebsiteLink = " "
+                    }
+                );
+                */
         }
 
         public ObservableCollection<Officer> Officers { get; set; }
