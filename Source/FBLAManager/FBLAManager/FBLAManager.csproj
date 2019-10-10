@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -40,6 +40,9 @@
     <EmbeddedResource Update="Views\Forms\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Officers\NationalOfficersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
@@ -47,6 +50,9 @@
   <ItemGroup>
     <Compile Update="Views\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Officers\NationalOfficersPage.xaml.cs">
+      <DependentUpon>NationalOfficersPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

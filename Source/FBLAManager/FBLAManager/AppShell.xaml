@@ -1,16 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
-       xmlns:views="clr-namespace:FBLAManager.Views"
-<<<<<<< HEAD
-       xmlns:viewCatalog ="clr-namespace:FBLAManager.Views.Catalog" 
-       xmlns:viewForm = "clr-namespace:FBLAManager.Views.Forms"
-=======
->>>>>>> parent of b111045... added catalog pages
-       
+       xmlns:views="clr-namespace:FBLAManager.Views"      
+       xmlns:viewForm="clr-namespace:FBLAManager.Views.Forms"
+       xmlns:officers="clr-namespace:FBLAManager.Views.Officers"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -89,24 +84,21 @@
 
             <ShellContent Title="National Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
 
             <ShellContent Title="State Officers"
                           Icon="test.png"
-<<<<<<< Updated upstream
-=======
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
            
             <ShellContent Title="Local Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
 
         </Tab>
 
         <Tab Title="Social Media" Icon="paw.png">
             <ShellContent Title="First Menu Item"
                           Icon="cat.png"
->>>>>>> Stashed changes
                           ContentTemplate="{DataTemplate views:ItemsPage}" />
         </Tab>
 
