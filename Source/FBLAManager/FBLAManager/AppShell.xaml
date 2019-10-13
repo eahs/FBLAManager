@@ -5,6 +5,11 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:views="clr-namespace:FBLAManager.Views"
+<<<<<<< HEAD
+       xmlns:viewCatalog ="clr-namespace:FBLAManager.Views.Catalog" 
+       xmlns:viewForm = "clr-namespace:FBLAManager.Views.Forms"
+=======
+>>>>>>> parent of b111045... added catalog pages
        
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
@@ -52,7 +57,7 @@
     <!-- Your Pages -->
 
     <FlyoutItem Title="Calendar" Icon="socialmedia.png">
-        <ShellContent ContentTemplate="{DataTemplate views:JunkPage}" />
+        <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Events">
@@ -79,17 +84,29 @@
 
    <FlyoutItem Title="Contact Us">
 
-        <Tab Title="Social Media" Icon="paw.png">
-            <ShellContent Title="First Menu Item"
-                          Icon="cat.png"
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
-        </Tab>
-
        <Tab Title="Officer Teams"
              Icon="test.png">
 
-            <ShellContent Title="First Menu Item"
+            <ShellContent Title="National Officers"
                           Icon="test.png"
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+
+            <ShellContent Title="State Officers"
+                          Icon="test.png"
+<<<<<<< Updated upstream
+=======
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+           
+            <ShellContent Title="Local Officers"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+
+        </Tab>
+
+        <Tab Title="Social Media" Icon="paw.png">
+            <ShellContent Title="First Menu Item"
+                          Icon="cat.png"
+>>>>>>> Stashed changes
                           ContentTemplate="{DataTemplate views:ItemsPage}" />
         </Tab>
 
@@ -100,7 +117,9 @@
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
-
+    <FlyoutItem Title="Log Out" Icon="socialmedia.png">
+        <ShellContent ContentTemplate="{DataTemplate viewForm:SimpleLoginPage}" />
+    </FlyoutItem>
 
     <!--
     <TabBar>
