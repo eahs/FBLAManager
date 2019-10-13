@@ -5,6 +5,7 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:views="clr-namespace:FBLAManager.Views"
+       
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -38,7 +39,7 @@
                 <Image Aspect="AspectFill"
                        Source="xamarinstore.jpg"
                        Opacity="0.6" />
-                <Label Text="Animals"
+                <Label Text="FBLA"
                        TextColor="White"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
@@ -50,18 +51,19 @@
 
     <!-- Your Pages -->
 
-    <FlyoutItem Title="Animals">
+    <FlyoutItem Title="Calendar" Icon="socialmedia.png">
+        <ShellContent ContentTemplate="{DataTemplate views:JunkPage}" />
+    </FlyoutItem>
 
-        <Tab Title="Domestic"
-             Icon="paw.png">
-            <ShellContent Title="Cats"
+    <FlyoutItem Title="Events">
+
+        <Tab Title="Meetings" Icon="paw.png">
+            <ShellContent Title="First Menu Item"
                           Icon="cat.png"
-                          ContentTemplate="{DataTemplate views:AboutPage}" />
-            <ShellContent Title="Dogs"
-                          Icon="dog.png"
-                          ContentTemplate="{DataTemplate views:AboutPage}" />
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+            
         </Tab>
-        <Tab Title="First"
+        <Tab Title="Competitions"
              Icon="test.png">
 
             <ShellContent Title="First Menu Item"
@@ -71,8 +73,31 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Calendar" Icon="socialmedia.png">
-            <ShellContent ContentTemplate="{DataTemplate views:JunkPage}" />        
+    <FlyoutItem Title="About" Icon="socialmedia.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+    </FlyoutItem>
+
+   <FlyoutItem Title="Contact Us">
+
+        <Tab Title="Social Media" Icon="paw.png">
+            <ShellContent Title="First Menu Item"
+                          Icon="cat.png"
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+       <Tab Title="Officer Teams"
+             Icon="test.png">
+
+            <ShellContent Title="First Menu Item"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Your Profile" Icon="socialmedia.png">
+        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
 

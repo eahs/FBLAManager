@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FBLAManager.Services;
 using FBLAManager.Views;
+using FBLAManager.ViewModels.Forms;
+using FBLAManager.Views.Forms;
 
 namespace FBLAManager
 {
@@ -16,14 +18,50 @@ namespace FBLAManager
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "LoadApp", (sender) =>
+            {
+                MainPage = new AppShell();
+            });
+
+            MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoadApp", (sender) =>
+            {
+                MainPage = new AppShell();
+            });
+
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", SignupClicked);
+            MessagingCenter.Subscribe<LoginPageViewModel>(this, "ForgotPasswordClicked", ForgotPasswordClicked);
+
+            MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
+
+            MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
+
+            MainPage = new SimpleLoginPage();
+        }
+
+        async private void SignupClicked (Object o)
+        {
+            await MainPage.Navigation.PushModalAsync(new SimpleSignUpPage());
+        }
+
+        async private void LoginClicked (Object o)
+        {
+            //await MainPage.Navigation.PopModalAsync(false);
+            await MainPage.Navigation.PushModalAsync(new SimpleLoginPage());
+        }
+        
+
+        async private void ForgotPasswordClicked(Object o)
+        {
+            await MainPage.Navigation.PushModalAsync(new SimpleForgotPasswordPage());
+
         }
 
         protected override void OnStart()
         {
             // Handle when your app starts
         }
-
+        
         protected override void OnSleep()
         {
             // Handle when your app sleeps
