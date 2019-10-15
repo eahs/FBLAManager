@@ -1,11 +1,10 @@
 using Syncfusion.XForms.iOS.Border;
 using Syncfusion.XForms.iOS.Buttons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Syncfusion.ListView.XForms.iOS;
 
 using Foundation;
 using UIKit;
+
 
 namespace FBLAManager.iOS
 {
@@ -30,6 +29,7 @@ namespace FBLAManager.iOS
             SfButtonRenderer.Init();
 
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
+            SfListViewRenderer.Init();
 
             LoadApplication(new App());
 
