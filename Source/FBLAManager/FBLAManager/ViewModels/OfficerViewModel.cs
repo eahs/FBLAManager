@@ -16,7 +16,7 @@ namespace FBLAManager.ViewModels
                     {
                         Name = "Travis Johnson",
                         Position = "FBLA National President",
-                        Image = "TravisJohnson.jpg",
+                        Image = "Officers/TravisJohnson.jpg",
                         WebsiteLink = "https://www.fbla-pbl.org/fbla/officers/president/"
                     }
                 );
