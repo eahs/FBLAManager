@@ -64,7 +64,16 @@
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
       <Version>17.3.0.9-beta</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.819712-pre2" />
+    <PackageReference Include="Xamarin.FFImageLoading">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />
     <PackageReference Include="Xamarin.Android.Support.ViewPager" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
@@ -125,31 +134,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\BenMorrison.jpg" />
+    <AndroidResource Include="Resources\drawable\benmorrison.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\DrakeVorderstrasse.jpg" />
+    <AndroidResource Include="Resources\drawable\DrakeVorderstrasse.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\DrewLojewski.jpg" />
+    <AndroidResource Include="Resources\drawable\DrewLojewski.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\ElizabethHowell.jpg" />
+    <AndroidResource Include="Resources\drawable\ElizabethHowell.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\EthanGhozlali.jpg" />
+    <AndroidResource Include="Resources\drawable\ethanghozlali.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\HaneolLee.jpg" />
+    <AndroidResource Include="Resources\drawable\HaneolLee.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\MargoBoyd.jpg" />
+    <AndroidResource Include="Resources\drawable\MargoBoyd.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\TravisJohnson.jpg" />
+    <AndroidResource Include="Resources\drawable\TravisJohnson.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Officers\VivianClarke.jpg" />
+    <AndroidResource Include="Resources\drawable\VivianClarke.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

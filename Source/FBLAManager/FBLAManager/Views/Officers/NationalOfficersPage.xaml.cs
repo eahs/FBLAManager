@@ -1,10 +1,4 @@
 ﻿using FBLAManager.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +15,13 @@ namespace FBLAManager.Views.Officers
 
             this.BindingContext = viewModel = new OfficerViewModel();
 
-           // viewModel.LoadItemsCommand.Execute(null);
+            // viewModel.LoadItemsCommand.Execute(null);
+            OfficersListView.ItemSelected += OfficersListView_ItemSelected;
+        }
+
+        private void OfficersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            OfficersListView.SelectedItem = null;
         }
     }
 }

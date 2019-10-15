@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.Officers.NationalOfficersPage">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ItemsListView"
+            <ListView
+                x:Name="OfficersListView"
                 ItemsSource="{Binding Officers}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
@@ -18,7 +21,21 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Padding="5,5,5,5">
+                                    <ff:CachedImage Source="{Binding Image}" Aspect="AspectFit" WidthRequest="75" Grid.Column="0">
+                                        <ff:CachedImage.Transformations>
+                                         <fftransformations:CircleTransformation />
+                                        </ff:CachedImage.Transformations>
+                                    </ff:CachedImage>
+                                </Frame>
+                                
+                                <StackLayout Grid.Column="1" Padding="10">
                                 <Label Text="{Binding Name}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -32,6 +49,9 @@
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="13" />
                             </StackLayout>
+                        
+                            </Grid>
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
