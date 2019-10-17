@@ -51,6 +51,10 @@
 
     <!-- Your Pages -->
 
+    <FlyoutItem Title = "Home" Icon= "test.png">
+        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+    
     <FlyoutItem Title="Calendar" Icon="socialmedia.png">
         <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>

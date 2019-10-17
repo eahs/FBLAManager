@@ -47,6 +47,9 @@
     <EmbeddedResource Update="Views\Officers\NationalOfficersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
@@ -57,6 +60,9 @@
     </Compile>
     <Compile Update="Views\Officers\NationalOfficersPage.xaml.cs">
       <DependentUpon>NationalOfficersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
