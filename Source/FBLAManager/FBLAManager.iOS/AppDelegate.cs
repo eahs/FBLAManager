@@ -1,3 +1,6 @@
+using Syncfusion.XForms.iOS.Core;
+using Syncfusion.SfMaps.XForms.iOS;
+using Syncfusion.XForms.iOS.Graphics;
 using Syncfusion.XForms.iOS.Border;
 using Syncfusion.XForms.iOS.Buttons;
 using Syncfusion.ListView.XForms.iOS;
@@ -25,6 +28,9 @@ namespace FBLAManager.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            Core.Init();
+            SfMapsRenderer.Init();
+            SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
 

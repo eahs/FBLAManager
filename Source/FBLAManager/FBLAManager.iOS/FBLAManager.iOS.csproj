@@ -144,6 +144,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
       <Version>17.3.0.9-beta</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps">
+      <Version>17.3.0.17</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
       <Version>17.3.0.9-beta</Version>
     </PackageReference>
@@ -192,5 +195,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Officers\VivianClarke.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Pin.png" />
   </ItemGroup>
 </Project>

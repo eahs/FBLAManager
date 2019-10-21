@@ -14,6 +14,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.17" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.17" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.17" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.17" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.17" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
@@ -24,6 +25,12 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContactUs\ContactUsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContactUs\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\SimpleEmailEntry.xaml">

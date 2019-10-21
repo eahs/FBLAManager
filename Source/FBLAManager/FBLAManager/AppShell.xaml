@@ -4,8 +4,9 @@
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
        xmlns:views="clr-namespace:FBLAManager.Views"      
-       xmlns:viewForm="clr-namespace:FBLAManager.Views.Forms"
+       xmlns:forms="clr-namespace:FBLAManager.Views.Forms"
        xmlns:officers="clr-namespace:FBLAManager.Views.Officers"
+       xmlns:contactus="clr-namespace:FBLAManager.Views.ContactUs"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -101,9 +102,11 @@
         </Tab>
 
         <Tab Title="Social Media" Icon="paw.png">
-            <ShellContent Title="First Menu Item"
-                          Icon="cat.png"
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+        <Tab Title="Contact Us" Icon="paw.png">
+            <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
         </Tab>
 
     </FlyoutItem>
@@ -114,7 +117,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Log Out" Icon="socialmedia.png">
-        <ShellContent ContentTemplate="{DataTemplate viewForm:SimpleLoginPage}" />
+        <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" />
     </FlyoutItem>
 
     <!--

@@ -11,7 +11,7 @@ namespace FBLAManager.ViewModels
         public HomePageViewModel()
         {
             Announcements = new ObservableCollection<Announcement>();
-
+            
             Announcements.Add(
                 new Announcement
                 {
