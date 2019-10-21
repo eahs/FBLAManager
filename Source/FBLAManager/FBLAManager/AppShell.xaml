@@ -72,6 +72,13 @@
                           ContentTemplate="{DataTemplate views:ItemsPage}" />
             
         </Tab>
+        <Tab Title="Club Events"
+             Icon="test.png">
+
+            <ShellContent Title="First Menu Item"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
         <Tab Title="Competitions"
              Icon="test.png">
 
