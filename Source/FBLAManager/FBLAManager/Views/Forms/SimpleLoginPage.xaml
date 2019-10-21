@@ -77,7 +77,7 @@
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
-                        Text="Let's get to work"
+                        Text="Welcome to FBLA!"
                         TextColor="{DynamicResource Gray-800}" />
 
                     <!--  Entry to get email ID from user  -->
@@ -131,7 +131,7 @@
                         Text="Or create an account using social media"
                         TextColor="{DynamicResource Gray-800}" />
 
-                    <!--  Login through facebook account  -->
+                     <!-- Login through facebook account  
                     <buttons:SfButton
                         Grid.Row="7"
                         Margin="0,16,0,16"
@@ -157,7 +157,7 @@
                                     TextColor="{DynamicResource Gray-White}" />
                             </StackLayout>
                         </buttons:SfButton.Content>
-                    </buttons:SfButton>
+                    </buttons:SfButton>  -->
 
                 </Grid>
 
@@ -167,12 +167,13 @@
                     Spacing="1"
                     VerticalOptions="End">
 
+                    <!--
                     <StackLayout.Padding>
                         <OnIdiom
                             x:DataType="Thickness"
                             Default="0, 48, 0, 0"
                             Phone="0" />
-                    </StackLayout.Padding>
+                    </StackLayout.Padding> -->
 
                     <Label
                         FontFamily="{StaticResource Montserrat-Medium}"
