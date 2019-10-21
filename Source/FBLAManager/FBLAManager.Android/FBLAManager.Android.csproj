@@ -171,5 +171,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Pin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drawable\FBLAlogo" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
