@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
-       xmlns:views="clr-namespace:FBLAManager.Views"
-<<<<<<< HEAD
-       xmlns:viewCatalog ="clr-namespace:FBLAManager.Views.Catalog" 
-       xmlns:viewForm = "clr-namespace:FBLAManager.Views.Forms"
-=======
->>>>>>> parent of b111045... added catalog pages
-       
+       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+       xmlns:views="clr-namespace:FBLAManager.Views"      
+       xmlns:forms="clr-namespace:FBLAManager.Views.Forms"
+       xmlns:officers="clr-namespace:FBLAManager.Views.Officers"
+       xmlns:contactus="clr-namespace:FBLAManager.Views.ContactUs"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -39,13 +36,16 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="Black"
+            <Grid BackgroundColor="DarkBlue"
                   HeightRequest="200">
+                
                 <Image Aspect="AspectFill"
-                       Source="xamarinstore.jpg"
-                       Opacity="0.6" />
+                       Source="FBLAlogo.png"
+                       Opacity="0.6"
+                       />
                 <Label Text="FBLA"
                        TextColor="White"
+                       FontSize="100"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center" />
@@ -56,11 +56,15 @@
 
     <!-- Your Pages -->
 
-    <FlyoutItem Title="Calendar" Icon="socialmedia.png">
+    <FlyoutItem Title = "Home" Icon= "home.png">
+        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Calendar" Icon="calendar.png">
         <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Events">
+    <FlyoutItem Title="Events" Icon="clock.png">
 
         <Tab Title="Meetings" Icon="paw.png">
             <ShellContent Title="First Menu Item"
@@ -78,47 +82,46 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="About" Icon="socialmedia.png">
+    <FlyoutItem Title="About" Icon="tab_about.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
-   <FlyoutItem Title="Contact Us">
+   <FlyoutItem Title="Contact Us" Icon="contact.png">
 
        <Tab Title="Officer Teams"
              Icon="test.png">
 
             <ShellContent Title="National Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
 
             <ShellContent Title="State Officers"
                           Icon="test.png"
-<<<<<<< Updated upstream
-=======
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
            
             <ShellContent Title="Local Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate viewCatalog:CatalogTilePage}" />
+                          ContentTemplate="{DataTemplate views:ItemsPage}" />
 
         </Tab>
 
         <Tab Title="Social Media" Icon="paw.png">
-            <ShellContent Title="First Menu Item"
-                          Icon="cat.png"
->>>>>>> Stashed changes
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:ItemsPage}" />
+        </Tab>
+
+        <Tab Title="Contact Us" Icon="paw.png">
+            <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
         </Tab>
 
     </FlyoutItem>
 
 
-    <FlyoutItem Title="Your Profile" Icon="socialmedia.png">
+    <FlyoutItem Title="Your Profile" Icon="user.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Log Out" Icon="socialmedia.png">
-        <ShellContent ContentTemplate="{DataTemplate viewForm:SimpleLoginPage}" />
+    <FlyoutItem Title="Log Out" Icon="exit.png">
+        <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" />
     </FlyoutItem>
 
     <!--

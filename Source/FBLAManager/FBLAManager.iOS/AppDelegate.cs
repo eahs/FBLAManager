@@ -1,11 +1,13 @@
+using Syncfusion.XForms.iOS.Core;
+using Syncfusion.SfMaps.XForms.iOS;
+using Syncfusion.XForms.iOS.Graphics;
 using Syncfusion.XForms.iOS.Border;
 using Syncfusion.XForms.iOS.Buttons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Syncfusion.ListView.XForms.iOS;
 
 using Foundation;
 using UIKit;
+
 
 namespace FBLAManager.iOS
 {
@@ -26,10 +28,15 @@ namespace FBLAManager.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            Core.Init();
+            SfMapsRenderer.Init();
+            SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
 
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
+            SfListViewRenderer.Init();
 
             LoadApplication(new App());
 

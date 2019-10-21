@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,16 +10,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.9-beta" />
-    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.9-beta" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.819712-pre2" />  
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.17" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.17" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.17" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.17" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.17" />
+    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.17" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContactUs\ContactUsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ContactUs\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\SimpleEmailEntry.xaml">
@@ -40,6 +51,12 @@
     <EmbeddedResource Update="Views\Forms\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Officers\NationalOfficersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
@@ -48,6 +65,12 @@
   <ItemGroup>
     <Compile Update="Views\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Officers\NationalOfficersPage.xaml.cs">
+      <DependentUpon>NationalOfficersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

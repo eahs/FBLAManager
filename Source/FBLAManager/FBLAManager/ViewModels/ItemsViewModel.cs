@@ -13,13 +13,11 @@ namespace FBLAManager.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         public ObservableCollection<Item> Items { get; set; }
-        public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "Browse";
             Items = new ObservableCollection<Item>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
@@ -29,7 +27,8 @@ namespace FBLAManager.ViewModels
             });
         }
 
-        async Task ExecuteLoadItemsCommand()
+        /*
+       public override async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
                 return;
@@ -54,5 +53,6 @@ namespace FBLAManager.ViewModels
                 IsBusy = false;
             }
         }
+        */
     }
 }
