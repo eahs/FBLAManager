@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FBLAManager.Views;
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
@@ -10,6 +11,9 @@ namespace FBLAManager
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute("signup", typeof(AboutPage));
+
         }
     }
 }

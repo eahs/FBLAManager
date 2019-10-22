@@ -5,13 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.Events.MeetingsPage"
-             xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:local="clr-namespace:FBLAManager.ViewModels"
+             Title="Meetings">
+
+    <ContentPage.BindingContext>
+        <local:MeetingsViewModel />
+    </ContentPage.BindingContext>
+
+    <syncfusion:SfListView x:Name="Meetings" 
+                   ItemsSource="{Binding Meetings}"
+                   ItemTapped="Meetings_ItemTapped"
+                   ItemSize="100">
+        <syncfusion:SfListView.ItemTemplate>
+            <DataTemplate>
+                <Grid Padding="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.4*" />
+                        <RowDefinition Height="0.6*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="Black" FontSize="21" />
+                    <Label Grid.Row="1" Text="{Binding Organizer}" TextColor="DarkGray" FontSize="15"/>
+
+                </Grid>
+            </DataTemplate>
+        </syncfusion:SfListView.ItemTemplate>
+    </syncfusion:SfListView>
     
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
 </ContentPage>
