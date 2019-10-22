@@ -122,14 +122,14 @@
                         Style="{StaticResource SfButtonStyle}"
                         Text="LOG IN" />
 
-
+                    <!--
                     <Label
                         Grid.Row="6"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Or create an account using social media"
-                        TextColor="{DynamicResource Gray-800}" />
+                        TextColor="{DynamicResource Gray-800}" />  -->
 
                      <!-- Login through facebook account  
                     <buttons:SfButton
