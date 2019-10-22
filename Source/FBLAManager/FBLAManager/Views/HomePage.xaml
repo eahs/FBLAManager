@@ -3,10 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
+            <ContentView Grid.Row="1" Padding="10">
+                <Label Text="FBLA" 
+                LineBreakMode="NoWrap" 
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="40"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"/>
+            </ContentView>
+            <ContentView Grid.Row="1" Padding="10">
+                <Label Text="Future Business Leaders of America"
+                LineBreakMode="NoWrap" 
+                Style="{DynamicResource ListItemTextStyle}" 
+                FontSize="20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+            </ContentView>
+            <ContentView>
+                <Frame>
+                    <ff:CachedImage Source="FBLAlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="75" Grid.Column="0">
+                    </ff:CachedImage>
+                </Frame>
+            </ContentView>
             <ListView
                 x:Name="AnnouncementListView"
                 ItemsSource="{Binding Announcements}"
@@ -19,22 +43,24 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
-                            <StackLayout Grid.Column="1" Padding="10">
+                            
+                            <StackLayout Grid.Column="2" Padding="10">
                                 <Label Text="{Binding Title}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                FontSize="16" 
+                                Margin="10"/>
                                 <Label Text="{Binding Message}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                                FontSize="13" 
+                                Margin="10"/>
                                 <Label Text="{Binding Director}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="13" />
+                                FontSize="13" 
+                                Margin="10"/>
                             </StackLayout>
-
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
