@@ -27,11 +27,11 @@
     <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AboutUs\AboutUsWithCardsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Update="Views\AboutUs\AboutUsWithCardsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\AboutUs\Styles.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <EmbeddedResource Update="Views\AboutUs\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ContactUs\ContactUsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -39,8 +39,8 @@
     <EmbeddedResource Update="Views\ContactUs\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Events\MeetingsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    <EmbeddedResource Update="Views\Events\MeetingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\SimpleEmailEntry.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -75,8 +75,11 @@
     <Compile Update="Views\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Events\MeetingsPage.xaml.cs">
-      <DependentUpon>MeetingsPage.xaml</DependentUpon>
+    <Compile Update="Views\Events\MeetingDetailPage.xaml.cs">
+      <DependentUpon>MeetingDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Events\MeetingsPage.xaml.cs">
+      <DependentUpon>MeetingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Officers\NationalOfficersPage.xaml.cs">
       <DependentUpon>NationalOfficersPage.xaml</DependentUpon>

@@ -12,7 +12,11 @@ namespace FBLAManager
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("signup", typeof(AboutPage));
+<<<<<<< Updated upstream
+            Routing.RegisterRoute("MeetingsDetailPage", typeof(ArticleDetailPage));
+=======
+            Routing.RegisterRoute("ItemDetailPage", typeof(ItemDetailPage));
+>>>>>>> Stashed changes
 
         }
     }
