@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FBLAManager.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,16 @@ namespace FBLAManager.Views.Events
         public MeetingsPage()
         {
             InitializeComponent();
+            
+
+        }
+
+        private async void Meetings_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        {
+            Meeting m = (Meeting)e.ItemData;
+            
+            // Do something here
+            await Shell.Current.GoToAsync("signup");
         }
     }
 }
