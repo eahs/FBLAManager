@@ -1,4 +1,3 @@
-using Syncfusion.SfRating.XForms.iOS;
 using Syncfusion.XForms.iOS.Core;
 using Syncfusion.SfMaps.XForms.iOS;
 using Syncfusion.XForms.iOS.Graphics;
@@ -29,7 +28,6 @@ namespace FBLAManager.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.Forms.Forms.Init();
-            SfRatingRenderer.Init();
             Core.Init();
             SfMapsRenderer.Init();
             SfGradientViewRenderer.Init();

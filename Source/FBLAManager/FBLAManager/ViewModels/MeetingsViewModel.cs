@@ -15,7 +15,6 @@ namespace FBLAManager.ViewModels
             Meetings.Add(
                 new Meeting
                 {
-                    MeetingId = 1,
                    EventName="MDA",
                    Organizer="FBLA",
                    Type=MeetingType.CompetitiveEvent
@@ -25,7 +24,6 @@ namespace FBLAManager.ViewModels
             Meetings.Add(
                 new Meeting
                 {
-                    MeetingId = 2,
                     EventName = "October Meeting",
                     Organizer = "FBLA",
                     Type = MeetingType.Meeting

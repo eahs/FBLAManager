@@ -15,8 +15,7 @@
 
     <syncfusion:SfListView x:Name="Meetings" 
                    ItemsSource="{Binding Meetings}"
-                   ItemTapped="Meetings_ItemTapped" 
-                   ItemHolding="Meetings_ItemHolding"
+                   ItemTapped="Meetings_ItemTapped"
                    ItemSize="100">
         <syncfusion:SfListView.ItemTemplate>
             <DataTemplate>

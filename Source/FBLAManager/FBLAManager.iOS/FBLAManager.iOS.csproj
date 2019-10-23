@@ -150,9 +150,6 @@
     <PackageReference Include="Syncfusion.Xamarin.SfMaps">
       <Version>17.3.0.17</Version>
     </PackageReference>
-    <PackageReference Include="Syncfusion.Xamarin.SfRating">
-      <Version>17.3.0.17</Version>
-    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
       <Version>17.3.0.9-beta</Version>
     </PackageReference>
