@@ -1,4 +1,5 @@
 ﻿using FBLAManager.Models;
+using Syncfusion.ListView.XForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,29 +24,14 @@ namespace FBLAManager.Views.Events
         private async void Meetings_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
         {
             Meeting m = (Meeting)e.ItemData;
-<<<<<<< Updated upstream
-            
-            // Do something here
-            await Shell.Current.GoToAsync("signup");
-=======
-<<<<<<< Updated upstream
 
             // Look up parameters at https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/navigation
 
            // await Shell.Current.GoToAsync($"signup?meetingId={m.MeetingId}");
 
-            await Shell.Current.GoToAsync("MeetingsDetailPage");
+            await Shell.Current.GoToAsync("MeetingDetailPage");
         }
 
-        private void Meetings_ItemHolding(object sender, ItemHoldingEventArgs e)
-        {
-            //do something
-=======
-            
-            // Do something here
-            await Shell.Current.GoToAsync("ItemDetailPage");
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-        }
+        
     }
 }

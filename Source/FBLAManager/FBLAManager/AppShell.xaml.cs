@@ -1,4 +1,5 @@
 ﻿using FBLAManager.Views;
+using FBLAManager.Views.Events;
 using System;
 using System.Collections.Generic;
 
@@ -12,12 +13,8 @@ namespace FBLAManager
         {
             InitializeComponent();
 
-<<<<<<< Updated upstream
-            Routing.RegisterRoute("MeetingsDetailPage", typeof(ArticleDetailPage));
-=======
             Routing.RegisterRoute("ItemDetailPage", typeof(ItemDetailPage));
->>>>>>> Stashed changes
-
+            Routing.RegisterRoute("MeetingDetailPage", typeof(MeetingDetailPage));
         }
     }
 }
