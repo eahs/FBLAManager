@@ -17,8 +17,6 @@ namespace FBLAManager.Views.Events
         public MeetingsPage()
         {
             InitializeComponent();
-            
-
         }
 
         private async void Meetings_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
@@ -27,9 +25,13 @@ namespace FBLAManager.Views.Events
 
             // Look up parameters at https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/navigation
 
-           // await Shell.Current.GoToAsync($"signup?meetingId={m.MeetingId}");
+            // await Shell.Current.GoToAsync($"signup?meetingId={m.MeetingId}");
 
-            await Shell.Current.GoToAsync("MeetingDetailPage");
+            //await Shell.Current.GoToAsync("MeetingDetailPage");
+
+            var meetingDetailPage = new MeetingDetailPage(m);
+
+            await Navigation.PushAsync(meetingDetailPage);
         }
 
         

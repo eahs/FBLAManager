@@ -21,11 +21,12 @@
             <DataTemplate>
                 <Grid Padding="15">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.4*" />
-                        <RowDefinition Height="0.6*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="Black" FontSize="21" />
-                    <Label Grid.Row="1" Text="{Binding Organizer}" TextColor="DarkGray" FontSize="15"/>
+                    <Label Grid.Row="1" Text="{Binding Organizer}" TextColor="DarkGray" FontSize="18"/>
+                    <Label Grid.Row="1" Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="AliceBlue" FontSize="15"></Label>
 
                 </Grid>
             </DataTemplate>

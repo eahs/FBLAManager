@@ -17,14 +17,13 @@ namespace FBLAManager.Models
     {
         public string EventName { get; set; }
         public string Organizer { get; set; }
-
         public int MeetingId { get; set; }
         public string Description { get; set; }
         public string ContactID { get; set; }
         public int Capacity { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
-        public Color color { get; set; }
+        public Color Color { get; set; }
         public MeetingType Type { get; set; } = MeetingType.Meeting;
        
         public bool AllDay { get; set; }

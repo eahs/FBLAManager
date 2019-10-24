@@ -11,9 +11,10 @@
         
         <StackLayout Spacing="20" Padding="15">
             <Label Text="Event:" FontSize="Medium" />
-            <Label Text="{Binding Meeting.EventName}" d:Text="Meeting name" FontSize="Small"/>
+            <Label Text="{Binding EventName}" d:Text="Meeting name" FontSize="Small"/>
             <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Meeting.Description}" d:Text="Meeting description" FontSize="Small"/>
+            <Label Text="{Binding Description}" d:Text="Meeting description" FontSize="Small"/>
+            
         </StackLayout>
         
     </ContentPage.Content>
