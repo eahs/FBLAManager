@@ -17,6 +17,9 @@ namespace FBLAManager.Models
     {
         public string EventName { get; set; }
         public string Organizer { get; set; }
+
+        public int MeetingId { get; set; }
+        public string Description { get; set; }
         public string ContactID { get; set; }
         public int Capacity { get; set; }
         public DateTime From { get; set; }

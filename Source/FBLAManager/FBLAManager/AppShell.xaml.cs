@@ -1,4 +1,5 @@
 ﻿using FBLAManager.Views;
+using FBLAManager.Views.Events;
 using System;
 using System.Collections.Generic;
 
@@ -12,8 +13,8 @@ namespace FBLAManager
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("signup", typeof(AboutPage));
-
+            Routing.RegisterRoute("ItemDetailPage", typeof(ItemDetailPage));
+            Routing.RegisterRoute("MeetingDetailPage", typeof(MeetingDetailPage));
         }
     }
 }
