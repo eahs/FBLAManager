@@ -157,7 +157,7 @@
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center">
                                         <Image
-                                            BackgroundColor="{DynamicResource Gray-200}"
+                                            BackgroundColor="{DynamicResource Blue}"
                                             Source="{Binding Image}"
                                             Style="{StaticResource AboutUsImageStyle}" />
                                     </border:SfBorder>
@@ -167,15 +167,9 @@
                                         FontFamily="{StaticResource Montserrat-SemiBold}"
                                         HorizontalOptions="Center"
                                         Style="{StaticResource DescriptionLabelStyle}"
-                                        Text="{Binding EmployeeName}"
+                                        Text="{Binding WebsiteName}"
                                         TextColor="{DynamicResource Gray-900}" />
 
-                                    <!--  Designation  -->
-                                    <Label
-                                        HorizontalOptions="Center"
-                                        HorizontalTextAlignment="Center"
-                                        Style="{StaticResource VersionLabelStyle}"
-                                        Text="{Binding Designation}" />
 
                                 </StackLayout>
                             </control:CustomShadowFrame>

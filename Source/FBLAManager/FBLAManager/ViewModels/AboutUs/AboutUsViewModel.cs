@@ -53,7 +53,7 @@ namespace FBLAManager.ViewModels.AboutUs
                 {
                     WebsiteName = "About FBLA",
                     Image = App.BaseImageUrl + "tab_about.png",
-                    Link = "https://www.fbla-pbl.org/fbla/r"
+                    Link = "https://www.fbla-pbl.org/fbla/"
                 },
                 new AboutUsModel
                 {
