@@ -4,6 +4,9 @@ using System.Runtime.CompilerServices;
 using FBLAManager.Models.AboutUs;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using Xamarin.Essentials;
+using System.Threading.Tasks;
+using System;
 
 namespace FBLAManager.ViewModels.AboutUs
 {
@@ -33,49 +36,32 @@ namespace FBLAManager.ViewModels.AboutUs
         public AboutUsViewModel()
         {
             this.productDescription =
-                "Situated in the heart of Smith-town, Acme Products, Inc., has a long-standing tradition of selling the best products while providing the fastest service on the market. Since 1952, we’ve helped our customers identify their needs, understand their wants, and capture their dreams.";
-            this.productIcon = App.BaseImageUrl + "Icon.png";
+                "FBLA-PBL inspires and prepares students to become community-minded business leaders in a global society through relevant career preparation and leadership experiences.";
+            this.productIcon = App.BaseImageUrl + "FBLAlogo.png";
             this.productVersion = "1.0";
-            this.cardsTopImage = App.BaseImageUrl + "Mask.png";
+            this.cardsTopImage = App.BaseImageUrl + "FBLAlogo.png";
 
             this.EmployeeDetails = new ObservableCollection<AboutUsModel>
             {
                 new AboutUsModel
                 {
-                    EmployeeName = "Alice",
-                    Image = App.BaseImageUrl + "ProfileImage15.png",
-                    Designation = "Project Manager"
+                    WebsiteName = "Home Page",
+                    Image = App.BaseImageUrl + "home.png",
+                    Link = "https://www.fbla-pbl.org/"
                 },
                 new AboutUsModel
                 {
-                    EmployeeName = "Jessica Park",
-                    Image = App.BaseImageUrl + "ProfileImage10.png",
-                    Designation = "Senior Manager"
+                    WebsiteName = "About FBLA",
+                    Image = App.BaseImageUrl + "tab_about.png",
+                    Link = "https://www.fbla-pbl.org/fbla/r"
                 },
                 new AboutUsModel
                 {
-                    EmployeeName = "Lisa",
-                    Image = App.BaseImageUrl + "ProfileImage11.png",
-                    Designation = "Senior Developer"
+                    WebsiteName = "About FBLA-PBL",
+                    Image = App.BaseImageUrl + "tab_about.png",
+                    Link = "https://www.fbla-pbl.org/about/"
                 },
-                new AboutUsModel
-                {
-                    EmployeeName = "Rebecca",
-                    Image = App.BaseImageUrl + "ProfileImage12.png",
-                    Designation = "Senior Designer"
-                },
-                new AboutUsModel
-                {
-                    EmployeeName = "Alexander",
-                    Image = App.BaseImageUrl + "ProfileImage3.png",
-                    Designation = "Senior Manager"
-                },
-                new AboutUsModel
-                {
-                    EmployeeName = "Anthony",
-                    Image = App.BaseImageUrl + "ProfileImage1.png",
-                    Designation = "Senior Developer"
-                }
+                
             };
 
             this.ItemSelectedCommand = new Command(this.ItemSelected);
@@ -193,9 +179,17 @@ namespace FBLAManager.ViewModels.AboutUs
         /// <summary>
         /// Invoked when an item is selected.
         /// </summary>
-        private void ItemSelected(object selectedItem)
+        private async void ItemSelected(object selectedItem)
         {
-            // Do something
+            var model = selectedItem as Syncfusion.ListView.XForms.ItemTappedEventArgs;
+            var aboutUsModel = model.ItemData as AboutUsModel;
+
+            await OpenBrowser(new Uri(aboutUsModel.Link));
+        }
+
+        public async Task OpenBrowser(Uri uri)
+        {
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
         #endregion

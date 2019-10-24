@@ -52,7 +52,7 @@
                     Grid.Row="0"
                     Grid.ColumnSpan="3"
                     Aspect="Fill"
-                    BackgroundColor="{DynamicResource Gray-200}"
+                    BackgroundColor="{DynamicResource Red}"
                     HeightRequest="253"
                     HorizontalOptions="Fill">
                       <Image.Source>

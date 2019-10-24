@@ -11,9 +11,9 @@ namespace FBLAManager.Models.AboutUs
     {
         #region Fields
 
-        private string employeeName;
+        private string websiteName;
 
-        private string designation;
+        private string link;
 
         private string image;
 
@@ -34,17 +34,17 @@ namespace FBLAManager.Models.AboutUs
         /// Gets or sets the name of an employee.
         /// </summary>
         /// <value>The name.</value>
-        public string EmployeeName
+        public string WebsiteName
         {
             get
             {
-                return this.employeeName;
+                return this.websiteName;
             }
 
             set
             {
-                this.employeeName = value;
-                this.OnPropertyChanged("EmployeeName");
+                this.websiteName = value;
+                this.OnPropertyChanged("WebsiteName");
             }
         }
 
@@ -52,17 +52,17 @@ namespace FBLAManager.Models.AboutUs
         /// Gets or sets the designation of an employee.
         /// </summary>
         /// <value>The designation.</value>
-        public string Designation
+        public string Link
         {
             get
             {
-                return this.designation;
+                return this.link;
             }
 
             set
             {
-                this.designation = value;
-                this.OnPropertyChanged("Designation");
+                this.link = value;
+                this.OnPropertyChanged("Link");
             }
         }
 
