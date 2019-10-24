@@ -46,7 +46,7 @@ namespace FBLAManager.ViewModels.AboutUs
                 new AboutUsModel
                 {
                     WebsiteName = "Home Page",
-                    Image = App.BaseImageUrl + "home.png",
+                    Image = App.BaseImageUrl + "MargoBoyd.jpg",
                     Link = "https://www.fbla-pbl.org/"
                 },
                 new AboutUsModel

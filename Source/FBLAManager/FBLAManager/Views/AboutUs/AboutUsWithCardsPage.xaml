@@ -8,6 +8,8 @@
     xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
     xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.AboutUs"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     Title="About Us"
     BackgroundColor="{DynamicResource Gray-White}"
     NavigationPage.HasNavigationBar="False">
@@ -111,7 +113,7 @@
                         FontFamily="{StaticResource Montserrat-Bold}"
                         FontSize="20"
                         Style="{StaticResource HeaderLabelStyle}"
-                        Text="Our Team" />
+                        Text="Website Links" />
                 </StackLayout>
                 <!--  Employee profiles  -->
                 <listView:SfListView
@@ -136,7 +138,7 @@
                             <!--  Frame to have rounded corners  -->
                             <control:CustomShadowFrame
                                 Margin="12"
-                                BackgroundColor="White"
+                                BackgroundColor="DarkBlue"
                                 BorderColor="White"
                                 CornerRadius="4"
                                 HasShadow="true"
@@ -149,18 +151,7 @@
                                     Spacing="0"
                                     VerticalOptions="CenterAndExpand">
 
-                                    <!--  Profile image  -->
-                                    <border:SfBorder
-                                        Margin="0,0,0,8"
-                                        BorderWidth="0"
-                                        CornerRadius="32"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Center">
-                                        <Image
-                                            BackgroundColor="{DynamicResource Blue}"
-                                            Source="{Binding Image}"
-                                            Style="{StaticResource AboutUsImageStyle}" />
-                                    </border:SfBorder>
+                                   
 
                                     <!--  Employee name  -->
                                     <Label
@@ -168,7 +159,7 @@
                                         HorizontalOptions="Center"
                                         Style="{StaticResource DescriptionLabelStyle}"
                                         Text="{Binding WebsiteName}"
-                                        TextColor="{DynamicResource Gray-900}" />
+                                        TextColor="{DynamicResource White}" />
 
 
                                 </StackLayout>
