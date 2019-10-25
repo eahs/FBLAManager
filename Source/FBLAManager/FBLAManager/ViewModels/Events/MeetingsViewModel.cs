@@ -26,7 +26,7 @@ namespace FBLAManager.ViewModels
 
                     Color = new Color(255, 0, 0),
 
-                    Type = MeetingType.CompetitiveEvent
+                    Type = MeetingType.Fundraiser
                 },
 
                 new Meeting
@@ -37,7 +37,8 @@ namespace FBLAManager.ViewModels
                     Organizer = "FBLA",
                     Description = "Discuss how to storm the White House.",
 
-                    
+                    From = new System.DateTime(2019, 10, 1, 2, 20, 0),
+                    To = new System.DateTime(2019, 10, 1, 4, 20, 0),
 
                     Type = MeetingType.Meeting
                 }

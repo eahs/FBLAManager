@@ -4,18 +4,22 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FBLAManager.Views.Events.MeetingDetailPage"
-             Title="{Binding Title}">
-    
+             x:Class="FBLAManager.Views.Events.MeetingDetailPage">
+
     <ContentPage.Content>
         
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Event:" FontSize="Medium" />
-            <Label Text="{Binding EventName}" d:Text="Meeting name" FontSize="Small"/>
-            <Label Text="Description:" FontSize="Medium" />
-            <Label Text="{Binding Description}" d:Text="Meeting description" FontSize="Small"/>
             
-        </StackLayout>
+            
+            <Label Text="{Binding EventName}" d:Text="Meeting name" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center"/>
+            
+            <Label Text="{Binding Description}" d:Text="Meeting description" FontSize="Medium"/>
+
+            <Button Text="Sign Up" Pressed="SignUp_Pressed"/>
+
+        </StackLayout> 
+
         
+
     </ContentPage.Content>
 </ContentPage>

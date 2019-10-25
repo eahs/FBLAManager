@@ -17,17 +17,21 @@
                    ItemsSource="{Binding Meetings}"
                    ItemTapped="Meetings_ItemTapped"
                    ItemSize="100">
+        
         <syncfusion:SfListView.ItemTemplate>
             <DataTemplate>
-                <Grid Padding="15">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="Black" FontSize="21" />
-                    <Label Grid.Row="1" Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkBlue" FontSize="18"></Label>
 
-                </Grid>
+                <Frame x:Name="frame" CornerRadius="10" 
+                       BackgroundColor="White"
+                       OutlineColor="LightGray"
+                       Margin="3, 4">
+                    <StackLayout>
+                        <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="21" />
+                        <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="18"></Label>
+                        <Label Text="{Binding ContactType}" />
+                    </StackLayout>
+                </Frame>
+
             </DataTemplate>
         </syncfusion:SfListView.ItemTemplate>
     </syncfusion:SfListView>
