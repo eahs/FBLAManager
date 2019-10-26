@@ -8,6 +8,8 @@
        xmlns:officers="clr-namespace:FBLAManager.Views.Officers"
        xmlns:contactus="clr-namespace:FBLAManager.Views.ContactUs"
        xmlns:events="clr-namespace:FBLAManager.Views.Events"
+       xmlns:socialmedia="clr-namespace:FBLAManager.Views.SocialMedia"
+       xmlns:aboutus="clr-namespace:FBLAManager.Views.AboutUs"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -90,7 +92,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="About" Icon="tab_about.png">
-        <ShellContent ContentTemplate="{DataTemplate views:AboutUsWithCardsPage}" />
+        <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
     </FlyoutItem>
 
    <FlyoutItem Title="Contact Us" Icon="contact.png">
@@ -113,7 +115,7 @@
         </Tab>
 
         <Tab Title="Social Media" Icon="paw.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ItemsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
         </Tab>
 
         <Tab Title="Contact Us" Icon="paw.png">

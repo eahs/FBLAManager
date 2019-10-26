@@ -1,7 +1,8 @@
-﻿using Xamarin.Forms.Internals;
+﻿using System;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
-namespace FBLAManager.Views
+namespace FBLAManager.Views.AboutUs
 {
     /// <summary>
     /// About us with cards page.
@@ -16,6 +17,11 @@ namespace FBLAManager.Views
         public AboutUsWithCardsPage()
         {
             InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
     }
 }

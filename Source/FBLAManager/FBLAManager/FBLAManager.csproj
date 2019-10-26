@@ -66,6 +66,12 @@
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\SocialMedia\AboutUsWithScrollPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SocialMedia\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
@@ -86,6 +92,9 @@
     </Compile>
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SocialMedia\AboutUswithScrollPage.xaml.cs">
+      <DependentUpon>AboutUsWithScrollPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>
