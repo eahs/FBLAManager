@@ -10,7 +10,7 @@
                                >
             <syncfusion:SfSchedule.AppointmentMapping>
                 <syncfusion:ScheduleAppointmentMapping
-			ColorMapping="color"
+			ColorMapping="Color"
 			EndTimeMapping="To"
 			StartTimeMapping="From"
 			SubjectMapping="EventName" 

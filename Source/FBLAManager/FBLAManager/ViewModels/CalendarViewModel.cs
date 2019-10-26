@@ -48,6 +48,7 @@ namespace FBLAManager.ViewModels
                         meeting.To = (meeting.From.AddHours(1));
                         meeting.EventName = eventNameCollection[randomTime.Next(9)];
                         meeting.Color = colorCollection[randomTime.Next(9)];
+                        meeting.Description = "";
                         if (AdditionalAppointmentIndex % 3 == 0)
                             meeting.AllDay = true;
                         Meetings.Add(meeting);
@@ -60,6 +61,7 @@ namespace FBLAManager.ViewModels
                     meeting.To = (meeting.From.AddHours(1));
                     meeting.EventName = eventNameCollection[randomTime.Next(9)];
                     meeting.Color = colorCollection[randomTime.Next(9)];
+                    meeting.Description = "";
                     Meetings.Add(meeting);
                 }
             }
