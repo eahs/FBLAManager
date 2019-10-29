@@ -114,7 +114,7 @@
 
         </Tab>
 
-        <Tab Title="Social Media" Icon="paw.png">
+        <Tab Title="Social Media">
             <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
         </Tab>
 

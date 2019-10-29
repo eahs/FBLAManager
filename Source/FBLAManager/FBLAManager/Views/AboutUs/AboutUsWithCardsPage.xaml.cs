@@ -19,9 +19,6 @@ namespace FBLAManager.Views.AboutUs
             InitializeComponent();
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }

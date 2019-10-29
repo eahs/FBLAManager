@@ -10,9 +10,7 @@ namespace FBLAManager.Views.SocialMedia
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AboutUsWithScrollPage
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:FBLAManager.Views.SocialMedia.AboutUsWithParallaxScrollPage"/> class.
-        /// </summary>
+        
         public AboutUsWithScrollPage()
         {
             InitializeComponent();
