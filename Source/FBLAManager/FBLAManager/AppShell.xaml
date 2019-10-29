@@ -106,17 +106,19 @@
 
             <ShellContent Title="State Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
            
             <ShellContent Title="Local Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate views:ItemsPage}" />
+                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
 
         </Tab>
 
-        <Tab Title="Social Media">
+       <!--
+       <Tab Title="Social Media">
             <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
         </Tab>
+       -->
 
         <Tab Title="Contact Us" Icon="paw.png">
             <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
@@ -124,10 +126,11 @@
 
     </FlyoutItem>
 
-
+      <!--
     <FlyoutItem Title="Your Profile" Icon="user.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
+    -->
 
     <FlyoutItem Title="Log Out" Icon="exit.png">
         <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" />
