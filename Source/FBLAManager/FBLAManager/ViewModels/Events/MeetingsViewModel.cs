@@ -35,16 +35,30 @@ namespace FBLAManager.ViewModels
 
                     EventName = "October Meeting",
                     Organizer = "FBLA",
-                    Description = "Discuss how to storm the White House.",
+                    Description = "Plan this months fundraiser.",
 
                     From = new System.DateTime(2019, 10, 1, 2, 20, 0),
                     To = new System.DateTime(2019, 10, 1, 4, 20, 0),
 
                     Type = MeetingType.Meeting
+                },
+
+                new Meeting
+                {
+                    MeetingId = 4,
+
+                    EventName = "Safe Harbor",
+                    Organizer = "FBLA",
+                    Description = "Prepare food for people in Easton.",
+
+                    From = new System.DateTime(2019, 10, 1, 2, 20, 0),
+                    To = new System.DateTime(2019, 10, 1, 4, 20, 0),
+
+                    Type = MeetingType.CommunityService
                 }
             };
 
-        }
+    }
 
         public ObservableCollection<Meeting> Meetings { get; set; }
     }
