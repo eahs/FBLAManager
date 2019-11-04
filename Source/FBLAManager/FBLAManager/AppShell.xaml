@@ -106,11 +106,11 @@
 
             <ShellContent Title="State Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
+                          ContentTemplate="{DataTemplate officers:StateOfficersPage}" />
            
             <ShellContent Title="Local Officers"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
+                          ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
 
         </Tab>
 

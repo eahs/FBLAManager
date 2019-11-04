@@ -6,12 +6,12 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
 	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              mc:Ignorable="d"
-             x:Class="FBLAManager.Views.Officers.NationalOfficersPage"
-             Title="National Officers">
+             x:Class="FBLAManager.Views.Officers.LocalOfficersPage"
+             Title="Local Officers">
     <ContentPage.Content>
         <StackLayout>
             <ListView
-                x:Name="OfficersListView"
+                x:Name="LocalOfficersListView"
                 ItemsSource="{Binding Officers}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
@@ -24,33 +24,24 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="75"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <Frame Padding="5,5,5,5">
-                                    <ff:CachedImage Source="{Binding Image}" Aspect="AspectFit" WidthRequest="75" Grid.Column="0">
-                                        <ff:CachedImage.Transformations>
-                                         <fftransformations:CircleTransformation />
-                                        </ff:CachedImage.Transformations>
-                                    </ff:CachedImage>
-                                </Frame>
-                                
-                                <StackLayout Grid.Column="1" Padding="10">
-                                <Label Text="{Binding Name}" 
+                                <StackLayout Grid.Column="0" Padding="10">
+                                    <Label Text="{Binding Name}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                                <Label Text="{Binding Position}" 
+                                    <Label Text="{Binding Position}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                                <Label Text="{Binding WebsiteLink}" 
+                                    <Label Text="{Binding WebsiteLink}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="13" />
-                            </StackLayout>
-                        
+                                </StackLayout>
+
                             </Grid>
 
                         </ViewCell>
