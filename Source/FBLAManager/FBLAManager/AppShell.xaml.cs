@@ -15,6 +15,17 @@ namespace FBLAManager
 
             Routing.RegisterRoute("ItemDetailPage", typeof(ItemDetailPage));
             Routing.RegisterRoute("MeetingDetailPage", typeof(MeetingDetailPage));
+            Routing.RegisterRoute("calendar/dayview", typeof(CalendarPage));
+
+            Navigating += AppShell_Navigating;
+        }
+
+        private void AppShell_Navigating(object sender, ShellNavigatingEventArgs e)
+        {
+            //if (e.Source == ShellNavigationSource.Pop)
+            //{
+            //    e.Cancel();
+            // }
         }
     }
 }
