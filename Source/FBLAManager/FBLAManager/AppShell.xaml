@@ -58,17 +58,17 @@
 
     <!-- Your Pages -->
 
-    <FlyoutItem Title = "Home" Icon= "home.png">
+    <FlyoutItem Title = "Home" Icon= "home.png" Route="home">
         <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
     </FlyoutItem>
     
-    <FlyoutItem Title="Calendar" Icon="calendar.png">
+    <FlyoutItem Title="Calendar" Icon="calendar.png" Route="calendar">
         <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Events" Icon="clock.png">
+    <FlyoutItem Title="Events" Icon="clock.png" Route="events">
 
-        <Tab Title="Meetings" Icon="paw.png">
+        <Tab Title="Meetings" Icon="paw.png" Route="meetings">
             <ShellContent Title="First Menu Item"
                           Icon="cat.png"
                           ContentTemplate="{DataTemplate events:MeetingsPage}" />

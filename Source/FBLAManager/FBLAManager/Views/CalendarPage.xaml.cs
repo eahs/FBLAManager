@@ -8,6 +8,7 @@ using FBLAManager.ViewModels;
 
 namespace FBLAManager.Views
 {
+    [QueryProperty("SelectedDate", "selecteddate")]
     public partial class CalendarPage : ContentPage
     {
         private CalendarViewModel viewModel;
@@ -24,13 +25,36 @@ namespace FBLAManager.Views
 
         }
 
-        private void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
+        public CalendarPage(CalendarViewModel vm, DateTime date)
+        {
+            InitializeComponent();
+
+            BindingContext = viewModel = vm;
+
+            ViewDay(date);
+        }
+
+
+        private DateTime day;
+        public string SelectedDate
+        {
+            set
+            {
+                string dt = value;
+            }
+            get
+            {
+                return day.ToString();
+            }
+        }
+
+        private async void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
         {
             var dateTime = e.Datetime;
 
             try 
             {
-                ViewDay(dateTime);
+                await Shell.Current.Navigation.PushAsync(new CalendarPage(viewModel, dateTime));
             }
 
             catch
@@ -41,8 +65,8 @@ namespace FBLAManager.Views
 
         public void ViewDay(DateTime dateTime)
         {
-            schedule.SelectedDate = dateTime;
             schedule.ScheduleView = ScheduleView.DayView;
+            schedule.SelectedDate = dateTime;
         }
 
         public void ViewMonth()
