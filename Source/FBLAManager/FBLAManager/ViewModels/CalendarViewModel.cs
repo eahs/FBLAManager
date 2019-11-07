@@ -18,18 +18,10 @@ namespace FBLAManager.ViewModels
         public ObservableCollection<Meeting> CalendarMeetings { get; set; }
 
 
-        private MeetingsViewModel meetings;
-
         public CalendarViewModel()
         {
-            meetings = new MeetingsViewModel();
             CalendarMeetings = new ObservableCollection<Meeting>();
 
-            
-            foreach (Meeting m in meetings.Meetings)
-            {
-                CalendarMeetings.Add(m);
-            }
             LoadItemsCommand.Execute(null);
   
         }
@@ -54,11 +46,12 @@ namespace FBLAManager.ViewModels
                 if (response.IsSuccessful)
                 {
                     var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
-                    
+
                     foreach (var meeting in items)
                     {
                         CalendarMeetings.Add(meeting);
                     }
+
                     OnPropertyChanged("CalendarMeetings");
 
                     IsError = false;

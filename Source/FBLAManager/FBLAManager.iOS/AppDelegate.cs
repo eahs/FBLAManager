@@ -7,7 +7,7 @@ using Syncfusion.ListView.XForms.iOS;
 
 using Foundation;
 using UIKit;
-
+using Syncfusion.SfBusyIndicator.XForms.iOS;
 
 namespace FBLAManager.iOS
 {
@@ -33,6 +33,8 @@ namespace FBLAManager.iOS
             SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
+
+            new SfBusyIndicatorRenderer();
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();

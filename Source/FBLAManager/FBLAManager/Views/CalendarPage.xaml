@@ -3,8 +3,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+    xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"    
     x:Class="FBLAManager.Views.CalendarPage">
-    <ContentPage.Content>
+
+    <Grid>
         <syncfusion:SfSchedule x:Name="schedule" 
                                DataSource = "{Binding CalendarMeetings}"
                                >
@@ -17,5 +19,14 @@
 			IsAllDayMapping="AllDay"/>
             </syncfusion:SfSchedule.AppointmentMapping>
         </syncfusion:SfSchedule>
-    </ContentPage.Content>
+
+        <busyindicator:SfBusyIndicator x:Name="busyindicator" 
+                                       AnimationType="ZoomingTarget" 
+                                       ViewBoxWidth = "64" 
+                                       ViewBoxHeight="64" 
+                                       TextColor="LightGray" 
+                                       IsBusy="{Binding IsBusy}"/>
+
+    </Grid>
+    
 </ContentPage>
