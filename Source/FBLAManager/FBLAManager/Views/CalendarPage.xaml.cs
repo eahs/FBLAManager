@@ -18,6 +18,7 @@ namespace FBLAManager.Views
             InitializeComponent();
 
             BindingContext = viewModel = new CalendarViewModel();
+           
 
             schedule.CellTapped += Schedule_CellTapped1; ;
 
@@ -67,6 +68,7 @@ namespace FBLAManager.Views
         {
             schedule.ScheduleView = ScheduleView.DayView;
             schedule.SelectedDate = dateTime;
+            schedule.MoveToDate = dateTime;
         }
 
         public void ViewMonth()
