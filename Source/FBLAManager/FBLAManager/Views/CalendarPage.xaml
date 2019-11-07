@@ -6,7 +6,7 @@
     x:Class="FBLAManager.Views.CalendarPage">
     <ContentPage.Content>
         <syncfusion:SfSchedule x:Name="schedule" 
-                               DataSource = "{Binding Meetings}"
+                               DataSource = "{Binding CalendarMeetings}"
                                >
             <syncfusion:SfSchedule.AppointmentMapping>
                 <syncfusion:ScheduleAppointmentMapping

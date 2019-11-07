@@ -37,8 +37,10 @@ namespace FBLAManager.ViewModels
                     Organizer = "FBLA",
                     Description = "Plan this months fundraiser.",
 
-                    From = new System.DateTime(2019, 10, 1, 2, 20, 0),
-                    To = new System.DateTime(2019, 10, 1, 4, 20, 0),
+                    From = new System.DateTime(2019, 11, 11, 2, 0, 0),
+                    To = new System.DateTime(2019, 11, 11, 4, 0, 0),
+
+                    Color = new Color(0, 255, 0),
 
                     Type = MeetingType.Meeting
                 },
@@ -51,8 +53,10 @@ namespace FBLAManager.ViewModels
                     Organizer = "FBLA",
                     Description = "Prepare food for people in Easton.",
 
-                    From = new System.DateTime(2019, 10, 1, 2, 20, 0),
-                    To = new System.DateTime(2019, 10, 1, 4, 20, 0),
+                    From = new System.DateTime(2019, 11, 7, 2, 0, 0),
+                    To = new System.DateTime(2019, 11, 7, 4, 0, 0),
+
+                    Color = new Color(0, 0, 255),
 
                     Type = MeetingType.CommunityService
                 }

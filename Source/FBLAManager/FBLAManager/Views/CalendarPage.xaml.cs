@@ -18,6 +18,7 @@ namespace FBLAManager.Views
             InitializeComponent();
 
             BindingContext = viewModel = new CalendarViewModel();
+           
 
             schedule.CellTapped += Schedule_CellTapped1; ;
 
