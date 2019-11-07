@@ -1,7 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using FBLAManager.Models.SocialMedia;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -34,48 +37,25 @@ namespace FBLAManager.ViewModels.SocialMedia
         {
             this.productDescription =
                 "Situated in the heart of Smith-town, Acme Products, Inc., has a long-standing tradition of selling the best products while providing the fastest service on the market. Since 1952, we’ve helped our customers identify their needs, understand their wants, and capture their dreams.";
-            this.productIcon = App.BaseImageUrl + "Icon.png";
+            this.productIcon =  "Icon.png";
             this.productVersion = "1.0";
-            this.cardsTopImage = App.BaseImageUrl + "Mask.png";
+            this.cardsTopImage =  "Mask.png";
 
             this.EmployeeDetails = new ObservableCollection<AboutUsModel>
             {
                 new AboutUsModel
                 {
-                    EmployeeName = "Alice",
-                    Image = App.BaseImageUrl + "ProfileImage15.png",
-                    Designation = "Project Manager"
+                    EmployeeName = "Twitter",
+                    Image =  App.BaseImageUrl + "TwitterIcon.png",
+                    Designation = "https://twitter.com/eafbla?lang=en"
                 },
                 new AboutUsModel
                 {
-                    EmployeeName = "Jessica Park",
-                    Image = App.BaseImageUrl + "ProfileImage10.png",
-                    Designation = "Senior Manager"
+                    EmployeeName = "Instagram",
+                    Image = App.BaseImageUrl +   "ProfileImage10.png",
+                    Designation = "https://www.instagram.com/eastonareafbla/?igshid=ipviirou3gr8"
                 },
-                new AboutUsModel
-                {
-                    EmployeeName = "Lisa",
-                    Image = App.BaseImageUrl + "ProfileImage11.png",
-                    Designation = "Senior Developer"
-                },
-                new AboutUsModel
-                {
-                    EmployeeName = "Rebecca",
-                    Image = App.BaseImageUrl + "ProfileImage12.png",
-                    Designation = "Senior Designer"
-                },
-                new AboutUsModel
-                {
-                    EmployeeName = "Alexander",
-                    Image = App.BaseImageUrl + "ProfileImage3.png",
-                    Designation = "Senior Manager"
-                },
-                new AboutUsModel
-                {
-                    EmployeeName = "Anthony",
-                    Image = App.BaseImageUrl + "ProfileImage1.png",
-                    Designation = "Senior Developer"
-                }
+                
             };
 
             this.ItemSelectedCommand = new Command(this.ItemSelected);
@@ -193,9 +173,17 @@ namespace FBLAManager.ViewModels.SocialMedia
         /// <summary>
         /// Invoked when an item is selected.
         /// </summary>
-        private void ItemSelected(object selectedItem)
+        private async void ItemSelected(object selectedItem)
         {
-            // Do something
+            var model = selectedItem as Syncfusion.ListView.XForms.ItemTappedEventArgs;
+            var aboutUsModel = model.ItemData as AboutUsModel;
+
+            await OpenBrowser(new Uri(aboutUsModel.Designation));
+        }
+
+        public async Task OpenBrowser(Uri uri)
+        {
+            await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
         }
 
         #endregion

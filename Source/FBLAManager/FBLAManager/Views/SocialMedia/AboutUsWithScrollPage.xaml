@@ -7,8 +7,8 @@
     xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.SocialMedia"
     xmlns:behaviour="clr-namespace:FBLAManager.Behaviors.AboutUs"
-    Title="About Us"
-    BackgroundColor="{DynamicResource Gray-White}"
+    Title="Social Media Links"
+    BackgroundColor="{DynamicResource White}"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -29,47 +29,9 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <!--  Background image  -->
-                <Image
-                Grid.Row="0"
-                Aspect="Fill"
-                BackgroundColor="{DynamicResource Gray-200}"
-                BindingContext="{x:Reference AboutUs}"
-                HeightRequest="{Binding Height}"
-                Source="About.png" />
-
-                <!--  Product details  -->
-                <StackLayout
-                x:Name="AboutUs"
-                Grid.Row="0"
-                Margin="0,0,0,23"
-                VerticalOptions="Start">
-
-                    <!--  Header  -->
-                    <Label
-                    Margin="0,24,0,16"
-                    FontSize="20"
-                    Style="{StaticResource HeaderLabelStyle}"
-                    Text="About Us" />
-
-                    <!--  Product description  -->
-                    <Label
-                    Margin="16,0,16,0"
-                    Style="{StaticResource DescriptionLabelStyle}"
-                    Text="{Binding ProductDescription}" />
-                </StackLayout>
-
-                <!--  Background image  -->
-                <Image Grid.Row="1"
-                Aspect="AspectFill"
-                BackgroundColor="{DynamicResource Gray-200}"
-                HorizontalOptions="Fill"
-                Source="OurTeam.png"
-                VerticalOptions="Fill" />
-
                 <!--  To display the team member's details  -->
                 <listView:SfListView
-                x:Name="OurTeam"
+                x:Name="SocialMediaLinks"
                 Grid.Row="1"
                 AutoFitMode="Height"
                 ItemsSource="{Binding EmployeeDetails}"
@@ -84,8 +46,8 @@
                             Margin="0,60,0,5"
                             FontSize="20"
                             Style="{StaticResource HeaderLabelStyle}"
-                            Text="Our Team"
-                            TextColor="{DynamicResource Gray-White}" />
+                            Text="Social Media Links"
+                            TextColor="{DynamicResource Black}" />
                         </DataTemplate>
                     </listView:SfListView.HeaderTemplate>
 
@@ -103,7 +65,7 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center">
                                     <Image
-                                    BackgroundColor="{DynamicResource Gray-200}"
+                                    BackgroundColor="{DynamicResource Gray}"
                                     Style="{StaticResource AboutUsImageStyle}" >
                                         <Image.Source>
                                             <UriImageSource Uri="{Binding Image}" 
@@ -119,14 +81,7 @@
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource DescriptionLabelStyle}"
                                 Text="{Binding EmployeeName}"
-                                TextColor="White" />
-
-                                <!--  Designation  -->
-                                <Label
-                                HorizontalTextAlignment="Center"
-                                Style="{StaticResource VersionLabelStyle}"
-                                Text="{Binding Designation}"
-                                TextColor="White" />
+                                TextColor="Black" />
 
                             </StackLayout>
                         </DataTemplate>

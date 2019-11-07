@@ -114,11 +114,11 @@
 
         </Tab>
 
-       <!--
+       
        <Tab Title="Social Media">
             <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
         </Tab>
-       -->
+       
 
         <Tab Title="Contact Us" Icon="paw.png">
             <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
