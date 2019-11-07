@@ -24,7 +24,7 @@ namespace FBLAManager.ViewModels
                     From = new System.DateTime(2019, 11, 1, 7, 0, 0),
                     To = new System.DateTime(2019, 11, 1, 10, 0, 0),
 
-                    Color = new Color(255, 0, 0),
+                    Color = "999999",
 
                     Type = MeetingType.Fundraiser
                 },
@@ -40,7 +40,7 @@ namespace FBLAManager.ViewModels
                     From = new System.DateTime(2019, 11, 11, 2, 0, 0),
                     To = new System.DateTime(2019, 11, 11, 4, 0, 0),
 
-                    Color = new Color(0, 255, 0),
+                    Color = "999999",
 
                     Type = MeetingType.Meeting
                 },
@@ -56,7 +56,7 @@ namespace FBLAManager.ViewModels
                     From = new System.DateTime(2019, 11, 7, 2, 0, 0),
                     To = new System.DateTime(2019, 11, 7, 4, 0, 0),
 
-                    Color = new Color(0, 0, 255),
+                    Color = "999999",
 
                     Type = MeetingType.CommunityService
                 }

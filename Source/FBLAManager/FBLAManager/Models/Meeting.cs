@@ -23,7 +23,14 @@ namespace FBLAManager.Models
         public int Capacity { get; set; }
         public DateTime From { get; set; }
         public DateTime To { get; set; }
-        public Color Color { get; set; }
+        public string Color { get; set; } = "000000";
+        public Color XamColor
+        {
+            get
+            {
+                return Xamarin.Forms.Color.FromHex(Color);
+            }
+        }
         public MeetingType Type { get; set; } = MeetingType.Meeting;
        
         public bool AllDay { get; set; }
