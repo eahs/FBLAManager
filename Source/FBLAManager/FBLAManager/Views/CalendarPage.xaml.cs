@@ -67,6 +67,7 @@ namespace FBLAManager.Views
         {
             schedule.ScheduleView = ScheduleView.DayView;
             schedule.SelectedDate = dateTime;
+            schedule.MoveToDate = dateTime;
         }
 
         public void ViewMonth()
