@@ -208,4 +208,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\Pin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TwitterIcon.png" />
+  </ItemGroup>
 </Project>

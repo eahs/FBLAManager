@@ -10,6 +10,7 @@
     xmlns:customControls="clr-namespace:FBLAManager.Controls"
     xmlns:maps="clr-namespace:Syncfusion.SfMaps.XForms;assembly=Syncfusion.SfMaps.XForms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.ContactUs"
+    Title="Contact Us"
     BackgroundColor="{DynamicResource Gray-White}"
     NavigationPage.HasNavigationBar="False"
     x:Name="this">
