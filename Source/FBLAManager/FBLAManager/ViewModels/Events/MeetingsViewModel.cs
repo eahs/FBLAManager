@@ -1,7 +1,10 @@
-
+using Newtonsoft.Json;
+using RestSharp;
 ﻿using FBLAManager.Models;
 using System.Collections.ObjectModel;
-
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
 
 using Xamarin.Forms;
 
@@ -9,62 +12,59 @@ namespace FBLAManager.ViewModels
 {
     public class MeetingsViewModel : BaseViewModel
     {
+        public ObservableCollection<Meeting> Meetings { get; set; }
         public MeetingsViewModel()
         {
-            Meetings = new ObservableCollection<Meeting>
+            Meetings = new ObservableCollection<Meeting>();
+            
+            LoadItemsCommand.Execute(null);
+        }
+
+        protected override async Task LoadItemsAsync()
+        {
+
+            try
             {
-                new Meeting
+                // Make async request to obtain data
+                var client = new RestClient(GlobalConstants.EndPointURL);
+                var request = new RestRequest
                 {
-                    MeetingId = 1,
+                    Timeout = GlobalConstants.RequestTimeout
+                };
+                request.Resource = GlobalConstants.MeetingEndPointRequestURL;
 
-                    EventName = "Bingo Night Fundraiser",
-                    Organizer = "FBLA",
-                    Description = "Volunteer at the bingo night fundraiser.",
+                var response = await client.ExecuteTaskAsync(request);
 
-                    From = new System.DateTime(2019, 11, 1, 7, 0, 0),
-                    To = new System.DateTime(2019, 11, 1, 10, 0, 0),
-
-                    Color = "999999",
-
-                    Type = MeetingType.Fundraiser
-                },
-
-                new Meeting
+                if (response.IsSuccessful)
                 {
-                    MeetingId = 2,
+                    var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
 
-                    EventName = "October Meeting",
-                    Organizer = "FBLA",
-                    Description = "Plan this months fundraiser.",
+                    foreach (var meeting in items)
+                    {
+                        Meetings.Add(meeting);
+                    }
 
-                    From = new System.DateTime(2019, 11, 11, 2, 0, 0),
-                    To = new System.DateTime(2019, 11, 11, 4, 0, 0),
+                    OnPropertyChanged("Meetings");
 
-                    Color = "999999",
-
-                    Type = MeetingType.Meeting
-                },
-
-                new Meeting
-                {
-                    MeetingId = 4,
-
-                    EventName = "Safe Harbor",
-                    Organizer = "FBLA",
-                    Description = "Prepare food for people in Easton.",
-
-                    From = new System.DateTime(2019, 11, 7, 2, 0, 0),
-                    To = new System.DateTime(2019, 11, 7, 4, 0, 0),
-
-                    Color = "999999",
-
-                    Type = MeetingType.CommunityService
+                    IsError = false;
+                    DataAvailable = true;
                 }
-            };
+                else
+                {
+                    // An error occurred that is stored
+                    ErrorMessage = "An error occurred";
+                    DataAvailable = false;
+                    IsError = true;
+                }
+            }
+            catch (Exception e)
+            {
+                // An exception occurred
+                DataAvailable = false;
+            }
+        }
 
-    }
 
-        public ObservableCollection<Meeting> Meetings { get; set; }
     }
 
 }
