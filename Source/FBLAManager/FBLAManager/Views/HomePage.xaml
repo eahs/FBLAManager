@@ -9,14 +9,14 @@
              x:Class="FBLAManager.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <ContentView Grid.Row="1" Padding="10">
+           <ContentView Grid.Row="1" Padding="10">
                 <Label Text="FBLA" 
                 LineBreakMode="NoWrap" 
                 Style="{DynamicResource ListItemTextStyle}" 
                 FontSize="40"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand"/>
-            </ContentView>
+            </ContentView> 
             <ContentView Grid.Row="1" Padding="10">
                 <Label Text="Future Business Leaders of America"
                 LineBreakMode="NoWrap" 
@@ -24,7 +24,7 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
-            </ContentView>
+            </ContentView> 
             <ContentView>
                 <Frame>
                     <ff:CachedImage Source="FBLAlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="75" Grid.Column="0">

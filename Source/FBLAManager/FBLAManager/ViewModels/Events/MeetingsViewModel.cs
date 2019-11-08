@@ -13,10 +13,21 @@ namespace FBLAManager.ViewModels
     public class MeetingsViewModel : BaseViewModel
     {
         public ObservableCollection<Meeting> Meetings { get; set; }
+
+        /*
+        public MeetingType type { get; set; } = MeetingType.Meeting;
+        public MeetingsViewModel(MeetingType meetingType = MeetingType.Meeting)
+        {
+            Meetings = new ObservableCollection<Meeting>();
+            type = meetingType;
+
+            LoadItemsCommand.Execute(null);
+        } */
+
         public MeetingsViewModel()
         {
             Meetings = new ObservableCollection<Meeting>();
-            
+
             LoadItemsCommand.Execute(null);
         }
 
