@@ -1,10 +1,9 @@
-﻿using FBLAManager.Models;
+using FBLAManager.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
