@@ -7,13 +7,13 @@ namespace FBLAManager.Views.Officers
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StateOfficersPage : ContentPage
     {
-        private StateOfficersViewModel viewModel;
+        private OfficersViewModel viewModel;
 
         public StateOfficersPage()
         {
             InitializeComponent();
 
-            this.BindingContext = viewModel = new StateOfficersViewModel();
+            this.BindingContext = viewModel = new OfficersViewModel(2);
 
         }
     }
