@@ -6,14 +6,14 @@ using Xamarin.Forms.Xaml;
 namespace FBLAManager.Views.Events
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MeetingsPage : ContentPage
+    public partial class CommunityServicePage : ContentPage
     {
         private MeetingsViewModel viewModel;
-        public MeetingsPage()
+        public CommunityServicePage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new MeetingsViewModel(MeetingType.Meeting);
+            BindingContext = viewModel = new MeetingsViewModel(MeetingType.CommunityService);
         }
 
         private async void Meetings_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)

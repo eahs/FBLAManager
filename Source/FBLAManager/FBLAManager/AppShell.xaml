@@ -79,14 +79,18 @@
 
             <ShellContent Title="First Menu Item"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate events:MeetingsPage}" />
+                          ContentTemplate="{DataTemplate events:ClubEventsPage}" />
         </Tab>
         <Tab Title="Competitions"
              Icon="test.png">
 
             <ShellContent Title="First Menu Item"
                           Icon="test.png"
-                          ContentTemplate="{DataTemplate events:MeetingsPage}" />
+                          ContentTemplate="{DataTemplate events:CompetitionsPage}" />
+        </Tab>
+        <Tab Title="Community Service"
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate events:CommunityServicePage}" />
         </Tab>
 
     </FlyoutItem>

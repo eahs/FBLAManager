@@ -9,7 +9,7 @@ namespace FBLAManager.Models
     public enum MeetingType
     {
         Meeting = 1,
-        Fundraiser = 2,
+        ClubEvent = 2,
         CompetitiveEvent = 3,
         CommunityService = 4
     }

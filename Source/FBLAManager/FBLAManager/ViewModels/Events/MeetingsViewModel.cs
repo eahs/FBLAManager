@@ -13,8 +13,7 @@ namespace FBLAManager.ViewModels
     public class MeetingsViewModel : BaseViewModel
     {
         public ObservableCollection<Meeting> Meetings { get; set; }
-
-        /*
+        
         public MeetingType type { get; set; } = MeetingType.Meeting;
         public MeetingsViewModel(MeetingType meetingType = MeetingType.Meeting)
         {
@@ -22,14 +21,7 @@ namespace FBLAManager.ViewModels
             type = meetingType;
 
             LoadItemsCommand.Execute(null);
-        } */
-
-        public MeetingsViewModel()
-        {
-            Meetings = new ObservableCollection<Meeting>();
-
-            LoadItemsCommand.Execute(null);
-        }
+        } 
 
         protected override async Task LoadItemsAsync()
         {
@@ -52,7 +44,11 @@ namespace FBLAManager.ViewModels
 
                     foreach (var meeting in items)
                     {
-                        Meetings.Add(meeting);
+                        if (meeting.Type == type)
+                        {
+                            Meetings.Add(meeting);
+                        }
+                        
                     }
 
                     OnPropertyChanged("Meetings");

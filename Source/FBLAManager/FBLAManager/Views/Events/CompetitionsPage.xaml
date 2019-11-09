@@ -4,16 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FBLAManager.Views.Events.MeetingsPage"
+             x:Class="FBLAManager.Views.Events.CompetitionsPage"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              Title="Meetings">
-
 
     <syncfusion:SfListView x:Name="Meetings" 
                    ItemsSource="{Binding Meetings}"
                    ItemTapped="Meetings_ItemTapped"
                    ItemSize="100">
-        
+
         <syncfusion:SfListView.ItemTemplate>
             <DataTemplate>
 
@@ -31,5 +30,5 @@
             </DataTemplate>
         </syncfusion:SfListView.ItemTemplate>
     </syncfusion:SfListView>
-    
+
 </ContentPage>
