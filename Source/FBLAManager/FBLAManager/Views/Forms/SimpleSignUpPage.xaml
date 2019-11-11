@@ -203,7 +203,7 @@
                             Placeholder=" Zip Code"
                             PlaceholderColor="{DynamicResource Gray-700}"
                             Style="{StaticResource EntryStyle}"
-                            Text="{Binding Member.City}"
+                            Text="{Binding Member.ZipCode}"
                             TextColor="{DynamicResource Gray-900}" />
                     </border:SfBorder>
 

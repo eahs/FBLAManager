@@ -35,19 +35,20 @@ namespace FBLAManager.Views
             ViewDay(date);
         }
 
-
+        /*
         private DateTime day;
         public string SelectedDate
         {
             set
             {
-                string dt = value;
+                string dt = value;                
             }
             get
             {
                 return day.ToString();
             }
         }
+        */
 
         private async void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
         {
