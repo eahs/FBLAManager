@@ -12,10 +12,14 @@
             
             
             <Label Text="{Binding EventName}" d:Text="Meeting name" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center"/>
-            
-            <Label Text="{Binding Description}" d:Text="Meeting description" FontSize="Medium"/>
 
-            <Button Text="Sign Up" Pressed="SignUp_Pressed"/>
+            <Label Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="DarkSlateGray" FontSize="16"/>
+
+            <Label Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="DarkSlateGray" FontSize="16"/>
+
+            <Label Text="{Binding Description}" d:Text="Meeting description" TextColor="DarkSlateBlue" FontSize="Medium" />
+
+            <Button Text="Sign In" Pressed="SignUp_Pressed"/>
 
         </StackLayout> 
 

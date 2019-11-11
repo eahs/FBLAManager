@@ -21,13 +21,7 @@ namespace FBLAManager.Views.Events
         {
             Meeting m = (Meeting)e.ItemData;
 
-            // Look up parameters at https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell/navigation
-
-            // await Shell.Current.GoToAsync($"signup?meetingId={m.MeetingId}");
-
-            //await Shell.Current.GoToAsync("MeetingDetailPage");
-
-            var meetingDetailPage = new MeetingDetailPage(m);
+            var meetingDetailPage = new EventDetailPage(m);
 
             await Navigation.PushAsync(meetingDetailPage);
         }

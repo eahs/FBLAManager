@@ -20,7 +20,7 @@ namespace FBLAManager.Views.Events
         {
             Meeting m = (Meeting)e.ItemData;
 
-            var meetingDetailPage = new MeetingDetailPage(m);
+            var meetingDetailPage = new EventDetailPage(m);
 
             await Navigation.PushAsync(meetingDetailPage);
         }

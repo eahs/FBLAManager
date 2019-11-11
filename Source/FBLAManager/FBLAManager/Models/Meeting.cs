@@ -22,10 +22,15 @@ namespace FBLAManager.Models
         public string Description { get; set; }
         public string ContactID { get; set; }
         public int Capacity { get; set; }
+
+
         [JsonProperty("Start")]
         public DateTime From { get; set; }
+
         [JsonProperty("End")]
         public DateTime To { get; set; }
+
+
         public string Color { get; set; } = "000000";
         public Color XamColor
         {

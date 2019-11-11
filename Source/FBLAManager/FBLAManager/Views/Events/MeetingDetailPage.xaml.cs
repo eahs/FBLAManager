@@ -1,8 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using FBLAManager.Models;
-using FBLAManager.ViewModels.Events;
 using System;
 
 namespace FBLAManager.Views.Events
@@ -11,6 +9,11 @@ namespace FBLAManager.Views.Events
     
     public partial class MeetingDetailPage : ContentPage
     {
+        public MeetingDetailPage()
+        {
+            InitializeComponent();
+        }
+
         public MeetingDetailPage(Meeting meeting)
         {
             InitializeComponent();
@@ -21,15 +24,13 @@ namespace FBLAManager.Views.Events
 
         private void SignUp_Pressed(object sender, EventArgs e)
         {
-            DisplayAlert("Sign up", "Sign up for this event?", "Yes", "No");
-            
-            //throw new NotImplementedException();
+            //https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/pop-ups
+            //DisplayAlert("Sign up", "Sign up for this event?", "Yes", "No");
+
+            DisplayPromptAsync("Sign in", "Enter meeting code");
         }
 
-        public MeetingDetailPage()
-        {
-            InitializeComponent();
-        }
+        
 
     }
 }

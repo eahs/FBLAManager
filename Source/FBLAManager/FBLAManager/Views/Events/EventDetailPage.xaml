@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FBLAManager.Views.Events.EventDetailPage">
+
+    <ContentPage.Content>
+
+        <StackLayout Spacing="20" Padding="15">
+
+
+            <Label Text="{Binding EventName}" d:Text="Meeting name" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center"/>
+
+            <Label Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="DarkSlateGray" FontSize="16"/>
+
+            <Label Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="DarkSlateGray" FontSize="16"/>
+
+            <Label Text="{Binding Description}" d:Text="Meeting description" TextColor="DarkSlateBlue" FontSize="Medium" />
+
+            <Button Text="Sign Up" Pressed="SignUp_Pressed"/>
+
+        </StackLayout>
+
+
+
+    </ContentPage.Content>
+</ContentPage>

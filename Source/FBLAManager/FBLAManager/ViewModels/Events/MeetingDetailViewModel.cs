@@ -11,15 +11,6 @@ namespace FBLAManager.ViewModels.Events
     {
         public Meeting Meeting { get; set; }
 
-            /*
-        public Meeting Meeting
-        {
-            set
-            {
-                BindingContext = Meeting
-            }
-        } */
-
         public MeetingDetailViewModel(Meeting meeting = null)
         {
             Title = meeting?.EventName;
