@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace FBLAManager.Models
@@ -23,7 +22,6 @@ namespace FBLAManager.Models
         public string ContactID { get; set; }
         public int Capacity { get; set; }
 
-
         [JsonProperty("Start")]
         public DateTime From { get; set; }
 
@@ -42,5 +40,7 @@ namespace FBLAManager.Models
         public MeetingType Type { get; set; } = MeetingType.Meeting;
        
         public bool AllDay { get; set; }
+
+        public List<MeetingAttendees> MeetingAttendees { get; set; } //attendees
     }
 }

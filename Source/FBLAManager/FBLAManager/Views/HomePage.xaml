@@ -9,22 +9,6 @@
              x:Class="FBLAManager.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
-           <ContentView Grid.Row="1" Padding="10">
-                <Label Text="FBLA" 
-                LineBreakMode="NoWrap" 
-                Style="{DynamicResource ListItemTextStyle}" 
-                FontSize="40"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"/>
-            </ContentView> 
-            <ContentView Grid.Row="1" Padding="10">
-                <Label Text="Future Business Leaders of America"
-                LineBreakMode="NoWrap" 
-                Style="{DynamicResource ListItemTextStyle}" 
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-            </ContentView> 
             <ContentView>
                 <Frame>
                     <ff:CachedImage Source="FBLAlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="75" Grid.Column="0">
@@ -43,25 +27,41 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            
-                            <StackLayout Grid.Column="2" Padding="10">
-                                <Label Text="{Binding Title}" 
+
+                            <Frame x:Name="frame" CornerRadius="10" 
+                       BackgroundColor="White"
+                       OutlineColor="LightGray"
+                       Margin="1, 1">
+                                <StackLayout Grid.Column="2" Padding="10">
+                                    <Label Text="{Binding Title}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" 
-                                Margin="10"/>
-                                <Label Text="{Binding Message}" 
-                                LineBreakMode="NoWrap"
+                                TextColor="DarkBlue"
+                                Margin="3"/>
+                                    <Label Text="{Binding Message}" 
+                                LineBreakMode="CharacterWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" 
-                                Margin="10"/>
-                                <Label Text="{Binding Director}" 
+                                FontSize="14" 
+                                TextColor="DarkSlateGray"
+                                Margin="3"/>
+                                    <Label Text="{Binding Director}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="13" 
-                                Margin="10"/>
-                            </StackLayout>
+                                TextColor="DarkSlateGray"
+                                Margin="0"/>
+                                </StackLayout>
+                            </Frame>
+
+
+
                         </ViewCell>
+                            
+                            
+                            
+                        
+                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
