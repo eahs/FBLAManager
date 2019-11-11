@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System;
 
 using Xamarin.Forms;
+using FBLAManager.Helpers;
 
 namespace FBLAManager.ViewModels
 {
@@ -35,6 +36,7 @@ namespace FBLAManager.ViewModels
                     Timeout = GlobalConstants.RequestTimeout
                 };
                 request.Resource = GlobalConstants.MeetingEndPointRequestURL;
+                UserManager.Current.AddAuthorization(request);
 
                 var response = await client.ExecuteTaskAsync(request);
 
@@ -64,7 +66,7 @@ namespace FBLAManager.ViewModels
                     IsError = true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // An exception occurred
                 DataAvailable = false;

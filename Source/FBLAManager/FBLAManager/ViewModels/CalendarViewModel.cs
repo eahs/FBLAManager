@@ -1,3 +1,4 @@
+using FBLAManager.Helpers;
 using FBLAManager.Models;
 using Newtonsoft.Json;
 using RestSharp;
@@ -30,8 +31,6 @@ namespace FBLAManager.ViewModels
 
             try
             {
-                bool success = false;
-
                 // Make async request to obtain data
                 var client = new RestClient(GlobalConstants.EndPointURL);
                 var request = new RestRequest
@@ -39,6 +38,8 @@ namespace FBLAManager.ViewModels
                     Timeout = GlobalConstants.RequestTimeout
                 };
                 request.Resource = GlobalConstants.MeetingEndPointRequestURL;
+
+                UserManager.Current.AddAuthorization(request);
 
                 var response = await client.ExecuteTaskAsync(request);
 
@@ -64,7 +65,7 @@ namespace FBLAManager.ViewModels
                     IsError = true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // An exception occurred
                 DataAvailable = false;
