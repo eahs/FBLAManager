@@ -71,7 +71,7 @@
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
-                        Text="Create an account to start doing more"
+                        Text="Become an Official FBLA Member"
                         TextColor="{DynamicResource Gray-800}" />
 
                     <!--  Entry to get first name from user  -->
@@ -282,7 +282,7 @@
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
-                        Text="Already have an account?"
+                        Text="Already have a membership?"
                         TextColor="{DynamicResource Gray-800}"
                         VerticalTextAlignment="Center" />
 
