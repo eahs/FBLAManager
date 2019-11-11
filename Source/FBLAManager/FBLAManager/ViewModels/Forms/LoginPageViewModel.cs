@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using FBLAManager.Helpers;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -87,10 +88,12 @@ namespace FBLAManager.ViewModels.Forms
         /// Invoked when the Log In button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void LoginClicked(object obj)
+        private async void LoginClicked(object obj)
         {
-            // Do something
-            MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
+            UserManagerResponseStatus status = await UserManager.Current.Login(Email, Password);
+
+            if (status == UserManagerResponseStatus.Success)
+                MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
         }
 
         /// <summary>
