@@ -180,7 +180,7 @@
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
-                        Text="Don't have an account?"
+                        Text="Don't have a membership?"
                         TextColor="{DynamicResource Gray-900}"
                         VerticalTextAlignment="Center" />
 
