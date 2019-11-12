@@ -73,7 +73,7 @@ namespace FBLAManager.Helpers
                         case "Invalid form data":  return UserManagerResponseStatus.InvalidRequest;
                         case "LoggedIn":           SessionKey = data.Key;
                                                    return UserManagerResponseStatus.Success;
-                        case "InvalidCredentails": return UserManagerResponseStatus.InvalidCredentials;
+                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
                         default:                   return UserManagerResponseStatus.UnknownResponse;
                     }
                 }

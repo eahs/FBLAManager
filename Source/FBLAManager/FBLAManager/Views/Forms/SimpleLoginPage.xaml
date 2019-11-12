@@ -99,10 +99,22 @@
                             TextColor="{DynamicResource Gray-900}" />
                     </border:SfBorder>
 
+                    <!--  Label to display the error message about incorrect password -->
+                    <Label
+                        Grid.Row="4"
+                        Margin="0,8"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Start"
+                        FontSize="Micro"
+                        Style="{StaticResource LabelStyle}"
+                        Text="{Binding ErrorMessage}"
+                        IsVisible="{Binding ErrorIsVisible}"
+                        TextColor="Red" />
+
                     <!--  Forgot password link  -->
                     <Label
                         x:Name="ForgotPasswordLabel"
-                        Grid.Row="4"
+                        Grid.Row="5"
                         Margin="0,16"
                         FontFamily="{StaticResource Montserrat-SemiBold}"
                         FontSize="12"
@@ -116,48 +128,11 @@
 
                     <!--  Login button  -->
                     <buttons:SfButton
-                        Grid.Row="5"
+                        Grid.Row="6"
                         Margin="0,16"
                         Command="{Binding LoginCommand}"
                         Style="{StaticResource SfButtonStyle}"
                         Text="LOG IN" />
-
-                    <!--
-                    <Label
-                        Grid.Row="6"
-                        FontFamily="{StaticResource Montserrat-Medium}"
-                        HorizontalTextAlignment="Center"
-                        Style="{StaticResource LabelStyle}"
-                        Text="Or create an account using social media"
-                        TextColor="{DynamicResource Gray-800}" />  -->
-
-                     <!-- Login through facebook account  
-                    <buttons:SfButton
-                        Grid.Row="7"
-                        Margin="0,16,0,16"
-                        BackgroundColor="{DynamicResource FacebookBlue}"
-                        Command="{Binding SocialMediaLoginCommand}"
-                        CornerRadius="20"
-                        HeightRequest="40">
-                        <buttons:SfButton.Content>
-                            <StackLayout
-                                HorizontalOptions="CenterAndExpand"
-                                Orientation="Horizontal"
-                                VerticalOptions="Center">
-                                <Label
-                                    FontFamily="{StaticResource FontIcons}"
-                                    FontSize="18"
-                                    Text="&#xe735;"
-                                    TextColor="{DynamicResource Gray-White}"
-                                    VerticalTextAlignment="Center" />
-                                <Label
-                                    FontFamily="{StaticResource Montserrat-Medium}"
-                                    FontSize="16"
-                                    Text="Login with Facebook"
-                                    TextColor="{DynamicResource Gray-White}" />
-                            </StackLayout>
-                        </buttons:SfButton.Content>
-                    </buttons:SfButton>  -->
 
                 </Grid>
 
@@ -166,14 +141,6 @@
                     Orientation="Horizontal"
                     Spacing="1"
                     VerticalOptions="End">
-
-                    <!--
-                    <StackLayout.Padding>
-                        <OnIdiom
-                            x:DataType="Thickness"
-                            Default="0, 48, 0, 0"
-                            Phone="0" />
-                    </StackLayout.Padding> -->
 
                     <Label
                         FontFamily="{StaticResource Montserrat-Medium}"
