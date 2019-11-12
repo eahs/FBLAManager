@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using Syncfusion.SfSchedule.XForms;
 using Syncfusion.SfSchedule;
+using FBLAManager.Models;
 using FBLAManager.ViewModels;
+using FBLAManager.Views.Events;
 
 namespace FBLAManager.Views
 {
@@ -21,6 +23,7 @@ namespace FBLAManager.Views
            
 
             schedule.CellTapped += Schedule_CellTapped1; ;
+            //schedule.CellDoubleTapped += Schedule_CellTapped2;
 
             ViewMonth();
 
@@ -33,30 +36,38 @@ namespace FBLAManager.Views
             BindingContext = viewModel = vm;
 
             ViewDay(date);
+
+            schedule.CellTapped += Schedule_CellTapped2;
         }
 
-        /*
-        private DateTime day;
-        public string SelectedDate
-        {
-            set
-            {
-                string dt = value;                
-            }
-            get
-            {
-                return day.ToString();
-            }
-        }
-        */
-
+        //Monthview: Brings up dayview for that date
         private async void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
         {
-            var dateTime = e.Datetime;
-
-            try 
+            if (schedule.ScheduleView == ScheduleView.MonthView)
             {
-                await Shell.Current.Navigation.PushAsync(new CalendarPage(viewModel, dateTime));
+                var dateTime = e.Datetime;
+
+                try
+                {
+                    await Shell.Current.Navigation.PushAsync(new CalendarPage(viewModel, dateTime));
+                }
+
+                catch
+                {
+                    new NotImplementedException();
+                }
+            }
+        }
+
+
+        //Dayview: Brings up event detail page
+        private async void Schedule_CellTapped2(object sender, CellTappedEventArgs e)
+        {
+            Meeting m = (Meeting)e.Appointment;
+
+            try
+            {
+                await Shell.Current.Navigation.PushAsync(new EventDetailPage(m));
             }
 
             catch
@@ -64,6 +75,7 @@ namespace FBLAManager.Views
                 new NotImplementedException();
             }
         }
+
 
         public void ViewDay(DateTime dateTime)
         {
