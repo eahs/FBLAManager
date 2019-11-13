@@ -2,6 +2,7 @@
 using Xamarin.Forms.Xaml;
 using FBLAManager.Models;
 using System;
+using FBLAManager.Helpers;
 
 namespace FBLAManager.Views.Events
 {
@@ -9,6 +10,9 @@ namespace FBLAManager.Views.Events
     
     public partial class MeetingDetailPage : ContentPage
     {
+
+        private Meeting Meeting { get; set; }
+
         public MeetingDetailPage()
         {
             InitializeComponent();
@@ -18,18 +22,30 @@ namespace FBLAManager.Views.Events
         {
             InitializeComponent();
 
+            this.Meeting = meeting;
+
             BindingContext = meeting;
-
+              
         }
 
-        private void SignUp_Pressed(object sender, EventArgs e)
+        private async void SignUp_Pressed(object sender, EventArgs e)
         {
-            //https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/pop-ups
-            //DisplayAlert("Sign up", "Sign up for this event?", "Yes", "No");
+            string code = await DisplayPromptAsync("Sign in", "Enter meeting code");
 
-            DisplayPromptAsync("Sign in", "Enter meeting code");
+            UserManagerResponseStatus status = await UserManager.Current.MeetingSignup(Meeting.MeetingId, code);
+
+            if (status == UserManagerResponseStatus.Success)
+            {
+                await DisplayAlert("Success!", "You have signed in.", "OK");
+            }
+            else if (status == UserManagerResponseStatus.InvalidCredentials)
+            {
+                await DisplayAlert("Invalid code", "The meeting code you input was incorrect.", "OK");
+            }
+
         }
 
+        
         
 
     }

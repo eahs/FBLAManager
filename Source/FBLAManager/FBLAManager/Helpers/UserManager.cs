@@ -16,7 +16,8 @@ namespace FBLAManager.Helpers
         Success,
         InvalidCredentials,
         UnknownResponse,
-        InvalidRequest
+        InvalidRequest,
+        NotLoggedIn
     }
 
     public class UserManagerResponse
@@ -46,6 +47,43 @@ namespace FBLAManager.Helpers
             request.AddHeader("auth", SessionKey);
         }
 
+        public async Task<UserManagerResponseStatus> MeetingSignup(int meetingId, string password = "")
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.MeetingSignupEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.POST
+            };
+
+            request.AddParameter("meetingid", meetingId);
+            request.AddParameter("password", password);
+
+            AddAuthorization(request);
+
+            var response = await client.ExecuteTaskAsync(request);
+
+            if (response.Content != null)
+            {
+                UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                if (data.Status != null)
+                {
+                    switch (data.Status)
+                    {
+                        case "NotLoggedIn": return UserManagerResponseStatus.NotLoggedIn;
+                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
+                        case "Success": return UserManagerResponseStatus.Success;
+                        default: return UserManagerResponseStatus.UnknownResponse;
+                    }
+                }
+            }
+
+            return UserManagerResponseStatus.InvalidRequest;
+        }
+
         public async Task<UserManagerResponseStatus> Login (string email, string password)
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
@@ -73,7 +111,7 @@ namespace FBLAManager.Helpers
                         case "Invalid form data":  return UserManagerResponseStatus.InvalidRequest;
                         case "LoggedIn":           SessionKey = data.Key;
                                                    return UserManagerResponseStatus.Success;
-                        case "InvalidCredentails": return UserManagerResponseStatus.InvalidCredentials;
+                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
                         default:                   return UserManagerResponseStatus.UnknownResponse;
                     }
                 }
