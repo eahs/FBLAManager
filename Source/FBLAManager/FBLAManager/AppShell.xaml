@@ -96,7 +96,16 @@
     </FlyoutItem>
 
     <FlyoutItem Title="About" Icon="tab_about.png">
-        <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
+
+        <Tab Title="About Us"
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
+        </Tab>
+        <Tab Title="QandA "
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
+        </Tab>
+
     </FlyoutItem>
 
    <FlyoutItem Title="Contact Us" Icon="contact.png">

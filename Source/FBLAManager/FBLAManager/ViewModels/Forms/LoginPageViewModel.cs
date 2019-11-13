@@ -125,12 +125,19 @@ namespace FBLAManager.ViewModels.Forms
         /// <param name="obj">The Object</param>
         private async void LoginClicked(object obj)
         {
-            UserManagerResponseStatus status = await UserManager.Current.Login(Email, Password);
+            bool valid = true;
 
-            if (status == UserManagerResponseStatus.Success)
-                MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
-            else if (status == UserManagerResponseStatus.InvalidCredentials)
-                ErrorIsVisible = true;
+            // TODO: LoginClicked error checks
+
+            if (valid)
+            {
+                UserManagerResponseStatus status = await UserManager.Current.Login(Email, Password);
+
+                if (status == UserManagerResponseStatus.Success)
+                    MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
+                else if (status == UserManagerResponseStatus.InvalidCredentials)
+                    ErrorIsVisible = true;
+            }
         }
 
         /// <summary>
