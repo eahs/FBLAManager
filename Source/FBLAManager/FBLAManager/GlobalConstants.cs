@@ -11,6 +11,7 @@ namespace FBLAManager
         public static readonly int RequestTimeout = 10 * 1000; // In milliseconds, time to return request
 
         public static readonly string MeetingEndPointRequestURL         = "/api/Meetings";
+        public static readonly string MeetingSignupEndPointRequestURL   = "/api/MeetingSignup";
         public static readonly string OfficerEndPointRequestURL         = "/api/Officers?level={0}";
         public static readonly string CreateMemberEndPointRequestURL    = "/api/CreateMember";
         public static readonly string LoginEndPointRequestURL           = "/api/Login";
