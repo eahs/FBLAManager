@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace FBLAManager.ViewModels
+namespace FBLAManager.ViewModels.AboutUs
 {
     public class QandAViewModel : BaseViewModel
     {

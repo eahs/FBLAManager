@@ -5,15 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.AboutUs.QandAPage"
-             xmlns:local="clr-namespace:FBLAManager.ViewModels.AboutUs"
              Title="Q and A">
 
-    
-    <ContentPage.Content>
+
         <StackLayout>
             <ListView
                 x:Name="QandAListView"
-                ItemsSource="{Binding QandA}"
+                ItemsSource="{Binding QandAs}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
                 RefreshCommand="{Binding LoadItemsCommand}"
@@ -46,5 +44,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
+
 </ContentPage>
