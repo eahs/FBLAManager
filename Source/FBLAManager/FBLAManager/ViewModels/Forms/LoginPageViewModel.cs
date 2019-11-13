@@ -14,6 +14,8 @@ namespace FBLAManager.ViewModels.Forms
         #region Fields
 
         private string password;
+        private bool errorVisible = false;
+        private string errorMessage = "Password was incorrect.";
 
         #endregion
 
@@ -56,6 +58,39 @@ namespace FBLAManager.ViewModels.Forms
             }
         }
 
+        public bool ErrorIsVisible
+        {
+            get
+            {
+                return this.errorVisible;
+            }
+
+            set
+            {
+                this.errorVisible = value;
+                OnPropertyChanged("ErrorIsVisible");
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return this.errorMessage;
+            }
+
+            set
+            {
+                if (this.errorMessage == value)
+                {
+                    return;
+                }
+
+                this.errorMessage = value;
+                this.OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Command
@@ -94,6 +129,8 @@ namespace FBLAManager.ViewModels.Forms
 
             if (status == UserManagerResponseStatus.Success)
                 MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
+            else if (status == UserManagerResponseStatus.InvalidCredentials)
+                ErrorIsVisible = true;
         }
 
         /// <summary>
