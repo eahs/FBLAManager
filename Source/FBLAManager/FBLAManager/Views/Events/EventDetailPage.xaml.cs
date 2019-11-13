@@ -19,6 +19,8 @@ namespace FBLAManager.Views.Events
         {
             InitializeComponent();
 
+            this.Meeting = meeting;
+
             BindingContext = meeting;
         }
 
