@@ -14,6 +14,7 @@ namespace FBLAManager.Views.Events
             InitializeComponent();
 
             BindingContext = viewModel = new MeetingsViewModel(MeetingType.Meeting);
+
         }
 
         private async void Meetings_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)

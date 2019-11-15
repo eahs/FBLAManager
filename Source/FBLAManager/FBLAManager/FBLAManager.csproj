@@ -11,19 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3-beta2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="RestSharp" Version="106.6.10" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.26" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.26" />
-    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.26" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.26" />
-    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.26" />
-    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.26" />
-    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.26" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.27" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.936621-pre1" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991210-pre2" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 

@@ -23,7 +23,8 @@ namespace FBLAManager.Helpers
     public class UserManagerResponse
     {
         public string Status { get; set; }
-        public string Key { get; set; }
+        public string Key { get; set; }        
+        public Meeting Meeting { get; set; }
     }
 
     public class UserManager
@@ -47,7 +48,7 @@ namespace FBLAManager.Helpers
             request.AddHeader("auth", SessionKey);
         }
 
-        public async Task<UserManagerResponseStatus> MeetingSignup(int meetingId, string password = "")
+        public async Task<UserManagerResponseStatus> MeetingSignup(Meeting meeting, string password = "")
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
 
@@ -58,7 +59,7 @@ namespace FBLAManager.Helpers
                 Method = Method.POST
             };
 
-            request.AddParameter("meetingid", meetingId);
+            request.AddParameter("meetingid", meeting.MeetingId);
             request.AddParameter("password", password);
 
             AddAuthorization(request);
@@ -75,7 +76,30 @@ namespace FBLAManager.Helpers
                     {
                         case "NotLoggedIn": return UserManagerResponseStatus.NotLoggedIn;
                         case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
-                        case "Success": return UserManagerResponseStatus.Success;
+                        case "Success":
+
+                            if (data.Meeting != null)
+                            {
+                                meeting.EventName = data.Meeting.EventName;
+                                meeting.AllDay = data.Meeting.AllDay;
+                                meeting.Capacity = data.Meeting.Capacity;
+                                meeting.Color = data.Meeting.Color;
+                                meeting.ContactId = data.Meeting.ContactId;
+                                meeting.Description = data.Meeting.Description;
+                                meeting.From = data.Meeting.From;
+                                meeting.MeetingId = data.Meeting.MeetingId;
+                                meeting.Organizer = data.Meeting.Organizer;
+                                meeting.To = data.Meeting.To;
+                                meeting.Type = data.Meeting.Type;
+                                meeting.MeetingAttendees.Clear();
+                                foreach (var attendee in data.Meeting.MeetingAttendees)
+                                {
+                                    meeting.MeetingAttendees.Add(attendee);
+                                }
+                                meeting.OnPropertyChanged("MeetingAttendees");
+                            }
+
+                            return UserManagerResponseStatus.Success;
                         default: return UserManagerResponseStatus.UnknownResponse;
                     }
                 }

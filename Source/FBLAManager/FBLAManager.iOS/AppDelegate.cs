@@ -8,6 +8,7 @@ using Syncfusion.ListView.XForms.iOS;
 using Foundation;
 using UIKit;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
+using Syncfusion.SfPullToRefresh.XForms.iOS;
 
 namespace FBLAManager.iOS
 {
@@ -38,6 +39,7 @@ namespace FBLAManager.iOS
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
+
             SfListViewRenderer.Init();
 
             LoadApplication(new App());

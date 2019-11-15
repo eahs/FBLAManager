@@ -28,7 +28,7 @@ namespace FBLAManager.Views.Events
         {
             if (await DisplayAlert("Sign up", "Sign up for this event?", "Yes", "No"))
             {
-                UserManagerResponseStatus status = await UserManager.Current.MeetingSignup(Meeting.MeetingId);
+                UserManagerResponseStatus status = await UserManager.Current.MeetingSignup(Meeting);
 
                 if (status == UserManagerResponseStatus.Success)
                 {

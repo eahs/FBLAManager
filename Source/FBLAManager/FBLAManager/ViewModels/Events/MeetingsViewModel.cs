@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
+using System.Linq;
 
 using Xamarin.Forms;
 using FBLAManager.Helpers;
@@ -48,7 +49,32 @@ namespace FBLAManager.ViewModels
                     {
                         if (meeting.Type == type)
                         {
-                            Meetings.Add(meeting);
+                            var existingMeeting = Meetings.FirstOrDefault(m => m.MeetingId == meeting.MeetingId);
+
+                            if (existingMeeting != null)
+                            {
+                                existingMeeting.AllDay = meeting.AllDay;
+                                existingMeeting.Capacity = meeting.Capacity;
+                                existingMeeting.Color = meeting.Color;
+                                existingMeeting.ContactId = meeting.ContactId;
+                                existingMeeting.Description = meeting.Description;
+                                existingMeeting.EventName = meeting.EventName;
+                                existingMeeting.From = meeting.From;
+                                existingMeeting.MeetingId = meeting.MeetingId;
+                                existingMeeting.Organizer = meeting.Organizer;
+                                existingMeeting.To = meeting.To;
+                                existingMeeting.Type = meeting.Type;
+                                existingMeeting.MeetingAttendees.Clear();
+                                foreach (var attendee in meeting.MeetingAttendees)
+                                {
+                                    existingMeeting.MeetingAttendees.Add(attendee);
+                                }
+                                existingMeeting.OnPropertyChanged("MeetingAttendees");
+                            }
+                            else
+                            {
+                                Meetings.Add(meeting);
+                            }
                         }
                         
                     }

@@ -32,11 +32,12 @@ namespace FBLAManager.Views.Events
         {
             string code = await DisplayPromptAsync("Sign in", "Enter meeting code");
 
-            UserManagerResponseStatus status = await UserManager.Current.MeetingSignup(Meeting.MeetingId, code);
+            UserManagerResponseStatus status = await UserManager.Current.MeetingSignup(Meeting, code);
 
             if (status == UserManagerResponseStatus.Success)
             {
                 await DisplayAlert("Success!", "You have signed in.", "OK");
+                
             }
             else if (status == UserManagerResponseStatus.InvalidCredentials)
             {
