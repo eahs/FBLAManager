@@ -9,27 +9,36 @@
              Title="Community Service">
 
 
-    <syncfusion:SfListView x:Name="Meetings" 
-                   ItemsSource="{Binding Meetings}"
-                   ItemTapped="Meetings_ItemTapped"
-                   ItemSize="100">
+    <ListView x:Name="Meetings" 
+                ItemsSource="{Binding Meetings}"
+                ItemTapped="Meetings_ItemTapped"
+                IsPullToRefreshEnabled="True"
+                IsRefreshing="{Binding IsRefreshing}"
+                RefreshCommand="{Binding RefreshCommand}"
+                HasUnevenRows="True"
+                >
 
-        <syncfusion:SfListView.ItemTemplate>
+        <ListView.ItemTemplate>
             <DataTemplate>
-
-                <Frame x:Name="frame" CornerRadius="10" 
-                       BackgroundColor="White"
-                       OutlineColor="LightGray"
-                       Margin="3, 4">
+                <ViewCell>
                     <StackLayout>
-                        <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="21" />
-                        <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="18"></Label>
-                        <Label Text="{Binding ContactType}" />
+                        <Frame x:Name="frame" CornerRadius="10" 
+                                    BackgroundColor="White"
+                                    OutlineColor="LightGray"
+                                    Margin="3, 4"
+                                    >
+                            <StackLayout>
+                                <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="21" />
+                                <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="18"></Label>
+                                <Label Text="{Binding Type}" />
+                            </StackLayout>
+                        </Frame>
                     </StackLayout>
-                </Frame>
+                </ViewCell>
 
             </DataTemplate>
-        </syncfusion:SfListView.ItemTemplate>
-    </syncfusion:SfListView>
+        </ListView.ItemTemplate>
+
+    </ListView>
 
 </ContentPage>

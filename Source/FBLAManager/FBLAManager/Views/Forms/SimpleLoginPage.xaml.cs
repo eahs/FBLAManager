@@ -17,5 +17,6 @@ namespace FBLAManager.Views.Forms
         {
             this.InitializeComponent();
         }
+
     }
 }

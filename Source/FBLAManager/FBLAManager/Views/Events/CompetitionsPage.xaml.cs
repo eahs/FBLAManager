@@ -17,9 +17,12 @@ namespace FBLAManager.Views.Events
         }
 
 
-        private async void Meetings_ItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs e)
+        private async void Meetings_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Meeting m = (Meeting)e.ItemData;
+            Meeting m = (Meeting)e.Item;
+
+            if (Meetings.SelectedItem != null)
+                Meetings.SelectedItem = null;
 
             var meetingDetailPage = new EventDetailPage(m);
 

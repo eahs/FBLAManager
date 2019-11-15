@@ -9,6 +9,7 @@ using System.Linq;
 
 using Xamarin.Forms;
 using FBLAManager.Helpers;
+using System.Windows.Input;
 
 namespace FBLAManager.ViewModels
 {
@@ -23,7 +24,34 @@ namespace FBLAManager.ViewModels
             type = meetingType;
 
             LoadItemsCommand.Execute(null);
-        } 
+        }
+
+        private RelayCommand refreshItemsCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return refreshItemsCommand ?? (refreshItemsCommand = new RelayCommand(async () => await ExecuteLoadItemsCommand()));
+            }
+        }
+
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
+                OnPropertyChanged("IsRefreshing");
+            }
+        }
+
+        protected override async Task ExecuteLoadItemsCommand()
+        {
+            IsRefreshing = true;
+            await base.ExecuteLoadItemsCommand();
+            IsRefreshing = false;
+        }
 
         protected override async Task LoadItemsAsync()
         {

@@ -21,9 +21,9 @@
         </syncfusion:SfSchedule>
 
         <busyindicator:SfBusyIndicator x:Name="busyindicator" 
-                                       AnimationType="ZoomingTarget" 
-                                       ViewBoxWidth = "64" 
-                                       ViewBoxHeight="64" 
+                                       AnimationType="SlicedCircle" 
+                                       ViewBoxWidth = "32" 
+                                       ViewBoxHeight="32" 
                                        TextColor="LightGray" 
                                        IsBusy="{Binding IsBusy}"/>
 

@@ -16,6 +16,7 @@ namespace FBLAManager.ViewModels.Forms
         private string password;
         private bool errorVisible = false;
         private string errorMessage = "Password was incorrect.";
+        private bool isBusy = false;
 
         #endregion
 
@@ -56,6 +57,12 @@ namespace FBLAManager.ViewModels.Forms
                 this.password = value;
                 this.OnPropertyChanged();
             }
+        }
+
+        public bool IsBusy
+        {
+            get { return this.isBusy; }
+            set { this.isBusy = value; OnPropertyChanged("IsBusy"); }
         }
 
         public bool ErrorIsVisible
@@ -127,6 +134,10 @@ namespace FBLAManager.ViewModels.Forms
         {
             bool valid = true;
 
+            if (IsBusy) return;
+
+            IsBusy = true;
+
             // TODO: LoginClicked error checks
 
             if (valid)
@@ -138,6 +149,8 @@ namespace FBLAManager.ViewModels.Forms
                 else if (status == UserManagerResponseStatus.InvalidCredentials)
                     ErrorIsVisible = true;
             }
+
+            IsBusy = false;
         }
 
         /// <summary>
