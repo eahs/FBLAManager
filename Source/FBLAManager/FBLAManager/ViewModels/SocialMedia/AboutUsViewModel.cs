@@ -20,8 +20,6 @@ namespace FBLAManager.ViewModels.SocialMedia
 
         private string productDescription;
 
-        private string productVersion;
-
         private string productIcon;
 
         private string cardsTopImage;
@@ -35,26 +33,36 @@ namespace FBLAManager.ViewModels.SocialMedia
         /// </summary>
         public AboutUsViewModel()
         {
-            this.productDescription =
-                "Situated in the heart of Smith-town, Acme Products, Inc., has a long-standing tradition of selling the best products while providing the fastest service on the market. Since 1952, we’ve helped our customers identify their needs, understand their wants, and capture their dreams.";
-            this.productIcon =  "Icon.png";
-            this.productVersion = "1.0";
-            this.cardsTopImage =  "Mask.png";
+            productDescription = "temp";
+                
+            cardsTopImage =  "Mask.png";
 
-            this.EmployeeDetails = new ObservableCollection<AboutUsModel>
+            EmployeeDetails = new ObservableCollection<AboutUsModel>
             {
                 new AboutUsModel
                 {
-                    EmployeeName = "Twitter",
-                    Image =  App.BaseImageUrl + "TwitterIcon.png",
+                    EmployeeName = "Easton Twitter",
+                    Image = "TwitterIcon.png",                   
                     Designation = "https://twitter.com/eafbla?lang=en"
                 },
                 new AboutUsModel
                 {
-                    EmployeeName = "Instagram",
-                    Image = App.BaseImageUrl +   "ProfileImage10.png",
+                    EmployeeName = "Easton Instagram",
+                    Image = "InstagramIcon.png",
                     Designation = "https://www.instagram.com/eastonareafbla/?igshid=ipviirou3gr8"
                 },
+                new AboutUsModel
+                {
+                    EmployeeName = "PA Twitter",
+                    Image = "TwitterIcon.png",
+                    Designation = "http://https://twitter.com/pafbla?lang=en"
+                },
+                new AboutUsModel
+                {
+                    EmployeeName = "PA Instagram",
+                    Image = "InstagramIcon.png",
+                    Designation = "https://www.instagram.com/pennsylvaniafbla/?hl=en"
+                }
                 
             };
 
@@ -128,23 +136,7 @@ namespace FBLAManager.ViewModels.SocialMedia
             }
         }
 
-        /// <summary>
-        /// Gets or sets the product version.
-        /// </summary>
-        /// <value>The product version.</value>
-        public string ProductVersion
-        {
-            get
-            {
-                return this.productVersion;
-            }
-
-            set
-            {
-                this.productVersion = value;
-                this.OnPropertyChanged();
-            }
-        }
+        
 
         /// <summary>
         /// Gets or sets the employee details.

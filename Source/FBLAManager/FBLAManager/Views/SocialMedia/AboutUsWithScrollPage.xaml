@@ -20,23 +20,30 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <Grid RowSpacing="0" VerticalOptions="Center">
+            
+            
+            <Grid RowSpacing="0" VerticalOptions="StartAndExpand">
                 <Grid.BindingContext>
                     <viewModel:AboutUsViewModel />
                 </Grid.BindingContext>
+                
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!--  To display the team member's details  -->
                 <listView:SfListView
-                x:Name="SocialMediaLinks"
-                Grid.Row="1"
-                AutoFitMode="Height"
+                
+                Grid.Row="0"
+                AutoFitMode="DynamicHeight"
                 ItemsSource="{Binding EmployeeDetails}"
                 SelectionMode="None"
                 TapCommand="{Binding ItemSelectedCommand}"
+                HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Start">
 
                     <listView:SfListView.HeaderTemplate>
@@ -62,15 +69,13 @@
                                 Margin="0,0,0,8"
                                 BorderWidth="0"
                                 CornerRadius="32"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center">
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="StartAndExpand">
                                     <Image
                                     BackgroundColor="{DynamicResource Gray}"
                                     Style="{StaticResource AboutUsImageStyle}" >
                                         <Image.Source>
-                                            <UriImageSource Uri="{Binding Image}" 
-			                                 CacheValidity="14" 
-			                                 CachingEnabled="true"/>
+                                            <FileImageSource File="{Binding Image}" />
                                         </Image.Source>
                                     </Image>
                                 </border:SfBorder>
