@@ -47,23 +47,57 @@ namespace FBLAManager.ViewModels.SocialMedia
                 },
                 new AboutUsModel
                 {
+                    EmployeeName = "PA Twitter",
+                    Image = "TwitterIcon.png",
+                    Designation = "https://twitter.com/pafbla?lang=en"
+                },
+                new AboutUsModel 
+                {
+                    EmployeeName = "National Twitter",
+                    Image = "TwitterIcon.png",
+                    Designation = "https://twitter.com/fbla_national?lang=en"
+                },
+                new AboutUsModel 
+                {
                     EmployeeName = "Easton Instagram",
                     Image = "InstagramIcon.png",
                     Designation = "https://www.instagram.com/eastonareafbla/?igshid=ipviirou3gr8"
                 },
-                new AboutUsModel
-                {
-                    EmployeeName = "PA Twitter",
-                    Image = "TwitterIcon.png",
-                    Designation = "http://https://twitter.com/pafbla?lang=en"
-                },
+                
                 new AboutUsModel
                 {
                     EmployeeName = "PA Instagram",
                     Image = "InstagramIcon.png",
                     Designation = "https://www.instagram.com/pennsylvaniafbla/?hl=en"
+                },
+                new AboutUsModel 
+                {
+                    EmployeeName = "National Instagram",
+                    Image = "InstagramIcon.png",
+                    Designation = "https://www.instagram.com/fbla_pbl/?hl=en"
+                },
+                new AboutUsModel //change designation
+                {
+                    EmployeeName = "Local Facebook",
+                    Image = "BiggerFacebook.png",
+                    Designation = "https://www.instagram.com/fbla_pbl/?hl=en"
+                },
+                new AboutUsModel
+                {
+                    EmployeeName = "State Facebook",
+                    Image = "BiggerFacebook.png",
+                    Designation = "https://www.facebook.com/pafbla/"
+                },
+                new AboutUsModel
+                {
+                    EmployeeName = "National Facebook",
+                    Image = "BiggerFacebook.png",
+                    Designation = "https://www.facebook.com/FutureBusinessLeaders/"
                 }
-                
+
+
+
+
             };
 
             this.ItemSelectedCommand = new Command(this.ItemSelected);
