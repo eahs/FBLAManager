@@ -108,34 +108,37 @@
 
     </FlyoutItem>
 
-   <FlyoutItem Title="Contact Us" Icon="contact.png">
-
-       <Tab Title="Officer Teams"
+    <FlyoutItem Title="Officers" Icon="contact.png">
+        <Tab Title="Officer Teams"
              Icon="test.png">
+
+            <ShellContent Title="Local Officers"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
+
+            <ShellContent Title="State Officers"
+                          Icon="test.png"
+                          ContentTemplate="{DataTemplate officers:StateOfficersPage}" />
 
             <ShellContent Title="National Officers"
                           Icon="test.png"
                           ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
 
-            <ShellContent Title="State Officers"
-                          Icon="test.png"
-                          ContentTemplate="{DataTemplate officers:StateOfficersPage}" />
-           
-            <ShellContent Title="Local Officers"
-                          Icon="test.png"
-                          ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
 
         </Tab>
+    </FlyoutItem>
+
+        <FlyoutItem Title="Contact Us" Icon="contact.png">
 
        
-       <Tab Title="Social Media">
-            <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
-        </Tab>
+           <Tab Title="Social Media">
+                <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
+            </Tab>
        
 
-        <Tab Title="Contact Us" Icon="paw.png">
-            <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
-        </Tab>
+            <Tab Title="Contact Us" Icon="paw.png">
+                <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
+            </Tab>
 
     </FlyoutItem>
 
