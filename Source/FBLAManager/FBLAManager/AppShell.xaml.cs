@@ -29,15 +29,16 @@ namespace FBLAManager
 
             var dest = e.Target.Location.ToString();
 
-            if (await DisplayAlert("Confirm", "Do you want to log out?", "Yes", "No") && dest == "//logout/logoutpage")
-            {
-                
-                
-            }
-            else
+            if (dest == "//logout/logoutpage")
             {
                 e.Cancel();
+
+                if (await DisplayAlert("Confirm", "Are you sure you want to log out?", "Yes", "No"))
+                {
+                    await Shell.Current.GoToAsync("//logout/logoutpage?confirm=true");
+                }
             }
+
            
         }
     }
