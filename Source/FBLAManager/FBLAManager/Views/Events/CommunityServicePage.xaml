@@ -30,7 +30,6 @@
                             <StackLayout>
                                 <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="21" />
                                 <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="18"></Label>
-                                <Label Text="{Binding Type}" />
                             </StackLayout>
                         </Frame>
                     </StackLayout>
