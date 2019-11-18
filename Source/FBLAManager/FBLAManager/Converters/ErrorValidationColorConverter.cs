@@ -18,7 +18,7 @@ namespace FBLAManager.Converters
         /// <summary>
         /// Identifies the simple and gradient login pages.
         /// </summary>
-        public string PageVariantParameter { get; set; }
+        public string PageVariantParameter { get; set; } 
 
         /// <summary>
         /// This method is used to convert the bool to color.
@@ -28,9 +28,11 @@ namespace FBLAManager.Converters
         /// <param name="parameter">Gets the parameter.</param>
         /// <param name="culture">Gets the culture.</param>
         /// <returns>Returns the color.</returns>
+        
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // For Gradient login page 
+            
             if (PageVariantParameter == "0")
             {
                 var emailEntry = parameter as BorderlessEntry;
@@ -51,6 +53,7 @@ namespace FBLAManager.Converters
                 return bindingContext.IsInvalidEmail ? Color.FromHex("#FF4A4A") : Color.Transparent;
 
             }
+            
             // For Simple login page
             else
             {

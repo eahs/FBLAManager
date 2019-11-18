@@ -51,6 +51,14 @@ namespace FBLAManager.ViewModels.Forms
             }
         }
 
+        public string LoginButtonStyleKey
+        {
+            get
+            {
+                return ""; 
+            }
+        }
+
         /// <summary>
         /// Gets or sets a value that indicates whether the entered email is valid or invalid.
         /// </summary>

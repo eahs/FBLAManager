@@ -16,6 +16,7 @@ namespace FBLAManager.Views.Forms
         public SimpleLoginPage()
         {
             this.InitializeComponent();
+
         }
 
     }

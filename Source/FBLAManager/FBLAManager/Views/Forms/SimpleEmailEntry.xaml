@@ -37,21 +37,12 @@
                         Text="{Binding Email}"
                         TextColor="{DynamicResource Gray-900}" />
 
-                    <Label
-                        Margin="15,0"
-                        FontFamily="{StaticResource FontIcons}"
-                        FontSize="18"
-                        HorizontalOptions="EndAndExpand"
-                        HorizontalTextAlignment="End"
-                        IsVisible="{Binding Path=IsVisible, Source={x:Reference ValidationLabel}}"
-                        Text="&#xe707;"
-                        TextColor="{DynamicResource Red}"
-                        VerticalOptions="Center" />
 
 
                 </Grid>
             </border:SfBorder>
 
+            <!--
             <Label
                 x:Name="ValidationLabel"
                 Margin="15,-5,0,0"
@@ -60,7 +51,7 @@
                 Text="Please enter the valid e-mail"
                 TextColor="{DynamicResource Red}"
                 VerticalOptions="FillAndExpand" />
-
+            -->
         </StackLayout>
     </ContentView.Content>
 </ContentView>

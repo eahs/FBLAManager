@@ -96,23 +96,24 @@
                             <control:BorderlessEntry
                                 x:Name="PasswordEntry"
                                 IsPassword="True"
-                                Placeholder="Password"
+                                Placeholder="Password"                                
                                 PlaceholderColor="{DynamicResource Gray-700}"
                                 Style="{StaticResource EntryStyle}"
                                 Text="{Binding Password}"
                                 TextColor="{DynamicResource Gray-900}" />
                         </border:SfBorder>
 
-                        <!--  Label to display the error message about incorrect password -->
+                        <!--  Label to display the error message  -->
                         <Label
                             Grid.Row="4"
                             Margin="0,8"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             HorizontalTextAlignment="Start"
-                            FontSize="Micro"
+                            FontSize="Medium"
                             Style="{StaticResource LabelStyle}"
                             Text="{Binding ErrorMessage}"
                             IsVisible="{Binding ErrorIsVisible}"
+                            HorizontalOptions="CenterAndExpand"
                             TextColor="Red" />
 
                         <!--  Forgot password link  -->

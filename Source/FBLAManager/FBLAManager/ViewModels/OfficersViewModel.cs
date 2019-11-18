@@ -1,4 +1,5 @@
-﻿using FBLAManager.Models;
+﻿using FBLAManager.Helpers;
+using FBLAManager.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -36,6 +37,7 @@ namespace FBLAManager.ViewModels
                     Timeout = GlobalConstants.RequestTimeout
                 };
                 request.Resource = String.Format(GlobalConstants.OfficerEndPointRequestURL, Level);
+                UserManager.Current.AddAuthorization(request);
 
                 var response = await client.ExecuteTaskAsync(request);
 

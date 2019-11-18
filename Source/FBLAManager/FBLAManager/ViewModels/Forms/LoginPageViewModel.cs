@@ -1,4 +1,5 @@
 ﻿using FBLAManager.Helpers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
@@ -15,7 +16,7 @@ namespace FBLAManager.ViewModels.Forms
 
         private string password;
         private bool errorVisible = false;
-        private string errorMessage = "Password was incorrect.";
+        private string errorMessage = "";
         private bool isBusy = false;
 
         #endregion
@@ -132,22 +133,36 @@ namespace FBLAManager.ViewModels.Forms
         /// <param name="obj">The Object</param>
         private async void LoginClicked(object obj)
         {
-            bool valid = true;
-
             if (IsBusy) return;
 
             IsBusy = true;
 
-            // TODO: LoginClicked error checks
+            var res = App.Current.Resources.MergedDictionaries;
 
-            if (valid)
+            // TODO: LoginClicked error checks
+            if (Password == "" || Email == "")
+            { 
+                ErrorIsVisible = true;
+                ErrorMessage = "Invalid Credentials";
+            }
+
+            if (IsInvalidEmail)
+            {
+                ErrorIsVisible = true;
+                ErrorMessage = "Email is invalid";
+            }
+
+            if (!IsInvalidEmail)
             {
                 UserManagerResponseStatus status = await UserManager.Current.Login(Email, Password);
 
                 if (status == UserManagerResponseStatus.Success)
                     MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
                 else if (status == UserManagerResponseStatus.InvalidCredentials)
+                {
                     ErrorIsVisible = true;
+                    ErrorMessage= "Password was incorrect.";
+                }
             }
 
             IsBusy = false;
