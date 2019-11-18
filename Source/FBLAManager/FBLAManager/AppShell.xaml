@@ -108,7 +108,7 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Officers" Icon="contact.png">
+    <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
         <Tab Title="Officer Teams"
              Icon="test.png">
 
