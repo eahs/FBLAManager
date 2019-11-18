@@ -42,25 +42,25 @@ namespace FBLAManager.ViewModels.SocialMedia
                 new AboutUsModel
                 {
                     EmployeeName = "Easton Twitter",
-                    Image = App.BaseImageUrl + "TwitterIcon.png",
+                    Image = "TwitterIcon.png",                   
                     Designation = "https://twitter.com/eafbla?lang=en"
                 },
                 new AboutUsModel
                 {
                     EmployeeName = "Easton Instagram",
-                    Image = App.BaseImageUrl +   "ProfileImage10.png",
+                    Image = "InstagramIcon.png",
                     Designation = "https://www.instagram.com/eastonareafbla/?igshid=ipviirou3gr8"
                 },
                 new AboutUsModel
                 {
                     EmployeeName = "PA Twitter",
-                    Image = App.BaseImageUrl + "TwitterIcon.png",
+                    Image = "TwitterIcon.png",
                     Designation = "http://https://twitter.com/pafbla?lang=en"
                 },
                 new AboutUsModel
                 {
                     EmployeeName = "PA Instagram",
-                    Image = App.BaseImageUrl + "InstagramIcon.png",
+                    Image = "InstagramIcon.png",
                     Designation = "https://www.instagram.com/pennsylvaniafbla/?hl=en"
                 }
                 
