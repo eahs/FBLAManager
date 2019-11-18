@@ -108,7 +108,7 @@
 
     </FlyoutItem>
 
-   <FlyoutItem Title="Contact Us" Icon="contact.png">
+   <FlyoutItem Title="Contact Us" Icon="contact.png" Route="contact">
 
        <Tab Title="Officer Teams"
              Icon="test.png">
@@ -145,8 +145,8 @@
     </FlyoutItem>
     -->
 
-    <FlyoutItem Title="Log Out" Icon="exit.png">
-        <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" />
+    <FlyoutItem Title="Log Out" Icon="exit.png" Route="logout">
+        <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" Route="logoutpage"/>
     </FlyoutItem>
 
     <!--

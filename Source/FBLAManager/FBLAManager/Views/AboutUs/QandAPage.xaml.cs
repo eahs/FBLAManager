@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FBLAManager.ViewModels.AboutUs;
+﻿using FBLAManager.ViewModels.AboutUs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,7 +13,7 @@ namespace FBLAManager.Views.AboutUs
         {
             InitializeComponent();
 
-            this.BindingContext = viewModel = new QandAViewModel();
+            BindingContext = viewModel = new QandAViewModel();
         }
     }
 }

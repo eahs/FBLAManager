@@ -20,12 +20,25 @@ namespace FBLAManager
             Navigating += AppShell_Navigating;
         }
 
-        private void AppShell_Navigating(object sender, ShellNavigatingEventArgs e)
+        private async void AppShell_Navigating(object sender, ShellNavigatingEventArgs e)
         {
             //if (e.Source == ShellNavigationSource.Pop)
             //{
             //    e.Cancel();
             // }
+
+            var dest = e.Target.Location.ToString();
+
+            if (await DisplayAlert("Confirm", "Do you want to log out?", "Yes", "No") && dest == "//logout/logoutpage")
+            {
+                
+                
+            }
+            else
+            {
+                e.Cancel();
+            }
+           
         }
     }
 }
