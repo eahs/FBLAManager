@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              mc:Ignorable="d"
-             BackgroundColor="FloralWhite"
+             BackgroundColor="White"
              x:Class="FBLAManager.Views.Events.MeetingDetailPage">
 
     <ContentPage.Content>
@@ -30,7 +30,6 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-
             <Image
                     Grid.Row="0"
                     Grid.ColumnSpan="3"
@@ -45,10 +44,11 @@
                 </Image.Source>
             </Image>
 
-            <Label Grid.Row="0" Grid.Column="0" Text="{Binding EventName}"  d:Text="Meeting name" FontSize="Large" TextColor="White" HorizontalTextAlignment="Center"
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding EventName}"  d:Text="Meeting name" 
+                   FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" 
                    Margin="0, 70, 20, 0"/>
 
-            <Label Grid.Row="0" Grid.Column="0" Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"
                    Margin="10, 120, 0, 0"/>
 
             <Label Grid.Row="0" Grid.Column="1" Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"
@@ -57,42 +57,36 @@
             <Label Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Description}" d:Text="Meeting description" TextColor="Black" FontSize="Medium" 
                    Margin="10, 0, 0, 0"/>
 
-            <Button Grid.Row ="2" Grid.ColumnSpan="3" Pressed="SignUp_Pressed" BackgroundColor="CadetBlue"
+            <Button Grid.Row ="2" Grid.ColumnSpan="3" Pressed="SignUp_Pressed" BackgroundColor="{Binding XamColor}"
                     Text="Sign In" TextColor="White" FontSize="Medium" 
                     CornerRadius="30"
                     Margin="125, 30, 125, 30"/>
 
             <Label Grid.Row="3" Grid.ColumnSpan="3" Text="Member(s) Attending:" TextColor="Black" FontSize="Medium"
                    Margin="15, 0, 0, 0"/>
-            
+
             <syncfusion:SfListView 
-                   x:Name="MeetingAttendees" 
                    ItemsSource="{Binding MeetingAttendees}"
                    ItemSize="30"
-                   Grid.Row="4"
-                   Grid.ColumnSpan="2">
+                   Grid.Row="3"
+                   Margin="0, 25, 0, 0">
 
                 <syncfusion:SfListView.ItemTemplate>
                     <DataTemplate>
-
-                            <Frame x:Name="frame" CornerRadius="3" 
-                            BackgroundColor="White"
-                            OutlineColor="LightGray"
-                            Margin="0,4,0,0"
+                        <Frame 
+                            BackgroundColor="FloralWhite"
+                            OutlineColor="{Binding XamColor}"
+                            Margin="15,0,0,0"
                             Padding="10,5,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Member.FirstName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="12" />
-                                    <Label Text="{Binding Member.LastName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="12"/>
-                                </StackLayout>
-                            </Frame>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Member.FirstName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Member.LastName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </syncfusion:SfListView.ItemTemplate>
             </syncfusion:SfListView>
-            
         </Grid>
-
-        
-
 
     </ContentPage.Content>
 </ContentPage>

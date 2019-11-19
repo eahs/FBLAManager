@@ -3,27 +3,90 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.Events.EventDetailPage">
 
     <ContentPage.Content>
 
-        <StackLayout Spacing="20" Padding="15">
+        <Grid 
+            Margin="0"
+                Padding="0"
+                ColumnSpacing="0"
+                HorizontalOptions="StartAndExpand"
+                RowSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Label Text="{Binding EventName}" d:Text="Meeting name" FontSize="Large" TextColor="Black" HorizontalTextAlignment="Center"/>
+            <Image
+                    Grid.Row="0"
+                    Grid.ColumnSpan="3"
+                    Aspect="Fill"
+                    BackgroundColor="{Binding XamColor}"
+                    HeightRequest="350"
+                    HorizontalOptions="Fill">
+                <Image.Source>
+                    <UriImageSource Uri="{Binding CardsTopImage}"
+                                 CacheValidity="14"
+                                 CachingEnabled="true"/>
+                </Image.Source>
+            </Image>
 
-            <Label Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="DarkSlateGray" FontSize="16"/>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding EventName}"  d:Text="Meeting name" 
+                   FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" 
+                   Margin="0, 70, 20, 0"/>
 
-            <Label Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="DarkSlateGray" FontSize="16"/>
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"
+                   Margin="10, 120, 0, 0"/>
 
-            <Label Text="{Binding Description}" d:Text="Meeting description" TextColor="DarkSlateBlue" FontSize="Medium" />
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"
+                   Margin="10, 120, 0, 0"/>
 
-            <Button Text="Sign Up" Pressed="SignUp_Pressed"/>
+            <Label Grid.Row="1" Grid.ColumnSpan="3" Text="{Binding Description}" d:Text="Meeting description" TextColor="Black" FontSize="Medium" 
+                   Margin="10, 0, 0, 0"/>
 
-        </StackLayout>
+            <Button Grid.Row ="2" Grid.ColumnSpan="3" Pressed="SignUp_Pressed" BackgroundColor="{Binding XamColor}"
+                    Text="Sign In" TextColor="White" FontSize="Medium" 
+                    CornerRadius="30"
+                    Margin="125, 30, 125, 30"/>
 
+            <Label Grid.Row="3" Grid.ColumnSpan="3" Text="Member(s) Attending:" TextColor="Black" FontSize="Medium"
+                   Margin="15, 0, 0, 0"/>
 
+            <syncfusion:SfListView 
+                   ItemsSource="{Binding MeetingAttendees}"
+                   ItemSize="30"
+                   Grid.Row="3"
+                   Grid.ColumnSpan="2"
+                   Margin="0, 25, 0, 0">
+
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame 
+                            BackgroundColor="FloralWhite"
+                            OutlineColor="{Binding XamColor}"
+                            Margin="15,0,0,0"
+                            Padding="10,5,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Member.FirstName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Member.LastName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </Grid>
 
     </ContentPage.Content>
 </ContentPage>
