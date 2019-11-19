@@ -11,7 +11,7 @@
     xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
     xmlns:local="clr-namespace:FBLAManager.Views.Forms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.Forms"
-    BackgroundColor="{DynamicResource Gray-200}"
+    BackgroundImageSource="LoginBackground"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
 
@@ -68,11 +68,11 @@
                         <!--  Label to display the title of this page  -->
                         <Label
                             FontFamily="{StaticResource Montserrat-SemiBold}"
-                            FontSize="20"
+                            FontSize="40"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource LabelStyle}"
                             Text="Log In"
-                            TextColor="{DynamicResource Gray-900}" />
+                            TextColor="White" />
 
                         <!--  Label to display the description of this page  -->
                         <Label
@@ -82,7 +82,7 @@
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource LabelStyle}"
                             Text="Welcome to FBLA!"
-                            TextColor="{DynamicResource Gray-800}" />
+                            TextColor="Gainsboro" />
 
                         <!--  Entry to get email ID from user  -->
                         <local:SimpleEmailEntry Grid.Row="2" Padding="0,24" />
@@ -125,7 +125,7 @@
                             FontSize="12"
                             HorizontalOptions="End"
                             Text="FORGOT PASSWORD?"
-                            TextColor="{DynamicResource Gray-800}">
+                            TextColor="Gainsboro">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" CommandParameter="{x:Reference ForgotPasswordLabel}" />
                             </Label.GestureRecognizers>
@@ -154,7 +154,7 @@
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource LabelStyle}"
                             Text="Don't have a membership?"
-                            TextColor="{DynamicResource Gray-900}"
+                            TextColor="Gainsboro"
                             VerticalTextAlignment="Center" />
 
                         <!--  Sign-up button  -->
@@ -163,6 +163,7 @@
                             CornerRadius="4"
                             Style="{StaticResource SfFlatButtonStyle}"
                             Text="Sign Up" 
+                            TextColor="Gainsboro"
                             />
 
                     </StackLayout>
