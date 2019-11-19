@@ -155,7 +155,7 @@
                                 HeightRequest="40"
                                 Placeholder="Name"
                                 Style="{StaticResource BorderlessEntryStyle}"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center" /> 
                         </border:SfBorder>
 
                         <border:SfBorder
@@ -171,7 +171,7 @@
                                     HorizontalOptions="FillAndExpand"
                                     Placeholder="Email"
                                     Style="{StaticResource BorderlessEntryStyle}"
-                                    VerticalOptions="CenterAndExpand" />
+                                    VerticalOptions="CenterAndExpand" /> 
 
                                 <Label
                                     x:Name="WarningImage"
@@ -184,7 +184,7 @@
                                     IsVisible="{Binding Path=IsVisible, Source={x:Reference ValidationLabel}}"
                                     Text="&#xe707;"
                                     TextColor="{DynamicResource Red}"
-                                    VerticalOptions="CenterAndExpand" />
+                                    VerticalOptions="CenterAndExpand" /> 
                             </StackLayout>
                         </border:SfBorder>
 
