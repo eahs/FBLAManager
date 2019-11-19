@@ -22,16 +22,30 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout>
-                        <Frame x:Name="frame" CornerRadius="10" 
-                                    BackgroundColor="White"
-                                    OutlineColor="LightGray"
-                                    Margin="3, 4"
-                                    >
-                            <StackLayout>
-                                <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="DarkBlue" FontSize="21" />
-                                <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="18"></Label>
-                            </StackLayout>
-                        </Frame>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Frame  x:Name="Color" Grid.Column="0" 
+                                   BackgroundColor="{Binding XamColor}"
+                                   OutlineColor="{Binding XamColor}"
+                                   Margin="6, 4, 3, 3"
+                                            >
+                            </Frame>
+
+                            <Frame x:Name="frame" Grid.Column="1"  Grid.ColumnSpan="2"
+                                   BackgroundColor="White"
+                                   OutlineColor="WHite"
+                                   Margin="0,3,3, 3"
+                                            >
+                                <StackLayout>
+                                    <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="Black" FontSize="21" />
+                                    <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="15"></Label>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
                     </StackLayout>
                 </ViewCell>
 
