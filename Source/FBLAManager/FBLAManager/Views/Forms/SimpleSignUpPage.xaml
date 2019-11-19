@@ -13,7 +13,7 @@
     xmlns:local="clr-namespace:FBLAManager.Views.Forms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.Forms"
     Title="Sign Up"
-    BackgroundColor="{DynamicResource Gray-200}"
+    BackgroundImageSource="LoginBackground"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
 
@@ -62,7 +62,7 @@
                         HorizontalOptions="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Sign Up"
-                        TextColor="{DynamicResource Gray-900}" />
+                        TextColor="White" />
 
                     <!--  Label to display the description of this page  -->
                     <Label
@@ -72,7 +72,7 @@
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Become an Official FBLA Member"
-                        TextColor="{DynamicResource Gray-800}" />
+                        TextColor="Gainsboro" />
 
                     <!--  Entry to get first name from user  -->
                     <border:SfBorder
@@ -235,7 +235,10 @@
                                              TextSize="15" >
                             <combobox:SfComboBox.ComboBoxSource>
                                 <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>12</x:String>
                                     <x:String>11</x:String>
+                                    <x:String>10</x:String>
+                                    <x:String>9</x:String>
                                 </ListCollection:List>
                             </combobox:SfComboBox.ComboBoxSource>
                         </combobox:SfComboBox>
@@ -283,14 +286,15 @@
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Already have a membership?"
-                        TextColor="{DynamicResource Gray-800}"
+                        TextColor="Gainsboro"
                         VerticalTextAlignment="Center" />
 
                     <buttons:SfButton
                         Command="{Binding LoginCommand}"
                         CornerRadius="4"
                         Style="{StaticResource SfFlatButtonStyle}"
-                        Text="Log In" />
+                        Text="Log In" 
+                        TextColor="White"/>
 
                 </StackLayout>
             </StackLayout>
