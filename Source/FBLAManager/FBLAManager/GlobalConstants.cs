@@ -15,6 +15,7 @@ namespace FBLAManager
         public static readonly string OfficerEndPointRequestURL         = "/api/Officers?level={0}";
         public static readonly string CreateMemberEndPointRequestURL    = "/api/CreateMember";
         public static readonly string LoginEndPointRequestURL           = "/api/Login";
+        public static readonly string MessageBoardEndPointRequestURL    = "/api/MessageBoard";
 
     }
 }
