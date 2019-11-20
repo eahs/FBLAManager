@@ -27,14 +27,14 @@
 
             <Label AbsoluteLayout.LayoutBounds="0.05,0.1,0.6,40" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
                    Text="{Binding EventName}"  d:Text="Meeting name" 
-                   FontSize="Large" TextColor="White" HorizontalTextAlignment="Center" 
-                   />
+                   FontSize="Large" TextColor="White" />
+            
 
             <StackLayout AbsoluteLayout.LayoutBounds="0.1,0.16,1,20" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" Orientation="Horizontal">
 
                 <Label Margin="10,0,0,0" Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"/>
-                <Label Margin="10,0,0,0" Text="-" TextColor="GhostWhite" FontSize="16"/>
-                <Label Margin="10,0,0,0" Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16" />
+                <Label Margin="3,0,0,0" Text="-" TextColor="GhostWhite" FontSize="16"/>
+                <Label Margin="3,0,0,0" Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16" />
                 
             </StackLayout>
             
@@ -55,8 +55,7 @@
                 <syncfusion:SfListView 
                        ItemsSource="{Binding MeetingAttendees}"
                        ItemSize="30"
-                       Grid.Row="3"
-                       >
+                       Grid.Row="3">
 
                     <syncfusion:SfListView.ItemTemplate>
                         <DataTemplate>
