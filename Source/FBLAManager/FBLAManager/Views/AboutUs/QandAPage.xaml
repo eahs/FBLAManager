@@ -21,23 +21,28 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
+                            
+                            <StackLayout Grid.Column="0" Padding="10">
+                                
+                                <Label Text="{Binding Question}" 
+                                    LineBreakMode="CharacterWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="Medium" 
+                                    TextColor="DarkBlue"
+                                    FontAttributes="Bold"
+                                               />
 
-                                <StackLayout Grid.Column="0" Padding="10">
-                                    <Label Text="{Binding Question}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                                    <Label Text="{Binding Answer}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="13" />
-                                </StackLayout>
+                                <Label Text="{Binding Answer}" 
+                                    LineBreakMode="CharacterWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="Body"
+                                    TextColor="Black"/>
+                                
+                                
+                                
+                             </StackLayout>
 
-                            </Grid>
+                           
 
                         </ViewCell>
                     </DataTemplate>

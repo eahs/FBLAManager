@@ -37,6 +37,7 @@ namespace FBLAManager.ViewModels.AboutUs
         {
             this.productDescription =
                 "FBLA-PBL inspires and prepares students to become community-minded business leaders in a global society through relevant career preparation and leadership experiences.";
+            //GlobalConstants.EndPointURL + "/images/FBLAlogo.png";
             this.productIcon = App.BaseImageUrl + "FBLAlogo.png";
             this.productVersion = "1.0";
             this.cardsTopImage = App.BaseImageUrl + "FBLAlogo.png";
