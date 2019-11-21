@@ -40,14 +40,17 @@
                                 <Label Text="{Binding Name}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                TextColor="Black"
+                                FontSize="20" />
                                 <Label Text="{Binding Position}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                                TextColor="Gray"
+                                FontSize="15" />
                                 <Label Text="{Binding WebsiteLink}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
+                                TextColor="DarkGray"
                                 FontSize="13" />
                             </StackLayout>
                         

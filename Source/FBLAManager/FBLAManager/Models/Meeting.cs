@@ -87,7 +87,7 @@ namespace FBLAManager.Models
         {
             get
             {
-                return Xamarin.Forms.Color.FromHex(Color);
+                return Xamarin.Forms.Color.FromHex(Color.Replace("#", ""));
             }
         }
 
