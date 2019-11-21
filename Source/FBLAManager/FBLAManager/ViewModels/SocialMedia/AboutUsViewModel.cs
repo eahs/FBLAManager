@@ -76,12 +76,7 @@ namespace FBLAManager.ViewModels.SocialMedia
                     Image = "InstagramIcon.png",
                     Designation = "https://www.instagram.com/fbla_pbl/?hl=en"
                 },
-                new AboutUsModel //change designation
-                {
-                    EmployeeName = "Local Facebook",
-                    Image = "BiggerFacebook.png",
-                    Designation = "https://www.instagram.com/fbla_pbl/?hl=en"
-                },
+                
                 new AboutUsModel
                 {
                     EmployeeName = "State Facebook",
