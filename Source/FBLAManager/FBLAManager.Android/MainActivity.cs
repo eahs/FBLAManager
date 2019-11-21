@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Com.Instabug.Library;
+using Com.Instabug.Library.Invocation;
+using Com.Instabug.Bug;
 
 namespace FBLAManager.Droid
 {
@@ -24,8 +27,14 @@ namespace FBLAManager.Droid
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            new Instabug.Builder(this, "de0e8acfa86980fd8b252abd14d086fc")
+                        .SetInvocationEvents(InstabugInvocationEvent.FloatingButton, InstabugInvocationEvent.Shake)
+                        .Build();
+            BugReporting.SetInvocationEvents(InstabugInvocationEvent.Shake, InstabugInvocationEvent.FloatingButton);
+
         }
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 

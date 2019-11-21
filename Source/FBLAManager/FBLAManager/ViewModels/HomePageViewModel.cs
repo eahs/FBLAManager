@@ -43,6 +43,8 @@ namespace FBLAManager.ViewModels
                 {
                     var items = JsonConvert.DeserializeObject<List<Announcement>>(response.Content) ?? new List<Announcement>();
 
+                    Announcements.Clear();
+
                     foreach (var announcement in items)
                     {
                         Announcements.Add(announcement);

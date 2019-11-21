@@ -45,6 +45,9 @@ namespace FBLAManager.ViewModels
                 {
                     var items = JsonConvert.DeserializeObject<List<Officer>>(response.Content) ?? new List<Officer>();
 
+
+                    Officers.Clear();
+
                     foreach (var officer in items)
                     {
                         Officers.Add(officer);

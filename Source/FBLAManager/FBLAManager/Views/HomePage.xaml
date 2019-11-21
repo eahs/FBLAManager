@@ -60,6 +60,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <!--<Button Text="Report Bug" Clicked="ReportBug_Clicked"></Button>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

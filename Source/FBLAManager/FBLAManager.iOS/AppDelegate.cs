@@ -4,11 +4,10 @@ using Syncfusion.XForms.iOS.Graphics;
 using Syncfusion.XForms.iOS.Border;
 using Syncfusion.XForms.iOS.Buttons;
 using Syncfusion.ListView.XForms.iOS;
-
 using Foundation;
 using UIKit;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
-using Syncfusion.SfPullToRefresh.XForms.iOS;
+using InstabugLib;
 
 namespace FBLAManager.iOS
 {
@@ -43,6 +42,10 @@ namespace FBLAManager.iOS
             SfListViewRenderer.Init();
 
             LoadApplication(new App());
+
+            Instabug.StartWithToken("de0e8acfa86980fd8b252abd14d086fc",IBGInvocationEvent.Shake);
+            IBGBugReporting.InvocationEvents = IBGInvocationEvent.FloatingButton;
+
 
             return base.FinishedLaunching(app, options);
         }
