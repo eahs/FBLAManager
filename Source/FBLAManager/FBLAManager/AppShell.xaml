@@ -108,10 +108,16 @@
              Icon="test.png">
             <ShellContent ContentTemplate="{DataTemplate events:CommunityServicePage}" />
         </Tab>
-
     </FlyoutItem>
 
-    <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
+    <FlyoutItem Title="Competitive Events" Icon="test.png">
+        <Tab Title="Competitions" Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
+        </Tab>
+    </FlyoutItem>
+
+
+        <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
         <Tab Title="Officer Teams"
              Icon="test.png">
 
