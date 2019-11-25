@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using FBLAManager.Helpers;
 
 namespace FBLAManager.ViewModels.Forms
 {
@@ -9,6 +10,8 @@ namespace FBLAManager.ViewModels.Forms
     [Preserve(AllMembers = true)]
     public class ForgotPasswordViewModel : LoginViewModel
     {
+        
+
         #region Constructor
 
         /// <summary>
@@ -17,7 +20,9 @@ namespace FBLAManager.ViewModels.Forms
         public ForgotPasswordViewModel()
         {
             this.SignUpCommand = new Command(this.SignUpClicked);
-            this.SendCommand = new Command(this.SendClicked);
+            this.SendCommand = new Command(this.SendClickedAsync);
+
+            
         }
 
         #endregion
@@ -42,9 +47,20 @@ namespace FBLAManager.ViewModels.Forms
         /// Invoked when the Send button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void SendClicked(object obj)
+        private async void SendClickedAsync(object obj)
         {
-            // Do something
+            UserManagerResponseStatus status = await UserManager.Current.ForgotPassword(Email);
+
+            switch (status)
+            {
+                case UserManagerResponseStatus.Success:
+                    //MessagingCenter.Send(this, "LoadApp"); display success alert
+                    break;
+
+                default:
+                    MessagingCenter.Send(this, "UnknownResponse");
+                    break;
+            }
         }
 
         /// <summary>

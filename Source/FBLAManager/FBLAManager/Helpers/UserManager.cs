@@ -144,6 +144,40 @@ namespace FBLAManager.Helpers
             return UserManagerResponseStatus.InvalidRequest;
         }
 
+        public async Task<UserManagerResponseStatus> ForgotPassword(string email)
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.ForgotPasswordEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.POST
+            };
+
+            request.AddParameter("email", email);
+         
+
+            var response = await client.ExecuteTaskAsync(request);
+
+            if (response.Content != null)
+            {
+                UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                if (data.Status != null)
+                {
+                    switch (data.Status)
+                    {
+                        case "Success": return UserManagerResponseStatus.Success;
+                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
+                        default: return UserManagerResponseStatus.UnknownResponse;
+                    }
+                }
+            }
+
+            return UserManagerResponseStatus.InvalidRequest;
+        }
+
 
         public async Task<UserManagerResponseStatus> CreateMember(Member m)
         {
