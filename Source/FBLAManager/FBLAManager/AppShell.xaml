@@ -64,7 +64,20 @@
     <FlyoutItem Title = "Home" Icon= "home.png" Route="home">
         <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
     </FlyoutItem>
-    
+
+    <FlyoutItem Title="About FBLA" Icon="tab_about.png">
+
+        <Tab Title="About FBLA"
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
+        </Tab>
+        <Tab Title="Q and A "
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
     <FlyoutItem Title="Calendar" Icon="calendar.png" Route="calendar">
         <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>
@@ -75,7 +88,7 @@
             <ShellContent Title="First Menu Item"
                           Icon="cat.png"
                           ContentTemplate="{DataTemplate events:MeetingsPage}" />
-            
+
         </Tab>
         <Tab Title="Club Events"
              Icon="test.png">
@@ -94,19 +107,6 @@
         <Tab Title="Community Service"
              Icon="test.png">
             <ShellContent ContentTemplate="{DataTemplate events:CommunityServicePage}" />
-        </Tab>
-
-    </FlyoutItem>
-
-    <FlyoutItem Title="About" Icon="tab_about.png">
-
-        <Tab Title="About Us"
-             Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
-        </Tab>
-        <Tab Title="QandA "
-             Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
         </Tab>
 
     </FlyoutItem>
@@ -131,21 +131,21 @@
         </Tab>
     </FlyoutItem>
 
-        <FlyoutItem Title="Contact Us" Icon="contact.png">
+   <FlyoutItem Title="Contact Us" Icon="contact.png">
 
-       
-           <Tab Title="Social Media">
-                <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
-            </Tab>
-       
-
-            <Tab Title="Contact Us" Icon="paw.png">
-                <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
-            </Tab>
-
+        <Tab Title="Contact Us" Icon="paw.png">
+            <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
+        </Tab>
     </FlyoutItem>
 
-      <!--
+    <FlyoutItem Title="Social Media" Icon="shareIcon.png">
+        <Tab Title="Social Media" Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
+        </Tab>
+    </FlyoutItem>
+
+
+    <!--
     <FlyoutItem Title="Your Profile" Icon="user.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
