@@ -228,7 +228,7 @@
     <AndroidResource Include="Resources\drawable\LoginBackground.jfif" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\shareIcon.png" />
+    <AndroidResource Include="Resources\drawable\appLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

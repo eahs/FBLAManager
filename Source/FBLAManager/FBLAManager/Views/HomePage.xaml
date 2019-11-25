@@ -12,7 +12,7 @@
         <StackLayout>
             <ContentView>
                 <Frame>
-                    <ff:CachedImage Source="FBLAlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="75" Grid.Column="0">
+                    <ff:CachedImage  Source="FBLAlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="75" Grid.Column="0">
                     </ff:CachedImage>
                 </Frame>
             </ContentView>
