@@ -18,6 +18,19 @@
 			SubjectMapping="EventName" 
 			IsAllDayMapping="AllDay"/>
             </syncfusion:SfSchedule.AppointmentMapping>
+
+            <syncfusion:SfSchedule.DayViewSettings>
+                <!--setting working hours properties -->
+                <syncfusion:DayViewSettings  
+                        StartHour="7" 
+                        EndHour="20">
+                    <syncfusion:DayViewSettings.DayLabelSettings>
+                        <syncfusion:DayLabelSettings TimeFormat="hh:mm"/>
+                    </syncfusion:DayViewSettings.DayLabelSettings>
+                </syncfusion:DayViewSettings>
+            </syncfusion:SfSchedule.DayViewSettings>
+
+
         </syncfusion:SfSchedule>
 
         <busyindicator:SfBusyIndicator x:Name="busyindicator" 
