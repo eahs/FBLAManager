@@ -10,6 +10,7 @@
        xmlns:events="clr-namespace:FBLAManager.Views.Events"
        xmlns:socialmedia="clr-namespace:FBLAManager.Views.SocialMedia"
        xmlns:aboutus="clr-namespace:FBLAManager.Views.AboutUs"
+       xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -19,7 +20,7 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#072052</Color>
+            <Color x:Key="NavigationPrimary">#004073</Color>
 
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
@@ -27,7 +28,7 @@
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#0b2e75" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#004073" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
@@ -41,19 +42,12 @@
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="DarkBlue"
-                  HeightRequest="200">
-                
-                <Image Aspect="AspectFill"
-                       Source="FBLAlogo.png"
-                       Opacity="0.6"
-                       />
-                <Label Text="FBLA"
-                       TextColor="White"
-                       FontSize="100"
-                       FontAttributes="Bold"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center" />
+            <Grid BackgroundColor="#005B92"
+                  HeightRequest="150"
+                  Padding="10,0,0,1">
+
+                <ff:CachedImage Source="navigatorlogo.png" Aspect="AspectFit" Margin="10,10,10,10"/>
+
             </Grid>            
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
@@ -110,7 +104,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Competitive Events" Icon="test.png">
+    <FlyoutItem Title="Competitive Events" Icon="competitionsIcon.png">
         <Tab Title="Competitions" Icon="test.png">
             <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
         </Tab>
@@ -150,12 +144,9 @@
         </Tab>
     </FlyoutItem>
 
-
-    <!--
-    <FlyoutItem Title="Your Profile" Icon="user.png">
+    <FlyoutItem Title="About FBLA Navigator" Icon="user.png">
         <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
-    -->
 
     <FlyoutItem Title="Log Out" Icon="exit.png" Route="logout">
         <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" Route="logoutpage"/>

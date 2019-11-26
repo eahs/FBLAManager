@@ -8,7 +8,7 @@
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.SocialMedia"
     xmlns:behaviour="clr-namespace:FBLAManager.Behaviors.AboutUs"
     Title="Social Media Links"
-    BackgroundColor="{DynamicResource White}"
+    BackgroundImageSource="LoginBackground"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -54,7 +54,7 @@
                             FontSize="20"
                             Style="{StaticResource HeaderLabelStyle}"
                             Text="Social Media Links"
-                            TextColor="{DynamicResource Black}" />
+                            TextColor="White" />
                         </DataTemplate>
                     </listView:SfListView.HeaderTemplate>
 
@@ -72,7 +72,7 @@
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="StartAndExpand">
                                     <Image
-                                    BackgroundColor="{DynamicResource Gray}"
+                                    BackgroundColor="White"
                                     Style="{StaticResource AboutUsImageStyle}" >
                                         <Image.Source>
                                             <FileImageSource File="{Binding Image}" />
@@ -86,7 +86,7 @@
                                 HorizontalTextAlignment="Center"
                                 Style="{StaticResource DescriptionLabelStyle}"
                                 Text="{Binding EmployeeName}"
-                                TextColor="Black" />
+                                TextColor="White" />
 
                             </StackLayout>
                         </DataTemplate>

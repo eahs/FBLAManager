@@ -4,17 +4,14 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              mc:Ignorable="d"
-             BackgroundColor="Wheat"
+             BackgroundImageSource="LoginBackground.jfif"
              x:Class="FBLAManager.Views.HomePage">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="10,0,10,0">
             <ContentView>
-                <Frame>
-                    <ff:CachedImage  Source="FBLAlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="75" Grid.Column="0">
+                    <ff:CachedImage  Source="navigatorlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="60" Grid.Column="0" Margin="10,10,10,10">
                     </ff:CachedImage>
-                </Frame>
             </ContentView>
             <ListView
                 x:Name="AnnouncementListView"
@@ -29,12 +26,12 @@
                     <DataTemplate>
                         <ViewCell>
 
-                            <Frame x:Name="frame" CornerRadius="10" 
+                            <Frame x:Name="frame" CornerRadius="5" 
                        BackgroundColor="White"
                        OutlineColor="LightGray"
                        Margin="1, 1">
-                                <StackLayout Grid.Column="2" Padding="10">
-                                    <Label Text="{Binding Title}" 
+                                <StackLayout Padding="0">
+                                <Label Text="{Binding Title}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" 

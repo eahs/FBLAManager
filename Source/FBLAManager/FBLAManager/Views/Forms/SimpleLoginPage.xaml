@@ -11,6 +11,7 @@
     xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
     xmlns:local="clr-namespace:FBLAManager.Views.Forms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.Forms"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     BackgroundImageSource="LoginBackground"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
@@ -63,12 +64,16 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
+
+                        <ff:CachedImage Source="navigatorlogo.png" Aspect="AspectFit" HeightRequest="75" Grid.Row="0"/>
 
                         <!--  Label to display the title of this page  -->
                         <Label
+                            Grid.Row="1"
                             FontFamily="{StaticResource Montserrat-SemiBold}"
-                            FontSize="40"
+                            FontSize="25"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource LabelStyle}"
                             Text="Log In"
@@ -76,20 +81,20 @@
 
                         <!--  Label to display the description of this page  -->
                         <Label
-                            Grid.Row="1"
+                            Grid.Row="2"
                             Margin="0,8"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             HorizontalTextAlignment="Center"
                             Style="{StaticResource LabelStyle}"
-                            Text="Welcome to FBLA!"
+                            Text="Welcome to FBLA!  Your journey starts here."
                             TextColor="Gainsboro" />
 
                         <!--  Entry to get email ID from user  -->
-                        <local:SimpleEmailEntry Grid.Row="2" Padding="0,24" />
+                        <local:SimpleEmailEntry Grid.Row="3" Padding="0,24" />
 
                         <!--  Entry to get password from user  -->
                         <border:SfBorder
-                            Grid.Row="3"
+                            Grid.Row="4"
                             BackgroundColor="{DynamicResource Gray-White}"
                             BorderColor="{Binding Source={x:Reference PasswordEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
                             Style="{StaticResource SfBorderStyle}">
@@ -105,7 +110,7 @@
 
                         <!--  Label to display the error message  -->
                         <Label
-                            Grid.Row="4"
+                            Grid.Row="5"
                             Margin="0,8"
                             FontFamily="{StaticResource Montserrat-Medium}"
                             HorizontalTextAlignment="Start"
@@ -119,7 +124,7 @@
                         <!--  Forgot password link  -->
                         <Label
                             x:Name="ForgotPasswordLabel"
-                            Grid.Row="5"
+                            Grid.Row="6"
                             Margin="0,16"
                             FontFamily="{StaticResource Montserrat-SemiBold}"
                             FontSize="12"
@@ -133,7 +138,7 @@
 
                         <!--  Login button  -->
                         <buttons:SfButton
-                            Grid.Row="6"
+                            Grid.Row="7"
                             Margin="0,16"
                             Command="{Binding LoginCommand}"
                             Style="{StaticResource SfButtonStyle}"
@@ -162,7 +167,7 @@
                             Command="{Binding SignUpCommand}"
                             CornerRadius="4"
                             Style="{StaticResource SfFlatButtonStyle}"
-                            Text="Sign Up" 
+                            Text="Join FBLA" 
                             TextColor="Gainsboro"
                             />
 

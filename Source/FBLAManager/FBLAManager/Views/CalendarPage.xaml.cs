@@ -67,7 +67,14 @@ namespace FBLAManager.Views
 
             try
             {
-                await Shell.Current.Navigation.PushAsync(new EventDetailPage(m));
+                if (m.Type == MeetingType.Meeting)
+                {
+                    await Shell.Current.Navigation.PushAsync(new MeetingDetailPage(m));
+                }
+                else
+                {
+                    await Shell.Current.Navigation.PushAsync(new EventDetailPage(m));
+                }
             }
 
             catch

@@ -19,6 +19,7 @@
 			IsAllDayMapping="AllDay"/>
             </syncfusion:SfSchedule.AppointmentMapping>
 
+
             <syncfusion:SfSchedule.DayViewSettings>
                 <!--setting working hours properties -->
                 <syncfusion:DayViewSettings  

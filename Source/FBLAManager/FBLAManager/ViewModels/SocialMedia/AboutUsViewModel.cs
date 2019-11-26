@@ -60,33 +60,33 @@ namespace FBLAManager.ViewModels.SocialMedia
                 new AboutUsModel 
                 {
                     EmployeeName = "Easton Instagram",
-                    Image = "InstagramIcon.png",
+                    Image = "instagram_icon.png",
                     Designation = "https://www.instagram.com/eastonareafbla/?igshid=ipviirou3gr8"
                 },
                 
                 new AboutUsModel
                 {
                     EmployeeName = "PA Instagram",
-                    Image = "InstagramIcon.png",
+                    Image = "instagram_icon.png",
                     Designation = "https://www.instagram.com/pennsylvaniafbla/?hl=en"
                 },
                 new AboutUsModel 
                 {
                     EmployeeName = "National Instagram",
-                    Image = "InstagramIcon.png",
+                    Image = "instagram_icon.png",
                     Designation = "https://www.instagram.com/fbla_pbl/?hl=en"
                 },
                 
                 new AboutUsModel
                 {
                     EmployeeName = "State Facebook",
-                    Image = "BiggerFacebook.png",
+                    Image = "newFacebookIcon.png",
                     Designation = "https://www.facebook.com/pafbla/"
                 },
                 new AboutUsModel
                 {
                     EmployeeName = "National Facebook",
-                    Image = "BiggerFacebook.png",
+                    Image = "newFacebookIcon.png",
                     Designation = "https://www.facebook.com/FutureBusinessLeaders/"
                 }
 
