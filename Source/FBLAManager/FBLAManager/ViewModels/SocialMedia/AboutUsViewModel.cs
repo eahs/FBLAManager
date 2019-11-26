@@ -42,19 +42,19 @@ namespace FBLAManager.ViewModels.SocialMedia
                 new AboutUsModel
                 {
                     EmployeeName = "Easton Twitter",
-                    Image = "TwitterIcon.png",                   
+                    Image = "twitter_icon.png",                   
                     Designation = "https://twitter.com/eafbla?lang=en"
                 },
                 new AboutUsModel
                 {
                     EmployeeName = "PA Twitter",
-                    Image = "TwitterIcon.png",
+                    Image = "twitter_icon.png",
                     Designation = "https://twitter.com/pafbla?lang=en"
                 },
                 new AboutUsModel 
                 {
                     EmployeeName = "National Twitter",
-                    Image = "TwitterIcon.png",
+                    Image = "twitter_icon.png",
                     Designation = "https://twitter.com/fbla_national?lang=en"
                 },
                 new AboutUsModel 
@@ -80,13 +80,13 @@ namespace FBLAManager.ViewModels.SocialMedia
                 new AboutUsModel
                 {
                     EmployeeName = "State Facebook",
-                    Image = "newFacebookIcon.png",
+                    Image = "facebook_icon.png",
                     Designation = "https://www.facebook.com/pafbla/"
                 },
                 new AboutUsModel
                 {
                     EmployeeName = "National Facebook",
-                    Image = "newFacebookIcon.png",
+                    Image = "facebook_icon.png",
                     Designation = "https://www.facebook.com/FutureBusinessLeaders/"
                 }
 

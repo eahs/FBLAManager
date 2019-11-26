@@ -67,7 +67,8 @@
                                 <!--  Profile image  -->
                                 <border:SfBorder
                                 Margin="0,0,0,8"
-                                BorderWidth="0"
+                                BorderWidth="3"
+                                    BorderColor="White"
                                 CornerRadius="32"
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="StartAndExpand">
