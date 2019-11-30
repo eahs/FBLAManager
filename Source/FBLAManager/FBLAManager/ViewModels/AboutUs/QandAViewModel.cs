@@ -1,14 +1,16 @@
-﻿using FBLAManager.Models;
-using FBLAManager.Models.AboutUs;
-using System;
-using System.Collections.Generic;
+﻿using FBLAManager.Models.AboutUs;
 using System.Collections.ObjectModel;
-using System.Text;
 
 namespace FBLAManager.ViewModels.AboutUs
 {
+    /// <summary>
+    /// ViewModel of Q and A templates.
+    /// </summary>
     public class QandAViewModel : BaseViewModel
     {
+        /// <summary>
+        /// Initializes a new instance for the <see cref="T:FBLAManager.ViewModels.AboutUs.QandAViewModel"/> class.
+        /// </summary>
         public QandAViewModel()
         {
             QandAs = new ObservableCollection<QandA>
@@ -46,6 +48,9 @@ namespace FBLAManager.ViewModels.AboutUs
             };
         }
 
+        /// <summary>
+        /// Gets or sets the Q and As. 
+        /// </summary>
         public ObservableCollection<QandA> QandAs { get; set; }
     }
 }

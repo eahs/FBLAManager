@@ -35,14 +35,13 @@ namespace FBLAManager.ViewModels.AboutUs
         /// </summary>
         public AboutUsViewModel()
         {
-            this.productDescription =
+            productDescription =
                 "FBLA-PBL inspires and prepares students to become community-minded business leaders in a global society through relevant career preparation and leadership experiences.";
-            //GlobalConstants.EndPointURL + "/images/FBLAlogo.png";
-            this.productIcon = App.BaseImageUrl + "FBLAlogo.png";
-            this.productVersion = "1.0";
-            this.cardsTopImage = App.BaseImageUrl + "FBLAlogo.png";
+            productIcon = App.BaseImageUrl + "FBLAlogo.png";
+            productVersion = "1.0";
+            cardsTopImage = App.BaseImageUrl + "FBLAlogo.png";
 
-            this.EmployeeDetails = new ObservableCollection<AboutUsModel>
+            WebsiteDetails = new ObservableCollection<AboutUsModel>
             {
                 new AboutUsModel
                 {
@@ -65,7 +64,7 @@ namespace FBLAManager.ViewModels.AboutUs
                 
             };
 
-            this.ItemSelectedCommand = new Command(this.ItemSelected);
+            ItemSelectedCommand = new Command(this.ItemSelected);
         }
 
         #endregion
@@ -154,10 +153,10 @@ namespace FBLAManager.ViewModels.AboutUs
         }
 
         /// <summary>
-        /// Gets or sets the employee details.
+        /// Gets or sets the website details.
         /// </summary>
-        /// <value>The employee details.</value>
-        public ObservableCollection<AboutUsModel> EmployeeDetails { get; set; }
+        /// <value>The website details.</value>
+        public ObservableCollection<AboutUsModel> WebsiteDetails { get; set; }
 
         /// <summary>
         /// Gets or sets the command that will be executed when an item is selected.
@@ -188,6 +187,11 @@ namespace FBLAManager.ViewModels.AboutUs
             await OpenBrowser(new Uri(aboutUsModel.Link));
         }
 
+        /// <summary>
+        /// Opens the website link in the phone's preferred browser.
+        /// </summary>
+        /// <param name="uri"></param>
+        /// <returns></returns>
         public async Task OpenBrowser(Uri uri)
         {
             await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);

@@ -31,7 +31,7 @@ namespace FBLAManager.Models.AboutUs
         #region Properties
 
         /// <summary>
-        /// Gets or sets the name of an employee.
+        /// Gets or sets the name of a website.
         /// </summary>
         /// <value>The name.</value>
         public string WebsiteName
@@ -49,7 +49,7 @@ namespace FBLAManager.Models.AboutUs
         }
 
         /// <summary>
-        /// Gets or sets the designation of an employee.
+        /// Gets or sets the designation of a website link.
         /// </summary>
         /// <value>The designation.</value>
         public string Link
@@ -67,7 +67,7 @@ namespace FBLAManager.Models.AboutUs
         }
 
         /// <summary>
-        /// Gets or sets the image of an employee.
+        /// Gets or sets the website image.
         /// </summary>
         /// <value>The image.</value>
         public string Image
