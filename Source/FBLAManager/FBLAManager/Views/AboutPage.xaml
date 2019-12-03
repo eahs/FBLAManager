@@ -30,10 +30,7 @@
                     <BoxView BackgroundColor="Transparent" HeightRequest="100" HorizontalOptions="CenterAndExpand"/>
                     <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HeightRequest="12000">
 
-                        <WebView x:Name="webView" WidthRequest="1000" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                            <WebView.Source>
-                                <HtmlWebViewSource Html="{Binding Content}"/>
-                            </WebView.Source>
+                        <WebView x:Name="webView" WidthRequest="1000" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="https://eahs.github.io/FBLAManager/">
                         </WebView>
 
                     </StackLayout>
