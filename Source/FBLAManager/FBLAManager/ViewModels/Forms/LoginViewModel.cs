@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 using Xamarin.Forms.Internals;
 
 namespace FBLAManager.ViewModels.Forms
@@ -47,6 +48,7 @@ namespace FBLAManager.ViewModels.Forms
                 }
 
                 this.email = value;
+                this.IsInvalidEmail = CheckValidEmail(this.email);
                 this.OnPropertyChanged();
             }
         }
@@ -92,6 +94,17 @@ namespace FBLAManager.ViewModels.Forms
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private bool CheckValidEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return true;
+            }
+
+            var regex = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+            return regex.IsMatch(email) && !email.EndsWith(".");
         }
 
         #endregion
