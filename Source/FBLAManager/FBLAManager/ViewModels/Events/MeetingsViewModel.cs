@@ -1,0 +1,133 @@
+using Newtonsoft.Json;
+using RestSharp;
+﻿using FBLAManager.Models;
+using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System;
+using System.Linq;
+
+using Xamarin.Forms;
+using FBLAManager.Helpers;
+using System.Windows.Input;
+
+namespace FBLAManager.ViewModels
+{
+    public class MeetingsViewModel : BaseViewModel
+    {
+        public ObservableCollection<Meeting> Meetings { get; set; }
+        
+        public MeetingType type { get; set; } = MeetingType.Meeting;
+        public MeetingsViewModel(MeetingType meetingType = MeetingType.Meeting)
+        {
+            Meetings = new ObservableCollection<Meeting>();
+            type = meetingType;
+
+            LoadItemsCommand.Execute(null);
+        }
+
+        private RelayCommand refreshItemsCommand;
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return refreshItemsCommand ?? (refreshItemsCommand = new RelayCommand(async () => await ExecuteLoadItemsCommand()));
+            }
+        }
+
+        private bool _isRefreshing = false;
+        public bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+                _isRefreshing = value;
+                OnPropertyChanged("IsRefreshing");
+            }
+        }
+
+        protected override async Task ExecuteLoadItemsCommand()
+        {
+            IsRefreshing = true;
+            await base.ExecuteLoadItemsCommand();
+            IsRefreshing = false;
+        }
+
+        protected override async Task LoadItemsAsync()
+        {
+
+            try
+            {
+                // Make async request to obtain data
+                var client = new RestClient(GlobalConstants.EndPointURL);
+                var request = new RestRequest
+                {
+                    Timeout = GlobalConstants.RequestTimeout
+                };
+                request.Resource = GlobalConstants.MeetingEndPointRequestURL;
+                UserManager.Current.AddAuthorization(request);
+
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.IsSuccessful)
+                {
+                    var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
+
+                    foreach (var meeting in items)
+                    {
+                        if (meeting.Type == type)
+                        {
+                            var existingMeeting = Meetings.FirstOrDefault(m => m.MeetingId == meeting.MeetingId);
+
+                            if (existingMeeting != null)
+                            {
+                                existingMeeting.AllDay = meeting.AllDay;
+                                existingMeeting.Capacity = meeting.Capacity;
+                                existingMeeting.Color = meeting.Color;
+                                existingMeeting.ContactId = meeting.ContactId;
+                                existingMeeting.Description = meeting.Description;
+                                existingMeeting.EventName = meeting.EventName;
+                                existingMeeting.From = meeting.From;
+                                existingMeeting.MeetingId = meeting.MeetingId;
+                                existingMeeting.Organizer = meeting.Organizer;
+                                existingMeeting.To = meeting.To;
+                                existingMeeting.Type = meeting.Type;
+                                existingMeeting.MeetingAttendees.Clear();
+                                foreach (var attendee in meeting.MeetingAttendees)
+                                {
+                                    existingMeeting.MeetingAttendees.Add(attendee);
+                                }
+                                existingMeeting.OnPropertyChanged("MeetingAttendees");
+                            }
+                            else
+                            {
+                                Meetings.Add(meeting);
+                            }
+                        }
+                        
+                    }
+
+                    OnPropertyChanged("Meetings");
+
+                    IsError = false;
+                    DataAvailable = true;
+                }
+                else
+                {
+                    // An error occurred that is stored
+                    ErrorMessage = "An error occurred";
+                    DataAvailable = false;
+                    IsError = true;
+                }
+            }
+            catch (Exception)
+            {
+                // An exception occurred
+                DataAvailable = false;
+            }
+        }
+
+
+    }
+
+}

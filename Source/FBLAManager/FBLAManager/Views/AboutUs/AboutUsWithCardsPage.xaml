@@ -1,0 +1,174 @@
+<ContentPage
+    x:Class="FBLAManager.Views.AboutUs.AboutUsWithCardsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behavior="clr-namespace:FBLAManager.Behaviors.AboutUs"
+    xmlns:control="clr-namespace:FBLAManager.Controls"
+    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+    xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.AboutUs"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    Title="About FBLA"
+    BackgroundColor="{DynamicResource Gray-White}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView
+            Margin="0"
+            Padding="0"
+            HorizontalOptions="StartAndExpand">
+            <Grid
+                Margin="0"
+                Padding="0"
+                ColumnSpacing="0"
+                HorizontalOptions="StartAndExpand"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{OnIdiom Desktop=1*, Tablet=1*, Phone=16}" />
+                    <ColumnDefinition Width="{OnIdiom Desktop=3*, Tablet=4*, Phone=*}" />
+                    <ColumnDefinition Width="{OnIdiom Desktop=1*, Tablet=1*, Phone=16}" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.BindingContext>
+                    <viewModel:AboutUsViewModel />
+                </Grid.BindingContext>
+
+                <!--  First half background image for the screen  -->
+
+                <ff:CachedImage Source="FBLAGroupPhoto.png" Aspect="AspectFit" Grid.Row="0" Grid.Column="1"> </ff:CachedImage>
+
+                <!--  FBLA description  -->
+                <control:CustomShadowFrame
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,-40,0,0"
+                    Padding="16,24,16,0"
+                    BackgroundColor="#DF4A34"
+                    BorderColor="#DF4A34"
+                    BorderWidth="1"
+                    CornerRadius="4"
+                    HasShadow="true"
+                    HorizontalOptions="FillAndExpand"
+                    Radius="4"
+                    ShadowOffSetHeight="4"
+                    ShadowOffsetWidth="0"
+                    ShadowOpacity="0.12">
+
+                    <StackLayout>
+                        
+                        <!--  Header  -->
+                        <Label
+                            Margin="0,0,0,16"
+                            FontFamily="{StaticResource Montserrat-Bold}"
+                            TextColor="White"
+                            FontSize="20"
+                            Style="{StaticResource HeaderLabelStyle}"
+                            Text="About FBLA" />
+
+                        <!--  Description  -->
+                        <Label
+                            Margin="0,0,0,24"
+                            FontSize="14"
+                            TextColor="White"
+                            Style="{StaticResource DescriptionLabelStyle}"
+                            Text="{Binding ProductDescription}" />
+                    </StackLayout>
+                </control:CustomShadowFrame>
+
+                <!--  Header  -->
+                <StackLayout
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Margin="0"
+                    Padding="0"
+                    Spacing="0">
+
+                    <Label
+                        Margin="0,32,0,24"
+                        FontFamily="{StaticResource Montserrat-Bold}"
+                        FontSize="20"
+                        Style="{StaticResource HeaderLabelStyle}"
+                        Text="Website Links" />
+                </StackLayout>
+                
+                <!--  Website boxes  -->
+                <listView:SfListView
+                    Grid.Row="3"
+                    Grid.ColumnSpan="3"
+                    Margin="0"
+                    Padding="0"
+                    AutoFitMode="Height"
+                    ColumnSpacing="0"
+                    FocusBorderColor="Transparent"
+                    HorizontalOptions="FillAndExpand"
+                    IsStickyHeader="True"
+                    ItemsSource="{Binding WebsiteDetails}"
+                    RowSpacing="0"
+                    SelectionBackgroundColor="Transparent"
+                    TapCommand="{Binding ItemSelectedCommand}">
+
+                    <listView:SfListView.ItemTemplate>
+
+                        <DataTemplate>
+
+                            <!--  Frame to have rounded corners  -->
+                            <control:CustomShadowFrame
+                                Margin="12"
+                                BackgroundColor="#005B92"
+                                BorderColor="White"
+                                CornerRadius="4"
+                                HasShadow="true"
+                                HeightRequest="160"
+                                WidthRequest="160">
+
+                                <StackLayout
+                                    Padding="0"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Spacing="0"
+                                    VerticalOptions="CenterAndExpand">
+
+                                    <!--  Website Names  -->
+                                    <Label
+                                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                                        HorizontalOptions="Center"
+                                        Style="{StaticResource DescriptionLabelStyle}"
+                                        Text="{Binding WebsiteName}"
+                                        FontSize="Medium"
+                                        TextColor="White" />
+
+
+                                </StackLayout>
+                            </control:CustomShadowFrame>
+                        </DataTemplate>
+                    </listView:SfListView.ItemTemplate>
+
+                    <listView:SfListView.Behaviors>
+                        <behavior:ListViewBehavior />
+                    </listView:SfListView.Behaviors>
+
+                    <!--  Layout to customize number of columns in SfListView  -->
+                    <listView:SfListView.LayoutManager>
+                        <listView:GridLayout SpanCount="{core:OnPlatformOrientationIntValue Desktop=5, PhonePortrait=2, PhoneLandscape=4, TabletPortrait=4, TabletLandscape=5}" />
+                    </listView:SfListView.LayoutManager>
+                </listView:SfListView>
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using FBLAManager.ViewModels;
+﻿using FBLAManager.Services;
+using FBLAManager.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,6 +25,11 @@ namespace FBLAManager.Views
         private void AnnouncementListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             AnnouncementListView.SelectedItem = null;
+        }
+
+        private void ReportBug_Clicked(object sender, System.EventArgs e)
+        {
+            DependencyService.Get<IBugReporter>().Trigger();
         }
     }
 }

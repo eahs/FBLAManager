@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="FBLAManager.Views.SocialMedia.AboutUsWithScrollPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.SocialMedia"
+    xmlns:behaviour="clr-namespace:FBLAManager.Behaviors.AboutUs"
+    Title="Social Media Links"
+    BackgroundImageSource="LoginBackground"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <ScrollView>
+            
+            
+            <Grid RowSpacing="0" VerticalOptions="StartAndExpand">
+                <Grid.BindingContext>
+                    <viewModel:AboutUsViewModel />
+                </Grid.BindingContext>
+                
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!--  To display the team member's details  -->
+                <listView:SfListView
+                
+                Grid.Row="0"
+                AutoFitMode="DynamicHeight"
+                ItemsSource="{Binding EmployeeDetails}"
+                SelectionMode="None"
+                TapCommand="{Binding ItemSelectedCommand}"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start">
+
+                    <listView:SfListView.HeaderTemplate>
+                        <DataTemplate>
+                            <!--  Header  -->
+                            <Label
+                            Margin="0,60,0,5"
+                            FontSize="20"
+                            Style="{StaticResource HeaderLabelStyle}"
+                            Text="Social Media Links"
+                            TextColor="White" />
+                        </DataTemplate>
+                    </listView:SfListView.HeaderTemplate>
+
+                    <listView:SfListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <!--  Details of each employee  -->
+                            <StackLayout Margin="15,15,15,24" Spacing="0">
+
+                                <!--  Profile image  -->
+                                <border:SfBorder
+                                Margin="0,0,0,8"
+                                BorderWidth="3"
+                                    BorderColor="White"
+                                CornerRadius="32"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="StartAndExpand">
+                                    <Image
+                                    BackgroundColor="White"
+                                    Style="{StaticResource AboutUsImageStyle}" >
+                                        <Image.Source>
+                                            <FileImageSource File="{Binding Image}" />
+                                        </Image.Source>
+                                    </Image>
+                                </border:SfBorder>
+
+                                <!--  Employee name  -->
+                                <Label
+                                FontFamily="{StaticResource Montserrat-SemiBold}"
+                                HorizontalTextAlignment="Center"
+                                Style="{StaticResource DescriptionLabelStyle}"
+                                Text="{Binding EmployeeName}"
+                                TextColor="White" />
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </listView:SfListView.ItemTemplate>
+
+                    <listView:SfListView.LayoutManager>
+                        <listView:GridLayout SpanCount="3" />
+                    </listView:SfListView.LayoutManager>
+
+                    <!--Behavior added to handle scrolling of ListView-->
+                    <listView:SfListView.Behaviors>
+                        <behaviour:ListViewBehavior/>
+                    </listView:SfListView.Behaviors>
+                </listView:SfListView>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

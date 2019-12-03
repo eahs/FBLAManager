@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FBLAManager.Views.AboutUs.QandAPage"
+             Title="Q and A">
+
+    <StackLayout>
+        <ListView
+                x:Name="QandAListView"
+                ItemsSource="{Binding QandAs}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadItemsCommand}"
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Grid.Column="0" Padding="10">
+                            <!-- Question text and properties -->
+                            <Label Text="{Binding Question}" 
+                                        LineBreakMode="CharacterWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="Medium" 
+                                        TextColor="DarkBlue"
+                                        FontAttributes="Bold" />
+                            <!-- Answer text and properties -->
+                            <Label Text="{Binding Answer}" 
+                                        LineBreakMode="CharacterWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="Body"
+                                        TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </StackLayout>
+</ContentPage>

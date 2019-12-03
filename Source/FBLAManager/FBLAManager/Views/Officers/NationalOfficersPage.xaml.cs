@@ -7,13 +7,13 @@ namespace FBLAManager.Views.Officers
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NationalOfficersPage : ContentPage
     {
-        private OfficerViewModel viewModel;
+        private OfficersViewModel viewModel;
 
         public NationalOfficersPage()
         {
             InitializeComponent();
 
-            this.BindingContext = viewModel = new OfficerViewModel();
+            this.BindingContext = viewModel = new OfficersViewModel(1);
 
             // viewModel.LoadItemsCommand.Execute(null);
             OfficersListView.ItemSelected += OfficersListView_ItemSelected;

@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <ApplicationIcon />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -10,16 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.17" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.17" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.17" />
-    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.17" />
-    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.17" />
-    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.17" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.27" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.851321-pre3" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991210-pre2" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
@@ -27,11 +31,38 @@
     <EmbeddedResource Update="Themes\LightTheme.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AboutUs\AboutUsWithCardsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AboutUs\QandAPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AboutUs\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CompetitiveEventsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\ContactUs\ContactUsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ContactUs\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Events\ClubEventsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Events\CommunityServicePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Events\CompetitionsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Events\EventDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Events\MeetingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\SimpleEmailEntry.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -51,11 +82,23 @@
     <EmbeddedResource Update="Views\Forms\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Officers\LocalOfficersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Officers\NationalOfficersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Officers\StateOfficersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SocialMedia\AboutUsWithScrollPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SocialMedia\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -66,11 +109,23 @@
     <Compile Update="Views\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\CompetitiveEventsPage.xaml.cs">
+      <DependentUpon>CompetitiveEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Events\MeetingDetailPage.xaml.cs">
+      <DependentUpon>MeetingDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Events\MeetingsPage.xaml.cs">
+      <DependentUpon>MeetingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Officers\NationalOfficersPage.xaml.cs">
       <DependentUpon>NationalOfficersPage.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SocialMedia\AboutUswithScrollPage.xaml.cs">
+      <DependentUpon>AboutUsWithScrollPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

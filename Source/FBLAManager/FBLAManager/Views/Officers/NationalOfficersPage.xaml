@@ -6,7 +6,8 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
 	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              mc:Ignorable="d"
-             x:Class="FBLAManager.Views.Officers.NationalOfficersPage">
+             x:Class="FBLAManager.Views.Officers.NationalOfficersPage"
+             Title="National Officers">
     <ContentPage.Content>
         <StackLayout>
             <ListView
@@ -39,14 +40,17 @@
                                 <Label Text="{Binding Name}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
+                                TextColor="Black"
+                                FontSize="20" />
                                 <Label Text="{Binding Position}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
+                                TextColor="Gray"
+                                FontSize="15" />
                                 <Label Text="{Binding WebsiteLink}" 
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
+                                TextColor="DarkGray"
                                 FontSize="13" />
                             </StackLayout>
                         
