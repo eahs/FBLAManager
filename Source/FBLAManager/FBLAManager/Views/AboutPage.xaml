@@ -30,7 +30,7 @@
                     <BoxView BackgroundColor="Transparent" HeightRequest="100" HorizontalOptions="CenterAndExpand"/>
                     <StackLayout BackgroundColor="White" VerticalOptions="FillAndExpand" HeightRequest="8000">
 
-                        <WebView x:Name="webView" WidthRequest="1000" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="{Binding Content}">
+                        <WebView WidthRequest="1000" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="{Binding ContentURL}">
                         </WebView>
 
                     </StackLayout>

@@ -18,7 +18,7 @@ namespace FBLAManager.Views
 
         }
 
-        public string Content { get; set; } = "https://eahs.github.io/FBLAManager/?" + Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+        public string ContentURL { get; set; } = "https://eahs.github.io/FBLAManager/?" + Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
 
 
         private void MainScrollView_Scrolled(object sender, ScrolledEventArgs e)

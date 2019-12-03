@@ -16,7 +16,7 @@ namespace FBLAManager.Views
 
         }
 
-        public string Content { get; set; } = "https://eahs.github.io/FBLAManager/PRIVACY.html?" + Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
+        public string ContentURL { get; set; } = "https://eahs.github.io/FBLAManager/PRIVACY.html?" + Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8);
 
 
     }
