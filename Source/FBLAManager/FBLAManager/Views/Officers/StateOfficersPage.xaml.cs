@@ -15,6 +15,12 @@ namespace FBLAManager.Views.Officers
 
             this.BindingContext = viewModel = new OfficersViewModel(2);
 
+            StateOfficersListView.ItemSelected += StateOfficersListView_ItemSelected;
+        }
+
+        private void StateOfficersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            StateOfficersListView.SelectedItem = null;
         }
     }
 }
