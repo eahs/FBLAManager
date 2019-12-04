@@ -24,22 +24,34 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <StackLayout Grid.Column="0" Padding="10">
+                                <Frame Padding="5,5,5,5">
+                                    <ff:CachedImage Source="{Binding Image}" Aspect="AspectFit" WidthRequest="75" Grid.Column="0">
+                                        <ff:CachedImage.Transformations>
+                                            <fftransformations:CircleTransformation />
+                                        </ff:CachedImage.Transformations>
+                                    </ff:CachedImage>
+                                </Frame>
+
+                                <StackLayout Grid.Column="1" Padding="10">
                                     <Label Text="{Binding Name}" 
-                                LineBreakMode="NoWrap" 
-                                TextColor="Black"
-                                FontSize="20"/>
+                                        LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        TextColor="Black"
+                                        FontSize="20" />
                                     <Label Text="{Binding Position}" 
-                                LineBreakMode="NoWrap"
-                                TextColor="Gray"
-                                FontSize="15" />
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        TextColor="Gray"
+                                        FontSize="15" />
                                     <Label Text="{Binding WebsiteLink}" 
-                                LineBreakMode="NoWrap" 
-                                TextColor="DarkGray"
-                                FontSize="13" />
+                                        LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        TextColor="DarkGray"
+                                        FontSize="13" />
                                 </StackLayout>
 
                             </Grid>

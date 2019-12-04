@@ -37,22 +37,22 @@
                                 </Frame>
                                 
                                 <StackLayout Grid.Column="1" Padding="10">
-                                <Label Text="{Binding Name}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                TextColor="Black"
-                                FontSize="20" />
-                                <Label Text="{Binding Position}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                TextColor="Gray"
-                                FontSize="15" />
-                                <Label Text="{Binding WebsiteLink}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                TextColor="DarkGray"
-                                FontSize="13" />
-                            </StackLayout>
+                                    <Label Text="{Binding Name}" 
+                                        LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        TextColor="Black"
+                                        FontSize="20" />
+                                    <Label Text="{Binding Position}" 
+                                        LineBreakMode="NoWrap"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        TextColor="Gray"
+                                        FontSize="15" />
+                                    <Label Text="{Binding WebsiteLink}" 
+                                        LineBreakMode="NoWrap" 
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        TextColor="DarkGray"
+                                        FontSize="13" />
+                                </StackLayout>
                         
                             </Grid>
 
