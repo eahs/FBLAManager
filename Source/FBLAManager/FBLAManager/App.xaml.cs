@@ -7,6 +7,9 @@ using FBLAManager.ViewModels.Forms;
 using FBLAManager.Views.Forms;
 using FBLAManager.Helpers;
 using System.Threading.Tasks;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace FBLAManager
 {
@@ -71,7 +74,9 @@ namespace FBLAManager
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            AppCenter.Start("android=f13f8936-f34e-4a53-9afe-132ccd13c0bf;" +
+                              "ios=97c915d2-476e-416d-a980-00a08f5b05b3",
+                              typeof(Analytics), typeof(Crashes));
         }
         
         protected override void OnSleep()
