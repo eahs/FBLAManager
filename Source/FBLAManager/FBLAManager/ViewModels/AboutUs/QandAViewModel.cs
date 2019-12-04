@@ -17,33 +17,28 @@ namespace FBLAManager.ViewModels.AboutUs
             {
                 new QandA
                 {
-                    Question = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
-                    Answer = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." +
-                        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    Question = "What are the official colors of FBLA?",
+                    Answer = "The official colors of FBLA are blue and gold."
                 },
                 new QandA
                 {
-                    Question = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
-                    Answer = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." +
-                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    Question = "Who is the founder of FBLA?",
+                    Answer = "Hamden L. Forkner founded FBLA in 1937."
                 },
                 new QandA
                 {
-                    Question = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
-                    Answer = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." +
-                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    Question = "What are the Five Regions of FBLA?",
+                    Answer = "The Five Regions of FBLA are the Western, Mountain Plains, North Central, Southern and Eastern Regions."
                 },
                 new QandA
                 {
-                    Question = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
-                    Answer = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." +
-                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    Question = "In the absence of the president at a chapter meeting, which officer serves as the presiding officer?",
+                    Answer = "The Vice-President."
                 },
                 new QandA
                 {
-                    Question = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
-                    Answer = "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." +
-                    "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                    Question = "In the absence of the president and vice-president at a regular meeting, who should call the meeting to order?",
+                    Answer = "The Secretary."
                 }
             };
         }
