@@ -14,7 +14,12 @@ namespace FBLAManager.Views.Officers
             InitializeComponent();
 
             this.BindingContext = viewModel = new OfficersViewModel(3);
+            LocalOfficersListView.ItemSelected += LocalOfficersListView_ItemSelected;
+        }
 
+        private void LocalOfficersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            LocalOfficersListView.SelectedItem = null;
         }
     }
 }

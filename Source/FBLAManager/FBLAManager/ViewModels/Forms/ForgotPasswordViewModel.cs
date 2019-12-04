@@ -54,11 +54,11 @@ namespace FBLAManager.ViewModels.Forms
             switch (status)
             {
                 case UserManagerResponseStatus.Success:
-                    //MessagingCenter.Send(this, "LoadApp"); display success alert
+                    MessagingCenter.Send(this, "ForgotPasswordSuccess");  // display success alert
                     break;
 
                 default:
-                    MessagingCenter.Send(this, "UnknownResponse");
+                    MessagingCenter.Send(this, "InvalidCredentials");
                     break;
             }
         }

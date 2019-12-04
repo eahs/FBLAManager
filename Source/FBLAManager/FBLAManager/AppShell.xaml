@@ -145,7 +145,18 @@
     </FlyoutItem>
 
     <FlyoutItem Title="About FBLA Navigator" Icon="about_app_icon.png">
-        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        <Tab Title="About"
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        </Tab>
+        <Tab Title="Terms of Use"
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate views:TermsPage}" />
+        </Tab>
+        <Tab Title="Privacy Policy"
+             Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate views:PrivacyPage}" />
+        </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="Log Out" Icon="exit.png" Route="logout">

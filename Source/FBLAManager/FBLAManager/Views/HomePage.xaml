@@ -57,6 +57,15 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="5,5,5,20">
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+                <Image Source="facebook_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
+                <Image Source="twitter_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
+                <Label Text="Like the app? Share it with a friend!" TextColor="White" Margin="10,5,0,0"/>
+            </StackLayout>
+            
             <!--<Button Text="Report Bug" Clicked="ReportBug_Clicked"></Button>-->
         </StackLayout>
     </ContentPage.Content>

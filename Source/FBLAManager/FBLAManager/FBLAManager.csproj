@@ -106,6 +106,12 @@
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\PrivacyPage.xaml.cs">
+      <DependentUpon>PrivacyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\TermsPage.xaml.cs">
+      <DependentUpon>TermsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\CalendarPage.xaml.cs">
       <DependentUpon>CalendarPage.xaml</DependentUpon>
     </Compile>
