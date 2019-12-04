@@ -43,7 +43,7 @@
 
             <Button AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 50" AbsoluteLayout.LayoutFlags="PositionProportional" 
                     Pressed="SignUp_Pressed" BackgroundColor="{Binding XamColor}"
-                    Text="Sign In" TextColor="White" FontSize="Medium" 
+                    Text="Sign Up" TextColor="White" FontSize="Medium" 
                     CornerRadius="30" />
 
 
