@@ -1,4 +1,5 @@
-﻿using FBLAManager.Views;
+﻿using FBLAManager.Helpers;
+using FBLAManager.Views;
 using FBLAManager.Views.Events;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,8 @@ namespace FBLAManager
 
                 if (await DisplayAlert("Confirm", "Are you sure you want to log out?", "Yes", "No"))
                 {
+                    UserManager.Current.Logout();
+
                     await Shell.Current.GoToAsync("//logout/logoutpage?confirm=true");
                 }
             }

@@ -48,7 +48,7 @@ namespace FBLAManager.ViewModels.Forms
                 }
 
                 this.email = value;
-                this.IsInvalidEmail = CheckValidEmail(this.email);
+                this.IsInvalidEmail = !CheckValidEmail(this.email);
                 this.OnPropertyChanged();
             }
         }

@@ -32,6 +32,9 @@ namespace FBLAManager.ViewModels.Forms
             this.SignUpCommand = new Command(this.SignUpClicked);
             this.ForgotPasswordCommand = new Command(this.ForgotPasswordClicked);
             this.SocialMediaLoginCommand = new Command(this.SocialLoggedIn);
+
+            this.Email = "judge@fbla.com";
+            this.Password = "judge";
         }
 
         #endregion

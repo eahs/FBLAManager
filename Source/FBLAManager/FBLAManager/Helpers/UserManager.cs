@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 
 namespace FBLAManager.Helpers
 {
@@ -41,11 +42,54 @@ namespace FBLAManager.Helpers
             get { return _userManager ?? new UserManager(); }
         }
 
-        public string SessionKey { get; set; } = "";
+        private string sessionkey = "";
+        public string SessionKey
+        {
+            get
+            {
+                return this.sessionkey;
+            }
+            set
+            {
+                this.sessionkey = value;
+
+                // Save to disk
+                try
+                {
+                    Task t = SecureStorage.SetAsync("sessionkey", sessionkey);
+                    t.RunSynchronously();
+                }
+                catch (Exception ex)
+                {
+                    // Possible that device doesn't support secure storage on device.
+                }
+            }
+        }
 
         public void AddAuthorization (RestRequest request)
         {
             request.AddHeader("auth", SessionKey);
+        }
+
+        public async Task<bool> IsLoggedIn ()
+        {
+            try
+            {
+                var _sessionkey = await SecureStorage.GetAsync("sessionkey");
+                if (_sessionkey != null)
+                    sessionkey = _sessionkey;
+            }
+            catch (Exception ex)
+            {
+                // Possible that device doesn't support secure storage on device.
+            }
+
+            return SessionKey != "";
+        }
+
+        public void Logout ()
+        {
+            SessionKey = "";
         }
 
         public async Task<UserManagerResponseStatus> MeetingSignup(Meeting meeting, string password = "")
@@ -205,7 +249,9 @@ namespace FBLAManager.Helpers
                 switch (data.Status)
                 {
                     case "MissingFields": return UserManagerResponseStatus.MissingFields; 
-                    case "Success":       return UserManagerResponseStatus.Success;  
+                    case "Success":
+                        SessionKey = data.Key;
+                        return UserManagerResponseStatus.Success;  
                     case "UserExists":    return UserManagerResponseStatus.UserExists;
                     default:              return UserManagerResponseStatus.UnknownResponse;
                 }

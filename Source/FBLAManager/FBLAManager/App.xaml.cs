@@ -5,6 +5,8 @@ using FBLAManager.Services;
 using FBLAManager.Views;
 using FBLAManager.ViewModels.Forms;
 using FBLAManager.Views.Forms;
+using FBLAManager.Helpers;
+using System.Threading.Tasks;
 
 namespace FBLAManager
 {
@@ -32,12 +34,21 @@ namespace FBLAManager
 
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "SignupClicked", SignupClicked);
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "ForgotPasswordClicked", ForgotPasswordClicked);
-
             MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
-
             MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
 
-            MainPage = new SimpleLoginPage();
+            Startup();
+
+        }
+
+        async private Task<bool> Startup ()
+        {
+            if (await UserManager.Current.IsLoggedIn())
+                MainPage = new AppShell();
+            else
+                MainPage = new SimpleLoginPage();
+
+            return true;
         }
 
         async private void SignupClicked (Object o)
