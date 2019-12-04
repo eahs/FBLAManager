@@ -129,13 +129,13 @@ namespace FBLAManager.ViewModels.ContactUs
                 new LocationMarker
                 {
                     PinImage = "Pin.png",
-                    Header = "FBLA-PBL, Inc.",
-                    Address = "1912 Association Drive, Reston, VA 20191",
-                    EmailId = "general@fbla.org",
-                    PhoneNumber = "+1.800.325.2946",
+                    Header = "EAHS FBLA",
+                    Address = "2601 William Penn Hwy, Easton, PA 18045",
+                    EmailId = "kleinb@eastonsd.org",
+                    PhoneNumber = "610-250-2400",
                     CloseImage = "Close.png",
-                    Latitude = "38.946736",
-                    Longitude = "-77.344476"
+                    Latitude = "40.682817", 
+                    Longitude = "-75.252373"
                 });
 
             foreach (var marker in this.CustomMarkers)
