@@ -1,9 +1,6 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Views;
 using FBLAManager.Views.Events;
-using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 
 namespace FBLAManager
@@ -14,7 +11,6 @@ namespace FBLAManager
         {
             InitializeComponent();
 
-            Routing.RegisterRoute("ItemDetailPage", typeof(ItemDetailPage));
             Routing.RegisterRoute("MeetingDetailPage", typeof(MeetingDetailPage));
             Routing.RegisterRoute("calendar/dayview", typeof(CalendarPage));
 
