@@ -10,70 +10,79 @@
 
     <ContentPage.Content>
 
-        <AbsoluteLayout>
+        <StackLayout>
 
-            <Image
-                    AbsoluteLayout.LayoutBounds="0,0,1,0.2" AbsoluteLayout.LayoutFlags="SizeProportional"
+            <Grid>
+                <Image
                     Aspect="Fill"
                     BackgroundColor="{Binding XamColor}"
-                    HeightRequest="350"
+                    HeightRequest="250"
                     HorizontalOptions="Fill">
-                <Image.Source>
-                    <UriImageSource Uri="{Binding CardsTopImage}"
-                                 CacheValidity="14"
-                                 CachingEnabled="true"/>
-                </Image.Source>
-            </Image>
+                    <Image.Source>
+                        <UriImageSource Uri="{Binding CardsTopImage}"
+                                        CacheValidity="14"
+                                        CachingEnabled="true"/>
+                    </Image.Source>
+                </Image>
 
-            <Label AbsoluteLayout.LayoutBounds="0.05,0.1,0.6,40" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                   Text="{Binding EventName}"  d:Text="Meeting name" 
-                   FontSize="Large" TextColor="White" />
-            
+                <StackLayout VerticalOptions="EndAndExpand">
 
-            <StackLayout AbsoluteLayout.LayoutBounds="0.1,0.16,1,20" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" Orientation="Horizontal">
+                    <Label MaxLines="2"
+                           Margin="10,10,0,0"
+                           LineBreakMode="WordWrap"
+                           Text="{Binding EventName}"  d:Text="Meeting name" 
+                           FontSize="Large" TextColor="White" />
 
-                <Label Margin="10,0,0,0" Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"/>
-                <Label Margin="3,0,0,0" Text="-" TextColor="GhostWhite" FontSize="16"/>
-                <Label Margin="3,0,0,0" Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16" />
-                
-            </StackLayout>
-            
-            <Label AbsoluteLayout.LayoutBounds="0, 0.25, 1, 75" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
-                   Margin="10,0,0,0" 
-                   Text="{Binding Description}" d:Text="Meeting description" TextColor="Black" FontSize="Medium" />
+                    <StackLayout Orientation="Horizontal" Margin="0,0,0,5">
 
-            <Button AbsoluteLayout.LayoutBounds="0.5, 0.5, 120, 50" AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        <Label Margin="10,0,0,0" Text="{Binding From, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16"/>
+                        <Label Margin="3,0,0,0" Text="-" TextColor="GhostWhite" FontSize="16"/>
+                        <Label Margin="3,0,0,0" Text="{Binding To, StringFormat='{0:hh:mm tt}'}" TextColor="GhostWhite" FontSize="16" />
+
+                    </StackLayout>
+
+                </StackLayout>
+
+            </Grid>
+
+            <ScrollView Padding="5">
+
+                <StackLayout>
+
+                    <Label Margin="10,0,0,0" Text="{Binding Description}" d:Text="Meeting description" TextColor="Black" FontSize="Medium" />
+
+                    <Button  
                     Pressed="SignUp_Pressed" BackgroundColor="{Binding XamColor}"
                     Text="Sign In" TextColor="White" FontSize="Medium" 
-                    CornerRadius="30" />
+                    CornerRadius="30" Margin="10,15,10,15" />
 
+                    <Label  
+                        Text="Member(s) Attending:" TextColor="Black" FontSize="Medium" Margin="10,0,0,0"/>
 
-
-            <StackLayout AbsoluteLayout.LayoutBounds="0.25, 0.625, 0.9, 60" AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional">
-                <Label  
-                        Text="Member(s) Attending:" TextColor="Black" FontSize="Medium" />
-                <syncfusion:SfListView 
+                    <syncfusion:SfListView 
                        ItemsSource="{Binding MeetingAttendees}"
                        ItemSize="30"
-                       Grid.Row="3">
+                       Grid.Row="3"
+                       >
 
-                    <syncfusion:SfListView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame 
+                        <syncfusion:SfListView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame 
                                 BackgroundColor="FloralWhite"
                                 OutlineColor="{Binding XamColor}"
                                 Margin="15,0,0,0"
                                 Padding="10,5,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Member.FirstName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
-                                    <Label Text="{Binding Member.LastName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
-                                </StackLayout>
-                            </Frame>
-                        </DataTemplate>
-                    </syncfusion:SfListView.ItemTemplate>
-                </syncfusion:SfListView>
-            </StackLayout>
-        </AbsoluteLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Member.FirstName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding Member.LastName}"  TextColor="DarkBlue" FontSize="15" HorizontalTextAlignment="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </syncfusion:SfListView.ItemTemplate>
+                    </syncfusion:SfListView>
+                </StackLayout>
 
+            </ScrollView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
