@@ -17,6 +17,11 @@ namespace FBLAManager.ViewModels.AboutUs
             {
                 new QandA
                 {
+                    Question = "What is FBLA's mission statement?",
+                    Answer = "Our mission is to bring business and education together in a positive working relationship through innovative leadership and career development programs."
+                },
+                new QandA
+                {
                     Question = "What are the official colors of FBLA?",
                     Answer = "The official colors of FBLA are blue and gold."
                 },
@@ -39,7 +44,29 @@ namespace FBLAManager.ViewModels.AboutUs
                 {
                     Question = "In the absence of the president and vice-president at a regular meeting, who should call the meeting to order?",
                     Answer = "The Secretary."
-                }
+                },
+                new QandA
+                {
+                    Question = "What is the parliamentary procedure term to suggest names to be considered for office?",
+                    Answer = "\"Nominate.\""
+                },
+                new QandA
+                {
+                    Question = "What is the parliamentary term for the discussion of the merits of a motion?",
+                    Answer = "\"Debate.\""
+                },
+                new QandA
+                {
+                    Question = "In a chapter meeting, if you want to change the wording of a motion that is being discussed, what do you have to do?",
+                    Answer = "Make a motion to amend the main motion."
+                },
+                new QandA
+                {
+                    Question = "What is the name of the publication that each local chapter receives that contains all the information " +
+                    "about FBLA—national constitution and bylaws, national programs, national organization, etc.?",
+                    Answer = "The Chapter Management Handbook."
+                },
+                
             };
         }
 

@@ -27,7 +27,7 @@
                                         LineBreakMode="CharacterWrap" 
                                         Style="{DynamicResource ListItemTextStyle}" 
                                         FontSize="Medium" 
-                                        TextColor="DarkBlue"
+                                        TextColor="#004073"
                                         FontAttributes="Bold" />
                             <!-- Answer text and properties -->
                             <Label Text="{Binding Answer}" 
