@@ -12,6 +12,7 @@
         <StackLayout>
 
             <Grid>
+                <!--Colorful Box That Matches Calendar-->
                 <Image
                     Aspect="Fill"
                     BackgroundColor="{Binding XamColor}"
