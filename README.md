@@ -289,13 +289,13 @@ Syncfusion.Xamarin.SfComboBox by Syncfusion Inc. - [https://www.nuget.org/packag
 
 - “FBLA-PBL.” FBLA-PBL, [www.fbla-pbl.org/](http://www.fbla-pbl.org/).
 
-- [https://www.fbla-pbl.org/fbla/competitive-events/](https://www.fbla-pbl.org/fbla/competitive-events/)
+- “FBLA Competitive Events: Academic Competitions for High School Students.” FBLA, https://www.fbla-pbl.org/fbla/competitive-events/.
 
-- [https://www.fbla-pbl.org/fbla/officers/](https://www.fbla-pbl.org/fbla/officers/)
+- “FBLA National Officers - FBLA-PBL.” FBLA, https://www.fbla-pbl.org/fbla/officers/.
 
-- Quizlet of Questions
+- “Easton, PA FBLA Study Set.” Quizlet, 2019, https://quizlet.com/447443583/easton-pa-fbla-study-set-flash-cards/.
 
-- [https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/README.md](https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/README.md)
+- BeckettMorsch. “BeckettMorsch/QuizzicalFBLA.” GitHub, https://github.com/BeckettMorsch/QuizzicalFBLA/blob/master/README.md.
 
   
 
