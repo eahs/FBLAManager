@@ -231,6 +231,14 @@ Xamarin.FFImageLoading by Daniel Luberda, Fabien Molinet - [https://www.nuget.or
 
 ### Syncfusion
 
+Syncfusion Essential UI Kit for Xamarin by Syncfusion Inc. - https://quizlet.com/447443583/easton-pa-fbla-study-set-flash-cards/ 
+
+  
+
+> This Essential UI Kit repository contains elegantly designed XAML templates for Xamarin.Forms apps. These templates are compatible with Android, iOS, and UWP platforms, and use the MVVM design pattern to provide trouble-free integration.
+
+  
+
   
 
 Syncfusion.Xamarin.Core by Syncfusion Inc. - [https://www.nuget.org/packages/Syncfusion.Xamarin.Core/](https://www.nuget.org/packages/Syncfusion.Xamarin.Core/)
