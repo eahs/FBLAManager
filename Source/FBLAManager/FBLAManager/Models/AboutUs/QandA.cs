@@ -6,7 +6,14 @@ namespace FBLAManager.Models.AboutUs
     /// </summary>
     public class QandA
     {
+        /// <summary>
+        /// The question.
+        /// </summary>
        public string Question { get; set; }
+
+        /// <summary>
+        /// The answer.
+        /// </summary>
        public string Answer { get; set; }
     }
 }
