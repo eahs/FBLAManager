@@ -106,7 +106,7 @@ Visual Studio Requirements:
 
   
 
-In order to build for Android you will need Visual Studio or Visual Studio for Mac. Upon opening the Visual Studio solution it will immediately download all necessary packages from Nuget. You will need to execute a debug version of the QuizzicalFBLA.Android project either on a simulator or by connecting an Android mobile device that has Developer Options and Enable USB debugging turned on.
+In order to build for Android you will need Visual Studio or Visual Studio for Mac. Upon opening the Visual Studio solution it will immediately download all necessary packages from Nuget. You will need to execute a debug version of the FBLAManager.Android project either on a simulator or by connecting an Android mobile device that has Developer Options and Enable USB debugging turned on.
   
 
 ## Resources Used
