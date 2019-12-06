@@ -6,13 +6,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System;
 using System.Linq;
-
-using Xamarin.Forms;
 using FBLAManager.Helpers;
 using System.Windows.Input;
 
 namespace FBLAManager.ViewModels
 {
+    /// <summary>
+    /// Viewmodel for meetings and events pages. 
+    /// </summary>
     public class MeetingsViewModel : BaseViewModel
     {
         public ObservableCollection<Meeting> Meetings { get; set; }
@@ -75,6 +76,7 @@ namespace FBLAManager.ViewModels
 
                     foreach (var meeting in items)
                     {
+                        //only adds meeting from backend if it matches the meeting type of the page
                         if (meeting.Type == type)
                         {
                             var existingMeeting = Meetings.FirstOrDefault(m => m.MeetingId == meeting.MeetingId);

@@ -1,11 +1,11 @@
 ﻿using FBLAManager.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
 namespace FBLAManager.ViewModels.Events
 {
+    /// <summary>
+    /// Viewmodel of meeting detail templates.
+    /// </summary>
+
     //[QueryProperty("Meeting", "meeting")]
     public class MeetingDetailViewModel : BaseViewModel
     {

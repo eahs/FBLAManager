@@ -1,21 +1,25 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Models;
-using FBLAManager.Models.AboutUs;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
-using Xamarin.Forms;
 
 namespace FBLAManager.ViewModels.Events
 {
+    /// <summary>
+    /// ViewModel for the competition page.
+    /// </summary>
     public class CompetitionsViewModel : BaseViewModel
     {
+       
+        /// <summary>
+        /// Initializes a new instance for the <see cref="T:FBLAManager.ViewModels.Events.CompetitionsViewModel"/> class.
+        /// </summary>
+
         public CompetitionsViewModel()
         {
             Competitions = new ObservableCollection<Competition>
@@ -24,6 +28,7 @@ namespace FBLAManager.ViewModels.Events
             };
             this.LoadItemsCommand.Execute(null);
         }
+
 
         public ObservableCollection<Competition> Competitions { get; }
 
@@ -48,6 +53,10 @@ namespace FBLAManager.ViewModels.Events
             }
         }
 
+        /// <summary>
+        /// Provides a mechanism to execute the asynchronous load items command.
+        /// </summary>
+        /// <returns></returns>
         protected override async Task ExecuteLoadItemsCommand()
         {
             IsRefreshing = true;
@@ -55,6 +64,10 @@ namespace FBLAManager.ViewModels.Events
             IsRefreshing = false;
         }
 
+        /// <summary>
+        /// Loads the competitions from the backend server.
+        /// </summary>
+        /// <returns></returns>
         protected override async Task LoadItemsAsync()
         {
 

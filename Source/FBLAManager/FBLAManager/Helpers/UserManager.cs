@@ -2,14 +2,15 @@
 using Newtonsoft.Json;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace FBLAManager.Helpers
 {
+    /// <summary>
+    /// Possible response status codes for API requests
+    /// </summary>
     public enum UserManagerResponseStatus
     {
         MissingFields,
@@ -28,6 +29,9 @@ namespace FBLAManager.Helpers
         public Meeting Meeting { get; set; }
     }
 
+    /// <summary>
+    /// Singleton patterned UserManager that interacts with the backend Server - All API endspoints are in GlobalConstants.cs 
+    /// </summary>
     public class UserManager
     {
         private static UserManager _userManager = null;
@@ -37,12 +41,19 @@ namespace FBLAManager.Helpers
             _userManager = this;
         }
 
+        /// <summary>
+        /// Provides a singleton reference to a UserManager
+        /// </summary>
         public static UserManager Current
         {
             get { return _userManager ?? new UserManager(); }
         }
 
         private string sessionkey = "";
+
+        /// <summary>
+        /// User session key after they have logged on - Empty if not currently logged in
+        /// </summary>
         public string SessionKey
         {
             get
@@ -66,11 +77,19 @@ namespace FBLAManager.Helpers
             }
         }
 
+        /// <summary>
+        /// Adds the appropriate authorization header for correctly interacting with the backend API
+        /// </summary>
+        /// <param name="request"></param>
         public void AddAuthorization (RestRequest request)
         {
             request.AddHeader("auth", SessionKey);
         }
 
+        /// <summary>
+        /// Determines if the user is currently logged in with the backend
+        /// </summary>
+        /// <returns>bool - True if user is logged in</returns>
         public async Task<bool> IsLoggedIn ()
         {
             try
@@ -87,11 +106,20 @@ namespace FBLAManager.Helpers
             return SessionKey != "";
         }
 
+        /// <summary>
+        /// Logs the user out
+        /// </summary>
         public void Logout ()
         {
             SessionKey = "";
         }
 
+        /// <summary>
+        /// Allows the user to signup for a particular meeting with a password provided by the meeting organizer
+        /// </summary>
+        /// <param name="meeting">Meeting member wants to sign up for</param>
+        /// <param name="password">Password code for meeting</param>
+        /// <returns></returns>
         public async Task<UserManagerResponseStatus> MeetingSignup(Meeting meeting, string password = "")
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
@@ -152,6 +180,12 @@ namespace FBLAManager.Helpers
             return UserManagerResponseStatus.InvalidRequest;
         }
 
+        /// <summary>
+        /// Logs user into the FBLA backend
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public async Task<UserManagerResponseStatus> Login (string email, string password)
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
@@ -188,6 +222,11 @@ namespace FBLAManager.Helpers
             return UserManagerResponseStatus.InvalidRequest;
         }
 
+        /// <summary>
+        /// Notifies the backend server that the user forgot their password - Server sends a recovery email in response
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>UserManagerResponseStatus</returns>
         public async Task<UserManagerResponseStatus> ForgotPassword(string email)
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
@@ -222,7 +261,11 @@ namespace FBLAManager.Helpers
             return UserManagerResponseStatus.InvalidRequest;
         }
 
-
+        /// <summary>
+        /// Creates a new member by notifying the backend server
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns>UserManagerResponseStatus</returns>
         public async Task<UserManagerResponseStatus> CreateMember(Member m)
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
