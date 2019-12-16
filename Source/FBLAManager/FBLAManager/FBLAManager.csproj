@@ -24,6 +24,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView" Version="17.3.0.27" />
     <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
