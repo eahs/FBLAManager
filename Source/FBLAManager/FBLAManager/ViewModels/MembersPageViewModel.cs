@@ -1,33 +1,70 @@
-﻿using FBLAManager.ViewModels;
+﻿using FBLAManager.Helpers;
+using FBLAManager.Models;
+using Newtonsoft.Json;
+using RestSharp;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-
-public class MemberInfo
-{
-    public string Name { get; set; }
-    public long Number { get; set; }
-}
-
+using System.Threading.Tasks;
+using FBLAManager.ViewModels;
+using FBLAManager; 
 
 public class MembersPageViewModel : BaseViewModel
 {
-    private ObservableCollection<MemberInfo> contactList;
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    public ObservableCollection<MemberInfo> ContactList
-    {
-        get { return contactList; }
-        set { contactList = value; }
-    }
+    public ObservableCollection<Member> Members { get; set; }
     public MembersPageViewModel()
     {
-        ContactList = new ObservableCollection<MemberInfo>();
-        ContactList.Add(new MemberInfo { Name = "Aaron", Number = 7363750 });
-        ContactList.Add(new MemberInfo { Name = "Adam", Number = 7323250 });
-        ContactList.Add(new MemberInfo { Name = "Adrian", Number = 7239121 });
-        ContactList.Add(new MemberInfo { Name = "Alwin", Number = 2329823 });
-        ContactList.Add(new MemberInfo { Name = "Alex", Number = 8013481 });
-        ContactList.Add(new MemberInfo { Name = "Alexander", Number = 7872329 });
-        ContactList.Add(new MemberInfo { Name = "Barry", Number = 7317750 });
+        Members = new ObservableCollection<Member>();
+
+        LoadItemsCommand.Execute(null);
+    }
+
+    protected override async Task LoadItemsAsync()
+    {
+
+        try
+        {
+
+            // Make async request to obtain data
+            var client = new RestClient(GlobalConstants.EndPointURL);
+            var request = new RestRequest
+            {
+                Timeout = GlobalConstants.RequestTimeout
+            };
+            request.Resource = String.Format(GlobalConstants.MembersEndPointRequestURL);
+            UserManager.Current.AddAuthorization(request);
+
+            var response = await client.ExecuteTaskAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                var items = JsonConvert.DeserializeObject<List<Member>>(response.Content) ?? new List<Member>();
+
+
+                Members.Clear();
+
+                foreach (var member in items)
+                {
+                    Members.Add(member);
+                }
+
+                OnPropertyChanged("Members");
+
+                IsError = false;
+                DataAvailable = true;
+            }
+            else
+            {
+                // An error occurred that is stored
+                ErrorMessage = "An error occurred";
+                DataAvailable = false;
+                IsError = true;
+            }
+        }
+        catch (Exception)
+        {
+            // An exception occurred
+            DataAvailable = false;
+        }
     }
 }

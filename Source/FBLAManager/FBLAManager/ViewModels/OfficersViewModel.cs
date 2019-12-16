@@ -5,7 +5,6 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FBLAManager.ViewModels
@@ -13,6 +12,8 @@ namespace FBLAManager.ViewModels
     public class OfficersViewModel : BaseViewModel
     {
         public ObservableCollection<Officer> Officers { get; set; }
+
+        //Level: national, state, local 
         public int Level { get; set; } = 0;
 
         public OfficersViewModel(int level = 0)

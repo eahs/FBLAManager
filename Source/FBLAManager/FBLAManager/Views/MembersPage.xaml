@@ -9,14 +9,17 @@
 
 
     <ContentPage.Content>
-        <tabView:SfTabView BackgroundColor="#f6f6f6" x:Name="tabView">
-            <tabView:SfTabItem Title="{Binding Title1}">
+        <tabView:SfTabView BackgroundColor="#f6f6f6">
+            <tabView:SfTabItem Title="Members">
                 <tabView:SfTabItem.Content>
-                    <Grid BackgroundColor="White" x:Name="AllContactsGrid" >
-                        <ListView x:Name="ContactListView" 
-                                  ItemsSource="{Binding ContactList}"
-                                  RowHeight="75">
-                                                       
+                    <Grid BackgroundColor="White">
+                        <ListView
+                             ItemsSource="{Binding MemberList}"
+                             RowHeight="75"
+                             RefreshCommand="{Binding LoadItemsCommand}"
+                             IsPullToRefreshEnabled="true"
+                             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -36,16 +39,21 @@
                     </Grid>
                 </tabView:SfTabItem.Content>
             </tabView:SfTabItem>
+            
+            <!-- Favorites tab -->
             <tabView:SfTabItem Title="Favorites">
                 <tabView:SfTabItem.Content>
                     <Grid BackgroundColor="Green" x:Name="FavouritesGrid" />
                 </tabView:SfTabItem.Content>
             </tabView:SfTabItem>
+            
+            <!-- Contacts tab -->
             <tabView:SfTabItem Title="Contacts">
                 <tabView:SfTabItem.Content>
                     <Grid BackgroundColor="Blue" x:Name="ContactsGrid" />
                 </tabView:SfTabItem.Content>
             </tabView:SfTabItem>
+            
         </tabView:SfTabView>
     </ContentPage.Content>
     
