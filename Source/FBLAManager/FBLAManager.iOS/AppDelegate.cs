@@ -38,6 +38,7 @@ namespace FBLAManager.iOS
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
+            Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
 
             SfListViewRenderer.Init();
 

@@ -4,12 +4,51 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FBLAManager.Views.MembersPage">
+             x:Class="FBLAManager.Views.MembersPage"
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms">
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <tabView:SfTabView BackgroundColor="#f6f6f6" x:Name="tabView">
+            <tabView:SfTabItem Title="{Binding Title1}">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="White" x:Name="AllContactsGrid" >
+                        <ListView x:Name="ContactListView" 
+                                  ItemsSource="{Binding ContactList}"
+                                  RowHeight="75">
+                                                       
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical" Margin="30,0,0,0">
+                                            <Label 
+                                                Text="{Binding Name}"
+                                                FontSize="24"  />
+                                            <Label 
+                                                Text="{Binding Number}" 
+                                                FontSize="20" 
+                                                TextColor="LightSlateGray" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem Title="Favorites">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Green" x:Name="FavouritesGrid" />
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+            <tabView:SfTabItem Title="Contacts">
+                <tabView:SfTabItem.Content>
+                    <Grid BackgroundColor="Blue" x:Name="ContactsGrid" />
+                </tabView:SfTabItem.Content>
+            </tabView:SfTabItem>
+        </tabView:SfTabView>
     </ContentPage.Content>
+    
+
+
 </ContentPage>

@@ -111,7 +111,7 @@
     </FlyoutItem>
 
 
-        <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
+    <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
         <Tab Title="Officer Teams"
              Icon="test.png">
 
@@ -131,7 +131,11 @@
         </Tab>
     </FlyoutItem>
 
-   <FlyoutItem Title="Contact Us" Icon="contact.png">
+    <FlyoutItem Title="Members" >
+        <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Contact Us" Icon="contact.png">
 
         <Tab Title="Contact Us" Icon="paw.png">
             <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
@@ -158,6 +162,8 @@
             <ShellContent ContentTemplate="{DataTemplate views:PrivacyPage}" />
         </Tab>
     </FlyoutItem>
+
+    
 
     <FlyoutItem Title="Log Out" Icon="exit.png" Route="logout">
         <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" Route="logoutpage"/>
