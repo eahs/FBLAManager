@@ -82,30 +82,43 @@ namespace FBLAManager.ViewModels.Events
                 request.Resource = GlobalConstants.CompetitiveEventsEndPointRequestURL;
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    Competitions.Clear();
 
-                    var items = JsonConvert.DeserializeObject<List<Competition>>(response.Content) ?? new List<Competition>();
+                    var response = await client.ExecuteTaskAsync(request);
 
-                    foreach (var competition in items)
+                    if (response.IsSuccessful)
                     {
-                        Competitions.Add(competition);    
+                        Competitions.Clear();
+
+                        var items = JsonConvert.DeserializeObject<List<Competition>>(response.Content) ?? new List<Competition>();
+
+                        foreach (var competition in items)
+                        {
+                            Competitions.Add(competition);
+                        }
+
+                        OnPropertyChanged("Competitions");
+
+                        IsError = false;
+                        DataAvailable = true;
                     }
-
-                    OnPropertyChanged("Competitions");
-
-                    IsError = false;
-                    DataAvailable = true;
+                    else
+                    {
+                        // An error occurred that is stored
+                        ErrorMessage = "An error occurred";
+                        DataAvailable = false;
+                        IsError = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
-                    DataAvailable = false;
-                    IsError = true;
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Competitions" }
+                  };
+                    Crashes.TrackError(e, properties);
+
+                    return UserManagerResponseStatus.NetworkError;
                 }
             }
             catch (Exception)

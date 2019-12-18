@@ -34,31 +34,44 @@ public class MembersPageViewModel : BaseViewModel
             request.Resource = String.Format(GlobalConstants.MembersEndPointRequestURL);
             UserManager.Current.AddAuthorization(request);
 
-            var response = await client.ExecuteTaskAsync(request);
-
-            if (response.IsSuccessful)
+            try
             {
-                var items = JsonConvert.DeserializeObject<List<Member>>(response.Content) ?? new List<Member>();
 
+                var response = await client.ExecuteTaskAsync(request);
 
-                Members.Clear();
-
-                foreach (var member in items)
+                if (response.IsSuccessful)
                 {
-                    Members.Add(member);
+                    var items = JsonConvert.DeserializeObject<List<Member>>(response.Content) ?? new List<Member>();
+
+
+                    Members.Clear();
+
+                    foreach (var member in items)
+                    {
+                        Members.Add(member);
+                    }
+
+                    OnPropertyChanged("Members");
+
+                    IsError = false;
+                    DataAvailable = true;
                 }
-
-                OnPropertyChanged("Members");
-
-                IsError = false;
-                DataAvailable = true;
+                else
+                {
+                    // An error occurred that is stored
+                    ErrorMessage = "An error occurred";
+                    DataAvailable = false;
+                    IsError = true;
+                }
             }
-            else
+            catch (Exception e)
             {
-                // An error occurred that is stored
-                ErrorMessage = "An error occurred";
-                DataAvailable = false;
-                IsError = true;
+                var properties = new Dictionary<string, string> {
+                    { "Category", "Members" }
+                  };
+                Crashes.TrackError(e, properties);
+
+                return UserManagerResponseStatus.NetworkError;
             }
         }
         catch (Exception)

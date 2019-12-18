@@ -41,28 +41,41 @@ namespace FBLAManager.ViewModels
 
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
 
-                    foreach (var meeting in items)
+                    var response = await client.ExecuteTaskAsync(request);
+
+                    if (response.IsSuccessful)
                     {
-                        CalendarMeetings.Add(meeting);
+                        var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
+
+                        foreach (var meeting in items)
+                        {
+                            CalendarMeetings.Add(meeting);
+                        }
+
+                        OnPropertyChanged("CalendarMeetings");
+
+                        IsError = false;
+                        DataAvailable = true;
                     }
-
-                    OnPropertyChanged("CalendarMeetings");
-
-                    IsError = false;
-                    DataAvailable = true;
+                    else
+                    {
+                        // An error occurred that is stored
+                        ErrorMessage = "An error occurred";
+                        DataAvailable = false;
+                        IsError = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
-                    DataAvailable = false;
-                    IsError = true;
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Calendar" }
+                  };
+                    Crashes.TrackError(e, properties);
+
+                    return UserManagerResponseStatus.NetworkError;
                 }
             }
             catch (Exception)

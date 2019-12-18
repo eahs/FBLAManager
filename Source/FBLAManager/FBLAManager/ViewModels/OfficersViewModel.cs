@@ -40,31 +40,44 @@ namespace FBLAManager.ViewModels
                 request.Resource = String.Format(GlobalConstants.OfficerEndPointRequestURL, Level);
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Officer>>(response.Content) ?? new List<Officer>();
 
+                    var response = await client.ExecuteTaskAsync(request);
 
-                    Officers.Clear();
-
-                    foreach (var officer in items)
+                    if (response.IsSuccessful)
                     {
-                        Officers.Add(officer);
+                        var items = JsonConvert.DeserializeObject<List<Officer>>(response.Content) ?? new List<Officer>();
+
+
+                        Officers.Clear();
+
+                        foreach (var officer in items)
+                        {
+                            Officers.Add(officer);
+                        }
+
+                        OnPropertyChanged("Officers");
+
+                        IsError = false;
+                        DataAvailable = true;
                     }
-
-                    OnPropertyChanged("Officers");
-
-                    IsError = false;
-                    DataAvailable = true;
+                    else
+                    {
+                        // An error occurred that is stored
+                        ErrorMessage = "An error occurred";
+                        DataAvailable = false;
+                        IsError = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
-                    DataAvailable = false;
-                    IsError = true;
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Officers" }
+                  };
+                    Crashes.TrackError(e, properties);
+
+                    return UserManagerResponseStatus.NetworkError;
                 }
             }
             catch (Exception)

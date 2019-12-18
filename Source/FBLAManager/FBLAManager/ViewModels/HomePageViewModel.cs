@@ -37,30 +37,43 @@ namespace FBLAManager.ViewModels
                 request.Resource = String.Format(GlobalConstants.MessageBoardEndPointRequestURL);
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Announcement>>(response.Content) ?? new List<Announcement>();
 
-                    Announcements.Clear();
+                    var response = await client.ExecuteTaskAsync(request);
 
-                    foreach (var announcement in items)
+                    if (response.IsSuccessful)
                     {
-                        Announcements.Add(announcement);
+                        var items = JsonConvert.DeserializeObject<List<Announcement>>(response.Content) ?? new List<Announcement>();
+
+                        Announcements.Clear();
+
+                        foreach (var announcement in items)
+                        {
+                            Announcements.Add(announcement);
+                        }
+
+                        OnPropertyChanged("Announcements");
+
+                        IsError = false;
+                        DataAvailable = true;
                     }
-
-                    OnPropertyChanged("Announcements");
-
-                    IsError = false;
-                    DataAvailable = true;
+                    else
+                    {
+                        // An error occurred that is stored
+                        ErrorMessage = "An error occurred";
+                        DataAvailable = false;
+                        IsError = true;
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
-                    DataAvailable = false;
-                    IsError = true;
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "HomePage" }
+                  };
+                    Crashes.TrackError(e, properties);
+
+                    return UserManagerResponseStatus.NetworkError;
                 }
             }
             catch (Exception)
