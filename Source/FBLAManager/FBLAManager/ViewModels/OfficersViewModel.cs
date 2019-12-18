@@ -25,6 +25,10 @@ namespace FBLAManager.ViewModels
 
         }
 
+        /// <summary>
+        /// Loads the officers from the backend server.
+        /// </summary>
+        /// <returns></returns>
         protected override async Task LoadItemsAsync()
         {
 
