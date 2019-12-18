@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using FBLAManager.ViewModels;
-using FBLAManager; 
+using FBLAManager;
+using Microsoft.AppCenter.Crashes;
 
 public class MembersPageViewModel : BaseViewModel
 {
@@ -75,7 +76,6 @@ public class MembersPageViewModel : BaseViewModel
                   };
                 Crashes.TrackError(e, properties);
 
-                return UserManagerResponseStatus.NetworkError;
             }
         }
         catch (Exception)

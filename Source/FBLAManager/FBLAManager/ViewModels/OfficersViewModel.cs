@@ -1,5 +1,6 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -81,7 +82,6 @@ namespace FBLAManager.ViewModels
                   };
                     Crashes.TrackError(e, properties);
 
-                    return UserManagerResponseStatus.NetworkError;
                 }
             }
             catch (Exception)

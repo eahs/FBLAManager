@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using FBLAManager.Helpers;
 using System.Windows.Input;
+using Microsoft.AppCenter.Crashes;
 
 namespace FBLAManager.ViewModels
 {
@@ -129,10 +130,9 @@ namespace FBLAManager.ViewModels
                 {
                     var properties = new Dictionary<string, string> {
                     { "Category", "Meetings" }
-                  };
+                    };
                     Crashes.TrackError(e, properties);
 
-                    return UserManagerResponseStatus.NetworkError;
                 }
             }
             catch (Exception)

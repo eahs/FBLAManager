@@ -1,7 +1,9 @@
 ﻿using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -346,10 +348,10 @@ namespace FBLAManager.Helpers
 
             catch (Exception e)
             {
-                var properties = new Dictionary<string, string> {
+                var property = new Dictionary<string, string> {
                     { "Category", "UserManager" }
                   };
-                Crashes.TrackError(e, properties);
+                Crashes.TrackError(e, property);
 
                 return UserManagerResponseStatus.NetworkError;
             }
