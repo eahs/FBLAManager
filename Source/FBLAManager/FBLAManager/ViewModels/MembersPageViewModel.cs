@@ -19,6 +19,10 @@ public class MembersPageViewModel : BaseViewModel
         LoadItemsCommand.Execute(null);
     }
 
+    /// <summary>
+    /// Loads the members from the backend server.
+    /// </summary>
+    /// <returns></returns>
     protected override async Task LoadItemsAsync()
     {
 

@@ -5,56 +5,49 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.MembersPage"
-             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms">
-
+             xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
+             xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+             
 
     <ContentPage.Content>
-        <tabView:SfTabView BackgroundColor="#f6f6f6">
-            <tabView:SfTabItem Title="Members">
-                <tabView:SfTabItem.Content>
-                    <Grid BackgroundColor="White">
-                        <ListView
-                             ItemsSource="{Binding MemberList}"
-                             RowHeight="75"
-                             RefreshCommand="{Binding LoadItemsCommand}"
-                             IsPullToRefreshEnabled="true"
-                             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+        
+        
+        <Grid BackgroundColor="White">
+            <ScrollView>
+                
+                    <ListView
+                            ItemsSource="{Binding Members}"
+                            RowHeight="75"
+                            RefreshCommand="{Binding LoadItemsCommand}"
+                            IsPullToRefreshEnabled="true"
+                            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                            CachingStrategy="RecycleElement">
 
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <StackLayout Orientation="Vertical" Margin="30,0,0,0">
-                                            <Label 
-                                                Text="{Binding Name}"
-                                                FontSize="24"  />
-                                            <Label 
-                                                Text="{Binding Number}" 
-                                                FontSize="20" 
-                                                TextColor="LightSlateGray" />
-                                        </StackLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                    </Grid>
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-            
-            <!-- Favorites tab -->
-            <tabView:SfTabItem Title="Favorites">
-                <tabView:SfTabItem.Content>
-                    <Grid BackgroundColor="Green" x:Name="FavouritesGrid" />
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-            
-            <!-- Contacts tab -->
-            <tabView:SfTabItem Title="Contacts">
-                <tabView:SfTabItem.Content>
-                    <Grid BackgroundColor="Blue" x:Name="ContactsGrid" />
-                </tabView:SfTabItem.Content>
-            </tabView:SfTabItem>
-            
-        </tabView:SfTabView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" Margin="30,0,0,0">
+                                        <Label 
+                                            Text="{Binding FirstName}"
+                                            FontSize="24"  />
+                                        <Label 
+                                            Text="{Binding Phone}" 
+                                            FontSize="20" 
+                                            TextColor="LightSlateGray" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                            
+                    </ListView>
+                
+                
+                
+            </ScrollView>
+        </Grid>
+        
+             
+        
     </ContentPage.Content>
     
 
