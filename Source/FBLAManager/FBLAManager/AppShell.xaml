@@ -131,7 +131,7 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="Members" >
+    <FlyoutItem Title="Members" Icon="MembersIcon.png">
         <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
     </FlyoutItem>
 

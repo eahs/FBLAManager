@@ -12,6 +12,13 @@ namespace FBLAManager.Views
             InitializeComponent();
 
             BindingContext = new MembersPageViewModel();
+
+            MembersListView.ItemSelected += MembersListView_ItemSelected;
+        }
+
+        private void MembersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            MembersListView.SelectedItem = null;
         }
     }
 }
