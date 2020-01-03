@@ -12,7 +12,7 @@ namespace FBLAManager.Models
 
         private int memberid;
 
-        private string firstname, lastname;
+        private string firstname, lastname, fullname; 
 
         private string gender = "Female";
 
@@ -62,6 +62,15 @@ namespace FBLAManager.Models
         {
             get { return lastname; }
             set { lastname = value; OnPropertyChanged("LastName"); }
+        }
+
+        /// <summary>
+        /// Gets or sets the member's full name. 
+        /// </summary>
+        public string FullName
+        {
+            get { return firstname + " " + lastname; }
+            set { fullname = value; OnPropertyChanged("FullName"); }
         }
 
         /// <summary>
