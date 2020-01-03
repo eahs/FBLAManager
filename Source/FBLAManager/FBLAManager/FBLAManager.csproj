@@ -84,8 +84,14 @@
     <EmbeddedResource Update="Views\Forms\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MembersPage.xaml">
+    <EmbeddedResource Update="Views\Members\MembersDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Members\MembersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Members\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Officers\LocalOfficersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -111,6 +117,9 @@
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Members\MembersDetailPage.xaml.cs">
+      <DependentUpon>MembersDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\PrivacyPage.xaml.cs">
       <DependentUpon>PrivacyPage.xaml</DependentUpon>
     </Compile>

@@ -1,6 +1,8 @@
 ﻿using FBLAManager.ViewModels;
+using FBLAManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FBLAManager.Views.Members;
 
 namespace FBLAManager.Views
 {
@@ -16,9 +18,11 @@ namespace FBLAManager.Views
             MembersListView.ItemSelected += MembersListView_ItemSelected;
         }
 
-        private void MembersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void MembersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            MembersListView.SelectedItem = null;
+            var memberDetailPage = new MembersDetailPage();
+
+            await Navigation.PushAsync(memberDetailPage);
         }
     }
 }
