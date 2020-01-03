@@ -11,25 +11,34 @@
           
         <Grid >
             <ScrollView>
+                <StackLayout>
 
-                <ListView
-                    x:Name="MembersListView"
-                    ItemsSource="{Binding Members}"                      
-                    RefreshCommand="{Binding LoadItemsCommand}"
-                    IsPullToRefreshEnabled="true"
-                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                    CachingStrategy="RecycleElement"
+                    <SearchBar                  
+                       TextColor="Black"
+                       HorizontalTextAlignment="Start"
+                       FontSize="Medium"  
+                       Placeholder="search names..."
+                       TextChanged="OnTextChanged"/>
+
+
+                    <ListView
+                        x:Name="MembersListView"
+                        ItemsSource="{Binding Members}"                      
+                        RefreshCommand="{Binding LoadItemsCommand}"
+                        IsPullToRefreshEnabled="true"
+                        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                        CachingStrategy="RecycleElement"
                     
-                    BackgroundColor="White"
-                    RowHeight="75"                                       
-                    >
+                        BackgroundColor="White"
+                        RowHeight="75"                                       
+                        >
 
-                    <ListView.ItemTemplate>
+                        <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Vertical" Margin="30,0,0,0">
                                     <Label 
-                                        Text="{Binding FirstName}"
+                                        Text="{Binding FullName}"
                                         FontSize="20" 
                                         TextColor="Black"/>
                                     <Label 
@@ -42,9 +51,9 @@
                     </ListView.ItemTemplate>
                             
                 </ListView>
-                
-                
-                
+
+
+                </StackLayout>
             </ScrollView>
         </Grid>
         

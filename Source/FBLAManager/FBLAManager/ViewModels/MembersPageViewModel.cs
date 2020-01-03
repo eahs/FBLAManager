@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using FBLAManager.ViewModels;
 using FBLAManager;
 using Microsoft.AppCenter.Crashes;
+using System.Linq;
 
 public class MembersPageViewModel : BaseViewModel
 {
@@ -16,6 +17,8 @@ public class MembersPageViewModel : BaseViewModel
     public MembersPageViewModel()
     {
         Members = new ObservableCollection<Member>();
+
+        
 
         LoadItemsCommand.Execute(null);
     }
@@ -83,5 +86,14 @@ public class MembersPageViewModel : BaseViewModel
             // An exception occurred
             DataAvailable = false;
         }
+    }
+
+    public List<Member> GetSearchResults(string queryString)
+    {
+        var normalizedQuery = queryString?.ToLower() ?? "";
+
+        var newMembersList = new List<Member>(Members); 
+
+        return newMembersList.Where(f => f.FullName.ToLowerInvariant().Contains(normalizedQuery)).ToList();
     }
 }
