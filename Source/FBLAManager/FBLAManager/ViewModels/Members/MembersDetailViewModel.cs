@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -17,9 +19,8 @@ namespace FBLAManager.ViewModels.Members
         /// </summary>
         public MembersDetailViewModel()
         {
-            this.EditCommand = new Command(this.EditButtonClicked);
-            this.AvailableCommand = new Command(this.AvailableStatusClicked);
-            this.NotificationCommand = new Command(this.NotificationOptionClicked);
+            this.TextCommand = new Command(this.TextButtonClicked);
+            this.EmailCommand = new Command(this.EmailClicked);
         }
 
         #endregion
@@ -29,17 +30,12 @@ namespace FBLAManager.ViewModels.Members
         /// <summary>
         /// Gets or sets the command that is executed when the edit button is clicked.
         /// </summary>
-        public Command EditCommand { get; set; }
+        public Command TextCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the command that is executed when the available status is clicked.
         /// </summary>
-        public Command AvailableCommand { get; set; }
-
-        /// <summary>
-        /// Gets or sets the command that is executed when the notification option is clicked.
-        /// </summary>
-        public Command NotificationCommand { get; set; }
+        public Command EmailCommand { get; set; }
 
         #endregion
 
@@ -49,33 +45,14 @@ namespace FBLAManager.ViewModels.Members
         /// Invoked when the edit button is clicked.
         /// </summary>
         /// <param name="obj">The object</param>
-        private void EditButtonClicked(object obj)
+        private void TextButtonClicked(object obj)
         {
             // Do something
         }
 
-        /// <summary>
-        /// Invoked when the available status is clicked.
-        /// </summary>
-        /// <param name="obj">The object</param>
-        private async void AvailableStatusClicked(object obj)
+        private void EmailClicked(object obj)
         {
-            Application.Current.Resources.TryGetValue("Gray-100", out var retVal);
-            (obj as Grid).BackgroundColor = (Color)retVal;
-            await Task.Delay(100);
-            (obj as Grid).BackgroundColor = Color.Transparent;
-        }
-
-        /// <summary>
-        /// Invoked when the notification option is clicked.
-        /// </summary>
-        /// <param name="obj">The object</param>
-        private async void NotificationOptionClicked(object obj)
-        {
-            Application.Current.Resources.TryGetValue("Gray-100", out var retVal);
-            (obj as Grid).BackgroundColor = (Color)retVal;
-            await Task.Delay(100);
-            (obj as Grid).BackgroundColor = Color.Transparent;
+            Launcher.TryOpenAsync("makennaswartz03@gmail.com");
         }
 
         #endregion

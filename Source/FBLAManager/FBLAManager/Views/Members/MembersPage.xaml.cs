@@ -22,9 +22,11 @@ namespace FBLAManager.Views
 
         private async void MembersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var memberDetailPage = new MembersDetailPage();
+            Member m = (Member)e.SelectedItem;
 
-            await Navigation.PushAsync(memberDetailPage);
+            var membersDetailPage = new MembersDetailPage(m);
+
+            await Navigation.PushAsync(membersDetailPage);
         }
 
         /// <summary>

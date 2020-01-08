@@ -1,23 +1,23 @@
-﻿using System;
+﻿using FBLAManager.Models;
+using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace FBLAManager.Views.Members
 {
-    /// <summary>
-    /// Page to show chat profile page
-    /// </summary>
-    [Preserve(AllMembers = true)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MembersDetailPage
+    public partial class MembersDetailPage : ContentPage
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ChatProfilePage" /> class.
-        /// </summary>
-        public MembersDetailPage()
+        private Member Member { get; set; }
+
+        public MembersDetailPage(Member member)
         {
             InitializeComponent();
-        }
 
+            this.Member = member;
+
+            BindingContext = member;
+        }
     }
 }

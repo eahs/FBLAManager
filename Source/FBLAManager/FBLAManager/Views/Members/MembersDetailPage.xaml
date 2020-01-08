@@ -66,7 +66,7 @@
                     FontFamily="{StaticResource Montserrat-Bold}"
                     FontSize="16"
                     HorizontalOptions="Center"
-                    Text="Julia Grant"
+                    Text="{Binding fullname}"
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
 
@@ -87,7 +87,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="juliagrant@mail.com" />
+                        Text="{Binding email}" />
 
                 </Grid>
 
@@ -108,63 +108,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="+1-202-555-0101" />
-
-                </Grid>
-
-                <BoxView Style="{StaticResource SeparatorStyle}" />
-
-                <!--  Grid for notification label and navigation icon  -->
-                <Grid
-                    x:Name="NotificationGrid"
-                    Padding="16"
-                    ColumnSpacing="16">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding NotificationCommand}" CommandParameter="{x:Reference NotificationGrid}" />
-                    </Grid.GestureRecognizers>
-
-                    <Label
-                        Grid.Column="0"
-                        Style="{StaticResource CommonProfileIconLabelStyle}"
-                        Text="{StaticResource Notification}" />
-
-                    <Label
-                        Grid.Column="1"
-                        Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="Notifications" />
-
-                    <Label
-                        Grid.Column="2"
-                        HorizontalOptions="End"
-                        Style="{StaticResource CommonProfileIconLabelStyle}"
-                        Text="{StaticResource Next}" />
-
-                </Grid>
-
-                <BoxView Style="{StaticResource SeparatorStyle}" />
-
-                <!--  Grid for help label and icon  -->
-                <Grid Padding="16" ColumnSpacing="16">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-
-                    <Label
-                        Grid.Column="0"
-                        Style="{StaticResource CommonProfileIconLabelStyle}"
-                        Text="{StaticResource Help}" />
-
-                    <Label
-                        Grid.Column="1"
-                        Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="Help" />
+                        Text="{Binding phone}" />
 
                 </Grid>
 
