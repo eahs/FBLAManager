@@ -22,11 +22,13 @@ namespace FBLAManager.Views.Members
 
             BindingContext = member;
 
-           
+
         }
 
-        //called when mail buttons clicked
-        private async void OnMailClicked(object sender, EventArgs args)
+        #region Email
+
+        //called when email button clicked
+        private async void OnEmailClicked(object sender, EventArgs args)
         {
             await SendEmail();
         }
@@ -64,5 +66,65 @@ namespace FBLAManager.Views.Members
                 // Some other exception occurred
             }
         }
+
+
+        #endregion
+
+        #region Message
+
+        //called when dial button clicked
+        public async void OnMessageClicked(object sender, EventArgs args)
+        {
+            await SendSms(string.Empty, Member.Phone); 
+        }
+
+        public async Task SendSms(string messageText, string recipient)
+        {
+            try
+            {
+                var message = new SmsMessage(messageText, new[] { recipient });
+                await Sms.ComposeAsync(message);
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+                // Sms is not supported on this device.
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+            }
+        }
+
+        #endregion
+
+        #region Dial
+
+        public void OnDialClicked(object sender, EventArgs args)
+        {
+            PlacePhoneCall(Member.Phone);
+        }
+
+        public void PlacePhoneCall(string number)
+        {
+            try
+            {
+                PhoneDialer.Open(number);
+            }
+            catch (ArgumentNullException anEx)
+            {
+                // Number was null or white space
+            }
+            catch (FeatureNotSupportedException ex)
+            {
+                // Phone Dialer is not supported on this device.
+            }
+            catch (Exception ex)
+            {
+                // Other error has occurred.
+            }
+        }
+
+        #endregion
+
     }
 }

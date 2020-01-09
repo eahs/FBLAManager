@@ -73,6 +73,7 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.5*" />
                     </Grid.ColumnDefinitions>
 
                     
@@ -88,8 +89,11 @@
 
                     <Button
                         Grid.Column="2"
-                        Text="test" 
-                        Clicked="OnMailClicked" /> 
+                        Text="Email" 
+                        TextColor="Red"
+                        BackgroundColor="Pink"              
+                        BorderColor="Red"
+                        Clicked="OnEmailClicked" /> 
 
                 </Grid>
 
@@ -100,6 +104,8 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0.75*" />
+                        <ColumnDefinition Width="0.75*" />
                     </Grid.ColumnDefinitions>
 
                     <Label
@@ -111,6 +117,22 @@
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
                         Text="{Binding Phone}" />
+
+                    <Button
+                        Grid.Column="2"
+                        Text="Message" 
+                        TextColor="DarkGreen"
+                        BorderColor="DarkGreen"
+                        BackgroundColor="LightGreen"                        
+                        Clicked="OnMessageClicked" />
+
+                    <Button
+                        Grid.Column="3"
+                        Text="Dial" 
+                        TextColor="DarkBlue"
+                        BorderColor="DarkBlue"
+                        BackgroundColor="LightSkyBlue"                        
+                        Clicked="OnDialClicked" />
 
                 </Grid>
 
