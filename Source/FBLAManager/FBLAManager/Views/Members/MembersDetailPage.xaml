@@ -17,10 +17,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <!--  Binding context for Profile Page  -->
-    <ContentPage.BindingContext>
-        <viewModel:MembersDetailViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <ScrollView>
@@ -66,7 +62,7 @@
                     FontFamily="{StaticResource Montserrat-Bold}"
                     FontSize="16"
                     HorizontalOptions="Center"
-                    Text="{Binding fullname}"
+                    Text="{Binding FullName}"
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
 
@@ -87,14 +83,14 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="{Binding email}" />
+                        Text="{Binding Email}" />
 
                 </Grid>
 
                 <BoxView Style="{StaticResource SeparatorStyle}" />
 
                 <!--  Grid for mobile number label and icon  -->
-                <Grid Padding="16" ColumnSpacing="16">
+                <Grid Padding="16" ColumnSpacing="16" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
@@ -108,7 +104,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="{Binding phone}" />
+                        Text="{Binding Phone}" />
 
                 </Grid>
 
