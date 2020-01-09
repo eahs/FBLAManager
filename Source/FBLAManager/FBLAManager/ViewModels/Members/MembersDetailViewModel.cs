@@ -16,6 +16,7 @@ namespace FBLAManager.ViewModels.Events
             Title = member?.FullName;
             Member = member;
         }
+
     }
 }
 
