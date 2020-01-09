@@ -75,7 +75,8 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <Label
+                    
+                    <Label 
                         Grid.Column="0"
                         Style="{StaticResource CommonProfileIconLabelStyle}"
                         Text="{StaticResource Mail}" />
@@ -84,6 +85,11 @@
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
                         Text="{Binding Email}" />
+
+                    <Button
+                        Grid.Column="2"
+                        Text="test" 
+                        Clicked="OnMailClicked" /> 
 
                 </Grid>
 

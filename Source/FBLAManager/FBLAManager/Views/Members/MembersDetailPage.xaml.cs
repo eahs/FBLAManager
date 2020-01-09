@@ -21,8 +21,17 @@ namespace FBLAManager.Views.Members
             this.Member = member;
 
             BindingContext = member;
+
+           
         }
 
+        //called when mail buttons clicked
+        private async void OnMailClicked(object sender, EventArgs args)
+        {
+            await SendEmail();
+        }
+
+        //sends email to member's email address with blank subject and body
         public async Task SendEmail()
         {
             var recip = new List<string>();
@@ -31,6 +40,7 @@ namespace FBLAManager.Views.Members
             await SendEmail(string.Empty, string.Empty, recip);
         }
 
+        //sends email through default email app
         public async Task SendEmail(string subject, string body, List<string> recipients)
         {
             try
