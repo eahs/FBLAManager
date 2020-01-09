@@ -56,7 +56,15 @@
     <!-- Your Pages -->
 
     <FlyoutItem Title = "Home" Icon= "home.png" Route="home">
-        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+
+        <Tab Title="Message Board">
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+        </Tab>
+
+        <Tab Title="Twitter Feed">
+            <ShellContent ContentTemplate="{DataTemplate views:TwitterFeedPage}" />
+        </Tab>
+        
     </FlyoutItem>
 
     <FlyoutItem Title="About FBLA" Icon="tab_about.png">
