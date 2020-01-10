@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <WebView x:Name="webView" WidthRequest="1000" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Source="{Binding ContentURL}">
+            <WebView x:Name="webView" WidthRequest="1000" HeightRequest="1000" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             </WebView>
 
 
