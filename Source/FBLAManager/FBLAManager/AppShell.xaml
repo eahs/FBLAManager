@@ -3,7 +3,8 @@
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
        mc:Ignorable="d"
-       xmlns:views="clr-namespace:FBLAManager.Views"      
+       xmlns:views="clr-namespace:FBLAManager.Views" 
+       xmlns:members="clr-namespace:FBLAManager.Views.Members" 
        xmlns:forms="clr-namespace:FBLAManager.Views.Forms"
        xmlns:officers="clr-namespace:FBLAManager.Views.Officers"
        xmlns:contactus="clr-namespace:FBLAManager.Views.ContactUs"
@@ -153,6 +154,12 @@
     <FlyoutItem Title="Social Media" Icon="shareIcon.png">
         <Tab Title="Social Media" Icon="test.png">
             <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="My Profile" Icon="test.png">
+        <Tab Title="My Profile" Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate members:ChatProfilePage}" />
         </Tab>
     </FlyoutItem>
 

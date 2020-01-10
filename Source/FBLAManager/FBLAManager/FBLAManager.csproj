@@ -84,6 +84,9 @@
     <EmbeddedResource Update="Views\Forms\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Members\UserProfilePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Members\MembersDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -120,6 +123,9 @@
     <Compile Remove="ViewModels\AboutViewModel %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\Members\UserProfilePage.xaml.cs">
+      <DependentUpon>UserProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Members\MembersDetailPage.xaml.cs">
       <DependentUpon>MembersDetailPage.xaml</DependentUpon>
     </Compile>
