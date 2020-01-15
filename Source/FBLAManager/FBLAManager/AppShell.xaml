@@ -93,13 +93,13 @@
     </FlyoutItem>
 
     
-    <FlyoutItem Title="Members" Icon="MembersIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
-    </FlyoutItem>
-    
-    <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
-        <Tab Title="Officer Teams">
+    <FlyoutItem Title="People" Icon="MembersIcon.png">
+        
+        <Tab Title="Members" Icon="MembersIcon.png" >
+            <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
+        </Tab>
 
+        <Tab Title="Officers" Icon="OfficersIcon.png">
             <ShellContent Title="Local Officers"      
                           ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
 
@@ -109,7 +109,16 @@
             <ShellContent Title="National Officers"
                           ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
         </Tab>
+        
     </FlyoutItem>
+    
+    <!--
+    <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
+        <Tab Title="Officer Teams">
+
+            
+        </Tab>
+    </FlyoutItem> -->
 
     <FlyoutItem Title="My Profile" Icon="EditProfile.png">
         <Tab Title="My Profile" Icon="test.png">
