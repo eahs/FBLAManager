@@ -17,11 +17,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <!--  Binding context for Profile Page  -->
-    <ContentPage.BindingContext>
-        <viewModel:ProfileViewModel />
-    </ContentPage.BindingContext>
-
     <ContentPage.Content>
         <ScrollView>
 
@@ -78,7 +73,7 @@
                     FontFamily="{StaticResource Montserrat-Bold}"
                     FontSize="16"
                     HorizontalOptions="Center"
-                    Text= "{Binding Fullname}"
+                    Text= "{Binding Profile.FullName}"
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
                 
@@ -97,7 +92,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text= "{Binding Email}" />
+                        Text= "{Binding Profile.Email}" />
 
                 </Grid>
 
@@ -118,7 +113,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text= "{Binding Phone}" />
+                        Text= "{Binding Profile.Phone}" />
 
                 </Grid>
 

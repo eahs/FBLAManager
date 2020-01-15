@@ -46,7 +46,6 @@ namespace FBLAManager.ViewModels.Members
 
                         UserManager.Current.Profile = profile;
                         Profile = profile;
-
                         OnPropertyChanged("Profile");
 
                         IsError = false;
