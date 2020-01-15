@@ -58,11 +58,11 @@
 
     <FlyoutItem Title = "Home" Icon= "home.png" Route="home">
 
-        <Tab Title="Message Board">
+        <Tab Title="Message Board" Icon="Messaging.png">
             <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
         </Tab>
 
-        <Tab Title="Twitter Feed">
+        <Tab Title="Twitter Feed" Icon="TwitterTabIcon.png">
             <ShellContent ContentTemplate="{DataTemplate views:TwitterFeedPage}" />
         </Tab>
 
@@ -70,26 +70,19 @@
 
     <FlyoutItem Title="Events" Icon="clock.png" Route="events">
 
-        <Tab Title="Meetings" Route="meetings">
-            <ShellContent Title="First Menu Item"
-                          Icon="cat.png"
-                          ContentTemplate="{DataTemplate events:MeetingsPage}" />
-
+        <Tab Title="Meetings" Icon ="Meeting.png" Route="meetings">
+            <ShellContent ContentTemplate="{DataTemplate events:MeetingsPage}" />
         </Tab>
-        <Tab Title="Club Events" >
 
+        <Tab Title="Club Events" Icon="Event.png">
             <ShellContent  ContentTemplate="{DataTemplate events:ClubEventsPage}" />
         </Tab>
-        
-        <Tab Title="Competitions"
-             Icon="test.png">
 
-            <ShellContent Title="First Menu Item"
-                          Icon="test.png"
-                          ContentTemplate="{DataTemplate events:CompetitionsPage}" />
+        <Tab Title="Competitions" Icon="competitionsIcon.png">
+            <ShellContent ContentTemplate="{DataTemplate events:CompetitionsPage}" />
         </Tab>
-        <Tab Title="Service"
-             Icon="test.png">
+
+        <Tab Title="Volunteering" Icon="Charity.png">
             <ShellContent ContentTemplate="{DataTemplate events:CommunityServicePage}" />
         </Tab>
         
@@ -100,83 +93,68 @@
     </FlyoutItem>
 
     
-
     <FlyoutItem Title="Members" Icon="MembersIcon.png">
         <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
     </FlyoutItem>
     
     <FlyoutItem Title="Officers" Icon="OfficersIcon.png">
-        <Tab Title="Officer Teams"
-             Icon="test.png">
+        <Tab Title="Officer Teams">
 
-            <ShellContent Title="Local Officers"
-                          Icon="test.png"
+            <ShellContent Title="Local Officers"      
                           ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
 
             <ShellContent Title="State Officers"
-                          Icon="test.png"
                           ContentTemplate="{DataTemplate officers:StateOfficersPage}" />
 
             <ShellContent Title="National Officers"
-                          Icon="test.png"
                           ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
         </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="My Profile" Icon="EditProfile.png">
-        <Tab Title="My Profile" Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate members:ChatProfilePage}" />
-        </Tab>
+        <ShellContent ContentTemplate="{DataTemplate members:ChatProfilePage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Competitive Events" Icon="competitionsIcon.png">
-        <Tab Title="Competitions" Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
-        </Tab>
+        <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Contact Us" Icon="contact.png">
-        <Tab Title="Contact Us" Icon="paw.png">
-            <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
-        </Tab>
+        <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Social Media" Icon="shareIcon.png">
-        <Tab Title="Social Media" Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
-        </Tab>
+        <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
     </FlyoutItem>
-
-    
+  
     <FlyoutItem Title="About FBLA" Icon="tab_about.png">
         <Tab Title="About FBLA"
-             Icon="test.png">
+             Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
         </Tab>
         <Tab Title="Q and A "
-             Icon="test.png">
+             Icon="QuestionMark.png">
             <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
         </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="About FBLA Navigator" Icon="about_app_icon.png">
         <Tab Title="About"
-             Icon="test.png">
+             Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
         </Tab>
         <Tab Title="Terms of Use"
-             Icon="test.png">
+             Icon="Terms.png">
             <ShellContent ContentTemplate="{DataTemplate views:TermsPage}" />
         </Tab>
         <Tab Title="Privacy Policy"
-             Icon="test.png">
+             Icon="Privacy.png">
             <ShellContent ContentTemplate="{DataTemplate views:PrivacyPage}" />
         </Tab>
     </FlyoutItem>
 
-    
-
     <FlyoutItem Title="Log Out" Icon="exit.png" Route="logout">
         <ShellContent ContentTemplate="{DataTemplate forms:SimpleLoginPage}" Route="logoutpage"/>
     </FlyoutItem>
+    
 </Shell>
