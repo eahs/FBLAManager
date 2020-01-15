@@ -14,8 +14,8 @@ namespace FBLAManager
         public static readonly string LoginEndPointRequestURL           = "/api/Login";
         public static readonly string MessageBoardEndPointRequestURL    = "/api/MessageBoard";
         public static readonly string CompetitiveEventsEndPointRequestURL = "/json/CompetitiveEvents.json";
-        public static readonly string ForgotPasswordEndPointRequestURL = "/api/ForgotPassword";
-
-        public static readonly string MembersEndPointRequestURL = "/api/Members";
+        public static readonly string ForgotPasswordEndPointRequestURL  = "/api/ForgotPassword";
+        public static readonly string MembersEndPointRequestURL         = "/api/Members";
+        public static readonly string ProfileEndPointRequestURL         = "/api/Profile";
     }
 }

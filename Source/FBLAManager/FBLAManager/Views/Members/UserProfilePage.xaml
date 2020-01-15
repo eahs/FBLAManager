@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="FBLAManager.Views.Members.ChatProfilePage"
+    x:Class="FBLAManager.Views.Members.UserProfilePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
@@ -19,7 +19,7 @@
 
     <!--  Binding context for Profile Page  -->
     <ContentPage.BindingContext>
-        <viewModel:UserProfileViewModel />
+        <viewModel:ProfileViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -53,8 +53,6 @@
                         <Grid HeightRequest="120" WidthRequest="120">
 
                             <Image
-                                x:Name="ProfileImage"
-                                Aspect="AspectFill"
                                 BackgroundColor="{DynamicResource Gray-200}" />
                             <BoxView
                                 BackgroundColor="{DynamicResource Gray-Black}"
@@ -80,7 +78,7 @@
                     FontFamily="{StaticResource Montserrat-Bold}"
                     FontSize="16"
                     HorizontalOptions="Center"
-                    Text="Julia Grant"
+                    Text= "{Binding Fullname}"
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
                 
@@ -99,7 +97,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="juliagrant@mail.com" />
+                        Text= "{Binding Email}" />
 
                 </Grid>
 
@@ -120,7 +118,7 @@
                     <Label
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
-                        Text="+1-202-555-0101" />
+                        Text= "{Binding Phone}" />
 
                 </Grid>
 

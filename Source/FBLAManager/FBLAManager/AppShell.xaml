@@ -112,7 +112,9 @@
     </FlyoutItem>
 
     <FlyoutItem Title="My Profile" Icon="EditProfile.png">
-        <ShellContent ContentTemplate="{DataTemplate members:ChatProfilePage}" />
+        <Tab Title="My Profile" Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate members:UserProfilePage}" />
+        </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="Competitive Events" Icon="competitionsIcon.png">

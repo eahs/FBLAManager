@@ -1,5 +1,8 @@
-﻿using Xamarin.Forms.Internals;
+﻿using FBLAManager.Helpers;
+using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
+using System;
 
 namespace FBLAManager.Views.Members
 {
@@ -8,15 +11,16 @@ namespace FBLAManager.Views.Members
     /// </summary>
     [Preserve(AllMembers = true)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ChatProfilePage
+    public partial class UserProfilePage
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ChatProfilePage" /> class.
+        /// Initializes a new instance of the <see cref="UserProfilePage" /> class.
         /// </summary>
-        public ChatProfilePage()
+        public UserProfilePage()
         {
             InitializeComponent();
-            this.ProfileImage.Source = App.BaseImageUrl + "ProfileImage11.png";
+
         }
+
     }
 }

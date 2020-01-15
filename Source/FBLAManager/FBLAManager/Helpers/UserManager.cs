@@ -29,6 +29,7 @@ namespace FBLAManager.Helpers
     {
         public string Status { get; set; }
         public string Key { get; set; }        
+        public Member Profile { get; set; }
         public Meeting Meeting { get; set; }
     }
 
@@ -38,6 +39,7 @@ namespace FBLAManager.Helpers
     public class UserManager
     {
         private static UserManager _userManager = null;
+        public Member Profile { get; set; }
 
         private UserManager ()
         {
@@ -231,6 +233,7 @@ namespace FBLAManager.Helpers
                             case "Invalid form data": return UserManagerResponseStatus.InvalidRequest;
                             case "LoggedIn":
                                 SessionKey = data.Key;
+                                Profile = data.Profile;
                                 return UserManagerResponseStatus.Success;
                             case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
                             default: return UserManagerResponseStatus.UnknownResponse;

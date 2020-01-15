@@ -8,7 +8,7 @@ namespace FBLAManager.ViewModels.Members
     /// ViewModel for profile page
     /// </summary>
     [Preserve(AllMembers = true)]
-    public class UserProfileViewModel
+    public class UserProfileViewModel 
     {
         #region Constructor
 
