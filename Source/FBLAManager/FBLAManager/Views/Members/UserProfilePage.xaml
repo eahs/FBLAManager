@@ -43,7 +43,8 @@
                     Command="{Binding EditCommand}"
                     CornerRadius="60"
                     HorizontalOptions="Center"
-                    WidthRequest="120">
+                    WidthRequest="120"
+                    Clicked="EditButton_Clicked">
                     <buttons:SfButton.Content>
                         <Grid HeightRequest="120" WidthRequest="120">
 

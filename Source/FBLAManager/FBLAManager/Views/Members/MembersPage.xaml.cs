@@ -1,5 +1,4 @@
-﻿using FBLAManager.ViewModels;
-using FBLAManager.Models;
+﻿using FBLAManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FBLAManager.Views.Members;

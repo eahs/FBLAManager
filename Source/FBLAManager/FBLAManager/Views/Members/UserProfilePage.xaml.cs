@@ -1,5 +1,5 @@
-﻿using FBLAManager.ViewModels;
-using Xamarin.Forms.Internals;
+﻿using Xamarin.Forms.Internals;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System;
 using FBLAManager.ViewModels.Members;
@@ -29,5 +29,14 @@ namespace FBLAManager.Views.Members
 
         }
 
+        /// <summary>
+        /// Opens new page to edit the member's information. 
+        /// </summary>
+        private async void EditButton_Clicked(object sender, EventArgs e)
+        {
+            var editProfilePage = new EditProfilePage();
+
+            await Navigation.PushAsync(editProfilePage); 
+        }
     }
 }
