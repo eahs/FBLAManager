@@ -93,7 +93,7 @@
                         Grid.Column="1"
                         Style="{StaticResource CommonProfileLabelStyle}"
                         Text= "{Binding Profile.Email}" />
-
+ 
                 </Grid>
 
                 <BoxView Style="{StaticResource SeparatorStyle}" />

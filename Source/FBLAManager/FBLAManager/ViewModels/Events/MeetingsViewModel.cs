@@ -80,8 +80,8 @@ namespace FBLAManager.ViewModels
 
                         foreach (var meeting in items)
                         {
-                            //only adds meeting from backend if it matches the meeting type of the page
-                            if (meeting.Type == type)
+                            // only adds meeting from backend if it matches the meeting type of the page and if it's in the future
+                            if (meeting.Type == type && meeting.From >= DateTime.Now)
                             {
                                 var existingMeeting = Meetings.FirstOrDefault(m => m.MeetingId == meeting.MeetingId);
 
