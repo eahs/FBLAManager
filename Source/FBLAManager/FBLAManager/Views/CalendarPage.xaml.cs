@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 using Syncfusion.SfSchedule.XForms;
 using Syncfusion.SfSchedule;
@@ -20,10 +18,9 @@ namespace FBLAManager.Views
             InitializeComponent();
 
             BindingContext = viewModel = new CalendarViewModel();
-           
 
-            schedule.CellTapped += Schedule_CellTapped1; ;
-            //schedule.CellDoubleTapped += Schedule_CellTapped2;
+            schedule.CellTapped += Schedule_CellTapped1; 
+            schedule.CellDoubleTapped += Schedule_CellTapped2;
 
             ViewMonth();
 
