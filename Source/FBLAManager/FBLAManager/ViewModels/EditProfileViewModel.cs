@@ -2,14 +2,15 @@
 using FBLAManager.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using FBLAManager.ViewModels.Forms;
 
-namespace FBLAManager.ViewModels.Forms
+namespace FBLAManager.ViewModels
 {
     /// <summary>
     /// ViewModel for sign-up page.
     /// </summary>
     [Preserve(AllMembers = true)]
-    public class SignUpPageViewModel : LoginViewModel
+    public class EditProfileViewModel : LoginViewModel
     {
         #region Fields
         private Member member;
@@ -24,7 +25,7 @@ namespace FBLAManager.ViewModels.Forms
         /// <summary>
         /// Initializes a new instance for the <see cref="SignUpPageViewModel" /> class.
         /// </summary>
-        public SignUpPageViewModel()
+        public EditProfileViewModel()
         {
             this.LoginCommand = new Command(this.LoginClicked);
             this.SignUpCommand = new Command(this.SignUpClicked);
@@ -39,7 +40,8 @@ namespace FBLAManager.ViewModels.Forms
         /// <summary>
         /// Gets or sets the property that bounds with an entry that gets the name from user in the Sign Up page.
         /// </summary>
-        public Member Member {
+        public Member Member
+        {
             get { return member; }
             set
             {
@@ -48,7 +50,9 @@ namespace FBLAManager.ViewModels.Forms
             }
         }
 
-        public override string Email { get => base.Email; 
+        public override string Email
+        {
+            get => base.Email;
             set
             {
                 base.Email = value;
