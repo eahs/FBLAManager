@@ -361,5 +361,60 @@ namespace FBLAManager.Helpers
 
             return UserManagerResponseStatus.InvalidRequest;
         }
+
+        /// <summary>
+        /// Updates a member by notifying the backend server
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns>UserManagerResponseStatus</returns>
+        public async Task<UserManagerResponseStatus> EditMember(Member m)
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.EditMemberEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.POST
+            };
+
+            AddAuthorization(request);
+
+            PropertyInfo[] properties = typeof(Member).GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                request.AddParameter(property.Name, property.GetValue(m));
+            }
+
+            try
+            {
+
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
+                {
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    switch (data.Status)
+                    {
+                        case "Success":
+                            return UserManagerResponseStatus.Success;
+                        default: return UserManagerResponseStatus.UnknownResponse;
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                var property = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, property);
+
+                return UserManagerResponseStatus.NetworkError;
+            }
+
+            return UserManagerResponseStatus.InvalidRequest;
+        }
     }
 }

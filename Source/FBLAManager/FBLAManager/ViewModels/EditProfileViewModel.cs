@@ -23,13 +23,12 @@ namespace FBLAManager.ViewModels
         #region Constructor
 
         /// <summary>
-        /// Initializes a new instance for the <see cref="SignUpPageViewModel" /> class.
+        /// Initializes a new instance for the <see cref="EditProfileViewModel" /> class. 
         /// </summary>
         public EditProfileViewModel()
         {
-            this.LoginCommand = new Command(this.LoginClicked);
-            this.SignUpCommand = new Command(this.SignUpClicked);
-            member = new Member();
+            this.SaveCommand = new Command(this.SaveClicked);
+            member = UserManager.Current.Profile;
         }
 
 
@@ -61,85 +60,27 @@ namespace FBLAManager.ViewModels
             }
         }
 
-        /// <summary>
-        /// Gets or sets the property that bounds with an entry that gets the password from users in the Sign Up page.
-        /// </summary>
-        public string Password
-        {
-            get
-            {
-                return this.password;
-            }
-
-            set
-            {
-                if (this.password == value)
-                {
-                    return;
-                }
-
-                this.password = value;
-                member.Password = value;
-                this.OnPropertyChanged();
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the property that bounds with an entry that gets the password confirmation from users in the Sign Up page.
-        /// </summary>
-        public string ConfirmPassword
-        {
-            get
-            {
-                return this.confirmPassword;
-            }
-
-            set
-            {
-                if (this.confirmPassword == value)
-                {
-                    return;
-                }
-
-                this.confirmPassword = value;
-                this.OnPropertyChanged();
-            }
-        }
-
         #endregion
 
         #region Command
 
-        /// <summary>
-        /// Gets or sets the command that is executed when the Log In button is clicked.
-        /// </summary>
-        public Command LoginCommand { get; set; }
 
         /// <summary>
-        /// Gets or sets the command that is executed when the Sign Up button is clicked.
+        /// Gets or sets the command that is executed when the Save button is clicked.
         /// </summary>
-        public Command SignUpCommand { get; set; }
+        public Command SaveCommand { get; set; }
 
         #endregion
 
         #region Methods
 
         /// <summary>
-        /// Invoked when the Log in button is clicked.
+        /// Invoked when the Save button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void LoginClicked(object obj)
+        private async void SaveClicked(object sender)
         {
-            MessagingCenter.Send(this, "LoginClicked");
-        }
-
-        /// <summary>
-        /// Invoked when the Sign Up button is clicked.
-        /// </summary>
-        /// <param name="obj">The Object</param>
-        private async void SignUpClicked(object obj)
-        {
-            UserManagerResponseStatus status = await UserManager.Current.CreateMember(member);
+            UserManagerResponseStatus status = await UserManager.Current.EditMember(member);
 
             switch (status)
             {
@@ -151,6 +92,8 @@ namespace FBLAManager.ViewModels
                     MessagingCenter.Send(this, "UnknownResponse");
                     break;
             }
+
+
         }
 
         #endregion

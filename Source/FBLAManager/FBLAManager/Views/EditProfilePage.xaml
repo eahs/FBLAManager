@@ -71,9 +71,9 @@
                         Margin="0,-16,0,8"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
-                        Style="{StaticResource LabelStyle}"
                         Text="Edit your information"
-                        TextColor="Gainsboro" />
+                        FontSize="Title"
+                        TextColor="DarkRed" />
 
                     <!--  Entry to get first name from user  -->
                     <border:SfBorder
@@ -217,7 +217,7 @@
 
                     <!--  Save button  -->
                     <buttons:SfButton
-                        Command="{Binding SignUpCommand}"
+                        Command="{Binding SaveCommand}"
                         CornerRadius="20"
                         FontFamily="{StaticResource Montserrat-SemiBold}"
                         Style="{StaticResource SfButtonStyle}"
