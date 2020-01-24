@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FBLAManager.Views.Members;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace FBLAManager.Views
         public EditProfilePage()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Opens new page to edit the member's information. 
+        /// </summary>
+        private async void SaveButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
     }
 }

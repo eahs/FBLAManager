@@ -93,7 +93,6 @@ namespace FBLAManager.ViewModels
                     break;
             }
 
-
         }
 
         #endregion

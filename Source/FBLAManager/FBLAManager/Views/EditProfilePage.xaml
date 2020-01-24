@@ -221,7 +221,8 @@
                         CornerRadius="20"
                         FontFamily="{StaticResource Montserrat-SemiBold}"
                         Style="{StaticResource SfButtonStyle}"
-                        Text="SAVE" />
+                        Text="SAVE" 
+                        Clicked="SaveButton_Clicked"/>
                 </StackLayout>
            
             </StackLayout>
