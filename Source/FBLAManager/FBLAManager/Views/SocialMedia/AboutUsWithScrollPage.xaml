@@ -7,7 +7,6 @@
     xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.SocialMedia"
     xmlns:behaviour="clr-namespace:FBLAManager.Behaviors.AboutUs"
-    Title="Social Media Links"
     BackgroundImageSource="LoginBackground"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
@@ -17,6 +16,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
     <ContentPage.Content>
 
         <ScrollView>
@@ -31,8 +31,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
+                   <!-- <RowDefinition Height="*" />
+                    <RowDefinition Height="*" /> -->
                 </Grid.RowDefinitions>
 
                 <!--  To display the team member's details  -->
@@ -50,7 +50,7 @@
                         <DataTemplate>
                             <!--  Header  -->
                             <Label
-                            Margin="0,60,0,5"
+                            Margin="0,20,0,20"
                             FontSize="20"
                             Style="{StaticResource HeaderLabelStyle}"
                             Text="Social Media Links"
@@ -102,7 +102,28 @@
                         <behaviour:ListViewBehavior/>
                     </listView:SfListView.Behaviors>
                 </listView:SfListView>
+
+                <!-- Share button -->
+                <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Margin="5,20,5,0">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="facebook_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
+                    <Image Source="twitter_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
+                    <Label Text="Like the app? Share it with a friend!" TextColor="White" Margin="10,5,0,0"/>
+                </StackLayout>
+
+
             </Grid>
+          
         </ScrollView>
+
+
+        
+
     </ContentPage.Content>
+
+
+    
+
 </ContentPage>

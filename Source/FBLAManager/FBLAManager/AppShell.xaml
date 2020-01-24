@@ -131,12 +131,17 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Contact Us" Icon="contact.png">
-        <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
+        
+        <Tab Title="Administration" Icon="contact.png">
+            <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
+        </Tab>
+        
+        <Tab Title="Social Media" Icon="shareIcon.png">
+            <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
+        </Tab>
+        
     </FlyoutItem>
 
-    <FlyoutItem Title="Social Media" Icon="shareIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate socialmedia:AboutUsWithScrollPage}" />
-    </FlyoutItem>
   
     <FlyoutItem Title="About FBLA" Icon="tab_about.png">
         <Tab Title="About FBLA"
