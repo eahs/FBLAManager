@@ -68,7 +68,7 @@
 
     </FlyoutItem>
 
-    <FlyoutItem Title="Events" Icon="clock.png" Route="events">
+    <FlyoutItem Title="Upcoming Events" Icon="clock.png" Route="events">
 
         <Tab Title="Meetings" Icon ="Meeting.png" Route="meetings">
             <ShellContent ContentTemplate="{DataTemplate events:MeetingsPage}" />
@@ -120,11 +120,7 @@
         </Tab>
     </FlyoutItem> -->
 
-    <FlyoutItem Title="My Profile" Icon="EditProfile.png">
-        <Tab Title="My Profile" Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate members:UserProfilePage}" />
-        </Tab>
-    </FlyoutItem>
+    
 
     <FlyoutItem Title="Competitive Events" Icon="competitionsIcon.png">
         <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
@@ -132,7 +128,7 @@
 
     <FlyoutItem Title="Contact Us" Icon="contact.png">
         
-        <Tab Title="Administration" Icon="contact.png">
+        <Tab Title="Administrators" Icon="contact.png">
             <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
         </Tab>
         
@@ -142,6 +138,11 @@
         
     </FlyoutItem>
 
+    <FlyoutItem Title="My Profile" Icon="EditProfile.png">
+        <Tab Title="My Profile" Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate members:UserProfilePage}" />
+        </Tab>
+    </FlyoutItem>
   
     <FlyoutItem Title="About FBLA" Icon="tab_about.png">
         <Tab Title="About FBLA"
