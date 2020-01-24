@@ -31,7 +31,7 @@
                        OutlineColor="LightGray"
                        Margin="1, 1">
                                 <StackLayout Padding="0">
-                                <Label Text="{Binding Title}" 
+                                    <Label Text="{Binding Title}" 
                                 TextType="Html"       
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -56,24 +56,11 @@
                             </Frame>
 
                         </ViewCell>
-                                               
+
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <!-- Find another place for share button
-            
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="5,5,5,20">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </StackLayout.GestureRecognizers>
-                <Image Source="facebook_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
-                <Image Source="twitter_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
-                <Label Text="Like the app? Share it with a friend!" TextColor="White" Margin="10,5,0,0"/>
-            </StackLayout>
-            
-            -->
-            
+
             <!--<Button Text="Report Bug" Clicked="ReportBug_Clicked"></Button>-->
         </StackLayout>
     </ContentPage.Content>
