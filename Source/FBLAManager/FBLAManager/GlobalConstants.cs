@@ -17,7 +17,6 @@ namespace FBLAManager
         public static readonly string ForgotPasswordEndPointRequestURL  = "/api/ForgotPassword";
         public static readonly string MembersEndPointRequestURL         = "/api/Members";
         public static readonly string ProfileEndPointRequestURL         = "/api/Profile";
-
-        public static readonly string EditMemberEndPointRequestURL = "/api/EditMember";
+        public static readonly string EditMemberEndPointRequestURL      = "/api/EditMember";
     }
 }
