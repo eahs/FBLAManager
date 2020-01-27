@@ -77,7 +77,14 @@
                     Text= "{Binding Profile.FullName}"
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
-                
+
+                 <!--  Edit profile button -->
+                <Button
+                    Text="Edit profile"
+                    BorderColor="Black"
+                    HeightRequest="4"
+                    WidthRequest="20" />
+
                 <!--  Grid for mail id label and icon  -->
                 <Grid Padding="16" ColumnSpacing="16">
                     <Grid.ColumnDefinitions>

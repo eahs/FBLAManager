@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using System;
 
 namespace FBLAManager.Views.Members
 {
@@ -21,7 +20,6 @@ namespace FBLAManager.Views.Members
             this.Member = member;
 
             BindingContext = member;
-
 
         }
 
