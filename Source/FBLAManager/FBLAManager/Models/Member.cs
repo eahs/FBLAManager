@@ -14,6 +14,8 @@ namespace FBLAManager.Models
 
         private string firstname, lastname, fullname;
 
+        private string profileImageSource; 
+
         private string description; 
 
         private string gender = "Female";
@@ -74,6 +76,16 @@ namespace FBLAManager.Models
             get { return firstname + " " + lastname; }
             set { fullname = value; OnPropertyChanged("FullName"); }
         }
+
+        /// <summary>
+        /// Gets or sets the url for the member's profile image. 
+        /// </summary>
+        public string ProfileImageSource
+        {
+            get { return profileImageSource; }
+            set { profileImageSource = value; OnPropertyChanged("ProfileImageSource"); }
+        }
+
 
         /// <summary>
         /// Gets or sets the member's description. 
