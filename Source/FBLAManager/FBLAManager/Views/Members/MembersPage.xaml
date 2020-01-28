@@ -6,9 +6,9 @@
              mc:Ignorable="d"
              x:Class="FBLAManager.Views.MembersPage"
              Title="Members">
-             
+
     <ContentPage.Content>
-          
+
         <Grid >
             <ScrollView>
                 <StackLayout>
@@ -30,37 +30,29 @@
                         CachingStrategy="RecycleElement"
                     
                         BackgroundColor="White"
-                        RowHeight="75"                                       
-                        >
+                        RowHeight="75">
 
                         <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Vertical" Margin="30,0,0,0">
-                                    <Label 
-                                        Text="{Binding FullName}"
-                                        FontSize="20" 
-                                        TextColor="Black"/>
-                                    <Label 
-                                        Text="{Binding Phone}" 
-                                        FontSize="15" 
-                                        TextColor="Gray" />
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                            
-                </ListView>
-
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" Margin="30,0,0,0">
+                                        <Label 
+                                            Text="{Binding FullName}"
+                                            FontSize="20" 
+                                            TextColor="Black"/>
+                                        <Label 
+                                            Text="{Binding Phone}" 
+                                            FontSize="15" 
+                                            TextColor="Gray" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
                 </StackLayout>
             </ScrollView>
         </Grid>
-        
-             
-        
+
     </ContentPage.Content>
-    
-
-
 </ContentPage>
