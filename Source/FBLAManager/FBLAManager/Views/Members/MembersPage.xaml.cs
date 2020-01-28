@@ -19,13 +19,18 @@ namespace FBLAManager.Views
             MembersListView.ItemSelected += MembersListView_ItemSelected;
         }
 
+        /// <summary>
+        /// Called when the user taps on a member.
+        /// </summary>
         private async void MembersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+  
             Member m = (Member)e.SelectedItem;
 
             var membersDetailPage = new MembersDetailPage(m);
-
+       
             await Navigation.PushAsync(membersDetailPage);
+
         }
 
         /// <summary>
