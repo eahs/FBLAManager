@@ -101,7 +101,6 @@ namespace FBLAManager.Views.ContactUs
             await SendEmail();
 
             BodyControl.Text = "";
-            RecipPicker = null;
         }
 
         //sends email to member's email address with blank subject and body
