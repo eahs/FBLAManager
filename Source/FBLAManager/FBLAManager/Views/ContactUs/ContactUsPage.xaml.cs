@@ -99,6 +99,9 @@ namespace FBLAManager.Views.ContactUs
         private async void OnEmailClicked(object sender, EventArgs args)
         {
             await SendEmail();
+
+            BodyControl.Text = "";
+            RecipPicker = null;
         }
 
         //sends email to member's email address with blank subject and body

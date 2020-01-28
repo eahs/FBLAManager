@@ -56,10 +56,6 @@ namespace FBLAManager.ViewModels.ContactUs
 
         #region Commands
 
-        /// <summary>
-        /// Gets or sets the command that is executed when the Send button is clicked.
-        /// </summary>
-        public ICommand SendCommand { get; set; }
 
         #endregion
 
