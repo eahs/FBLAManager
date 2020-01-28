@@ -1,4 +1,10 @@
-﻿using Xamarin.Forms;
+﻿using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +18,7 @@ namespace FBLAManager.Views.ContactUs
     public partial class ContactUsPage
     {
         private double frameWidth;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactUsPage" /> class.
@@ -89,9 +96,52 @@ namespace FBLAManager.Views.ContactUs
             }
         }
 
-        public void DisplaySendMessage()
+        private async void OnEmailClicked(object sender, EventArgs args)
         {
-            DisplayAlert("Sent", "Your message has been sent.", "OK");
+            await SendEmail();
+        }
+
+        //sends email to member's email address with blank subject and body
+        public async Task SendEmail()
+        {
+            var recip = new List<string>();
+
+            if (RecipPicker.SelectedIndex == 2)
+            {
+                recip.Add("localEmailaddress");
+            }
+            else if (RecipPicker.SelectedIndex == 1)
+            {
+                recip.Add("stateEmailaddress");
+            }
+            else if (RecipPicker.SelectedIndex == 0)
+            {
+                recip.Add("nationalEmailaddress");
+            }
+
+            await SendEmail(BodyControl.Text, recip);
+        }
+
+        //sends email through default email app
+        public async Task SendEmail(string body, List<string> recipients)
+        {
+            try
+            {
+                var message = new EmailMessage
+                {
+                    Body = body,
+                    To = recipients,
+                };
+                await Email.ComposeAsync(message);
+            }
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "ContactUs" }
+                  };
+                Crashes.TrackError(e, properties);
+
+            }
         }
     }
 }
