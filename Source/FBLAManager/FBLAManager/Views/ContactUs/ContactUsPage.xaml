@@ -149,10 +149,24 @@
                             TextColor="{DynamicResource Gray-900}"
                             VerticalTextAlignment="Center" />
 
-                        
+                        <Picker 
+                            x:Name="RecipPicker"
+                        Title="Select a Level"
+                        TitleColor="Red">       
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>National</x:String>
+                                    <x:String>State</x:String>
+                                    <x:String>Local</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+
                         <border:SfBorder HeightRequest="120" Style="{StaticResource SfBorderStyle}">
                             <!--  Editor to get message from user  -->
                             <customControls:BorderlessEditor
+                                x:Name="BodyControl"
                                 HeightRequest="120"
                                 Placeholder="Message"
                                 PlaceholderColor="{DynamicResource Gray-700}"
@@ -171,6 +185,7 @@
                         <!--  Send Button  -->
                         <buttons:SfButton
                             Command="{Binding SendCommand}"
+                            Clicked="OnEmailClicked"
                             CommandParameter="{Binding ., Source={x:Reference this}}"
                             Style="{StaticResource SfGradientButtonStyle}"
                             Text="SEND" />

@@ -9,6 +9,10 @@ using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 using FBLAManager.Views.ContactUs;
+using System.Threading.Tasks;
+using Xamarin.Essentials;
+using System.Collections.Generic;
+using Microsoft.AppCenter.Crashes;
 
 namespace FBLAManager.ViewModels.ContactUs
 {
@@ -33,7 +37,6 @@ namespace FBLAManager.ViewModels.ContactUs
         /// </summary>
         public ContactUsViewModel()
         {
-            this.SendCommand = new Command(this.Send);
             this.CustomMarkers = new ObservableCollection<MapMarker>();
             this.GetPinLocation();
 
@@ -53,10 +56,6 @@ namespace FBLAManager.ViewModels.ContactUs
 
         #region Commands
 
-        /// <summary>
-        /// Gets or sets the command that is executed when the Send button is clicked.
-        /// </summary>
-        public ICommand SendCommand { get; set; }
 
         #endregion
 
@@ -109,21 +108,10 @@ namespace FBLAManager.ViewModels.ContactUs
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        /// <summary>
-        /// Invoked when the send button is clicked.
-        /// </summary>
-        /// <param name="obj">The Object</param>
-        private void Send(object obj)
-        {
-            ContactUsPage page = (ContactUsPage)obj;
-
-            page.DisplaySendMessage();
-        }
-
-        /// <summary>
-        /// This method is for getting the pin location detail.
-        /// </summary>
-        private void GetPinLocation()
+            /// <summary>
+            /// This method is for getting the pin location detail.
+            /// </summary>
+            private void GetPinLocation()
         {
             this.CustomMarkers.Add(
                 new LocationMarker
