@@ -1,4 +1,4 @@
-﻿using FBLAManager.ViewModels.AboutUs;
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,17 +10,19 @@ namespace FBLAManager.Views.AboutUs
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QandAPage : ContentPage
     {
-        private QandAViewModel viewModel;
+        //private QandAViewModel viewModel;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:FBLAManager.Views.AboutUs.QandAPage"/> class.
-        /// Sets its binding context to an instance of the <see cref="T:FBLAManager.ViewModels.AboutUs.QandAViewModel"/> class.
         /// </summary>
         public QandAPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new QandAViewModel();
+            BindingContext = this;
         }
+
+        //URL of the Q & A page from the backend 
+        public string ContentURL { get; set; } = "http://fblamanager.me/FAQs/faqpage"; 
     }
 }
