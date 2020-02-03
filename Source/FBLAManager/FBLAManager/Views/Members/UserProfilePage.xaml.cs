@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System;
 using FBLAManager.ViewModels.Members;
+using FBLAManager.Services;
+using System.IO;
 
 namespace FBLAManager.Views.Members
 {
@@ -37,6 +39,22 @@ namespace FBLAManager.Views.Members
             var editProfilePage = new EditProfilePage();
 
             await Navigation.PushAsync(editProfilePage); 
+        }
+
+        /// <summary>
+        /// Opens the photo picker for the user to upload an image.
+        /// </summary>
+        private async void OnPickPhotoButtonClicked(object sender, EventArgs e)
+        {
+            (sender as Button).IsEnabled = false;
+
+            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            if (stream != null)
+            {
+                Image.Source = ImageSource.FromStream(() => stream);
+            }
+
+            (sender as Button).IsEnabled = true;
         }
     }
 }

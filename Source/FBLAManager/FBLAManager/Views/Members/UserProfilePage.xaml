@@ -32,11 +32,12 @@
                     CornerRadius="60"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    Clicked="EditButton_Clicked">
+                    Clicked="OnPickPhotoButtonClicked">
                     <buttons:SfButton.Content>
                         <Grid HeightRequest="120" WidthRequest="120">
 
                             <Image
+                                x:Name="Image"
                                 Source="{Binding Profile.ProfileImageSource}"
                                 BackgroundColor="{DynamicResource Gray-200}" />
                             <BoxView
