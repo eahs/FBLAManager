@@ -37,6 +37,7 @@
                         <Grid HeightRequest="120" WidthRequest="120">
 
                             <Image
+                                Source="{Binding Profile.ProfileImageSource}"
                                 BackgroundColor="{DynamicResource Gray-200}" />
                             <BoxView
                                 BackgroundColor="{DynamicResource Gray-Black}"

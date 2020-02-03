@@ -37,6 +37,7 @@
                         <Grid HeightRequest="120" WidthRequest="120">
                             <Image
                                 Aspect="AspectFill"
+                                Source="{Binding ProfileImageSource}"
                                 BackgroundColor="{DynamicResource Gray-200}" />
                         </Grid>
                     </buttons:SfButton.Content>
