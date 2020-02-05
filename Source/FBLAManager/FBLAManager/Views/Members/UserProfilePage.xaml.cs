@@ -5,6 +5,7 @@ using System;
 using FBLAManager.ViewModels.Members;
 using FBLAManager.Services;
 using System.IO;
+using Syncfusion.XForms.Buttons;
 
 namespace FBLAManager.Views.Members
 {
@@ -46,15 +47,17 @@ namespace FBLAManager.Views.Members
         /// </summary>
         private async void OnPickPhotoButtonClicked(object sender, EventArgs e)
         {
-            (sender as Button).IsEnabled = false;
+            SfButton button = sender as SfButton;
+            button.IsEnabled = false;
 
-            Stream stream = await DependencyService.Get<IPhotoPickerService>().GetImageStreamAsync();
+            var picker = DependencyService.Get<IPhotoPickerService>();
+            Stream stream = await picker?.GetImageStreamAsync();
             if (stream != null)
             {
                 Image.Source = ImageSource.FromStream(() => stream);
             }
 
-            (sender as Button).IsEnabled = true;
+            button.IsEnabled = true;
         }
     }
 }

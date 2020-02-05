@@ -28,7 +28,6 @@
                     BackgroundColor="Transparent"
                     BorderColor="{DynamicResource Gray-White}"
                     BorderWidth="2"
-                    Command="{Binding EditCommand}"
                     CornerRadius="60"
                     HorizontalOptions="Center"
                     WidthRequest="120"

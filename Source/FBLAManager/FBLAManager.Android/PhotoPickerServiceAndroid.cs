@@ -1,10 +1,15 @@
-﻿using Android.Content;
-using System.IO;
+﻿using System.IO;
 using System.Threading.Tasks;
+using Android.Content;
+using FBLAManager.Droid;
+using Xamarin.Forms;
+using FBLAManager.Services;
 
+
+[assembly: Dependency(typeof(PhotoPickerServiceAndroid))]
 namespace FBLAManager.Droid
 {
-    class PhotoPickerServiceAndroid
+    public class PhotoPickerServiceAndroid : IPhotoPickerService
     {
         public Task<Stream> GetImageStreamAsync()
         {
@@ -15,7 +20,7 @@ namespace FBLAManager.Droid
 
             // Start the picture-picker activity (resumes in MainActivity.cs)
             MainActivity.Instance.StartActivityForResult(
-                Intent.CreateChooser(intent, "Select Picture"),
+                Intent.CreateChooser(intent, "Select Photo"),
                 MainActivity.PickImageId);
 
             // Save the TaskCompletionSource object as a MainActivity property

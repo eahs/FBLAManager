@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace FBLAManager.Services
 {
-    interface IPhotoPickerService
+    public interface IPhotoPickerService
     {
         Task<Stream> GetImageStreamAsync();
     }
