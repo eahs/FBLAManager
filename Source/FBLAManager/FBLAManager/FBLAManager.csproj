@@ -21,6 +21,7 @@
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="17.3.0.27" />
+    <PackageReference Include="Syncfusion.Xamarin.SfImageEditor" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfMaps" Version="17.3.0.27" />
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule" Version="17.3.0.27" />
@@ -86,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Forms\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Members\ProfileImageEditor.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Members\UserProfilePage.xaml">
       <Generator>MSBuild:Compile</Generator>
