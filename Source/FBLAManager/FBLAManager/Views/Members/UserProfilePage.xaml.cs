@@ -54,10 +54,22 @@ namespace FBLAManager.Views.Members
             Stream stream = await picker?.GetImageStreamAsync();
             if (stream != null)
             {
-                Image.Source = ImageSource.FromStream(() => stream);
+                using (var memoryStream = new MemoryStream())
+                {
+                    await stream.CopyToAsync(memoryStream);
+
+                    byte[] rawImage = memoryStream.ToArray();
+                    string encoded = Convert.ToBase64String(rawImage);
+                    
+                    Image.Source = ImageSource.FromStream(() => new MemoryStream(rawImage));
+
+                    // Upload the encoded image to the server
+                }
+
             }
 
             button.IsEnabled = true;
         }
+
     }
 }
