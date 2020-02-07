@@ -2,6 +2,12 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Linq;
+using System.IO;
+using System;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
+using FBLAManager.Helpers;
 
 namespace FBLAManager.Views.Members
 {
@@ -24,6 +30,7 @@ namespace FBLAManager.Views.Members
             // Save, Effects, Hue, Saturation, Brightness, Contrast, Blur and Sharpen.
             var desiredOptions = new string[] { "Reset", "Effects", "Save", "Undo", "Redo" };
 
+            editor.ImageSaving += Editor_ImageSaving;
             editor.Source = src;
 
             var toolbarItems = editor.ToolbarSettings.ToolbarItems;
@@ -37,30 +44,35 @@ namespace FBLAManager.Views.Members
                     editor.ToolbarSettings.ToolbarItems.Remove(item);
                 }
             }
-            /*
-            foreach (Syncfusion.SfImageEditor.XForms.ToolbarItem item in editor.ToolbarSettings.ToolbarItems)
-            {
-                if (item.Name == "Text")
-                {
-                    editor.ToolbarSettings.ToolbarItems.Remove(item); 
-                }
-            } */
-
-            /*
-            editor.ToolbarSettings.ToolbarItems.Clear();
             
-            HeaderToolbarItem undo = new HeaderToolbarItem { Name = "Undo", Icon = ImageSource.FromResource("ImageEditor.undo.png") };
-            HeaderToolbarItem redo = new HeaderToolbarItem { Icon = ImageSource.FromResource("ImageEditor.Redo.png") };
-
-
-            editor.ToolbarSettings.ToolbarItems.Add(undo);
-            editor.ToolbarSettings.ToolbarItems.Add(redo);
-
-            editor.ToolbarSettings.ToolbarItems.Add(new HeaderToolbarItem() { Name = "Undo" } ); */
-
-
+            /*
+            
+            HeaderToolbarItem undo = new HeaderToolbarItem { Name = "Crop", Icon = ImageSource.FromResource("ImageEditor.crop.png") };
+            HeaderToolbarItem redo = new HeaderToolbarItem { Icon = ImageSource.FromResource("ImageEditor.Redo.png") }; */
 
         }
+
+        private void Editor_ImageSaving(object sender, ImageSavingEventArgs args)
+        {
+            args.Cancel = true;
+
+            //args.Stream
+            using (MemoryStream stream = new MemoryStream())
+            {
+                args.Stream.CopyTo(stream);
+                byte[] rawImage = stream.ToArray();
+                string encoded = Convert.ToBase64String(rawImage);
+
+                // Send encoded string to backend
+                Task.Run(async () =>
+                {
+                    await UserManager.Current.SaveProfileImage(encoded);
+                });
+            }
+
+            Navigation.PopModalAsync();
+        }
+
 
     }
 }

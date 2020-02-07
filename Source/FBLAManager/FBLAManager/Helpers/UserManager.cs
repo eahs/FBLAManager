@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -117,6 +118,57 @@ namespace FBLAManager.Helpers
         public void Logout ()
         {
             SessionKey = "";
+        }
+
+
+        public async Task<UserManagerResponseStatus> SaveProfileImage (string encodedImage)
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.EditMemberEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.POST
+            };
+
+            request.AddParameter("profileImageSource", encodedImage);
+
+            AddAuthorization(request);
+
+
+            try
+            {
+
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
+                {
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    if (data.Status != null)
+                    {
+                        switch (data.Status)
+                        {
+                            case "Success": return UserManagerResponseStatus.Success;
+                            case "NotLoggedIn": return UserManagerResponseStatus.InvalidCredentials;
+                            default: return UserManagerResponseStatus.UnknownResponse;
+                        }
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+
+                return UserManagerResponseStatus.NetworkError;
+            }
+
+            return UserManagerResponseStatus.InvalidRequest;
         }
 
         /// <summary>
@@ -417,4 +469,6 @@ namespace FBLAManager.Helpers
             return UserManagerResponseStatus.InvalidRequest;
         }
     }
+
+
 }
