@@ -17,10 +17,8 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-
     <ContentPage.Content>
         <ScrollView>
-
             <StackLayout Spacing="0">
                 
                 <!--  Profile image with edit label  -->
@@ -43,6 +41,9 @@
                     </buttons:SfButton.Content>
                 </buttons:SfButton>
 
+                <BoxView Style="{StaticResource SeparatorStyle}" />
+
+
                 <!--  Profile Name  -->
                 <Label
                     Margin="0,10,0,10"
@@ -54,6 +55,21 @@
                     VerticalOptions="Center" />
 
                 <BoxView Style="{StaticResource SeparatorStyle}" />
+
+
+                <!--  Profile Bio  -->
+                <Label
+                    Margin="10,10,0,10"
+                    Style="{StaticResource CommonProfileLabelStyle}"
+                    FontSize="Body"
+                    HorizontalOptions="Start"
+                    Text= "{Binding Description}"
+                    TextColor="{DynamicResource Gray-900}"
+                    VerticalOptions="Center" />
+
+                <BoxView Style="{StaticResource SeparatorStyle}" />
+
+
 
                 <!--  Grid for mail id label and icon  -->
                 <Grid Padding="16" ColumnSpacing="16">
