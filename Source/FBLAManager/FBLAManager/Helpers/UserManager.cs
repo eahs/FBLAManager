@@ -127,7 +127,7 @@ namespace FBLAManager.Helpers
 
             var request = new RestRequest
             {
-                Resource = GlobalConstants.EditMemberEndPointRequestURL,
+                Resource = GlobalConstants.EditProfileImageRequestURL,
                 Timeout = GlobalConstants.RequestTimeout,
                 Method = Method.POST
             };
