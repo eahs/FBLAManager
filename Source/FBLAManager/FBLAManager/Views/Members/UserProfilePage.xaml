@@ -67,9 +67,18 @@
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
 
+                <!--  Profile Bio  -->
+                <Label
+                    Margin="0,10,0,10"
+                    FontFamily="{StaticResource Montserrat-Bold}"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text= "{Binding Profile.Description}"
+                    TextColor="{DynamicResource Gray-900}"
+                    VerticalOptions="Center" />
 
-                
-               <!-- Edit profile button -->
+
+                <!-- Edit profile button -->
                 
                <Button
                     Margin="0, 0, 0, 10"
