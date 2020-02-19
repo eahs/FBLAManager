@@ -63,8 +63,7 @@ namespace FBLAManager.Views.Members
                     
                     Image.Source = ImageSource.FromStream(() => new MemoryStream(rawImage));
 
-                    await Navigation.PushModalAsync(new ProfileImageEditor(Image.Source));
-                    // Upload the encoded image to the server
+                    await Navigation.PushModalAsync(new ProfileImageEditor(Image.Source));                   
                 }
 
             }

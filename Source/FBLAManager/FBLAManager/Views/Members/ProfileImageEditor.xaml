@@ -8,7 +8,7 @@
              x:Class="FBLAManager.Views.Members.ProfileImageEditor">
 
     <ContentPage.Content>
-        <imageeditor:SfImageEditor x:Name="editor" Source="vincent_c.JPG"/>
+        <imageeditor:SfImageEditor x:Name="editor" Source="appLogo.png"/>
     </ContentPage.Content>
 
 

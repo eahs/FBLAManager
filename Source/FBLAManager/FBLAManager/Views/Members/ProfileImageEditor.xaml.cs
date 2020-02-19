@@ -5,8 +5,6 @@ using System.Linq;
 using System.IO;
 using System;
 using System.Threading.Tasks;
-using System.Diagnostics;
-using System.Threading;
 using FBLAManager.Helpers;
 
 namespace FBLAManager.Views.Members
@@ -16,19 +14,25 @@ namespace FBLAManager.Views.Members
     {
         public ProfileImageEditor()
         {
-            InitializeComponent();    
+            InitializeComponent();       
+            
+            editor.ToolbarSettings.ToolbarItemSelected += ToolbarSettings_ToolbarItemSelected;
         }
 
         public ProfileImageEditor(ImageSource src)
         {
             InitializeComponent();
 
+            editor.ToolbarSettings.ToolbarItemSelected += ToolbarSettings_ToolbarItemSelected;
+
+            #region toolbar customization
+
             // The following built-in toolbar item names are available in image editor: 
             // Back, Text, Add, TextColor, FontFamily, Arial, Noteworthy, Marker Felt, Bradley Hand, 
             // SignPainter, Opacity, Path, StrokeThickness, Colors, Opacity, Shape, Rectangle, StrokeThickness, Circle, 
             // Arrow, Transform, Crop, free, original, square, 3:1, 3:2, 4:3, 5:4, 16:9, Rotate, Flip, Reset, Undo, Redo, 
             // Save, Effects, Hue, Saturation, Brightness, Contrast, Blur and Sharpen.
-            var desiredOptions = new string[] { "Reset", "Effects", "Save", "Undo", "Redo" };
+            var desiredOptions = new string[] { "Reset", "Effects", "Save", "Undo", "Redo", "Transform" };
 
             editor.ImageSaving += Editor_ImageSaving;
             editor.Source = src;
@@ -44,14 +48,14 @@ namespace FBLAManager.Views.Members
                     editor.ToolbarSettings.ToolbarItems.Remove(item);
                 }
             }
-            
-            /*
-            
-            HeaderToolbarItem undo = new HeaderToolbarItem { Name = "Crop", Icon = ImageSource.FromResource("ImageEditor.crop.png") };
-            HeaderToolbarItem redo = new HeaderToolbarItem { Icon = ImageSource.FromResource("ImageEditor.Redo.png") }; */
+
+            #endregion
 
         }
 
+        /// <summary>
+        /// Saves image to backend. 
+        /// </summary>
         private void Editor_ImageSaving(object sender, ImageSavingEventArgs args)
         {
             args.Cancel = true;
@@ -73,6 +77,14 @@ namespace FBLAManager.Views.Members
             Navigation.PopModalAsync();
         }
 
+        private void ToolbarSettings_ToolbarItemSelected(object sender, ToolbarItemSelectedEventArgs e)
+        {
+            //DisplayAlert("Selected ToolbarItem is  " + e.ToolbarItem.Text, "Ok", "Cancel");
 
+            if (e.ToolbarItem.Name == "Transform")
+            {
+                e.MoveSubItemsToFooterToolbar = false; 
+            }
+        }
     }
 }
