@@ -7,11 +7,15 @@ using System;
 using System.Threading.Tasks;
 using FBLAManager.Helpers;
 
+
 namespace FBLAManager.Views.Members
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfileImageEditor : ContentPage
     {
+
+        //int height; 
+
         public ProfileImageEditor()
         {
             InitializeComponent();       
@@ -51,6 +55,9 @@ namespace FBLAManager.Views.Members
 
             #endregion
 
+            //height = src.Height;
+
+
         }
 
         /// <summary>
@@ -79,11 +86,21 @@ namespace FBLAManager.Views.Members
 
         private void ToolbarSettings_ToolbarItemSelected(object sender, ToolbarItemSelectedEventArgs e)
         {
-            //DisplayAlert("Selected ToolbarItem is  " + e.ToolbarItem.Text, "Ok", "Cancel");
-
-            if (e.ToolbarItem.Name == "Transform")
+           
+            
+            if (e.ToolbarItem.Name == "Crop")
             {
+                //editor.ToggleCropping();
+
+                //Rectangle rect = new Rectangle(100, 100, 100, 100);
+
+                //editor.Crop(rect); 
+
+                //editor.ToggleCropping(float.NaN, float.NaN); 
+
                 e.MoveSubItemsToFooterToolbar = false; 
+
+                editor.ToggleCropping(1, 1); 
             }
         }
     }
