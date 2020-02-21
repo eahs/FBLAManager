@@ -90,17 +90,7 @@ namespace FBLAManager.Views.Members
             
             if (e.ToolbarItem.Name == "Crop")
             {
-                //editor.ToggleCropping();
-
-                //Rectangle rect = new Rectangle(100, 100, 100, 100);
-
-                //editor.Crop(rect); 
-
-                //editor.ToggleCropping(float.NaN, float.NaN); 
-
-                e.MoveSubItemsToFooterToolbar = false; 
-
-                editor.ToggleCropping(1, 1); 
+                editor.SetToolbarItemVisibility("free,original,3:1,3:2,4:3,5:4,16:9", false);    
             }
         }
     }
