@@ -92,6 +92,11 @@
         <ShellContent ContentTemplate="{DataTemplate views:CalendarPage}" />
     </FlyoutItem>
 
+    <!--
+    <FlyoutItem Title="Edit" Icon="test.png" Route="Edit">
+        <ShellContent ContentTemplate="{DataTemplate members:ProfileImageEditor}" />
+    </FlyoutItem>
+    -->
 
     <FlyoutItem Title="People" Icon="MembersIcon.png">
 

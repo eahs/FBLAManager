@@ -17,7 +17,6 @@ namespace FBLAManager.ViewModels.Members
         /// </summary>
         public UserProfileViewModel()
         {
-            this.EditCommand = new Command(this.EditButtonClicked);
             this.AvailableCommand = new Command(this.AvailableStatusClicked);
             this.NotificationCommand = new Command(this.NotificationOptionClicked);
         }
@@ -26,10 +25,6 @@ namespace FBLAManager.ViewModels.Members
 
         #region Command
 
-        /// <summary>
-        /// Gets or sets the command that is executed when the edit button is clicked.
-        /// </summary>
-        public Command EditCommand { get; set; }
 
         /// <summary>
         /// Gets or sets the command that is executed when the available status is clicked.
@@ -45,14 +40,7 @@ namespace FBLAManager.ViewModels.Members
 
         #region Methods
 
-        /// <summary>
-        /// Invoked when the edit button is clicked.
-        /// </summary>
-        /// <param name="obj">The object</param>
-        private void EditButtonClicked(object obj)
-        {
-            // Do something
-        }
+
 
         /// <summary>
         /// Invoked when the available status is clicked.

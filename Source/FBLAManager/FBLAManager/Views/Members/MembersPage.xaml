@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	         xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="FBLAManager.Views.MembersPage"
              Title="Members">
 
@@ -25,6 +27,7 @@
                         x:Name="MembersListView"
                         ItemsSource="{Binding Members}"                      
                         RefreshCommand="{Binding LoadItemsCommand}"
+                        HasUnevenRows="True"
                         IsPullToRefreshEnabled="true"
                         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                         CachingStrategy="RecycleElement"
@@ -35,6 +38,35 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="75"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Padding="5,5,5,5">
+                                            <ff:CachedImage Source="{Binding ProfileImageSource}" Aspect="AspectFit" WidthRequest="75" Grid.Column="0">
+                                                <ff:CachedImage.Transformations>
+                                                    <fftransformations:CircleTransformation />
+                                                </ff:CachedImage.Transformations>
+                                            </ff:CachedImage>
+                                        </Frame>
+
+                                        <StackLayout Grid.Column="1" Padding="10">
+                                            <Label Text="{Binding FullName}" 
+                                                LineBreakMode="NoWrap" 
+                                                Style="{DynamicResource ListItemTextStyle}"
+                                                TextColor="Black" 
+                                                FontSize="20" />
+                                            <Label Text="{Binding Phone}" 
+                                                LineBreakMode="NoWrap"
+                                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                                TextColor="Gray"
+                                                FontSize="15" />
+                                        </StackLayout>
+
+                                        <!--
                                     <StackLayout Orientation="Vertical" Margin="30,0,0,0">
                                         <Label 
                                             Text="{Binding FullName}"
@@ -44,7 +76,10 @@
                                             Text="{Binding Phone}" 
                                             FontSize="15" 
                                             TextColor="Gray" />
-                                    </StackLayout>
+                                    </StackLayout> -->
+
+                                    </Grid>
+
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>

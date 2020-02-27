@@ -127,6 +127,7 @@
   <ItemGroup>
     <Compile Include="BugReporterDroid.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PhotoPickerServiceAndroid.cs" />
     <Compile Include="Renderers\BorderlessEditorRenderer.cs" />
     <Compile Include="Renderers\BorderlessEntryRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

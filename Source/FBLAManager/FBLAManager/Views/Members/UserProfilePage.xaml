@@ -28,15 +28,16 @@
                     BackgroundColor="Transparent"
                     BorderColor="{DynamicResource Gray-White}"
                     BorderWidth="2"
-                    Command="{Binding EditCommand}"
                     CornerRadius="60"
                     HorizontalOptions="Center"
                     WidthRequest="120"
-                    Clicked="EditButton_Clicked">
+                    Clicked="OnPickPhotoButtonClicked">
                     <buttons:SfButton.Content>
                         <Grid HeightRequest="120" WidthRequest="120">
 
                             <Image
+                                x:Name="Image"
+                                Source="{Binding Profile.ProfileImageSource}"
                                 BackgroundColor="{DynamicResource Gray-200}" />
                             <BoxView
                                 BackgroundColor="{DynamicResource Gray-Black}"
@@ -66,9 +67,8 @@
                     TextColor="{DynamicResource Gray-900}"
                     VerticalOptions="Center" />
 
-
                 
-               <!-- Edit profile button -->
+                <!-- Edit profile button -->
                 
                <Button
                     Margin="0, 0, 0, 10"
@@ -84,6 +84,18 @@
                     HeightRequest="35"
                     WidthRequest="360" 
                     Clicked="EditButton_Clicked"/>
+
+                <BoxView Style="{StaticResource SeparatorStyle}" />
+
+                <!--  Profile Bio  -->
+                <Label
+                    Margin="10,10,0,10"
+                    Style="{StaticResource CommonProfileLabelStyle}"
+                    FontSize="14"
+                    HorizontalOptions="Start"
+                    Text= "{Binding Profile.Description}"
+                    TextColor="{DynamicResource Gray-900}"
+                    VerticalOptions="Center" />
 
                 <BoxView Style="{StaticResource SeparatorStyle}" />
               
@@ -128,7 +140,7 @@
                 </Grid>
 
                 <BoxView Style="{StaticResource SeparatorStyle}" />
-
+              
             </StackLayout>
 
         </ScrollView>
