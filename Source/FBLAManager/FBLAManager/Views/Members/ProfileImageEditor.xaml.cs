@@ -74,6 +74,8 @@ namespace FBLAManager.Views.Members
                 byte[] rawImage = stream.ToArray();
                 string encoded = Convert.ToBase64String(rawImage);
 
+                MessagingCenter.Send<ProfileImageEditor, byte[]>(this, "UpdateProfileImage", rawImage);
+
                 // Send encoded string to backend
                 Task.Run(async () =>
                 {

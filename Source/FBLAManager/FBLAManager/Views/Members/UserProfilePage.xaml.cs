@@ -30,6 +30,10 @@ namespace FBLAManager.Views.Members
 
             vm.LoadItemsCommand.Execute(null);
 
+            MessagingCenter.Subscribe<ProfileImageEditor, byte[]>(this, "UpdateProfileImage", (sender, rawImage) =>
+            {
+                Image.Source = ImageSource.FromStream(() => new MemoryStream(rawImage));
+            });
         }
 
         /// <summary>
