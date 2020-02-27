@@ -7,7 +7,6 @@ using System;
 using System.Threading.Tasks;
 using FBLAManager.Helpers;
 
-
 namespace FBLAManager.Views.Members
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -36,7 +35,7 @@ namespace FBLAManager.Views.Members
             // SignPainter, Opacity, Path, StrokeThickness, Colors, Opacity, Shape, Rectangle, StrokeThickness, Circle, 
             // Arrow, Transform, Crop, free, original, square, 3:1, 3:2, 4:3, 5:4, 16:9, Rotate, Flip, Reset, Undo, Redo, 
             // Save, Effects, Hue, Saturation, Brightness, Contrast, Blur and Sharpen.
-            var desiredOptions = new string[] { "Reset", "Effects", "Save", "Undo", "Redo", "Transform" };
+            var desiredOptions = new string[] { "Reset", "Effects", "Save", "Transform" };
 
             editor.ImageSaving += Editor_ImageSaving;
             editor.Source = src;
@@ -87,9 +86,7 @@ namespace FBLAManager.Views.Members
         }
 
         private void ToolbarSettings_ToolbarItemSelected(object sender, ToolbarItemSelectedEventArgs e)
-        {
-           
-            
+        {               
             if (e.ToolbarItem.Name == "Crop")
             {
                 editor.SetToolbarItemVisibility("free,original,3:1,3:2,4:3,5:4,16:9", false);    
