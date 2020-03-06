@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FBLAManager.iOS", "FBLAMana
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FBLAManager", "FBLAManager\FBLAManager.csproj", "{599A962C-E570-4604-A217-DB754E2C4785}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneSignalNotificationServiceExtension", "OneSignalNotificationServiceExtension\OneSignalNotificationServiceExtension.csproj", "{1C779F9E-5716-496D-8BF5-B00B38B38704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,16 @@ Global
 		{599A962C-E570-4604-A217-DB754E2C4785}.Release|iPhone.Build.0 = Release|Any CPU
 		{599A962C-E570-4604-A217-DB754E2C4785}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{599A962C-E570-4604-A217-DB754E2C4785}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Debug|iPhone.Build.0 = Debug|iPhone
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Release|iPhone.ActiveCfg = Release|iPhone
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Release|iPhone.Build.0 = Release|iPhone
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{1C779F9E-5716-496D-8BF5-B00B38B38704}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

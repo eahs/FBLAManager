@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Com.OneSignal;
 
 namespace FBLAManager
 {
@@ -42,6 +43,8 @@ namespace FBLAManager
 
             Startup();
 
+            OneSignal.Current.StartInit("1c3e4393-0690-49b2-8e35-1281c2172bef")
+                  .EndInit();
         }
 
         async private Task<bool> Startup ()

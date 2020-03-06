@@ -62,6 +62,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Com.OneSignal">
+      <Version>3.7.3</Version>
+    </PackageReference>
     <PackageReference Include="instabug-for-android">
       <Version>8.6.3</Version>
     </PackageReference>
