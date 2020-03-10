@@ -79,6 +79,8 @@ namespace FBLAManager.Helpers
                 catch (Exception ex)
                 {
                     // Possible that device doesn't support secure storage on device.
+                    Crashes.TrackError(ex);
+
                 }
             }
         }
@@ -107,6 +109,8 @@ namespace FBLAManager.Helpers
             catch (Exception ex)
             {
                 // Possible that device doesn't support secure storage on device.
+                Crashes.TrackError(ex);
+
             }
 
             return SessionKey != "";

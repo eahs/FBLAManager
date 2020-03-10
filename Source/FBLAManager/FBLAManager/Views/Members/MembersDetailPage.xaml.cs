@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.AppCenter.Crashes;
 
 namespace FBLAManager.Views.Members
 {
@@ -58,10 +59,13 @@ namespace FBLAManager.Views.Members
             catch (FeatureNotSupportedException fbsEx)
             {
                 // Email is not supported on this device
+                Crashes.TrackError(fbsEx);
+
             }
             catch (Exception ex)
             {
                 // Some other exception occurred
+                Crashes.TrackError(ex);
             }
         }
 
@@ -86,10 +90,14 @@ namespace FBLAManager.Views.Members
             catch (FeatureNotSupportedException ex)
             {
                 // Sms is not supported on this device.
+                Crashes.TrackError(ex);
+
             }
             catch (Exception ex)
             {
                 // Other error has occurred.
+                Crashes.TrackError(ex);
+
             }
         }
 
@@ -111,14 +119,20 @@ namespace FBLAManager.Views.Members
             catch (ArgumentNullException anEx)
             {
                 // Number was null or white space
+                Crashes.TrackError(anEx);
+
             }
             catch (FeatureNotSupportedException ex)
             {
                 // Phone Dialer is not supported on this device.
+                Crashes.TrackError(ex);
+
             }
             catch (Exception ex)
             {
                 // Other error has occurred.
+                Crashes.TrackError(ex);
+
             }
         }
 
