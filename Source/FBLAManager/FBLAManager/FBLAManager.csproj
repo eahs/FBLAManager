@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.1.0" />
     <PackageReference Include="Com.OneSignal" Version="3.7.3" />
     <PackageReference Include="Microsoft.AppCenter" Version="2.6.2" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.2" />
@@ -114,6 +115,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Officers\StateOfficersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Onboarding.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SocialMedia\AboutUsWithScrollPage.xaml">

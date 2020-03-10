@@ -11,6 +11,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Com.OneSignal;
+using Xamarin.Essentials;
 
 namespace FBLAManager
 {
@@ -24,7 +25,6 @@ namespace FBLAManager
 
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
 
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "LoadApp", (sender) =>
             {
@@ -40,6 +40,11 @@ namespace FBLAManager
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "ForgotPasswordClicked", ForgotPasswordClicked);
             MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
             MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
+            MessagingCenter.Subscribe<Onboarding>(this, "GetStarted", (sender) => {
+
+                Startup();
+
+            });
 
             Startup();
 
@@ -49,6 +54,12 @@ namespace FBLAManager
 
         async private Task<bool> Startup ()
         {
+#if DEBUG
+            bool watchedTutorial = false;
+#else
+            bool watchedTutorial = Preferences.Get("WatchedTutorial", false);
+#endif
+           
             if (await UserManager.Current.IsLoggedIn())
                 MainPage = new AppShell();
             else
