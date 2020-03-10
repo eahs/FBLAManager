@@ -42,7 +42,7 @@ namespace FBLAManager
             MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
             MessagingCenter.Subscribe<Onboarding>(this, "GetStarted", (sender) => {
 
-                Startup();
+                Startup(true);
 
             });
 
@@ -52,15 +52,16 @@ namespace FBLAManager
                   .EndInit();
         }
 
-        async private Task<bool> Startup ()
+        async private Task<bool> Startup (bool skipWalkthrough = false)
         {
 #if DEBUG
-            bool watchedTutorial = false;
+            bool watchedTutorial = skipWalkthrough;
 #else
             bool watchedTutorial = Preferences.Get("WatchedTutorial", false);
 #endif
-           
-            if (await UserManager.Current.IsLoggedIn())
+           if (!watchedTutorial)
+                MainPage = new Onboarding();
+            else if (await UserManager.Current.IsLoggedIn())
                 MainPage = new AppShell();
             else
                 MainPage = new SimpleLoginPage();

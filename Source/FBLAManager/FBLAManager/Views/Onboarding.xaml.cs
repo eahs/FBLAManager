@@ -21,7 +21,6 @@ namespace FBLAManager.Views
 
         public Onboarding()
         {
-
             InitializeComponent();
 
             Boards.Add(new Board
@@ -32,7 +31,8 @@ namespace FBLAManager.Views
                 BackgroundColor = Color.FromHex("#53BA92")
             });
 
-           
+            this.BindingContext = this;
+            CV.ItemsSource = Boards;
         }
 
         private Lottie.Forms.AnimationView GetAnimation(String filename, bool autoplay = false)
