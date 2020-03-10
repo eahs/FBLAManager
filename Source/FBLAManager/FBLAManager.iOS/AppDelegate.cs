@@ -9,6 +9,7 @@ using UIKit;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
 using InstabugLib;
 using Xamarin.Forms;
+using Lottie.Forms.iOS.Renderers;
 
 namespace FBLAManager.iOS
 {
@@ -35,6 +36,7 @@ namespace FBLAManager.iOS
             SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
+            AnimationViewRenderer.Init();
 
             new SfBusyIndicatorRenderer();
 

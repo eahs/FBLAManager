@@ -59,7 +59,7 @@ namespace FBLAManager
 #else
             bool watchedTutorial = Preferences.Get("WatchedTutorial", false);
 #endif
-           if (!watchedTutorial)
+            if (!watchedTutorial)
                 MainPage = new Onboarding();
             else if (await UserManager.Current.IsLoggedIn())
                 MainPage = new AppShell();
