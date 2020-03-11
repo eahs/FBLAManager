@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AsyncAwaitBestPractices" Version="4.1.0" />
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.1.0" />
     <PackageReference Include="Com.OneSignal" Version="3.7.3" />
     <PackageReference Include="Microsoft.AppCenter" Version="2.6.2" />

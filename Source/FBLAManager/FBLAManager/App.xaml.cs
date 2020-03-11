@@ -12,6 +12,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Com.OneSignal;
 using Xamarin.Essentials;
+using AsyncAwaitBestPractices;
 
 namespace FBLAManager
 {
@@ -42,11 +43,11 @@ namespace FBLAManager
             MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
             MessagingCenter.Subscribe<Onboarding>(this, "GetStarted", (sender) => {
 
-                Startup(true);
+                Startup(true).SafeFireAndForget(onException: ex => Crashes.TrackError(ex));
 
             });
 
-            Startup();
+            Startup().SafeFireAndForget(onException: ex => Crashes.TrackError(ex)); ;
 
             OneSignal.Current.StartInit("1c3e4393-0690-49b2-8e35-1281c2172bef")
                   .EndInit();
