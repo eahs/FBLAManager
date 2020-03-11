@@ -1,7 +1,9 @@
 ﻿using FBLAManager.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -67,11 +69,20 @@ namespace FBLAManager.Views
 
         private async void SignIn_Button_Clicked(object sender, EventArgs e)
         {
-            await ButtonFrame.ScaleTo(1.2, 50, Easing.CubicOut);
-            await ButtonFrame.ScaleTo(1.0, 50, Easing.CubicIn);
+            List<Task> tasks = new List<Task>();
+
+            tasks.Add(Task.Run(async () =>
+            {
+                await ButtonFrame.ScaleTo(1.025, 150, Easing.CubicInOut);
+                await ButtonFrame.ScaleTo(1.0, 150, Easing.CubicInOut);
+            }));
 
             Preferences.Set("WatchedTutorial", true);
+
+            await Task.WhenAll(tasks);
+
             MessagingCenter.Send<Onboarding>(this, "GetStarted");
+
         }
 
         private void CV_PositionChanged(object sender, PositionChangedEventArgs e)
