@@ -20,25 +20,25 @@ namespace FBLAManager.Views
 
             Boards.Add(new Board
             {
-                Title = "Join",
-                Text = "View and sign up for FBLA events! FBLA is the greatest organization on this good earth. We'll show you a good time (if you know what I mean).",
+                Title = "Get involved",
+                Text = "View and sign up for events",
                 Animation = GetAnimation("4333-calendar-event.json", true),
                 BackgroundColor = Color.FromHex("#077187")
             });
 
             Boards.Add(new Board
             {
-                Title = "Consume",
-                Text = "Stay up to date with the latest FBLA news! Believe what we tell you to believe.",
-                Animation = GetAnimation("2099-new-notification-bell.json", true),
+                Title = "Stay Informed",
+                Text = "Learn about upcoming events, new announcements, and frequently asked questions",
+                Animation = GetAnimation("3520-light-bulb.json", true),
                 BackgroundColor = Color.FromHex("#53BA92")
             });
 
             Boards.Add(new Board
             {
-                Title = "Infect",
-                Text = "Connect with your fellow FBLA comrades, and form a legion that will pierce a light through our world's plague of darkness.",
-                Animation = GetAnimation("8575-network.json", true),
+                Title = "Connect",
+                Text = "Easily communicate with advisors, officers, and fellow club members",
+                Animation = GetAnimation("10051-consultation.json", true),
                 BackgroundColor = Color.FromHex("#074F57")
             });
 
@@ -55,8 +55,8 @@ namespace FBLAManager.Views
                 Animation = filename,
                 Loop = false,
                 IsVisible = true,
-                AutoPlay = autoplay,
-                Scale = 1.3,
+                IsPlaying = autoplay,
+                Scale = 1.0,
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.EndAndExpand,
@@ -65,10 +65,18 @@ namespace FBLAManager.Views
             };
         }
 
-        private void SignIn_Button_Clicked(object sender, EventArgs e)
+        private async void SignIn_Button_Clicked(object sender, EventArgs e)
         {
+            await ButtonFrame.ScaleTo(1.2, 50, Easing.CubicOut);
+            await ButtonFrame.ScaleTo(1.0, 50, Easing.CubicIn);
+
             Preferences.Set("WatchedTutorial", true);
             MessagingCenter.Send<Onboarding>(this, "GetStarted");
+        }
+
+        private void CV_PositionChanged(object sender, PositionChangedEventArgs e)
+        {
+            Boards[CV.Position].Animation.Play();
         }
     }
 }
