@@ -38,7 +38,12 @@ namespace FBLAManager.ViewModels.Members
                 try
                 {
 
-                    var response = await client.ExecuteTaskAsync(request);
+                    DataAvailable = false;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheProfile, false, true);
+
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;
 
                     if (response.IsSuccessful)
                     {
@@ -48,15 +53,7 @@ namespace FBLAManager.ViewModels.Members
                         Profile = profile;
                         OnPropertyChanged("Profile");
 
-                        IsError = false;
                         DataAvailable = true;
-                    }
-                    else
-                    {
-                        // An error occurred that is stored
-                        ErrorMessage = "An error occurred";
-                        DataAvailable = false;
-                        IsError = true;
                     }
                 }
                 catch (Exception e)

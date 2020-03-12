@@ -27,5 +27,6 @@ namespace FBLAManager
         public static readonly int MaxCacheMeetings = 30 * 60; // 30 minutes
         public static readonly int MaxCacheMembers = 60 * 60; // 30 minutes
         public static readonly int MaxCacheOfficers = 2 * 60 * 60; // 2 hours
+        public static readonly int MaxCacheProfile = 5 * 60; // 5 minutes
     }
 }
