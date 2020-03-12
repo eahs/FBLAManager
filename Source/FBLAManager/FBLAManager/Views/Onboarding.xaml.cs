@@ -87,6 +87,7 @@ namespace FBLAManager.Views
 
         private void CV_PositionChanged(object sender, PositionChangedEventArgs e)
         {
+            Boards[CV.Position].Animation.Progress = 0;
             Boards[CV.Position].Animation.Play();
         }
     }

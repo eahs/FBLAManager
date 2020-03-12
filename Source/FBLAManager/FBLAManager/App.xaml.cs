@@ -13,6 +13,7 @@ using Microsoft.AppCenter.Crashes;
 using Com.OneSignal;
 using Xamarin.Essentials;
 using AsyncAwaitBestPractices;
+using MonkeyCache.FileStore;
 
 namespace FBLAManager
 {
@@ -23,9 +24,9 @@ namespace FBLAManager
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTQ4MTk0QDMxMzcyZTMzMmUzMG1MVzdHOCtuR1kyM3lJdEVrM0RSZ1ZtTE5HK2Z5ZGNuOTM3Nld1dmNKWFE9");
+            Barrel.ApplicationId = "fblamanager";
 
             InitializeComponent();
-
 
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "LoadApp", (sender) =>
             {

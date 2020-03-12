@@ -44,8 +44,12 @@ namespace FBLAManager.ViewModels
 
                 try
                 {
+                    DataAvailable = false;
 
-                    var response = await client.ExecuteTaskAsync(request);
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheCalendar, false, true);
+
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;                    
 
                     if (response.IsSuccessful)
                     {
@@ -58,15 +62,7 @@ namespace FBLAManager.ViewModels
 
                         OnPropertyChanged("CalendarMeetings");
 
-                        IsError = false;
                         DataAvailable = true;
-                    }
-                    else
-                    {
-                        // An error occurred that is stored
-                        ErrorMessage = "An error occurred";
-                        DataAvailable = false;
-                        IsError = true;
                     }
                 }
                 catch (Exception e)
