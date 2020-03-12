@@ -60,7 +60,7 @@ namespace FBLAManager.ViewModels
 
                         OnPropertyChanged("Announcements");
 
-                        DataAvailable = true;
+                        DataAvailable = Announcements.Count > 0;
                     }
 
                 }

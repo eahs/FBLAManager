@@ -62,7 +62,7 @@ namespace FBLAManager.ViewModels
 
                         OnPropertyChanged("CalendarMeetings");
 
-                        DataAvailable = true;
+                        DataAvailable = CalendarMeetings.Count > 0;
                     }
                 }
                 catch (Exception e)

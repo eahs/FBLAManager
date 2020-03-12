@@ -80,6 +80,7 @@
     <BundleResource Include="Resources\4333-calendar-event.json" />
     <BundleResource Include="Resources\8575-network.json" />
     <BundleResource Include="Resources\12955-no-internet-connection-empty-state.json" />
+    <BundleResource Include="Resources\113-muzli-beacon.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

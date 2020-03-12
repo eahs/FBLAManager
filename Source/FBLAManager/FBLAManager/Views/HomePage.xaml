@@ -8,60 +8,64 @@
              BackgroundImageSource="LoginBackground.jfif"
              x:Class="FBLAManager.Views.HomePage">
     <ContentPage.Content>
-        <StackLayout Margin="10,0,10,0">
-            <ContentView>
-                    <ff:CachedImage  Source="navigatorlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="60" Grid.Column="0" Margin="10,10,10,10">
-                    </ff:CachedImage>
-            </ContentView>
-            <ListView
-                x:Name="AnnouncementListView"
-                ItemsSource="{Binding Announcements}"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                RefreshCommand="{Binding LoadItemsCommand}"
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
+        <Grid>
+            <StackLayout Margin="10,0,10,0">
+                <ContentView>
+                        <ff:CachedImage  Source="navigatorlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="60" Grid.Column="0" Margin="10,10,10,10">
+                        </ff:CachedImage>
+                </ContentView>
+                <ListView
+                    x:Name="AnnouncementListView"
+                    ItemsSource="{Binding Announcements}"
+                    VerticalOptions="FillAndExpand"
+                    HasUnevenRows="true"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    IsPullToRefreshEnabled="true"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
 
-                            <Frame x:Name="frame" CornerRadius="5" 
-                       BackgroundColor="White"
-                       OutlineColor="LightGray"
-                       Margin="1, 1">
-                                <StackLayout Padding="0">
-                                    <Label Text="{Binding Title}" 
-                                TextType="Html"       
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" 
-                                TextColor="DarkBlue"
-                                Margin="3"/>
-                                    <Label Text="{Binding Message}" 
-                                TextType="Html"
-                                LineBreakMode="CharacterWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="14" 
-                                TextColor="DarkSlateGray"
-                                Margin="3"/>
-                                    <Label Text="{Binding Director}" 
-                                TextType="Html"           
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="13" 
-                                TextColor="DarkSlateGray"
-                                Margin="0"/>
-                                </StackLayout>
-                            </Frame>
+                                <Frame x:Name="frame" CornerRadius="5" 
+                           BackgroundColor="White"
+                           OutlineColor="LightGray"
+                           Margin="1, 1">
+                                    <StackLayout Padding="0">
+                                        <Label Text="{Binding Title}" 
+                                    TextType="Html"       
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                    TextColor="DarkBlue"
+                                    Margin="3"/>
+                                        <Label Text="{Binding Message}" 
+                                    TextType="Html"
+                                    LineBreakMode="CharacterWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="14" 
+                                    TextColor="DarkSlateGray"
+                                    Margin="3"/>
+                                        <Label Text="{Binding Director}" 
+                                    TextType="Html"           
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="13" 
+                                    TextColor="DarkSlateGray"
+                                    Margin="0"/>
+                                    </StackLayout>
+                                </Frame>
 
-                        </ViewCell>
+                            </ViewCell>
 
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-            <!--<Button Text="Report Bug" Clicked="ReportBug_Clicked"></Button>-->
-        </StackLayout>
+                <!--<Button Text="Report Bug" Clicked="ReportBug_Clicked"></Button>-->
+            </StackLayout>
+            
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
