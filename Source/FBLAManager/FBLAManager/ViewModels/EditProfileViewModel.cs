@@ -14,9 +14,6 @@ namespace FBLAManager.ViewModels
     {
         #region Fields
         private Member member;
-        private string password;
-
-        private string confirmPassword;
 
         #endregion
 

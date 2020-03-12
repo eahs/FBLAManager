@@ -6,56 +6,81 @@
              mc:Ignorable="d"
              BackgroundColor="#005B92"
              x:Class="FBLAManager.Views.Events.CompetitionsPage"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"                                       
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
              Title="Competitions">
 
-    <ListView x:Name="Meetings" 
-                ItemsSource="{Binding Meetings}"
-                ItemTapped="Meetings_ItemTapped"
-                IsPullToRefreshEnabled="True"
-                IsRefreshing="{Binding IsRefreshing}"
-                RefreshCommand="{Binding RefreshCommand}"
-                HasUnevenRows="True"
-                >
+    <Grid>
+        <ListView x:Name="Meetings" 
+                    ItemsSource="{Binding Meetings}"
+                    ItemTapped="Meetings_ItemTapped"
+                    IsPullToRefreshEnabled="True"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    RefreshCommand="{Binding RefreshCommand}"
+                    HasUnevenRows="True"
+                    >
 
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="75"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
 
-                            <!--Colorful Box That Matches Calendar-->
-                            <Frame  x:Name="Color" Grid.Column="0" 
-                                   BackgroundColor="{Binding XamColor}"
-                                   OutlineColor="White"
-                                   Margin="6, 4, 3, 3"
-                                            >
-                            </Frame>
+                                <!--Colorful Box That Matches Calendar-->
+                                <Frame  x:Name="Color" Grid.Column="0" 
+                                       BackgroundColor="{Binding XamColor}"
+                                       OutlineColor="White"
+                                       Margin="6, 4, 3, 3"
+                                                >
+                                </Frame>
 
-                            <!--Frame for Event -->
-                            <Frame x:Name="frame" Grid.Column="1"  Grid.ColumnSpan="2"
-                                   BackgroundColor="White"
-                                   OutlineColor="WHite"
-                                   Margin="0,3,3, 3">
+                                <!--Frame for Event -->
+                                <Frame x:Name="frame" Grid.Column="1"  Grid.ColumnSpan="2"
+                                       BackgroundColor="White"
+                                       OutlineColor="WHite"
+                                       Margin="0,3,3, 3">
 
-                                <!--Event Name and Times-->
-                                <StackLayout>
-                                    <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="Black" FontSize="21" />
-                                    <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="15"></Label>
-                                </StackLayout>
+                                    <!--Event Name and Times-->
+                                    <StackLayout>
+                                        <Label Text="{Binding EventName}" FontAttributes="Bold" TextColor="Black" FontSize="21" />
+                                        <Label Text="{Binding From, StringFormat='{0:MMMM dd, yyyy}'}" TextColor="DarkSlateGray" FontSize="15"></Label>
+                                    </StackLayout>
 
-                            </Frame>
-                        </Grid>
-                    </StackLayout>
-                </ViewCell>
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
 
-            </DataTemplate>
-        </ListView.ItemTemplate>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-    </ListView>
+        </ListView>
 
+        <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"  IsVisible="{Binding IsError}" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <forms:AnimationView
+                        Animation="12955-no-internet-connection-empty-state.json"
+                        Loop="True"
+                        AutoPlay="True"
+                        WidthRequest="250"
+                        HeightRequest="200"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="{Binding ErrorMessage}" FontSize="Medium" TextColor="White" Grid.Row="1" Grid.ColumnSpan="3" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand"/>
+        </Grid>
+
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="{Binding DataNotAvailable,Mode=OneWay}" >
+            <Label Text="No upcoming competitions scheduled" TextColor="White" FontSize="Medium" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Grid>
+        
+    </Grid>
+    
 </ContentPage>

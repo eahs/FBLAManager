@@ -11,6 +11,9 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Com.OneSignal;
+using Xamarin.Essentials;
+using AsyncAwaitBestPractices;
+using MonkeyCache.FileStore;
 
 namespace FBLAManager
 {
@@ -21,10 +24,9 @@ namespace FBLAManager
         public App()
         {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTQ4MTk0QDMxMzcyZTMzMmUzMG1MVzdHOCtuR1kyM3lJdEVrM0RSZ1ZtTE5HK2Z5ZGNuOTM3Nld1dmNKWFE9");
+            Barrel.ApplicationId = "fblamanager";
 
             InitializeComponent();
-
-            DependencyService.Register<MockDataStore>();
 
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "LoadApp", (sender) =>
             {
@@ -40,16 +42,28 @@ namespace FBLAManager
             MessagingCenter.Subscribe<LoginPageViewModel>(this, "ForgotPasswordClicked", ForgotPasswordClicked);
             MessagingCenter.Subscribe<SignUpPageViewModel>(this, "LoginClicked", LoginClicked);
             MessagingCenter.Subscribe<ForgotPasswordViewModel>(this, "SignupClicked", SignupClicked);
+            MessagingCenter.Subscribe<Onboarding>(this, "GetStarted", (sender) => {
 
-            Startup();
+                Startup(true).SafeFireAndForget(onException: ex => Crashes.TrackError(ex));
+
+            });
+
+            Startup().SafeFireAndForget(onException: ex => Crashes.TrackError(ex)); ;
 
             OneSignal.Current.StartInit("1c3e4393-0690-49b2-8e35-1281c2172bef")
                   .EndInit();
         }
 
-        async private Task<bool> Startup ()
+        async private Task<bool> Startup (bool skipWalkthrough = false)
         {
-            if (await UserManager.Current.IsLoggedIn())
+#if DEBUG
+            bool watchedTutorial = skipWalkthrough;
+#else
+            bool watchedTutorial = Preferences.Get("WatchedTutorial", false);
+#endif
+            if (!watchedTutorial)
+                MainPage = new Onboarding();
+            else if (await UserManager.Current.IsLoggedIn())
                 MainPage = new AppShell();
             else
                 MainPage = new SimpleLoginPage();

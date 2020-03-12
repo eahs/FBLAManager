@@ -86,7 +86,12 @@ namespace FBLAManager.ViewModels.Events
                 try
                 {
 
-                    var response = await client.ExecuteTaskAsync(request);
+                    DataAvailable = false;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheCompetitiveEvents, false, true);
+
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;
 
                     if (response.IsSuccessful)
                     {
@@ -101,15 +106,7 @@ namespace FBLAManager.ViewModels.Events
 
                         OnPropertyChanged("Competitions");
 
-                        IsError = false;
                         DataAvailable = true;
-                    }
-                    else
-                    {
-                        // An error occurred that is stored
-                        ErrorMessage = "An error occurred";
-                        DataAvailable = false;
-                        IsError = true;
                     }
                 }
                 catch (Exception e)

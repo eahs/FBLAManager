@@ -24,8 +24,11 @@ namespace FBLAManager.Views
         /// </summary>
         private async void MembersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-  
+            if (MembersListView.SelectedItem == null)
+                return;
+            
             Member m = (Member)e.SelectedItem;
+            MembersListView.SelectedItem = null;
 
             var membersDetailPage = new MembersDetailPage(m);
        

@@ -32,6 +32,7 @@ namespace FBLAManager.ViewModels
         /// <returns></returns>
         protected override async Task LoadItemsAsync()
         {
+            await Task.Delay(2000);
 
             try
             {
@@ -48,7 +49,12 @@ namespace FBLAManager.ViewModels
                 try
                 {
 
-                    var response = await client.ExecuteTaskAsync(request);
+                    DataAvailable = false;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheOfficers, false, true);
+
+                    ErrorMessage = response.ErrorMessage;                    
+                    IsError = !response.IsSuccessful;
 
                     if (response.IsSuccessful)
                     {
@@ -64,15 +70,7 @@ namespace FBLAManager.ViewModels
 
                         OnPropertyChanged("Officers");
 
-                        IsError = false;
-                        DataAvailable = true;
-                    }
-                    else
-                    {
-                        // An error occurred that is stored
-                        ErrorMessage = "An error occurred";
-                        DataAvailable = false;
-                        IsError = true;
+                        DataAvailable = Officers.Count > 0;
                     }
                 }
                 catch (Exception e)
