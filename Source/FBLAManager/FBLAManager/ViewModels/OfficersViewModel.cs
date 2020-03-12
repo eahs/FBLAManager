@@ -53,9 +53,7 @@ namespace FBLAManager.ViewModels
 
                     var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheOfficers, false, true);
 
-                    response.IsSuccessful = false;
-                    ErrorMessage = response.ErrorMessage;
-                    
+                    ErrorMessage = response.ErrorMessage;                    
                     IsError = !response.IsSuccessful;
 
                     if (response.IsSuccessful)
