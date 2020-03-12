@@ -254,4 +254,58 @@
   <ItemGroup>
     <BundleResource Include="Resources\TwitterIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\navigatortitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\EditProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FacebookIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FBLAsplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\InstagramIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Meeting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\MembersIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Messaging.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\newFacebookIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Privacy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\QuestionMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Terms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TwitterTabIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BiggerFacebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Charity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginBackground.png" />
+  </ItemGroup>
 </Project>

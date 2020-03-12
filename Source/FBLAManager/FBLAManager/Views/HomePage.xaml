@@ -5,15 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
-             BackgroundImageSource="LoginBackground.jfif"
+             BackgroundImageSource="LoginBackground.png"
              x:Class="FBLAManager.Views.HomePage">
+
+    <Shell.TitleView>
+        <Image Source="navigatortitle.png"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+    </Shell.TitleView>
+    
     <ContentPage.Content>
+
         <Grid>
             <StackLayout Margin="10,0,10,0">
-                <ContentView>
-                        <ff:CachedImage  Source="navigatorlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="60" Grid.Column="0" Margin="10,10,10,10">
-                        </ff:CachedImage>
-                </ContentView>
                 <ListView
                     x:Name="AnnouncementListView"
                     ItemsSource="{Binding Announcements}"
@@ -22,7 +26,8 @@
                     RefreshCommand="{Binding LoadItemsCommand}"
                     IsPullToRefreshEnabled="true"
                     IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                    CachingStrategy="RecycleElement">
+                    CachingStrategy="RecycleElement"
+                    Margin="0,5,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

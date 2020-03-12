@@ -68,6 +68,32 @@
 
     </FlyoutItem>
 
+
+    <FlyoutItem Title="Members" Icon="MembersIcon.png">
+
+        <Tab Title="Members" Icon="MembersIcon.png" >
+            <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
+        </Tab>
+
+        <Tab Title="Officers" Icon="OfficersIcon.png">
+            <ShellContent Title="Local Officers"      
+                          ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
+
+            <ShellContent Title="State Officers"
+                          ContentTemplate="{DataTemplate officers:StateOfficersPage}" />
+
+            <ShellContent Title="National Officers"
+                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem Title="My Profile" Icon="EditProfile.png">
+        <Tab Title="My Profile" Icon="test.png">
+            <ShellContent ContentTemplate="{DataTemplate members:UserProfilePage}" />
+        </Tab>
+    </FlyoutItem>
+
     <FlyoutItem Title="Upcoming Events" Icon="clock.png" Route="events">
 
         <Tab Title="Meetings" Icon ="Meeting.png" Route="meetings">
@@ -98,33 +124,10 @@
     </FlyoutItem>
     -->
 
-    <FlyoutItem Title="People" Icon="MembersIcon.png">
-
-        <Tab Title="Members" Icon="MembersIcon.png" >
-            <ShellContent ContentTemplate="{DataTemplate views:MembersPage}"/>
-        </Tab>
-
-        <Tab Title="Officers" Icon="OfficersIcon.png">
-            <ShellContent Title="Local Officers"      
-                          ContentTemplate="{DataTemplate officers:LocalOfficersPage}" />
-
-            <ShellContent Title="State Officers"
-                          ContentTemplate="{DataTemplate officers:StateOfficersPage}" />
-
-            <ShellContent Title="National Officers"
-                          ContentTemplate="{DataTemplate officers:NationalOfficersPage}" />
-        </Tab>
-
-    </FlyoutItem>
-    
-
-    <FlyoutItem Title="My Profile" Icon="EditProfile.png">
-        <Tab Title="My Profile" Icon="test.png">
-            <ShellContent ContentTemplate="{DataTemplate members:UserProfilePage}" />
-        </Tab>
+    <FlyoutItem Title="Competitive Events" Icon="competitionsIcon.png">
+        <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
     </FlyoutItem>
 
-    
     <FlyoutItem Title="Contact Us" Icon="contact.png">
         <Tab Title="Administrators" Icon="contact.png">
             <ShellContent ContentTemplate="{DataTemplate contactus:ContactUsPage}" />
@@ -146,12 +149,7 @@
             <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
         </Tab>
     </FlyoutItem>
-  
-
-    <FlyoutItem Title="Competitive Events" Icon="competitionsIcon.png">
-        <ShellContent ContentTemplate="{DataTemplate views:CompetitiveEventsPage}" />
-    </FlyoutItem>
-    
+     
      
     <FlyoutItem Title="About FBLA Navigator" Icon="about_app_icon.png">
         <Tab Title="About"
