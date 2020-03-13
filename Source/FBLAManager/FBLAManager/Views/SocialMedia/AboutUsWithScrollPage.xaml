@@ -7,7 +7,7 @@
     xmlns:listView="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.SocialMedia"
     xmlns:behaviour="clr-namespace:FBLAManager.Behaviors.AboutUs"
-    BackgroundImageSource="LoginBackground"
+    BackgroundImageSource="LoginBackground.png"
     NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
         <ResourceDictionary>

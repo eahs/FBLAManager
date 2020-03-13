@@ -13,9 +13,8 @@
     xmlns:local="clr-namespace:FBLAManager.Views.Forms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels"
     Title="Edit Profile"
-    BackgroundColor="White"
-    NavigationPage.HasNavigationBar="False"
-    Shell.NavBarIsVisible="False">
+    BackgroundImageSource="LoginBackground.png"
+    Shell.NavBarIsVisible="True">
 
     
     <ContentPage.Resources>
@@ -56,24 +55,15 @@
                     Spacing="24"
                     VerticalOptions="CenterAndExpand">
 
-                    <!--  Label to display the title of this page  -->
-                    <Label
-                        FontFamily="{StaticResource Montserrat-SemiBold}"
-                        FontSize="20"
-                        HorizontalOptions="Center"
-                        Style="{StaticResource LabelStyle}"
-                        Text="Sign Up"
-                        TextColor="White" />
-
                     <!--  Label to display the description of this page  -->
                     <Label
                         x:Name="text"
-                        Margin="0,-16,0,8"
+                        Margin="0,0,0,8"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
                         Text="Edit your information"
                         FontSize="Title"
-                        TextColor="DarkRed" />
+                        TextColor="{DynamicResource Gray-White}" />
 
                     <!--  Entry to get first name from user  -->
                     <border:SfBorder
@@ -222,7 +212,8 @@
                         FontFamily="{StaticResource Montserrat-SemiBold}"
                         Style="{StaticResource SfButtonStyle}"
                         Text="SAVE" 
-                        Clicked="SaveButton_Clicked"/>
+                        Clicked="SaveButton_Clicked"
+                        Margin="0,0,0,20"/>
                 </StackLayout>
            
             </StackLayout>

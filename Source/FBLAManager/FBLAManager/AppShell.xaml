@@ -62,8 +62,12 @@
             <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
         </Tab>
 
-        <Tab Title="Twitter Feed" Icon="TwitterTabIcon.png">
+        <Tab Title="Twitter" Icon="TwitterTabIcon.png">
             <ShellContent ContentTemplate="{DataTemplate views:TwitterFeedPage}" />
+        </Tab>
+
+        <Tab Title="FAQ" Icon="QuestionMark.png">
+            <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
         </Tab>
 
     </FlyoutItem>

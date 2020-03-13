@@ -21,5 +21,9 @@ namespace FBLAManager.Models
         /// The person who posted the announcement.
         /// </summary>
         public String Director { get; set; }
+
+        public String ImageURL { get; set; }
+
+        public bool HasImage { get; set; }
     }
 }

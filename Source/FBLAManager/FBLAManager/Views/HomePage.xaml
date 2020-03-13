@@ -31,12 +31,21 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-
+        
                                 <Frame x:Name="frame" CornerRadius="5" 
                            BackgroundColor="White"
                            OutlineColor="LightGray"
                            Margin="1, 1">
+                                    
                                     <StackLayout Padding="0">
+                                        <ff:CachedImage HorizontalOptions="FillAndExpand" 
+                                                    Aspect="AspectFill" 
+                                                    HeightRequest="170" 
+                                                    DownsampleToViewSize="True"
+                                                    Source="{Binding ImageURL}"
+                                                    IsVisible="{Binding HasImage}">
+                                        </ff:CachedImage>
+
                                         <Label Text="{Binding Title}" 
                                     TextType="Html"       
                                     LineBreakMode="NoWrap" 

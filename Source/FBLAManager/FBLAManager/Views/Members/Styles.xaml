@@ -54,7 +54,7 @@
 
     <!--  Common style for contact profile page icon Label  -->
     <Style x:Key="CommonProfileIconLabelStyle" TargetType="Label">
-        <Setter Property="TextColor" Value="{DynamicResource Gray-600}" />
+        <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="FontSize" Value="18" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="VerticalOptions" Value="Center" />
@@ -66,7 +66,7 @@
     <Style x:Key="ProfileLabelStyle" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{DynamicResource Gray-900}" />
+        <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
@@ -81,7 +81,7 @@
     <Style x:Key="CommonProfileLabelStyle" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource Montserrat-Medium}" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{DynamicResource Gray-900}" />
+        <Setter Property="TextColor" Value="{DynamicResource Gray-White}" />
         <Setter Property="VerticalOptions" Value="Center" />
         <Setter Property="HorizontalOptions" Value="Start" />
         <Setter Property="HorizontalTextAlignment" Value="Start" />
@@ -91,7 +91,7 @@
     <!--  Common style for separator BoxView  -->
     <Style x:Key="SeparatorStyle" TargetType="BoxView">
         <Setter Property="HeightRequest" Value="1" />
-        <Setter Property="BackgroundColor" Value="{DynamicResource Gray-200}" />
+        <Setter Property="BackgroundColor" Value="#005B92" />
     </Style>
 
 </ResourceDictionary>

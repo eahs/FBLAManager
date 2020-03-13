@@ -6,7 +6,7 @@
     xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.Members"
     Title="My Profile"
-    BackgroundColor="{DynamicResource Gray-White}"
+    BackgroundColor="#005B92"
     NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Resources>
@@ -64,23 +64,21 @@
                     FontSize="16"
                     HorizontalOptions="Center"
                     Text= "{Binding Profile.FullName}"
-                    TextColor="{DynamicResource Gray-900}"
+                    TextColor="{DynamicResource Gray-White}"
                     VerticalOptions="Center" />
 
                 
                 <!-- Edit profile button -->
-                
-               <Button
+
+                <buttons:SfButton
                     Margin="0, 0, 0, 10"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center"
                     Text="Edit profile"
                     FontSize="14"
-                    CornerRadius="2"
+                    CornerRadius="5"
                     FontAttributes="Bold"
-                    BorderColor="DarkGray"
                     BorderWidth="1"
-                    BackgroundColor="LightGray"
                     HeightRequest="35"
                     WidthRequest="360" 
                     Clicked="EditButton_Clicked"/>
@@ -88,17 +86,17 @@
                 <BoxView Style="{StaticResource SeparatorStyle}" />
 
                 <!--  Profile Bio  -->
-                <Label
-                    Margin="10,10,0,10"
-                    Style="{StaticResource CommonProfileLabelStyle}"
-                    FontSize="14"
-                    HorizontalOptions="Start"
-                    Text= "{Binding Profile.Description}"
-                    TextColor="{DynamicResource Gray-900}"
+                <Label 
+                    Margin="10,10,0,10" 
+                    Style="{StaticResource CommonProfileLabelStyle}" 
+                    FontSize="14" 
+                    HorizontalOptions="Start" 
+                    Text= "{Binding Profile.Description}" 
+                    TextColor="{DynamicResource Gray-900}" 
                     VerticalOptions="Center" />
 
                 <BoxView Style="{StaticResource SeparatorStyle}" />
-              
+
                 <!--  Grid for mail and phone id labels and icon  -->
                 <Grid Padding="16" ColumnSpacing="16">
                     <Grid.ColumnDefinitions>

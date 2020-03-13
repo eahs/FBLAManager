@@ -55,6 +55,7 @@ namespace FBLAManager.ViewModels
 
                         foreach (var announcement in items)
                         {
+                            announcement.HasImage = !String.IsNullOrEmpty(announcement.ImageURL);
                             Announcements.Add(announcement);
                         }
 
