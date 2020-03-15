@@ -35,7 +35,7 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
-    <AndroidEnableMultiDex>false</AndroidEnableMultiDex>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
     <MandroidI18n />
     <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
