@@ -11,7 +11,9 @@
        xmlns:events="clr-namespace:FBLAManager.Views.Events"
        xmlns:socialmedia="clr-namespace:FBLAManager.Views.SocialMedia"
        xmlns:aboutus="clr-namespace:FBLAManager.Views.AboutUs"
+       xmlns:profile="clr-namespace:FBLAManager.ViewModels.Members"
        xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+       xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
        x:Class="FBLAManager.AppShell">
@@ -22,6 +24,7 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Color x:Key="NavigationPrimary">#004073</Color>
+            <Color x:Key="FlyoutColor">#005B92</Color>
 
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
@@ -39,17 +42,49 @@
             
         </ResourceDictionary>
     </Shell.Resources>
-
+    
+    
+    <!--
+        Flyout Header Customization
+    -->
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="#005B92"
-                  HeightRequest="150"
-                  Padding="10,0,0,1">
+            <StackLayout
+                  BackgroundColor="{StaticResource FlyoutColor}"
+                  HeightRequest="125"
+                  Padding="0, 25, 0, 0">
 
-                <ff:CachedImage Source="navigatorlogo.png" Aspect="AspectFit" Margin="10,10,10,10"/>
+                <StackLayout.BindingContext>
+                    <profile:ProfileViewModel>
+                    </profile:ProfileViewModel>
+                </StackLayout.BindingContext>
 
-            </Grid>            
+                <buttons:SfButton                                                              
+                    BackgroundColor="Transparent"
+                    BorderColor="{DynamicResource Gray-White}"
+                    BorderWidth="2"
+                    CornerRadius="100"
+                    HorizontalOptions="Center"
+                    WidthRequest="100"
+                    Clicked="OnProfileImageClicked">
+
+                    <buttons:SfButton.Content>
+                        <Image
+                                x:Name="Image"
+                                Source="{Binding Profile.ProfileImageSource}"
+                                BackgroundColor="{DynamicResource Gray-200}" />
+
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
+                 
+                <Label
+                    HorizontalOptions="Center"
+                    TextColor="White"
+                    FontSize="Medium"
+                    Text="{Binding Profile.FullName}" />
+
+            </StackLayout>            
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
 

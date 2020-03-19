@@ -1,6 +1,8 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Views;
 using FBLAManager.Views.Events;
+using FBLAManager.Views.Members;
+using System;
 using Xamarin.Forms;
 
 namespace FBLAManager
@@ -36,9 +38,12 @@ namespace FBLAManager
 
                     await Shell.Current.GoToAsync("//logout/logoutpage?confirm=true");
                 }
-            }
+            }         
+        }
 
-           
+        private async void OnProfileImageClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PushModalAsync(new UserProfilePage()); 
         }
     }
 }
