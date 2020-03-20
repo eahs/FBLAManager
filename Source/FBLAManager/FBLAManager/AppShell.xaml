@@ -16,6 +16,7 @@
        xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
        Title="FBLAManager"
        FlyoutBehavior="Flyout"
+       FlyoutBackgroundColor="{StaticResource FlyoutColor}"
        x:Class="FBLAManager.AppShell">
 
     <!-- 
@@ -82,11 +83,38 @@
                     HorizontalOptions="Center"
                     TextColor="White"
                     FontSize="Medium"
+                    FontAttributes="Bold"
                     Text="{Binding Profile.FullName}" />
 
             </StackLayout>            
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
+
+    
+    <!--
+        Flyout Item Customization
+    -->
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="0.8*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Icon}"
+                       Margin="7.5"
+                       HeightRequest="25"/>
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Start"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+        
 
 
     <!-- Your Pages -->
