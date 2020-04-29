@@ -54,5 +54,12 @@ namespace FBLAManager.iOS
 
             return base.FinishedLaunching(app, options);
         }
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            if (Xamarin.Essentials.Platform.OpenUrl(app, url, options))
+                return true;
+
+            return base.OpenUrl(app, url, options);
+        }
     }
 }
