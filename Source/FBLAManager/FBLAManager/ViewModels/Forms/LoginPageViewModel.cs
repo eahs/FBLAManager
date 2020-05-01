@@ -1,6 +1,8 @@
 ﻿using FBLAManager.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -199,9 +201,12 @@ namespace FBLAManager.ViewModels.Forms
         /// Invoked when social media login button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void SocialLoggedIn(object obj)
+        private async void SocialLoggedIn(object obj)
         {
-            // Do something
+            var authResult = await WebAuthenticator.AuthenticateAsync(
+            new Uri("http://fblamanager.me/mobileauth/google"),
+            new Uri("fblanavigator://"));
+            var accessToken = authResult?.AccessToken;
         }
 
         #endregion

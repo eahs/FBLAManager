@@ -144,6 +144,15 @@
                             Style="{StaticResource SfButtonStyle}"
                             Text="LOG IN" />
 
+                        <!-- Google button  -->
+                        <buttons:SfButton
+                            Grid.Row="8"
+                            Margin="0,16"
+                            Command="{Binding SocialMediaLoginCommand}"
+                            Style="{StaticResource SfButtonStyle}"
+                            Text="Google Login" />
+
+
 
                     </Grid>
 
