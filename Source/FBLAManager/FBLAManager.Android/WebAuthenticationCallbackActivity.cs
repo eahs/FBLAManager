@@ -13,7 +13,7 @@ namespace FBLAManager.Droid
         DataScheme = CALLBACK_SCHEME)]
     public class WebAuthenticationCallbackActivity : Xamarin.Essentials.WebAuthenticatorCallbackActivity
     {
-        const string CALLBACK_SCHEME = "FBLAManager";
+        const string CALLBACK_SCHEME = "fblanavigator";
         
     }
 }
