@@ -20,6 +20,7 @@ namespace FBLAManager
         public static readonly string EditMemberEndPointRequestURL      = "/api/EditMember";
         public static readonly string EditProfileImageRequestURL        = "/api/EditProfileImage";
 
+
         // Cache lifetimes (in seconds)
         public static readonly int MaxCacheCompetitiveEvents = 24 * 60 * 60 * 7; // 7 days
         public static readonly int MaxCacheCalendar = 30 * 60; // 30 mins

@@ -174,6 +174,22 @@ namespace FBLAManager.ViewModels.Forms
         }
 
         /// <summary>
+        /// Invoked when social media login button is clicked.
+        /// </summary>
+        /// <param name="obj">The Object</param>
+        private async void SocialLoggedIn(object obj)
+        {
+            UserManagerResponseStatus status = await UserManager.Current.LoginExternal();
+            if (status == UserManagerResponseStatus.Success)
+                MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
+            else if (status == UserManagerResponseStatus.InvalidCredentials)
+            {
+                ErrorIsVisible = true;
+                ErrorMessage = "Password was incorrect.";
+            }
+        }
+
+        /// <summary>
         /// Invoked when the Sign Up button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
@@ -195,18 +211,6 @@ namespace FBLAManager.ViewModels.Forms
             label.BackgroundColor = Color.Transparent;
 
             MessagingCenter.Send(this, "ForgotPasswordClicked"); 
-        }
-
-        /// <summary>
-        /// Invoked when social media login button is clicked.
-        /// </summary>
-        /// <param name="obj">The Object</param>
-        private async void SocialLoggedIn(object obj)
-        {
-            var authResult = await WebAuthenticator.AuthenticateAsync(
-            new Uri("http://fblamanager.me/mobileauth/google"),
-            new Uri("fblanavigator://"));
-            var accessToken = authResult?.AccessToken;
         }
 
         #endregion
