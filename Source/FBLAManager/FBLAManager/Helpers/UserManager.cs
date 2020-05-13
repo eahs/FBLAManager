@@ -257,42 +257,31 @@ namespace FBLAManager.Helpers
         public async Task<UserManagerResponseStatus> LoginExternal()
         {
             var client = new RestClient(GlobalConstants.EndPointURL);
-
             var request = new RestRequest
             {
                 Resource = GlobalConstants.ProfileEndPointRequestURL,
                 Timeout = GlobalConstants.RequestTimeout,
-                Method = Method.POST
+                Method = Method.GET
             };
-
             try
             {
                 var authResult = await WebAuthenticator.AuthenticateAsync(
                 new Uri("http://fblamanager.me/mobileauth/google"),
                 new Uri("fblanavigator://"));
                 var accessToken = authResult?.AccessToken;
-
-
                 if (!String.IsNullOrEmpty(accessToken))
                 {
-                    SessionKey = accessToken;   
+                    SessionKey = accessToken;
                 }
-
+                AddAuthorization(request);
                 var response = await client.ExecuteTaskAsync(request);
-
                 if (response.Content != null)
                 {
-                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
-
-                    if (data.Status != null)
+                    Member profile = JsonConvert.DeserializeObject<Member>(response.Content);
+                    if (profile != null)
                     {
-                        switch (data.Status)
-                        {
-                            case "Success":
-                                Profile = data.Profile;
-                                return UserManagerResponseStatus.Success;
-                            default: return UserManagerResponseStatus.UnknownResponse;
-                        }
+                        Profile = profile;
+                        return UserManagerResponseStatus.Success;
                     }
                 }
             }
@@ -302,12 +291,12 @@ namespace FBLAManager.Helpers
                     { "Category", "UserManager" }
                   };
                 Crashes.TrackError(e, properties);
-
                 return UserManagerResponseStatus.NetworkError;
             }
             return UserManagerResponseStatus.NotLoggedIn;
         }
-       
+
+
 
         /// <summary>
         /// Logs user into the FBLA backend
