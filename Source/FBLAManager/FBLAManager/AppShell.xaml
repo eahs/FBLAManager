@@ -148,10 +148,6 @@
              Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate aboutus:AboutUsWithCardsPage}" />
         </Tab>
-        <Tab Title="Q and A "
-             Icon="QuestionMark.png">
-            <ShellContent ContentTemplate="{DataTemplate aboutus:QandAPage}" />
-        </Tab>
     </FlyoutItem>
      
      
