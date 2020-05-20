@@ -254,6 +254,50 @@ namespace FBLAManager.Helpers
             return UserManagerResponseStatus.InvalidRequest;
         }
 
+        public async Task<UserManagerResponseStatus> LoginExternal()
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.ProfileEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.GET
+            };
+            try
+            {
+                var authResult = await WebAuthenticator.AuthenticateAsync(
+                new Uri("http://fblamanager.me/mobileauth/google"),
+                new Uri("fblanavigator://"));
+                var accessToken = authResult?.AccessToken;
+                if (!String.IsNullOrEmpty(accessToken))
+                {
+                    SessionKey = accessToken;
+                }
+                AddAuthorization(request);
+                var response = await client.ExecuteTaskAsync(request);
+                if (response.Content != null)
+                {
+                    Member profile = JsonConvert.DeserializeObject<Member>(response.Content);
+                    if (profile != null)
+                    {
+                        Profile = profile;
+                        return UserManagerResponseStatus.Success;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+                return UserManagerResponseStatus.NetworkError;
+            }
+            return UserManagerResponseStatus.NotLoggedIn;
+        }
+
+
+
         /// <summary>
         /// Logs user into the FBLA backend
         /// </summary>

@@ -69,15 +69,7 @@
 
                         <ff:CachedImage Source="navigatorlogo.png" Aspect="AspectFit" HeightRequest="75" Grid.Row="0"/>
 
-                        <!--  Label to display the title of this page  -->
-                        <Label
-                            Grid.Row="1"
-                            FontFamily="{StaticResource Montserrat-SemiBold}"
-                            FontSize="25"
-                            HorizontalTextAlignment="Center"
-                            Style="{StaticResource LabelStyle}"
-                            Text="Log In"
-                            TextColor="White" />
+                        
 
                         <!--  Label to display the description of this page  -->
                         <Label
@@ -139,13 +131,53 @@
                         <!--  Login button  -->
                         <buttons:SfButton
                             Grid.Row="7"
-                            Margin="0,16"
+                            Margin="0,16"                            
                             Command="{Binding LoginCommand}"
                             Style="{StaticResource SfButtonStyle}"
-                            Text="LOG IN" />
+                            Text="Log In" />
+
+                        <!-- Google button  
+                        <buttons:SfButton
+                            Grid.Row="8"
+                            Margin="0,16"
+                            Command="{Binding SocialMediaLoginCommand}"                              
+                            Text="Sign in with Google"
+                            BackgroundColor="White"
+                            TextColor="SlateGray"/> -->
+
+                        <Frame
+                            CornerRadius="5"
+                            BackgroundColor="White"
+                            Grid.Row="8"
+                            HorizontalOptions="Center"
+                            Padding="3">
+                            <StackLayout 
+                                Orientation="Horizontal" >
+                                
+                                <Image 
+                                HeightRequest="32"                                     
+                                Source="Google_login.png" 
+                                />
+                                
+                                <Label Text="Sign in With Google" 
+                                    FontSize="14" 
+                                    TextColor="SlateGray"
+                                    Padding="2, 0, 3, 0"
+                                       FontFamily="Roboto"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center"/>
+
+                                <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SocialMediaLoginCommand}"/>
+                            </StackLayout.GestureRecognizers>
+
+                         </StackLayout>
+                </Frame>
 
 
-                    </Grid>
+
+
+                </Grid>
 
                     <StackLayout
                         HorizontalOptions="Center"
