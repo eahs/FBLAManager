@@ -103,16 +103,7 @@
                     </listView:SfListView.Behaviors>
                 </listView:SfListView>
 
-                <!-- Share button -->
-                <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Margin="5,20,5,0">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="facebook_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
-                    <Image Source="twitter_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
-                    <Label Text="Like the app? Share it with a friend!" FontAttributes="Bold" TextColor="White" Margin="10,5,0,0"/>
-                </StackLayout>
-
+               
 
             </Grid>
           
