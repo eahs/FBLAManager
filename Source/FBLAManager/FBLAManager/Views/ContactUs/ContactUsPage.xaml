@@ -41,8 +41,8 @@
                 <!--  Map for locating the location  -->
                 <maps:SfMaps
                     x:Name="Map"
-                    BackgroundColor="{DynamicResource Gray-White}"
-                    HeightRequest="315"
+                    BackgroundColor="#adcad6"
+                    HeightRequest="200"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"
                     ZoomLevel="15">
@@ -60,7 +60,7 @@
 
                                         <Frame
                                             Margin="0"
-                                            Padding="16,0,9,0"
+                                            Padding="10,0,9,0"
                                             BackgroundColor="{DynamicResource Gray-White}"
                                             BorderColor="{DynamicResource Gray-White}"
                                             CornerRadius="5"
@@ -104,14 +104,7 @@
                                                     Text="{Binding PhoneNumber}" />
                                             </StackLayout>
                                         </Frame>
-
-                                        <!--  Set pin image  -->
-                                        <Image
-                                            Margin="10,5,0,0"
-                                            HeightRequest="25"
-                                            HorizontalOptions="StartAndExpand"
-                                            WidthRequest="25" 
-                                            Source="{Binding PinImage}" />
+                                       
                                     </StackLayout>
                                 </DataTemplate>
                             </maps:ImageryLayer.MarkerTemplate>
@@ -152,7 +145,7 @@
                         <Picker 
                             x:Name="RecipPicker"
                         Title="Select a Level"
-                        TitleColor="Red">       
+                        TitleColor="DarkSlateGray">       
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>National</x:String>
