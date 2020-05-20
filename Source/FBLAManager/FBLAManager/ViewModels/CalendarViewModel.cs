@@ -1,5 +1,6 @@
 using FBLAManager.Helpers;
 using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -41,28 +42,36 @@ namespace FBLAManager.ViewModels
 
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
-
-                    foreach (var meeting in items)
-                    {
-                        CalendarMeetings.Add(meeting);
-                    }
-
-                    OnPropertyChanged("CalendarMeetings");
-
-                    IsError = false;
-                    DataAvailable = true;
-                }
-                else
-                {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
                     DataAvailable = false;
-                    IsError = true;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheCalendar, false, true);
+
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;                    
+
+                    if (response.IsSuccessful)
+                    {
+                        var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
+
+                        foreach (var meeting in items)
+                        {
+                            CalendarMeetings.Add(meeting);
+                        }
+
+                        OnPropertyChanged("CalendarMeetings");
+
+                        DataAvailable = CalendarMeetings.Count > 0;
+                    }
+                }
+                catch (Exception e)
+                {
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Calendar" }
+                  };
+                    Crashes.TrackError(e, properties);
+
                 }
             }
             catch (Exception)

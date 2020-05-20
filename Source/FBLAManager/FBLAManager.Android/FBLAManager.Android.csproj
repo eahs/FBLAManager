@@ -15,7 +15,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -36,6 +36,9 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+    <JavaMaximumHeapSize>2G</JavaMaximumHeapSize>
+    <MandroidI18n />
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,6 +65,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AsyncAwaitBestPractices">
+      <Version>4.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>3.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Com.OneSignal">
+      <Version>3.7.3</Version>
+    </PackageReference>
     <PackageReference Include="instabug-for-android">
       <Version>8.6.3</Version>
     </PackageReference>
@@ -73,6 +85,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>2.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="MonkeyCache">
+      <Version>1.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="MonkeyCache.FileStore">
+      <Version>1.3.0</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
@@ -101,6 +119,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfSchedule">
       <Version>17.3.0.27</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView">
+      <Version>17.3.0.27</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.4.11.982</Version>
     </PackageReference>
@@ -110,7 +131,6 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991210-pre2" />
     <PackageReference Include="Xamarin.Android.Support.ViewPager" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3" />
@@ -119,15 +139,24 @@
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.3" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.379-pre1" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.1.0" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0" />
+    <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.1.0" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BugReporterDroid.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="PhotoPickerServiceAndroid.cs" />
     <Compile Include="Renderers\BorderlessEditorRenderer.cs" />
     <Compile Include="Renderers\BorderlessEntryRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
+    <Compile Include="WebAuthenticationCallbackActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\UIFontIcons.ttf" />
@@ -135,6 +164,11 @@
     <AndroidAsset Include="Assets\Montserrat-Medium.ttf" />
     <AndroidAsset Include="Assets\Montserrat-Regular.ttf" />
     <AndroidAsset Include="Assets\Montserrat-SemiBold.ttf" />
+    <AndroidAsset Include="Assets\3520-light-bulb.json" />
+    <AndroidAsset Include="Assets\10051-consultation.json" />
+    <AndroidAsset Include="Assets\4333-calendar-event.json" />
+    <AndroidAsset Include="Assets\12955-no-internet-connection-empty-state.json" />
+    <AndroidAsset Include="Assets\113-muzli-beacon.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -156,7 +190,6 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
     <AndroidResource Include="Resources\drawable\tab_about.png" />
     <AndroidResource Include="Resources\drawable\tab_feed.png" />
   </ItemGroup>
@@ -175,33 +208,6 @@
       <Project>{599A962C-E570-4604-A217-DB754E2C4785}</Project>
       <Name>FBLAManager</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\benmorrison.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\DrakeVorderstrasse.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\DrewLojewski.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ElizabethHowell.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ethanghozlali.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\HaneolLee.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\MargoBoyd.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\TravisJohnson.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\VivianClarke.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Pin.png" />
@@ -237,9 +243,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\OfficersIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\LoginBackground.jfif" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\appLogo.png" />
@@ -285,6 +288,57 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\MembersIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\FBLAsplash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\vincent_c.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\EditProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Charity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Meeting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Messaging.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\QuestionMark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\TwitterTabIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Privacy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Terms.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Event.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\navigatortitle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\LoginBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Google_login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

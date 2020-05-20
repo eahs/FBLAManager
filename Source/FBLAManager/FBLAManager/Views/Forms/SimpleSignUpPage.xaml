@@ -13,7 +13,7 @@
     xmlns:local="clr-namespace:FBLAManager.Views.Forms"
     xmlns:viewModel="clr-namespace:FBLAManager.ViewModels.Forms"
     Title="Sign Up"
-    BackgroundImageSource="LoginBackground"
+    BackgroundImageSource="LoginBackground.png"
     NavigationPage.HasNavigationBar="False"
     Shell.NavBarIsVisible="False">
 

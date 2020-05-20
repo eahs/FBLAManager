@@ -5,71 +5,92 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d"
-             BackgroundImageSource="LoginBackground.jfif"
+             BackgroundImageSource="LoginBackground.png"
              x:Class="FBLAManager.Views.HomePage">
+
+    <Shell.TitleView>
+        <Image Source="navigatortitle.png"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+    </Shell.TitleView>
+    
     <ContentPage.Content>
-        <StackLayout Margin="10,0,10,0">
-            <ContentView>
-                    <ff:CachedImage  Source="navigatorlogo.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="60" Grid.Column="0" Margin="10,10,10,10">
-                    </ff:CachedImage>
-            </ContentView>
-            <ListView
-                x:Name="AnnouncementListView"
-                ItemsSource="{Binding Announcements}"
-                VerticalOptions="FillAndExpand"
-                HasUnevenRows="true"
-                RefreshCommand="{Binding LoadItemsCommand}"
-                IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
 
-                            <Frame x:Name="frame" CornerRadius="5" 
-                       BackgroundColor="White"
-                       OutlineColor="LightGray"
-                       Margin="1, 1">
-                                <StackLayout Padding="0">
-                                <Label Text="{Binding Title}" 
-                                TextType="Html"       
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" 
-                                TextColor="DarkBlue"
-                                Margin="3"/>
-                                    <Label Text="{Binding Message}" 
-                                TextType="Html"
-                                LineBreakMode="CharacterWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="14" 
-                                TextColor="DarkSlateGray"
-                                Margin="3"/>
-                                    <Label Text="{Binding Director}" 
-                                TextType="Html"           
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="13" 
-                                TextColor="DarkSlateGray"
-                                Margin="0"/>
-                                </StackLayout>
-                            </Frame>
+        <Grid>
+            <StackLayout Margin="10,0,10,0">
+                <ListView
+                    x:Name="AnnouncementListView"
+                    ItemsSource="{Binding Announcements}"
+                    VerticalOptions="FillAndExpand"
+                    HasUnevenRows="true"
+                    RefreshCommand="{Binding LoadItemsCommand}"
+                    IsPullToRefreshEnabled="true"
+                    IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                    CachingStrategy="RecycleElement"
+                    Margin="0,5,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+        
+                                <Frame x:Name="frame" CornerRadius="5" 
+                           BackgroundColor="White"
+                           OutlineColor="LightGray"
+                           Margin="1, 1">
+                                    
+                                    <StackLayout Padding="0">
+                                        <ff:CachedImage HorizontalOptions="FillAndExpand" 
+                                                    Aspect="AspectFill" 
+                                                    HeightRequest="170" 
+                                                    DownsampleToViewSize="True"
+                                                    Source="{Binding ImageURL}"
+                                                    IsVisible="{Binding HasImage}">
+                                        </ff:CachedImage>
 
-                        </ViewCell>
-                                               
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="5,5,5,20">
-                <StackLayout.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </StackLayout.GestureRecognizers>
-                <Image Source="facebook_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
-                <Image Source="twitter_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
-                <Label Text="Like the app? Share it with a friend!" TextColor="White" Margin="10,5,0,0"/>
+                                        <Label Text="{Binding Title}" 
+                                    TextType="Html"       
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                    TextColor="DarkBlue"
+                                    Margin="3"/>
+                                        <Label Text="{Binding Message}" 
+                                    TextType="Html"
+                                    LineBreakMode="CharacterWrap"
+                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    FontSize="14" 
+                                    TextColor="DarkSlateGray"
+                                    Margin="3"/>
+                                        <Label Text="{Binding Director}" 
+                                    TextType="Html"           
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="13" 
+                                    TextColor="DarkSlateGray"
+                                    Margin="0"/>
+                                    </StackLayout>
+                                </Frame>
+
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <!-- Share button -->
+                <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Margin="5,10,5,10">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="facebook_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
+                    <Image Source="twitter_icon.png" Aspect="AspectFit" HeightRequest="32" HorizontalOptions="Center"/>
+                    <Label Text="Like the app? Share it with a friend!" FontAttributes="Bold" TextColor="White" Margin="10,5,0,0"/>
+                </StackLayout>
+
+
             </StackLayout>
             
-            <!--<Button Text="Report Bug" Clicked="ReportBug_Clicked"></Button>-->
-        </StackLayout>
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1,5 +1,6 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -82,30 +83,39 @@ namespace FBLAManager.ViewModels.Events
                 request.Resource = GlobalConstants.CompetitiveEventsEndPointRequestURL;
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    Competitions.Clear();
 
-                    var items = JsonConvert.DeserializeObject<List<Competition>>(response.Content) ?? new List<Competition>();
-
-                    foreach (var competition in items)
-                    {
-                        Competitions.Add(competition);    
-                    }
-
-                    OnPropertyChanged("Competitions");
-
-                    IsError = false;
-                    DataAvailable = true;
-                }
-                else
-                {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
                     DataAvailable = false;
-                    IsError = true;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheCompetitiveEvents, false, true);
+
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;
+
+                    if (response.IsSuccessful)
+                    {
+                        Competitions.Clear();
+
+                        var items = JsonConvert.DeserializeObject<List<Competition>>(response.Content) ?? new List<Competition>();
+
+                        foreach (var competition in items)
+                        {
+                            Competitions.Add(competition);
+                        }
+
+                        OnPropertyChanged("Competitions");
+
+                        DataAvailable = true;
+                    }
+                }
+                catch (Exception e)
+                {
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Competitions" }
+                  };
+                    Crashes.TrackError(e, properties);
+
                 }
             }
             catch (Exception)

@@ -1,8 +1,5 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Models;
-using Newtonsoft.Json;
-using RestSharp;
-using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 

@@ -30,7 +30,7 @@ namespace FBLAManager.Views.Events
 
         private async void SignUp_Pressed(object sender, EventArgs e)
         {
-            string code = await DisplayPromptAsync("Sign in", "Enter meeting code");
+            string code = await DisplayPromptAsync("Sign in", "Enter meeting code", initialValue: "");
 
             UserManagerResponseStatus status = await UserManager.Current.MeetingSignup(Meeting, code);
 

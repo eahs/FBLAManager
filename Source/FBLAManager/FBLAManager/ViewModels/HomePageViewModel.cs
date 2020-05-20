@@ -1,11 +1,11 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FBLAManager.ViewModels
@@ -37,30 +37,41 @@ namespace FBLAManager.ViewModels
                 request.Resource = String.Format(GlobalConstants.MessageBoardEndPointRequestURL);
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Announcement>>(response.Content) ?? new List<Announcement>();
 
-                    Announcements.Clear();
+                    DataAvailable = false;
 
-                    foreach (var announcement in items)
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheMessageBoard, false, true);
+
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;
+
+                    if (response.IsSuccessful)
                     {
-                        Announcements.Add(announcement);
+                        var items = JsonConvert.DeserializeObject<List<Announcement>>(response.Content) ?? new List<Announcement>();
+
+                        Announcements.Clear();
+
+                        foreach (var announcement in items)
+                        {
+                            announcement.HasImage = !String.IsNullOrEmpty(announcement.ImageURL);
+                            Announcements.Add(announcement);
+                        }
+
+                        OnPropertyChanged("Announcements");
+
+                        DataAvailable = Announcements.Count > 0;
                     }
 
-                    OnPropertyChanged("Announcements");
-
-                    IsError = false;
-                    DataAvailable = true;
                 }
-                else
+                catch (Exception e)
                 {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
-                    DataAvailable = false;
-                    IsError = true;
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "HomePage" }
+                  };
+                    Crashes.TrackError(e, properties);
+
                 }
             }
             catch (Exception)

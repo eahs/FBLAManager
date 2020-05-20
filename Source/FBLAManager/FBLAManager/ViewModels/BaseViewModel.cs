@@ -24,7 +24,9 @@ namespace FBLAManager.ViewModels
         public bool IsBusy
         {
             get { return isBusy; }
-            set { SetProperty(ref isBusy, value); }
+            set { SetProperty(ref isBusy, value);
+                OnPropertyChanged("DataNotAvailable");
+            }
         }
 
         /// <summary>
@@ -33,7 +35,9 @@ namespace FBLAManager.ViewModels
         public bool IsError
         {
             get { return isError; }
-            set { SetProperty(ref isError, value); }
+            set { SetProperty(ref isError, value);
+                OnPropertyChanged("DataNotAvailable");
+            }
         }
 
         /// <summary>
@@ -42,7 +46,14 @@ namespace FBLAManager.ViewModels
         public bool DataAvailable
         {
             get { return dataAvailable; }
-            set { SetProperty(ref dataAvailable, value); }
+            set { SetProperty(ref dataAvailable, value);
+                  OnPropertyChanged("DataNotAvailable");
+            }
+        }
+
+        public bool DataNotAvailable
+        {
+            get { return !DataAvailable && !IsBusy && !IsError; }
         }
 
         /// <summary>

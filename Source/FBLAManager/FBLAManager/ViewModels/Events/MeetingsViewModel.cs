@@ -8,6 +8,7 @@ using System;
 using System.Linq;
 using FBLAManager.Helpers;
 using System.Windows.Input;
+using Microsoft.AppCenter.Crashes;
 
 namespace FBLAManager.ViewModels
 {
@@ -68,58 +69,67 @@ namespace FBLAManager.ViewModels
                 request.Resource = GlobalConstants.MeetingEndPointRequestURL;
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
 
-                    foreach (var meeting in items)
-                    {
-                        //only adds meeting from backend if it matches the meeting type of the page
-                        if (meeting.Type == type)
-                        {
-                            var existingMeeting = Meetings.FirstOrDefault(m => m.MeetingId == meeting.MeetingId);
-
-                            if (existingMeeting != null)
-                            {
-                                existingMeeting.AllDay = meeting.AllDay;
-                                existingMeeting.Capacity = meeting.Capacity;
-                                existingMeeting.Color = meeting.Color;
-                                existingMeeting.ContactId = meeting.ContactId;
-                                existingMeeting.Description = meeting.Description;
-                                existingMeeting.EventName = meeting.EventName;
-                                existingMeeting.From = meeting.From;
-                                existingMeeting.MeetingId = meeting.MeetingId;
-                                existingMeeting.Organizer = meeting.Organizer;
-                                existingMeeting.To = meeting.To;
-                                existingMeeting.Type = meeting.Type;
-                                existingMeeting.MeetingAttendees.Clear();
-                                foreach (var attendee in meeting.MeetingAttendees)
-                                {
-                                    existingMeeting.MeetingAttendees.Add(attendee);
-                                }
-                                existingMeeting.OnPropertyChanged("MeetingAttendees");
-                            }
-                            else
-                            {
-                                Meetings.Add(meeting);
-                            }
-                        }
-                        
-                    }
-
-                    OnPropertyChanged("Meetings");
-
-                    IsError = false;
-                    DataAvailable = true;
-                }
-                else
-                {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
                     DataAvailable = false;
-                    IsError = true;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheMeetings, false, true);
+                    
+                    ErrorMessage = response.ErrorMessage;
+                    IsError = !response.IsSuccessful;
+
+                    if (response.IsSuccessful)
+                    {
+                        var items = JsonConvert.DeserializeObject<List<Meeting>>(response.Content) ?? new List<Meeting>();
+
+                        foreach (var meeting in items)
+                        {
+                            // only adds meeting from backend if it matches the meeting type of the page and if it's in the future
+                            if (meeting.Type == type && meeting.From >= DateTime.Now)
+                            {
+                                var existingMeeting = Meetings.FirstOrDefault(m => m.MeetingId == meeting.MeetingId);
+
+                                if (existingMeeting != null)
+                                {
+                                    existingMeeting.AllDay = meeting.AllDay;
+                                    existingMeeting.Capacity = meeting.Capacity;
+                                    existingMeeting.Color = meeting.Color;
+                                    existingMeeting.ContactId = meeting.ContactId;
+                                    existingMeeting.Description = meeting.Description;
+                                    existingMeeting.EventName = meeting.EventName;
+                                    existingMeeting.From = meeting.From;
+                                    existingMeeting.MeetingId = meeting.MeetingId;
+                                    existingMeeting.Organizer = meeting.Organizer;
+                                    existingMeeting.To = meeting.To;
+                                    existingMeeting.Type = meeting.Type;
+                                    existingMeeting.MeetingAttendees.Clear();
+                                    foreach (var attendee in meeting.MeetingAttendees)
+                                    {
+                                        existingMeeting.MeetingAttendees.Add(attendee);
+                                    }
+                                    existingMeeting.OnPropertyChanged("MeetingAttendees");
+                                }
+                                else
+                                {
+                                    Meetings.Add(meeting);
+                                }
+                            }
+
+                        }
+
+                        OnPropertyChanged("Meetings");
+
+                        DataAvailable = Meetings.Count > 0;
+                    }
+                }
+                catch (Exception e)
+                {
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Meetings" }
+                    };
+                    Crashes.TrackError(e, properties);
+
                 }
             }
             catch (Exception)

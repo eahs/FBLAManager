@@ -41,5 +41,6 @@ namespace FBLAManager.Views
                 Title = "FBLA Navigator App"
             });
         }
+
     }
 }

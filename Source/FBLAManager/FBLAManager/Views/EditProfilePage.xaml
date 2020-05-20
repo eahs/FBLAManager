@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="FBLAManager.Views.EditProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+    xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+    xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+    xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"    
+    xmlns:control="clr-namespace:FBLAManager.Controls"
+    xmlns:converter="clr-namespace:FBLAManager.Converters"
+    xmlns:core="clr-namespace:Syncfusion.XForms.Core;assembly=Syncfusion.Core.XForms"
+    xmlns:local="clr-namespace:FBLAManager.Views.Forms"
+    xmlns:viewModel="clr-namespace:FBLAManager.ViewModels"
+    Title="Edit Profile"
+    BackgroundImageSource="LoginBackground.png"
+    Shell.NavBarIsVisible="True">
+
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:BooleanToColorConverter x:Key="ColorConverter" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </ContentPage.Resources> 
+
+    <!--  Binding context for sign-up page  -->
+    <ContentPage.BindingContext>
+        <viewModel:EditProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView HorizontalOptions="Center">
+            <ScrollView.VerticalOptions>
+                <OnIdiom
+                    x:TypeArguments="LayoutOptions"
+                    Default="CenterAndExpand"
+                    Phone="FillAndExpand" />
+            </ScrollView.VerticalOptions>
+
+            <StackLayout
+                Margin="{core:OnPlatformOrientationThickness PhonePortrait='20,32',
+                                                             PhoneLandscape='150,32',
+                                                             TabletPortrait='200,50',
+                                                             TabletLandscape='300,50',
+                                                             Desktop='30'}"
+                Spacing="0"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="{OnPlatform Default='-1',
+                                          UWP='350'}">
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Spacing="24"
+                    VerticalOptions="CenterAndExpand">
+
+                    <!--  Label to display the description of this page  -->
+                    <Label
+                        x:Name="text"
+                        Margin="0,0,0,8"
+                        FontFamily="{StaticResource Montserrat-Medium}"
+                        HorizontalTextAlignment="Center"
+                        Text="Edit your information"
+                        FontSize="Title"
+                        TextColor="{DynamicResource Gray-White}" />
+
+                    <!--  Entry to get first name from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference FirstNameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="FirstNameEntry"
+                            Placeholder=" First Name"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Member.FirstName}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get last name from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference LastNameEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="LastNameEntry"
+                            Placeholder=" Last Name"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Member.LastName}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get email ID from user  -->
+                    <local:SimpleEmailEntry />
+
+                    <!--  Entry to get phone number from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference PhoneNumberEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="PhoneNumberEntry"
+                            Placeholder=" Phone Number"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Member.Phone}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get address from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference AddressEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="AddressEntry"
+                            Placeholder=" Street Address"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Member.Address}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get city from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference CityEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="CityEntry"
+                            Placeholder=" City"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Member.City}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get state from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference StateEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <combobox:SfComboBox HeightRequest="40" x:Name="StateEntry" SelectedItem="{Binding Member.State}"
+                                             Margin="15,0,0,0"
+                                             TextSize="15" >
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>PA</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                    </border:SfBorder>
+
+                    <!--  Entry to get zip code from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference ZipCodeEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <control:BorderlessEntry
+                            x:Name="ZipCodeEntry"
+                            Placeholder=" Zip Code"
+                            PlaceholderColor="{DynamicResource Gray-700}"
+                            Style="{StaticResource EntryStyle}"
+                            Text="{Binding Member.ZipCode}"
+                            TextColor="{DynamicResource Gray-900}" />
+                    </border:SfBorder>
+
+                    <!--  Entry to get gender from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference GenderEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <combobox:SfComboBox HeightRequest="40" x:Name="GenderEntry" SelectedItem="{Binding Member.Gender}" 
+                                             Margin="15,0,0,0" 
+                                             TextSize="15" >
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>Male</x:String>
+                                    <x:String>Female</x:String>
+                                    <x:String>Other</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                    </border:SfBorder>
+
+                    <!--  Entry to get grade from user  -->
+                    <border:SfBorder
+                        BackgroundColor="{DynamicResource Gray-White}"
+                        BorderColor="{Binding Source={x:Reference GradeEntry}, Path=IsFocused, Converter={StaticResource ColorConverter}, ConverterParameter=3}"
+                        Style="{StaticResource SfBorderStyle}">
+                        <combobox:SfComboBox HeightRequest="40" x:Name="GradeEntry" SelectedItem="{Binding Member.Grade}"
+                                             Margin="15,0,0,0"
+                                             TextSize="15" >
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>12</x:String>
+                                    <x:String>11</x:String>
+                                    <x:String>10</x:String>
+                                    <x:String>9</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                    </border:SfBorder>
+
+                    <!--  Save button  -->
+                    <buttons:SfButton
+                        Command="{Binding SaveCommand}"
+                        CornerRadius="20"
+                        FontFamily="{StaticResource Montserrat-SemiBold}"
+                        Style="{StaticResource SfButtonStyle}"
+                        Text="SAVE" 
+                        Clicked="SaveButton_Clicked"
+                        Margin="0,0,0,20"/>
+                </StackLayout>
+           
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

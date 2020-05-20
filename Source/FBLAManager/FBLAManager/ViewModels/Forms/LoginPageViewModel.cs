@@ -1,6 +1,8 @@
 ﻿using FBLAManager.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -172,6 +174,22 @@ namespace FBLAManager.ViewModels.Forms
         }
 
         /// <summary>
+        /// Invoked when social media login button is clicked.
+        /// </summary>
+        /// <param name="obj">The Object</param>
+        private async void SocialLoggedIn(object obj)
+        {
+            UserManagerResponseStatus status = await UserManager.Current.LoginExternal();
+            if (status == UserManagerResponseStatus.Success)
+                MessagingCenter.Send<LoginPageViewModel>(this, "LoadApp");
+            else if (status == UserManagerResponseStatus.InvalidCredentials)
+            {
+                ErrorIsVisible = true;
+                ErrorMessage = "Password was incorrect.";
+            }
+        }
+
+        /// <summary>
         /// Invoked when the Sign Up button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
@@ -193,15 +211,6 @@ namespace FBLAManager.ViewModels.Forms
             label.BackgroundColor = Color.Transparent;
 
             MessagingCenter.Send(this, "ForgotPasswordClicked"); 
-        }
-
-        /// <summary>
-        /// Invoked when social media login button is clicked.
-        /// </summary>
-        /// <param name="obj">The Object</param>
-        private void SocialLoggedIn(object obj)
-        {
-            // Do something
         }
 
         #endregion

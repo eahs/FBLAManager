@@ -1,7 +1,10 @@
 ﻿using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -19,13 +22,15 @@ namespace FBLAManager.Helpers
         InvalidCredentials,
         UnknownResponse,
         InvalidRequest,
-        NotLoggedIn
+        NotLoggedIn,
+        NetworkError
     }
 
     public class UserManagerResponse
     {
         public string Status { get; set; }
         public string Key { get; set; }        
+        public Member Profile { get; set; }
         public Meeting Meeting { get; set; }
     }
 
@@ -35,6 +40,7 @@ namespace FBLAManager.Helpers
     public class UserManager
     {
         private static UserManager _userManager = null;
+        public Member Profile { get; set; }
 
         private UserManager ()
         {
@@ -73,6 +79,8 @@ namespace FBLAManager.Helpers
                 catch (Exception ex)
                 {
                     // Possible that device doesn't support secure storage on device.
+                    Crashes.TrackError(ex);
+
                 }
             }
         }
@@ -101,6 +109,8 @@ namespace FBLAManager.Helpers
             catch (Exception ex)
             {
                 // Possible that device doesn't support secure storage on device.
+                Crashes.TrackError(ex);
+
             }
 
             return SessionKey != "";
@@ -112,6 +122,57 @@ namespace FBLAManager.Helpers
         public void Logout ()
         {
             SessionKey = "";
+        }
+
+
+        public async Task<UserManagerResponseStatus> SaveProfileImage (string encodedImage)
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.EditProfileImageRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.POST
+            };
+
+            request.AddParameter("profileImageSource", encodedImage);
+
+            AddAuthorization(request);
+
+
+            try
+            {
+
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
+                {
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    if (data.Status != null)
+                    {
+                        switch (data.Status)
+                        {
+                            case "Success": return UserManagerResponseStatus.Success;
+                            case "NotLoggedIn": return UserManagerResponseStatus.InvalidCredentials;
+                            default: return UserManagerResponseStatus.UnknownResponse;
+                        }
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+
+                return UserManagerResponseStatus.NetworkError;
+            }
+
+            return UserManagerResponseStatus.InvalidRequest;
         }
 
         /// <summary>
@@ -136,49 +197,106 @@ namespace FBLAManager.Helpers
 
             AddAuthorization(request);
 
-            var response = await client.ExecuteTaskAsync(request);
-
-            if (response.Content != null)
+            try
             {
-                UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
 
-                if (data.Status != null)
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
                 {
-                    switch (data.Status)
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    if (data.Status != null)
                     {
-                        case "NotLoggedIn": return UserManagerResponseStatus.NotLoggedIn;
-                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
-                        case "Success":
+                        switch (data.Status)
+                        {
+                            case "NotLoggedIn": return UserManagerResponseStatus.NotLoggedIn;
+                            case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
+                            case "Success":
 
-                            if (data.Meeting != null)
-                            {
-                                meeting.EventName = data.Meeting.EventName;
-                                meeting.AllDay = data.Meeting.AllDay;
-                                meeting.Capacity = data.Meeting.Capacity;
-                                meeting.Color = data.Meeting.Color;
-                                meeting.ContactId = data.Meeting.ContactId;
-                                meeting.Description = data.Meeting.Description;
-                                meeting.From = data.Meeting.From;
-                                meeting.MeetingId = data.Meeting.MeetingId;
-                                meeting.Organizer = data.Meeting.Organizer;
-                                meeting.To = data.Meeting.To;
-                                meeting.Type = data.Meeting.Type;
-                                meeting.MeetingAttendees.Clear();
-                                foreach (var attendee in data.Meeting.MeetingAttendees)
+                                if (data.Meeting != null)
                                 {
-                                    meeting.MeetingAttendees.Add(attendee);
+                                    meeting.EventName = data.Meeting.EventName;
+                                    meeting.AllDay = data.Meeting.AllDay;
+                                    meeting.Capacity = data.Meeting.Capacity;
+                                    meeting.Color = data.Meeting.Color;
+                                    meeting.ContactId = data.Meeting.ContactId;
+                                    meeting.Description = data.Meeting.Description;
+                                    meeting.From = data.Meeting.From;
+                                    meeting.MeetingId = data.Meeting.MeetingId;
+                                    meeting.Organizer = data.Meeting.Organizer;
+                                    meeting.To = data.Meeting.To;
+                                    meeting.Type = data.Meeting.Type;
+                                    meeting.MeetingAttendees.Clear();
+                                    foreach (var attendee in data.Meeting.MeetingAttendees)
+                                    {
+                                        meeting.MeetingAttendees.Add(attendee);
+                                    }
+                                    meeting.OnPropertyChanged("MeetingAttendees");
                                 }
-                                meeting.OnPropertyChanged("MeetingAttendees");
-                            }
 
-                            return UserManagerResponseStatus.Success;
-                        default: return UserManagerResponseStatus.UnknownResponse;
+                                return UserManagerResponseStatus.Success;
+                            default: return UserManagerResponseStatus.UnknownResponse;
+                        }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+
+                return UserManagerResponseStatus.NetworkError;
             }
 
             return UserManagerResponseStatus.InvalidRequest;
         }
+
+        public async Task<UserManagerResponseStatus> LoginExternal()
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.ProfileEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.GET
+            };
+            try
+            {
+                var authResult = await WebAuthenticator.AuthenticateAsync(
+                new Uri("http://fblamanager.me/mobileauth/google"),
+                new Uri("fblanavigator://"));
+                var accessToken = authResult?.AccessToken;
+                if (!String.IsNullOrEmpty(accessToken))
+                {
+                    SessionKey = accessToken;
+                }
+                AddAuthorization(request);
+                var response = await client.ExecuteTaskAsync(request);
+                if (response.Content != null)
+                {
+                    Member profile = JsonConvert.DeserializeObject<Member>(response.Content);
+                    if (profile != null)
+                    {
+                        Profile = profile;
+                        return UserManagerResponseStatus.Success;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+                return UserManagerResponseStatus.NetworkError;
+            }
+            return UserManagerResponseStatus.NotLoggedIn;
+        }
+
+
 
         /// <summary>
         /// Logs user into the FBLA backend
@@ -200,23 +318,37 @@ namespace FBLAManager.Helpers
             request.AddParameter("email", email);
             request.AddParameter("password", password);
 
-            var response = await client.ExecuteTaskAsync(request);
-
-            if (response.Content != null)
+            try
             {
-                UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+                var response = await client.ExecuteTaskAsync(request);
 
-                if (data.Status != null)
+                if (response.Content != null)
                 {
-                    switch (data.Status)
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    if (data.Status != null)
                     {
-                        case "Invalid form data":  return UserManagerResponseStatus.InvalidRequest;
-                        case "LoggedIn":           SessionKey = data.Key;
-                                                   return UserManagerResponseStatus.Success;
-                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
-                        default:                   return UserManagerResponseStatus.UnknownResponse;
+                        switch (data.Status)
+                        {
+                            case "Invalid form data": return UserManagerResponseStatus.InvalidRequest;
+                            case "LoggedIn":
+                                SessionKey = data.Key;
+                                Profile = data.Profile;
+                                return UserManagerResponseStatus.Success;
+                            case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
+                            default: return UserManagerResponseStatus.UnknownResponse;
+                        }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+
+                return UserManagerResponseStatus.NetworkError;
             }
 
             return UserManagerResponseStatus.InvalidRequest;
@@ -239,23 +371,36 @@ namespace FBLAManager.Helpers
             };
 
             request.AddParameter("email", email);
-         
 
-            var response = await client.ExecuteTaskAsync(request);
-
-            if (response.Content != null)
+            try
             {
-                UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
 
-                if (data.Status != null)
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
                 {
-                    switch (data.Status)
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    if (data.Status != null)
                     {
-                        case "Success": return UserManagerResponseStatus.Success;
-                        case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
-                        default: return UserManagerResponseStatus.UnknownResponse;
+                        switch (data.Status)
+                        {
+                            case "Success": return UserManagerResponseStatus.Success;
+                            case "InvalidCredentials": return UserManagerResponseStatus.InvalidCredentials;
+                            default: return UserManagerResponseStatus.UnknownResponse;
+                        }
                     }
                 }
+            }
+
+            catch (Exception e)
+            {
+                var properties = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, properties);
+
+                return UserManagerResponseStatus.NetworkError;
             }
 
             return UserManagerResponseStatus.InvalidRequest;
@@ -283,24 +428,95 @@ namespace FBLAManager.Helpers
                 request.AddParameter(property.Name, property.GetValue(m));
             }
 
-            var response = await client.ExecuteTaskAsync(request);
-
-            if (response.Content != null)
+            try
             {
-                UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
 
-                switch (data.Status)
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
                 {
-                    case "MissingFields": return UserManagerResponseStatus.MissingFields; 
-                    case "Success":
-                        SessionKey = data.Key;
-                        return UserManagerResponseStatus.Success;  
-                    case "UserExists":    return UserManagerResponseStatus.UserExists;
-                    default:              return UserManagerResponseStatus.UnknownResponse;
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    switch (data.Status)
+                    {
+                        case "MissingFields": return UserManagerResponseStatus.MissingFields;
+                        case "Success":
+                            SessionKey = data.Key;
+                            return UserManagerResponseStatus.Success;
+                        case "UserExists": return UserManagerResponseStatus.UserExists;
+                        default: return UserManagerResponseStatus.UnknownResponse;
+                    }
                 }
+            }
+
+            catch (Exception e)
+            {
+                var property = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, property);
+
+                return UserManagerResponseStatus.NetworkError;
+            }
+
+            return UserManagerResponseStatus.InvalidRequest;
+        }
+
+        /// <summary>
+        /// Updates a member by notifying the backend server
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns>UserManagerResponseStatus</returns>
+        public async Task<UserManagerResponseStatus> EditMember(Member m)
+        {
+            var client = new RestClient(GlobalConstants.EndPointURL);
+
+            var request = new RestRequest
+            {
+                Resource = GlobalConstants.EditMemberEndPointRequestURL,
+                Timeout = GlobalConstants.RequestTimeout,
+                Method = Method.POST
+            };
+
+            AddAuthorization(request);
+
+            PropertyInfo[] properties = typeof(Member).GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                request.AddParameter(property.Name, property.GetValue(m));
+            }
+
+            try
+            {
+
+                var response = await client.ExecuteTaskAsync(request);
+
+                if (response.Content != null)
+                {
+                    UserManagerResponse data = JsonConvert.DeserializeObject<UserManagerResponse>(response.Content);
+
+                    switch (data.Status)
+                    {
+                        case "Success":
+                            return UserManagerResponseStatus.Success;
+                        default: return UserManagerResponseStatus.UnknownResponse;
+                    }
+                }
+            }
+
+            catch (Exception e)
+            {
+                var property = new Dictionary<string, string> {
+                    { "Category", "UserManager" }
+                  };
+                Crashes.TrackError(e, property);
+
+                return UserManagerResponseStatus.NetworkError;
             }
 
             return UserManagerResponseStatus.InvalidRequest;
         }
     }
+
+
 }

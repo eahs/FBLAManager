@@ -8,6 +8,8 @@ using Foundation;
 using UIKit;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
 using InstabugLib;
+using Xamarin.Forms;
+using Lottie.Forms.iOS.Renderers;
 
 namespace FBLAManager.iOS
 {
@@ -27,17 +29,20 @@ namespace FBLAManager.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
+            Forms.SetFlags("CarouselView_Experimental", "IndicatorView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             Core.Init();
             SfMapsRenderer.Init();
             SfGradientViewRenderer.Init();
             SfBorderRenderer.Init();
             SfButtonRenderer.Init();
+            AnimationViewRenderer.Init();
 
             new SfBusyIndicatorRenderer();
 
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             Syncfusion.SfSchedule.XForms.iOS.SfScheduleRenderer.Init();
+            Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
 
             SfListViewRenderer.Init();
 
@@ -48,6 +53,13 @@ namespace FBLAManager.iOS
 
 
             return base.FinishedLaunching(app, options);
+        }
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            if (Xamarin.Essentials.Platform.OpenUrl(app, url, options))
+                return true;
+
+            return base.OpenUrl(app, url, options);
         }
     }
 }

@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.0" package="org.eastonsd.fblanavigator" android:installLocation="auto">
-	<uses-sdk android:minSdkVersion="27" android:targetSdkVersion="28" />
-	<application android:label="FBLA Navigator" android:icon="@mipmap/ic_launcher" android:usesCleartextTraffic="true"></application>
+	<uses-sdk android:minSdkVersion="27" android:targetSdkVersion="29" />
+	<application android:label="FBLA Navigator" android:icon="@mipmap/ic_launcher" android:usesCleartextTraffic="true">
+		<receiver android:name="com.onesignal.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+			<intent-filter>
+				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+				<category android:name="org.eastonsd.fblanavigator" />
+			</intent-filter>
+		</receiver>
+	</application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<permission android:name="org.eastonsd.fblanavigator.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="org.eastonsd.fblanavigator.permission.C2D_MESSAGE" />
 </manifest>

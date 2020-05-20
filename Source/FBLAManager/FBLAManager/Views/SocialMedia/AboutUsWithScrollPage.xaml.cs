@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Internals;
+﻿using Xamarin.Essentials;
+using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
 
 namespace FBLAManager.Views.SocialMedia
@@ -15,5 +16,7 @@ namespace FBLAManager.Views.SocialMedia
         {
             InitializeComponent();
         }
+
+       
     }
 }

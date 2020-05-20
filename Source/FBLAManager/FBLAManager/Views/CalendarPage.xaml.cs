@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Xamarin.Forms;
 using Syncfusion.SfSchedule.XForms;
-using Syncfusion.SfSchedule;
 using FBLAManager.Models;
 using FBLAManager.ViewModels;
 using FBLAManager.Views.Events;
@@ -20,48 +17,15 @@ namespace FBLAManager.Views
             InitializeComponent();
 
             BindingContext = viewModel = new CalendarViewModel();
-           
 
-            schedule.CellTapped += Schedule_CellTapped1; ;
-            //schedule.CellDoubleTapped += Schedule_CellTapped2;
+            schedule.MonthInlineAppointmentTapped += Schedule_InlineEventTapped;
 
-            ViewMonth();
-
-        }
-
-        public CalendarPage(CalendarViewModel vm, DateTime date)
-        {
-            InitializeComponent();
-
-            BindingContext = viewModel = vm;
-
-            ViewDay(date);
-
-            schedule.CellTapped += Schedule_CellTapped2;
-        }
-
-        //Monthview: Brings up dayview for that date
-        private async void Schedule_CellTapped1(object sender, CellTappedEventArgs e)
-        {
-            if (schedule.ScheduleView == ScheduleView.MonthView)
-            {
-                var dateTime = e.Datetime;
-
-                try
-                {
-                    await Shell.Current.Navigation.PushAsync(new CalendarPage(viewModel, dateTime));
-                }
-
-                catch
-                {
-                    new NotImplementedException();
-                }
-            }
+            schedule.ScheduleView = ScheduleView.MonthView;
         }
 
 
-        //Dayview: Brings up event detail page
-        private async void Schedule_CellTapped2(object sender, CellTappedEventArgs e)
+        //Brings up the detail page of a tapped inline event
+        private async void Schedule_InlineEventTapped(object sender, MonthInlineAppointmentTappedEventArgs e)
         {
             Meeting m = (Meeting)e.Appointment;
 
@@ -81,23 +45,6 @@ namespace FBLAManager.Views
             {
                 new NotImplementedException();
             }
-        }
-
-
-        public void ViewDay(DateTime dateTime)
-        {
-            schedule.ScheduleView = ScheduleView.DayView;
-            schedule.SelectedDate = dateTime;
-            schedule.MoveToDate = dateTime;
-        }
-
-        public void ViewMonth()
-        {
-            schedule.ScheduleView = ScheduleView.MonthView;
-        }
-
-
-      
-
+        }         
     }
 }

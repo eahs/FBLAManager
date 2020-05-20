@@ -1,11 +1,11 @@
 ﻿using FBLAManager.Helpers;
 using FBLAManager.Models;
+using Microsoft.AppCenter.Crashes;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FBLAManager.ViewModels
@@ -13,6 +13,8 @@ namespace FBLAManager.ViewModels
     public class OfficersViewModel : BaseViewModel
     {
         public ObservableCollection<Officer> Officers { get; set; }
+
+        //Level: national, state, local 
         public int Level { get; set; } = 0;
 
         public OfficersViewModel(int level = 0)
@@ -24,8 +26,13 @@ namespace FBLAManager.ViewModels
 
         }
 
+        /// <summary>
+        /// Loads the officers from the backend server.
+        /// </summary>
+        /// <returns></returns>
         protected override async Task LoadItemsAsync()
         {
+            await Task.Delay(2000);
 
             try
             {
@@ -39,31 +46,40 @@ namespace FBLAManager.ViewModels
                 request.Resource = String.Format(GlobalConstants.OfficerEndPointRequestURL, Level);
                 UserManager.Current.AddAuthorization(request);
 
-                var response = await client.ExecuteTaskAsync(request);
-
-                if (response.IsSuccessful)
+                try
                 {
-                    var items = JsonConvert.DeserializeObject<List<Officer>>(response.Content) ?? new List<Officer>();
 
-
-                    Officers.Clear();
-
-                    foreach (var officer in items)
-                    {
-                        Officers.Add(officer);
-                    }
-
-                    OnPropertyChanged("Officers");
-
-                    IsError = false;
-                    DataAvailable = true;
-                }
-                else
-                {
-                    // An error occurred that is stored
-                    ErrorMessage = "An error occurred";
                     DataAvailable = false;
-                    IsError = true;
+
+                    var response = await client.ExecuteCachedAPITaskAsync(request, GlobalConstants.MaxCacheOfficers, false, true);
+
+                    ErrorMessage = response.ErrorMessage;                    
+                    IsError = !response.IsSuccessful;
+
+                    if (response.IsSuccessful)
+                    {
+                        var items = JsonConvert.DeserializeObject<List<Officer>>(response.Content) ?? new List<Officer>();
+
+
+                        Officers.Clear();
+
+                        foreach (var officer in items)
+                        {
+                            Officers.Add(officer);
+                        }
+
+                        OnPropertyChanged("Officers");
+
+                        DataAvailable = Officers.Count > 0;
+                    }
+                }
+                catch (Exception e)
+                {
+                    var properties = new Dictionary<string, string> {
+                    { "Category", "Officers" }
+                  };
+                    Crashes.TrackError(e, properties);
+
                 }
             }
             catch (Exception)

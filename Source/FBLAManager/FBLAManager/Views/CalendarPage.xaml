@@ -9,22 +9,33 @@
     <Grid>
         <syncfusion:SfSchedule x:Name="schedule" 
                                DataSource = "{Binding CalendarMeetings}"
-                               >
+                               ShowAppointmentsInline="True">
+
+            <syncfusion:SfSchedule.HeaderStyle>
+                <syncfusion:HeaderStyle
+			        BackgroundColor="White" 
+			        TextColor="#005B92" 
+			        FontFamily="Arial"/>
+            </syncfusion:SfSchedule.HeaderStyle>
+
             <syncfusion:SfSchedule.AppointmentMapping>
                 <syncfusion:ScheduleAppointmentMapping
-			ColorMapping="XamColor"
-			EndTimeMapping="To"
-			StartTimeMapping="From"
-			SubjectMapping="EventName" 
-			IsAllDayMapping="AllDay"/>
+			        ColorMapping="XamColor"
+			        EndTimeMapping="To"
+			        StartTimeMapping="From"
+			        SubjectMapping="EventName" 
+			        IsAllDayMapping="AllDay"/>
             </syncfusion:SfSchedule.AppointmentMapping>
 
 
             <syncfusion:SfSchedule.DayViewSettings>
                 <!--setting working hours properties -->
-                <syncfusion:DayViewSettings  
+                <syncfusion:DayViewSettings                          
                         StartHour="7" 
-                        EndHour="20">
+                        WorkStartHour="7"
+                        EndHour="20"
+                        WorkEndHour="20"
+                        NonWorkingHoursTimeSlotColor="GhostWhite">
                     <syncfusion:DayViewSettings.DayLabelSettings>
                         <syncfusion:DayLabelSettings TimeFormat="hh:mm"/>
                     </syncfusion:DayViewSettings.DayLabelSettings>
