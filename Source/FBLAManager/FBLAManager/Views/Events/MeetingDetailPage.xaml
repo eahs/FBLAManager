@@ -52,9 +52,15 @@
                     <Label Margin="10,0,0,0" Text="{Binding Description}" d:Text="Meeting description" TextColor="Black" FontSize="Medium" />
 
                     <Button  
-                    Pressed="SignUp_Pressed" BackgroundColor="{Binding XamColor}"
-                    Text="Sign In" TextColor="White" FontSize="Medium" 
-                    CornerRadius="30" Margin="10,15,10,15" />
+                        Pressed="SignUp_Pressed" 
+                        BackgroundColor="{Binding XamColor}"
+                        Text="Sign In"
+                        TextColor="White" 
+                        FontSize="Medium" 
+                        CornerRadius="30" 
+                        Margin="10,15,10,15"
+                        HorizontalOptions="Center"
+                        WidthRequest="160"/>
 
                     <Label  
                         Text="Member(s) Attending:" TextColor="Black" FontSize="Medium" Margin="10,0,0,0"/>
