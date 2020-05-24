@@ -1,6 +1,6 @@
 ![](https://lh4.googleusercontent.com/DdaQ4rfR8Go8yXBuGsMXUVL2hZH0eacMEfGxfJD9d_-HZmB3O41Z3-6H-JyfpAn72KcI6FFVKcvZBGUiAlm8ELhX3Hnzm5DRvd1jUERmMHKFHP2IZWyjvbkhXu1nKw05_Wnm1wgQ)
 
-# FBLA Navigator 1.0 README
+# FBLA Navigator 2.0 README
 
 By Makenna Swartz, Daniel Simboli, Adil Ansari
 
@@ -12,7 +12,7 @@ Easton, PA
 
   
 
-FBLA Navigator is a mobile application for Android devices. To login into the app, users must first fill out a form to join FBLA. Once in the app, users can view current events, competitive events, community service opportunities and fundraisers in the calendar or on the event pages. From both locations there are also options to sign up for all events, including meetings. On the about FBLA page there are links to state and national websites as well as a Q and A section. To connect with their chapter, users have access to links to social media, as well as a place to email there director directly from the application. A list of local, state, and national officer teams is also provided if the user wishes to contact them instead. Officers and directors may interact with the application by logging on to the website, [fblamanager.me](http://fblamanager.me/), where they can create and post new events and messages, as well as track users and meeting attendance. FBLA Navigator is currently error free, however a bug reporting system is implemented if the user later discovers an issue.
+FBLA Navigator is a mobile application for Android and iOS devices. To login into the app, users must first fill out a form to join FBLA or authenticate using Google. Once in the app, users can view current events, competitive events, community service opportunities and fundraisers in the calendar or on the event pages. From both locations there are also options to sign up for upcoming events and meetings. On the “About FBLA” page there are links to state and national websites as well as a Q and A section. To connect with their chapter, users have access to links to social media, as well as a place to email their director directly from the application. Lists of members in the users chapter, as well as local, state, and national officer teams are also provided if the user wishes to contact them instead. Officers and directors may interact with the application by logging on to the website, fblamanager.me, where they can create and post new events and messages, as well as track users and meeting attendance. FBLA Navigator is currently error free, however a bug reporting system is implemented if the user later discovers an issue. 
 
   
 
@@ -22,30 +22,22 @@ FBLA Navigator is a mobile application for Android devices. To login into the ap
 
   
 
-- Designed for Android devices
-
-- Options to login if user is already a member or create an account to join FBLA
-
+- Designed for Android and iOS devices
+- Options to login with email and password or through Google if user is already a member, or create an account to join FBLA
 - Information about FBLA as well as links to important FBLA websites
-
 - Q and A section of frequently asked questions
-
 - A calendar full of current and competitive events
-
 - A list of competitive events with links to their guidelines
-
-- Options to sign up for current events and sign into meetings
-
+- Options to sign up for current events and sign into meetings 
 - Ability for directors and officers to track meeting attendance from website
-
 - Ability to email club director directly from application
-
 - Links to local, state, and national social media accounts
-
-- LIsts of local, state, and national officer teams
-
-- Officers and directors can create and post events and messages from the website
-
+- A feed of tweets from FBLA Twitter accounts
+- Lists of local, state, and national officer teams
+- List of members in the chapter as well as their contact information
+- Ability to edit personal information as well as profile picture
+- Officers and directors can create and post events and messages to the message board from the website
+- Push notifications when a new post is created
 - A bug reporting system
 
   
@@ -86,7 +78,7 @@ FBLA Navigator is a mobile application for Android devices. To login into the ap
 
   
 
-This mobile application was developed in C# using Visual Studio 2019 and the Xamarin Platform on Microsoft Windows. Contained within the competition submission is a folder named “CompiledApp” that contains a signed APK that was created for Android phones and emulators. Simply install the APK to your Android mobile device and run.
+This mobile application was developed in C# using Visual Studio 2019 and the Xamarin Platform on Microsoft Windows. Contained within the competition submission is a folder named “CompiledApp” that contains a signed APK that was created for Android and iOS phones and emulators. Simply install the APK to your mobile device and run.
 
   
 
@@ -100,13 +92,13 @@ Visual Studio Requirements:
 
   
 
-- Visual Studio 2019 Windows Community Edition
+- Visual Studio 2019 Windows Community Edition or Visual Studio for Mac
 
-- Android Platform 28 SDK (Pie)
+- Android Platform 28 SDK (Pie) or iOS emulator
 
   
 
-In order to build for Android you will need Visual Studio or Visual Studio for Mac. Upon opening the Visual Studio solution it will immediately download all necessary packages from Nuget. You will need to execute a debug version of the FBLAManager.Android project either on a simulator or by connecting an Android mobile device that has Developer Options and Enable USB debugging turned on.
+In order to build you will need Visual Studio or Visual Studio for Mac. Upon opening the Visual Studio solution it will immediately download all necessary packages from Nuget. You will need to execute a debug version of either the FBLANavigator.Android or FBLANavigator.iOS project either on a simulator or by connecting an Android mobile device that has Developer Options and Enable USB debugging turned on.
   
 
 ## Resources Used
@@ -171,6 +163,16 @@ Instabug - [https://instabug.com/](https://instabug.com/)
 
   
 
+OneSignal - [https://onesignal.com/](https://onesignal.com/)
+
+
+
+> One signal is used to send out push notifications.
+
+
+
+
+
 Microsoft Visual Studio 2019
 
   
@@ -201,7 +203,23 @@ Newtonsoft.Json by James Newton-King - [https://www.nuget.org/packages/Newtonsof
 
 > Json.NET is a popular high-performance JSON framework for .NET
 
+
+
+Microsoft.AppCenter by Microsoft -  [https://azure.microsoft.com/en-us/services/app-center/](https://azure.microsoft.com/en-us/services/app-center/)
+
+
+
+> This package contains the basic functionalities that all App Center services use to communicate with the backend, including reports on analytics and crashes.
   
+  
+
+MonkeyCache by James Montemagno - [https://github.com/jamesmontemagno/monkey-cache](https://github.com/jamesmontemagno/monkey-cache)
+
+
+
+> A simple caching library to cache any data structure for a specific amount of time in any .NET application. Additionally, offers simple HTTP methods for caching web request data.
+
+
 
 ### Xamarin
 
@@ -231,7 +249,7 @@ Xamarin.FFImageLoading by Daniel Luberda, Fabien Molinet - [https://www.nuget.or
 
 ### Syncfusion
 
-Syncfusion Essential UI Kit for Xamarin by Syncfusion Inc. - https://quizlet.com/447443583/easton-pa-fbla-study-set-flash-cards/ 
+Syncfusion Essential UI Kit for Xamarin by Syncfusion Inc. - [https://quizlet.com/447443583/easton-pa-fbla-study-set-flash-cards/ ](https://quizlet.com/447443583/easton-pa-fbla-study-set-flash-cards/)
 
   
 
@@ -286,8 +304,6 @@ Syncfusion.Xamarin.SfComboBox by Syncfusion Inc. - [https://www.nuget.org/packag
   
 
 > The Syncfusion Combo Box for Xamarin.Forms is used to select an item by typing a value or selecting a value from the list.
-
-  
 
   
 
